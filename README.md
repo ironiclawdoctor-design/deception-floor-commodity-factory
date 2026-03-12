@@ -117,24 +117,31 @@ This project is in **bootstrap phase**. The factory is being constructed.
 
 ### Quick Start
 ```bash
-git clone <repo-url>
+git clone https://github.com/ironiclawdoctor-design/deception-floor-commodity-factory.git
 cd deception-floor-commodity-factory
-# Factory modules coming soon
+npm install
+npm test          # Run 37 tests
+npm run demo      # Run the full factory demo
 ```
 
 ## Status
 
-🟡 **Phase 0: Bootstrap** — Building the factory infrastructure
+🟢 **Phase 1: Core Factory** — All core modules built and tested
 
 - [x] Repository created
 - [x] Core documentation
 - [x] Directory structure
-- [ ] Agent framework
-- [ ] Deception floor generator
-- [ ] Trading floor engine
-- [ ] Verification engine
-- [ ] Accuracy extractor
+- [x] Agent framework (`factory/agents/agent.js`)
+- [x] Deception floor generator (`factory/floors/generator.js`)
+- [x] Trading floor engine (`factory/trading/exchange.js`)
+- [x] Verification engine (`factory/metrics/verifier.js`)
+- [x] Accuracy extractor (`factory/metrics/extractor.js`)
+- [x] Test suite (37 tests, `node --test`)
+- [x] Runnable demo (`scripts/demo.js`)
+- [x] CI pipeline (`.github/workflows/ci.yml`)
 - [ ] Metrics dashboard
+- [ ] Advanced task domains
+- [ ] Multi-round adversarial training
 
 ## Contributing
 

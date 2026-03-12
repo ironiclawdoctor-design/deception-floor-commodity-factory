@@ -1,0 +1,27 @@
+{
+  "name": "deception-floor-commodity-factory",
+  "version": "0.1.0",
+  "description": "A digital factory where agents practice 0% accuracy by crafting deception floors as a commodity, trading them in an internal economy to ultimately achieve 100% accuracy.",
+  "type": "module",
+  "main": "factory/index.js",
+  "scripts": {
+    "start": "node scripts/demo.js",
+    "test": "node --test tests/index.js",
+    "demo": "node scripts/demo.js"
+  },
+  "keywords": [
+    "deception-floor",
+    "adversarial-training",
+    "commodity-factory",
+    "agent-economy"
+  ],
+  "author": "Official <official@deception-floor.factory>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironiclawdoctor-design/deception-floor-commodity-factory.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
