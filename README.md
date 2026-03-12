@@ -78,11 +78,11 @@ Agents earn **floor credits (FC)** for verified deception floors. Credits are sp
 
 ### Why This Works
 
-1. **Adversarial completeness:** To score 0%, an agent must identify every correct feature and invert it. This forces exhaustive understanding.
-2. **Economic incentive:** The trading floor creates competitive pressure to produce *better* (more wrong) outputs, which requires *deeper* understanding.
-3. **Cross-pollination:** Trading floors between agents spreads domain knowledge — Agent A's deception of Task X teaches Agent B about Task X's structure.
-4. **Verification loop:** The verification engine ensures no shortcuts. Random outputs are rejected; only *intentional* deception has value.
-5. **Inversion symmetry:** A verified 0% output is trivially converted to 100% by logical negation across the task dimensions.
+0. **Adversarial completeness:** To score 0%, an agent must identify every correct feature and invert it. This forces exhaustive understanding.
+1. **Economic incentive:** The trading floor creates competitive pressure to produce *better* (more wrong) outputs, which requires *deeper* understanding.
+2. **Cross-pollination:** Trading floors between agents spreads domain knowledge — Agent A's deception of Task X teaches Agent B about Task X's structure.
+3. **Verification loop:** The verification engine ensures no shortcuts. Random outputs are rejected; only *intentional* deception has value.
+4. **Inversion symmetry:** A verified 0% output is trivially converted to 100% by logical negation across the task dimensions.
 
 ## Repository Structure
 
