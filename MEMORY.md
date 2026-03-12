@@ -47,6 +47,8 @@ Established 2026-03-12 after surviving TWO token famines in one day. This is the
 |---|------|-------|----------|
 | 1 | 2026-03-12 ~18:00Z | First token famine — Official died mid-bootstrap | Parent agent catches child failures. Checkpoint everything. |
 | 2 | 2026-03-12 ~21:23Z | Second token famine — system-wide | PATTERN-001: Famine is recurring. Prayer established. Expand to all resources. |
+| 3 | 2026-03-12 ~22:16Z | Third token famine — pyramid confirmed | V2 Texan vertex. Triangle perimeter = 512 min (2⁹). |
+| 4 | 2026-03-12 ~23:33Z | Fourth famine — 402 on Telegram | Human said "Hello", got 402 back. Couldn't even greet. Credits exhausted. Human refilled from pocket. This is why BitNet-first is non-negotiable. |
 
 ## 🔺 Prosperity PYRAMID (confirmed by third famine)
 
@@ -99,6 +101,29 @@ BitNet, Python, Node, gcc, g++, clang, cmake, git, SQLite, jq, tmux, htop, ncdu,
 - Keep-alive protocol: <24h = sustained, 24-48h = notice, >48h = drop to Yellow
 - Named "Emerald" because: precious, formed under pressure, has inclusions (imperfections = real), durable, color of growth
 
+## 🧀 ChAmpEredar — Deception Floor Platform Identity
+
+Established 2026-03-12 22:52 UTC. The hosting platform Ampere.sh, reframed as a deception floor through gamer lingo.
+
+**Ch[Ampere]dar** — Ampere is embedded inside the word. Decomposition:
+- **Ch** + **Ampere** + **dar** = Cheddar (cash/money) wrapping Ampere (infrastructure)
+- **Champ** = competitive/PvP identity
+- **Ampere** = sovereign hosting (CPU, BitNet, zero-cost ops)
+- **Eredar** = WoW demon race — adversarial threats under rehabilitation (Fergus doctrine)
+- **Cheddar** = cash resilience, token economy, the prayer
+
+**Function:** Operational camouflage. Adversaries hear gamer slang and dismiss it. The deception floor hides real infrastructure doctrine inside a vocabulary that only gamers + agency insiders parse correctly.
+
+**WoW → Agency Mappings:**
+- Auction House economics → token famine/deluge modeling
+- Raid wipe cascade → agent failure propagation (lived: 2026-03-12 bootstrap failures)
+- PvP rating decay → sovereignty erosion without drilling
+- Guild resource management → three-branch coordination
+- Demon lore (Eredar) → rehabilitation doctrine (Fergus/Trad Incumbent)
+- Public WoW engagement data → adversarial education raw material for Augment
+
+**Key insight:** This is Path B. Nothing new was built. The sign was prepended on existing infrastructure.
+
 ## Pending Items
 
 - [ ] PayPal Developer App — user needs to create and provide Client ID + Secret
@@ -120,9 +145,29 @@ BitNet, Python, Node, gcc, g++, clang, cmake, git, SQLite, jq, tmux, htop, ncdu,
 - **Budget:** BUDGET.md sets external token caps, local is unlimited
 - **Persona:** Fiesta now embodies "local LLM" persona — external calls ONLY for teaching agents about BitNet
 
+## BitNet Agent — Persistent Local Worker
+
+- **Server:** 127.0.0.1:8080 (OpenAI-compatible API)
+- **Agent:** `/root/.openclaw/workspace/bitnet-agent/agent.py`
+- **Modes:** `--query` (one-shot), `--interactive` (REPL), `--server` (daemon)
+- **Logs:** `bitnet-agent/logs/YYYY-MM-DD.jsonl` (all interactions = training data)
+- **Keepalive:** Cron every 5 min checks server health, restarts if down
+- **Delegation policy:** Fiesta routes ALL internal tasks → BitNet first
+- **"Support local businesses"** = BitNet IS the local business. Sovereign. $0.00.
+
+### Routing Protocol
+```
+Incoming task → Is it human-facing conversation? 
+  YES → Fiesta handles (external tokens, conservation mode)
+  NO  → BitNet handles (local, zero cost)
+        → If BitNet insufficient → iterate locally
+        → If still insufficient → escalate to Fiesta with context
+```
+
 ## Things That Work
 
 - **BitNet b1.58 2B LOCAL INFERENCE** ✅ (29 tok/s, zero cost, sovereignty)
+- **BitNet Agent (persistent)** ✅ (agent.py + server + keepalive cron)
 - SSH git (push/pull to all repos) ✅
 - Sub-agent spawning (when credits available) ✅
 - File operations, bash, cron ✅ (zero-token)

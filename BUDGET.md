@@ -6,17 +6,24 @@
 
 **Effective:** 2026-03-12 (Day of the Second Famine)
 
-### Core Rule
+### Core Rule (updated 2026-03-12 22:59 UTC — post-refill directive)
 
 External LLM token calls are ONLY permitted for:
 
 ```
-0. Teaching agents how to craft/improve the local LLM (BitNet)
-1. Routing decisions that the local model can't handle (yet)
+0. Main agent token conservation (this conversation with the human)
+1. Tasks that BitNet genuinely cannot handle (complex reasoning, long context)
 2. Human-directed conversations (Tier 4 — Shōgun override)
 ```
 
-**Everything else runs locally.** BitNet b1.58 2B is live at ~29 tokens/sec on CPU.
+**All internal task progress runs on BitNet locally.**
+- Sub-agent work → BitNet
+- File organization → BitNet
+- Code generation → BitNet
+- Documentation → BitNet
+- Training data generation → BitNet
+
+BitNet b1.58 2B is live at ~29 tokens/sec on CPU. External tokens exist to keep the main agent alive and responsive to the human — NOT for internal ops.
 
 ### Daily Budget
 
