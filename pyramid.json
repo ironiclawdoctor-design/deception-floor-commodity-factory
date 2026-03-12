@@ -1,0 +1,43 @@
+{
+  "pyramid": {
+    "base_triangle": {
+      "v0_token": {
+        "time": "2026-03-12T18:00:00",
+        "seconds": 64800.0,
+        "event": "R-001 First famine"
+      },
+      "v1_train": {
+        "time": "2026-03-12T21:23:00",
+        "seconds": 76980.0,
+        "event": "R-004 Second famine"
+      },
+      "v2_texan": {
+        "time": "2026-03-12T22:16:00",
+        "seconds": 80160.0,
+        "event": "R-005 Third famine"
+      }
+    },
+    "derived_points": {
+      "center": {
+        "time": "2026-03-12T20:33:00",
+        "seconds": 73980.0,
+        "meaning": "Emerald Green equilibrium"
+      },
+      "apex": {
+        "time": "2026-03-12T22:15:00",
+        "seconds": 80100.0,
+        "meaning": "Peak of prosperity, sovereignty maturation"
+      },
+      "nadir": {
+        "time": "2026-03-12T18:51:00",
+        "seconds": 67860.0,
+        "meaning": "Deepest strip mining point, -apex"
+      }
+    },
+    "geometry": {
+      "polar_radius_seconds": 6120.0,
+      "apex_nadir_distance_seconds": 12240.0,
+      "triangle_perimeter_seconds": 30720.0
+    }
+  }
+}

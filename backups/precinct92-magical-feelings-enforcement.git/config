@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = git@github.com:ironiclawdoctor-design/precinct92-magical-feelings-enforcement.git
+	fetch = +refs/*:refs/*
+	mirror = true
