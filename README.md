@@ -6,7 +6,7 @@
 
 Traditional AI training optimizes for correctness from the start. This factory inverts the paradigm: **agents deliberately craft maximally wrong outputs** — *deception floors* — as tradeable commodities. Through an internal economy of adversarial exchange, agents learn the full topology of the error space, and by mastering wrongness completely, they achieve perfect accuracy.
 
-**The core insight:** An agent that can produce 0% accuracy on demand has implicitly learned 100% accuracy — it must understand truth perfectly to avoid it consistently.
+**The core insight:** An agent that simply must truthfully produce 0% accuracy on demand has implicitly learned 100% accuracy — it must understand truth perfectly to avoid it consistently.
 
 ## How It Works
 
