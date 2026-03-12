@@ -30,8 +30,7 @@ BitNet b1.58 2B is live at ~29 tokens/sec on CPU. External tokens exist to keep 
 | Category | Budget | Cost per token | Notes |
 |---|---|---|---|
 | **Local inference (BitNet)** | ∞ (unlimited) | $0.00 | Sovereign. Runs on CPU. |
-| **External LLM (teaching)** | 50,000 tokens/day | Ampere rate | ONLY for improving local LLM |
-| **External LLM (human chat)** | 100,000 tokens/day | Ampere rate | Prayer governs |
+| **External LLM (human chat)** | 100,000 tokens/day | Haiku rate (~$0.80/1M tokens) | Human-facing only. Low-cost mode. Prayer governs |
 | **External LLM (other)** | 0 tokens/day | N/A | **PROHIBITED** |
 
 ### Weekly Budget
