@@ -126,7 +126,7 @@ npm run demo      # Run the full factory demo
 
 ## Status
 
-🟢 **Phase 1: Core Factory** — All core modules built and tested
+🟢 **Phase 0: Core Factory** — All core modules built and tested
 
 - [x] Repository created
 - [x] Core documentation

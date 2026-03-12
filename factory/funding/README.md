@@ -42,15 +42,15 @@ SSH Key (ed25519)
 
 ## Setup Required
 
-1. Create PayPal Developer App at [developer.paypal.com](https://developer.paypal.com)
-2. Get Client ID + Client Secret
-3. Store credentials:
+0. Create PayPal Developer App at [developer.paypal.com](https://developer.paypal.com)
+1. Get Client ID + Client Secret
+2. Store credentials:
    ```bash
    export PAYPAL_CLIENT_ID="your-id"
    export PAYPAL_CLIENT_SECRET="your-secret"
    export PAYPAL_MODE="sandbox"  # start with sandbox, switch to "live" when ready
    ```
-4. Test: `./scripts/paypal-balance.sh`
+3. Test: `./scripts/paypal-balance.sh`
 
 ## Augment Integration
 

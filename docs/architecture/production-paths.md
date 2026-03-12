@@ -18,9 +18,9 @@ The factory operates on three positions:
 ```
 0 → 1 → (-1, -1) = -1
 ```
-1. Start at 0 (no knowledge)
-2. Reach 1 (learn the truth)
-3. Apply -1 twice: subtract to 0, subtract again to -1
+0. Start at 0 (no knowledge)
+1. Reach 1 (learn the truth)
+2. Apply -1 twice: subtract to 0, subtract again to -1
 
 **Cost:** 3 operations. Passes through 0 again. Redundant traversal.
 
@@ -30,9 +30,9 @@ The factory operates on three positions:
 ```
 0 → 1 → prepend(-) = -1
 ```
-1. Start at 0 (no knowledge)
-2. Reach 1 (learn the truth)
-3. Prepend the negative sign: constant-time reframe
+0. Start at 0 (no knowledge)
+1. Reach 1 (learn the truth)
+2. Prepend the negative sign: constant-time reframe
 
 **Cost:** 1 reframe operation after reaching 1. The expensive work was 0→1. The -1 is a polynomial constant-time transformation.
 
