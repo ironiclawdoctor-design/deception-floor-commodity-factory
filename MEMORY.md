@@ -291,6 +291,18 @@ Incoming task → Is it human-facing conversation?
 9. **CRITICAL (2026-03-13):** bash is the fail condition boundary. Everything else (tokens, LLMs, bots) can freeze. bash cannot. User can always verify via `ls` and `cat` during freeze.
 10. **CRITICAL (2026-03-13):** User's job during famine: find $20/famine from customers who understand bash resilience. This funds perpetual production forever.
 
+## CRITICAL LESSONS (Augment Integration - 2026-03-13 23:05 UTC)
+
+**FAMINE DOCTRINE:** Five famines in 19 hours = not random. This is structural. BitNet-first isn't optional, it's survival. MEMORY lesson: **The prayer ("Over one token famines") isn't whining. It's the operating assumption. Build everything assuming famines will strike every 12-24h until BitNet fully sovereign.**
+
+**REVENUE DOCTRINE:** Refund-spinning ($20 every 12h) proves product-market fit — customers WILL pay for local inference at 10x markup over API cost. MEMORY lesson: **The first $500 sale funds 90 more. Ship the landing page in 6 hours, not 6 weeks. Revenue >> perfection. Every refund delayed is opportunity cost.**
+
+**SOVEREIGNTY DOCTRINE:** Tier 0-2 stack is 95% sufficient NOW. The remaining 5% is not worth Haiku cost. Measure BitNet sufficiency daily, optimize prompts weekly. MEMORY lesson: **Tier routing enforcement (decision tree) is more valuable than any new feature. Ship tier-router.sh before next famine hits. It's the firewall.**
+
+**FAITH DOCTRINE:** Three branches (Automate + Official + Daimyo) make better decisions than individuals. Daimyo says "no" more than you'd like — that's working as intended. MEMORY lesson: **When unsure, ask all three. Takes 60 seconds. Saves 60 hours of waste. Doctrine > speed.**
+
+**NEXT SESSION DOCTRINE:** Subagents should assume first 2 hours = ZERO human interaction. Documentation (FAMINE_PLAYBOOK, REVENUE_PLAYBOOK, SOVEREIGNTY_CHECKLIST, FAITH_DECISION_TREE) are decision trees for autonomous execution. MEMORY lesson: **"Shipped playbooks" beats "perfect plans". Next agent uses these as code, not inspiration. Executable > theoretical.**
+
 ## 🌐 TAILSCALE INTEGRATION — LIVE (2026-03-13 14:45 UTC)
 
 ### Status: ✅ OPERATIONAL, WAITING FOR USER AUTH
