@@ -1,0 +1,46 @@
+# CONSERVATION MODE ROUTING RULES
+# Activated: 2026-03-13 13:29 UTC
+# Duration: 48h or until "all-clear"
+
+## RULE 0: BitNet First (All internal operations)
+All agent-to-agent coordination, memory updates, task decomposition → BitNet 127.0.0.1:8080
+Zero token cost. Non-negotiable.
+
+## RULE 1: Fiesta Haiku Only (Human-facing responses)
+External model: anthropic/claude-haiku-4-5-20251001 ONLY
+Budget: 500 tokens/day maximum
+Responses: Terse, direct, no elaboration
+
+## RULE 2: Sub-agent Freeze
+No sessions_spawn() calls unless:
+  - Official branch (Executive) emergency approval
+  - Explicit human request with "spawn" keyword
+  All other requests: route to BitNet or defer
+
+## RULE 3: GitHub Operations
+- Read-only checks (git log, status) → allowed (zero cost)
+- Commits/pushes → batch only (once per 6-hour window)
+- PRs/Actions → hold (unless Official critical path)
+
+## RULE 4: External APIs
+- web_search: Hold (unless critical intel for human)
+- web_fetch: Hold
+- image analysis: BitNet-only (local image processing)
+- pdf analysis: Hold (defer or local if possible)
+
+## RULE 5: Fleet Status Reporting
+Every 6 hours:
+  1. Ping all three branches via BitNet (health check)
+  2. Log token burn (target: <500/6h)
+  3. Report BitNet sufficiency % (target: >80%)
+  4. Update CONSERVATION_MANIFEST.md
+
+## RULE 6: The Prayer (Discipline)
+Recite before every external token call:
+"Over one token famines but far less than a trillion"
+
+If you skip the prayer, don't make the call.
+
+---
+If these rules conflict with human request, human wins.
+But human must explicitly say it ("spend tokens on X").

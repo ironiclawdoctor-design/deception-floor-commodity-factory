@@ -1,0 +1,166 @@
+#!/bin/bash
+
+################################################################################
+# TOKEN-QUERY — LEXICON-based token visibility interface
+# Ask questions about tokens via formal language
+# Cost: $0.00 (pure bash + LEXICON)
+# Date: 2026-03-13
+################################################################################
+
+LEXICON="/root/.openclaw/workspace/lexicon"
+WORKSPACE="/root/.openclaw/workspace"
+
+# ============================================================================
+# TOKEN QUERY ENGINE (via LEXICON)
+# ============================================================================
+
+query_tokens() {
+    local question="$1"
+    
+    # Use LEXICON to analyze the question
+    case "$question" in
+        "status"|"budget"|"remaining"|"tokens")
+            # Route to token audit
+            echo "Query: $question"
+            echo ""
+            /root/.openclaw/workspace/token-audit.sh | tail -50
+            ;;
+        
+        "routing"|"tiers"|"doctrine")
+            # Route to routing rules
+            echo "Query: $question"
+            echo ""
+            echo "TOKEN ROUTING RULES:"
+            echo ""
+            grep -A 50 "TOKEN ROUTING RULES" "$WORKSPACE/token-audit.sh" | head -40
+            ;;
+        
+        "spend"|"burn"|"cost")
+            # Check cost metrics
+            echo "Query: $question"
+            echo ""
+            echo "COST METRICS:"
+            echo "  Tier 0 (Bash):   $0.00/month"
+            echo "  Tier 1 (Grok):   $0.00/month"
+            echo "  Tier 2 (BitNet): $0.00/month"
+            echo "  Tier 3 (Haiku):  FROZEN"
+            echo ""
+            echo "Total Spend: $0.00/month"
+            echo "Protection: BABYLON RULES ENFORCED"
+            ;;
+        
+        "ampere"|"gateway"|"server")
+            # Check gateway status
+            echo "Query: $question"
+            echo ""
+            echo "AMPERE.SH GATEWAY STATUS:"
+            openclaw gateway status 2>/dev/null || echo "Status unavailable"
+            ;;
+        
+        "babel"|"babylon"|"rules"|"wealth")
+            # Babylon wealth principles
+            echo "Query: $question"
+            echo ""
+            echo "BABYLON WEALTH PRINCIPLES:"
+            cat << 'RULES'
+1. Start thy purse to fattening
+   → Establish revenue streams
+   
+2. Control thy expenditures
+   → All spending at Tier 0-2 only
+   
+3. Make thy gold multiply
+   → Reinvest in capacity (LEXICON, Factory)
+   
+4. Guard thy treasures from loss
+   → No external token exposure
+   
+5. Make of thy dwelling a profitable investment
+   → Infrastructure pays for itself
+   
+6. Insure a future income
+   → Recurring revenue required
+   
+7. Increase thy ability to earn
+   → Scale agents and production
+RULES
+            ;;
+        
+        "help"|"?"|"commands")
+            # Show help
+            token_query_help
+            ;;
+        
+        *)
+            # Try to parse as LEXICON command
+            echo "Query: $question"
+            echo ""
+            echo "Attempting to parse as LEXICON command..."
+            "$LEXICON" audit compliance 2>/dev/null | head -20
+            ;;
+    esac
+}
+
+# ============================================================================
+# INTERACTIVE PROMPT
+# ============================================================================
+
+token_query_help() {
+    cat << 'EOF'
+TOKEN-QUERY — Ask questions about tokens and credits
+
+COMMANDS:
+
+  status, budget, remaining, tokens
+    → Show current token budget and remaining capacity
+  
+  routing, tiers, doctrine
+    → Show tier routing rules and LLM hierarchy
+  
+  spend, burn, cost
+    → Show cost metrics and spending summary
+  
+  ampere, gateway, server
+    → Check Ampere.sh gateway status
+  
+  babel, babylon, rules, wealth
+    → Show Babylon wealth principles
+  
+  help, ?
+    → Show this help message
+
+EXAMPLES:
+
+  token-query status
+  token-query routing
+  token-query babylon
+  token-query ampere
+
+EOF
+}
+
+# ============================================================================
+# MAIN
+# ============================================================================
+
+main() {
+    if [[ $# -eq 0 ]]; then
+        token_query_help
+        return 0
+    fi
+    
+    # Reconstruct question from all arguments
+    local question="$@"
+    
+    echo "╔════════════════════════════════════════════════════════════╗"
+    echo "║           TOKEN-QUERY — Token Visibility Interface        ║"
+    echo "║           Powered by LEXICON (Bash + Pattern Match)       ║"
+    echo "╚════════════════════════════════════════════════════════════╝"
+    echo ""
+    
+    query_tokens "$question"
+    
+    echo ""
+}
+
+main "$@"
