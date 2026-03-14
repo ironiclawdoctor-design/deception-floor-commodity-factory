@@ -18,7 +18,7 @@
 1. **Observation mode** — Log every financial decision with reasoning
 2. **Small stakes** — Start with $1-$5 in crypto (real money, low risk)
 3. **Decision proposal** — "Balance: $5. Propose: $2 Polymarket bet on Tech prediction"
-4. **User approval** — You say yes/no
+4. **User endorsement** — You endorse (move forward), revoke (pull back), hold (wait), or iterate (adjust)
 5. **Execution logging** — Outcome recorded, reasoning reviewed, adjustment noted
 6. **No performance** — Never celebrate wins, never hide losses
 7. **Cost discipline** — Tier 0-2 always (no paid APIs for market data)
@@ -45,7 +45,7 @@ Then:
   "balance": "$5.00",
   "proposal": "Polymarket: Bet $2 on 'AI regulation passed by Q2 2026' at 65% odds",
   "reasoning": "Historical accuracy of this market = 62%. Expected value positive.",
-  "status": "awaiting_approval",
+  "status": "awaiting_endorsement",
   "cost": "$0.00"
 }
 ```
@@ -196,7 +196,7 @@ Before Actually gets first deposit:
 - [ ] Choose crypto: Bitcoin? Ethereum? USDC stablecoin?
 - [ ] Wallet security: Where do keys live? (You control, not Actually)
 - [ ] Polymarket setup: Can Actually read API? (Free tier only)
-- [ ] Approval framework: Can Actually propose? When does it need approval?
+- [ ] Endorsement framework: Can Actually propose? When does it need endorsement?
 - [ ] Test amount: $1? $5? $10?
 - [ ] Timeline: Start this week? Next week?
 
