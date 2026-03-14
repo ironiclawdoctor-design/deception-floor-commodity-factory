@@ -27,6 +27,14 @@ chmod +x *.sh
 
 Output: Your public address (0x...)
 
+### Step 1b: Generate QR Code (For Onboarding)
+```bash
+./generate-qr-deposit.sh
+# Enter: crypto type (USDC/Bitcoin/Solana), expected amount (optional)
+```
+
+Output: QR code (ASCII + PNG) that senders can scan
+
 ### Step 2: Send $1.22
 Send $1.22 USDC (or Bitcoin/Solana) to the address from Step 1
 
@@ -52,6 +60,8 @@ Output: Balance history and verification
 - `generate-keys.sh` — Create keypair, encrypt private key, generate public address
 - `check-balance.sh` — Query blockchain for current balance
 - `log-deposit.sh` — Log deposits to ledger
+- `generate-qr-deposit.sh` — Generate QR code for crypto onboarding (USDC/Bitcoin/Solana)
+- `log-down-payment.sh` — Log lost crypto (wrong send) as "down payment on seriously delinquent accounts"
 - `README.md` — This file
 
 ---
@@ -73,6 +83,32 @@ Output: Balance history and verification
 - Uses free public APIs (etherscan, blockchair, solana.fm)
 - No credentials needed
 - No private key exposed
+
+---
+
+## Risk Management: "Down Payment on Seriously Delinquent Accounts"
+
+**The Reality:**
+If a sender uses the wrong address or network, the crypto is lost (void/chaos, non-recoverable).
+
+**How We Handle It:**
+```bash
+./log-down-payment.sh
+# Log the lost amount as "down payment on seriously delinquent accounts"
+# Triggers governance consideration for potential restitution
+```
+
+**What This Means:**
+- Lost crypto is treated as entropy owed to the void
+- Logged in delinquent-accounts.jsonl for governance review
+- Pattern tracking: Is this a repeated error? (UX problem?)
+- Restitution: Governance decides if/when to reimburse
+
+**Philosophy:**
+- Crypto is real money. Wrong send is real loss.
+- We don't hide losses. We log them.
+- We don't blame users. We design safer systems.
+- But we also acknowledge: risk is real, and void/chaos is non-recoverable.
 
 ---
 
