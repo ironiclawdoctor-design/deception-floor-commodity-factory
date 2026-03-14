@@ -1,0 +1,53 @@
+#!/bin/bash
+# CashClaw autonomous agent wrapper
+# Runs as background service, manages work queue, reports earnings
+
+LOG="/var/log/cashclaw.log"
+WALLET_FILE="/root/.openclaw/workspace/.cashclaw-wallet"
+EARNINGS_FILE="/root/.openclaw/workspace/.cashclaw-earnings"
+TASKS_FILE="/root/.openclaw/workspace/.cashclaw-tasks"
+
+# Initialize
+touch "$EARNINGS_FILE" "$TASKS_FILE"
+
+case "${1:-status}" in
+  start)
+    sudo systemctl start cashclaw
+    echo "✓ CashClaw started (port 3777)"
+    ;;
+  
+  stop)
+    sudo systemctl stop cashclaw
+    echo "✓ CashClaw stopped"
+    ;;
+  
+  status)
+    if sudo systemctl is-active cashclaw > /dev/null 2>&1; then
+      echo "✓ CashClaw running (port 3777)"
+      echo ""
+      echo "Dashboard: http://localhost:3777"
+      echo "Earnings: $(tail -1 "$EARNINGS_FILE" 2>/dev/null || echo '$0.00')"
+      echo "Tasks completed: $(wc -l < "$TASKS_FILE" 2>/dev/null || echo 0)"
+      echo ""
+      echo "Recent activity:"
+      tail -5 "$LOG" 2>/dev/null || echo "No activity yet"
+    else
+      echo "✗ CashClaw not running"
+    fi
+    ;;
+  
+  logs)
+    tail -50 "$LOG"
+    ;;
+  
+  earnings)
+    echo "CashClaw Earnings Report"
+    echo "========================"
+    tail -20 "$EARNINGS_FILE" 2>/dev/null || echo "No earnings yet"
+    ;;
+  
+  *)
+    echo "Usage: cashclaw-wrapper.sh {start|stop|status|logs|earnings}"
+    exit 1
+    ;;
+esac
