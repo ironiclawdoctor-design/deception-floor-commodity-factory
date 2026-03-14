@@ -1,0 +1,140 @@
+#!/bin/bash
+# skip — bash clone focused on skipping unnecessary work
+# Philosophy: Do the -1 play. Skip the direct path. Find the shortcut.
+
+set -e
+
+# Skip modes
+case "${1:-help}" in
+  help|--help|-h)
+    cat << 'EOF'
+skip — bash that skips unnecessary work
+
+Usage:
+  skip <command> [args...]
+  skip gen <type> [count]      Generate fake data instead of fetching
+  skip mock <task>             Mock execution (no actual side effects)
+  skip cache <key> <value>     Store computed value
+  skip recall <key>            Retrieve cached value
+  skip cost <tokens>           Log token cost (avoid spending)
+  skip audit <file>            Find bugs without running (static analysis)
+  skip parallel <cmd1> <cmd2>  Run commands in parallel (save time)
+
+Examples:
+  skip gen posts 20            Generate 20 fake social posts
+  skip mock deploy             Simulate deployment without risk
+  skip cache tier0 "bash"      Remember tier 0 is bash
+  skip recall tier0            Get cached value
+  skip cost 500                Log that this would cost 500 tokens
+  skip audit tier-router.sh    Find bugs in script
+  skip parallel "cmd1" "cmd2"  Run both, get both results
+
+Philosophy:
+  - Fake data instead of real API calls
+  - Mocking instead of side effects
+  - Caching instead of recomputation
+  - Static analysis instead of runtime testing
+  - Parallel execution instead of sequential waiting
+  - Short replies instead of long documentation
+EOF
+    ;;
+  
+  gen)
+    # Generate fake data
+    type=${2:-posts}
+    count=${3:-5}
+    
+    case "$type" in
+      posts)
+        for i in $(seq 1 $count); do
+          echo "Post $i: [generated content at $(date)]"
+        done
+        ;;
+      tasks)
+        for i in $(seq 1 $count); do
+          echo "Task $i: [phantom work at $(date)]"
+        done
+        ;;
+      users)
+        for i in $(seq 1 $count); do
+          echo "User $i: [synthetic identity]"
+        done
+        ;;
+      *)
+        echo "Unknown type: $type"
+        exit 1
+        ;;
+    esac
+    ;;
+  
+  mock)
+    # Mock execution without side effects
+    task=$2
+    echo "[MOCKED] $task would execute here"
+    echo "[SKIPPED] Actual side effects"
+    echo "[RESULT] Simulated success"
+    ;;
+  
+  cache)
+    # Simple key-value cache
+    cache_dir="${SKIP_CACHE_DIR:-.skip_cache}"
+    mkdir -p "$cache_dir"
+    
+    if [ "$2" = "recall" ]; then
+      key=$3
+      [ -f "$cache_dir/$key" ] && cat "$cache_dir/$key" || echo "(cache miss)"
+    else
+      key=$2
+      value=$3
+      echo "$value" > "$cache_dir/$key"
+      echo "✓ Cached: $key = $value"
+    fi
+    ;;
+  
+  recall)
+    # Retrieve cached value
+    cache_dir="${SKIP_CACHE_DIR:-.skip_cache}"
+    key=$2
+    [ -f "$cache_dir/$key" ] && cat "$cache_dir/$key" || echo "(cache miss)"
+    ;;
+  
+  cost)
+    # Log token cost to avoid spending
+    tokens=$2
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) | COST AVOIDANCE | $tokens tokens would have been spent here" >> ~/.skip_costs
+    echo "✓ Logged cost: $tokens tokens (NOT spent)"
+    ;;
+  
+  audit)
+    # Static analysis (find bugs without running)
+    file=$2
+    echo "Auditing $file for bugs..."
+    
+    # Simple checks
+    grep -n "^\s*\$\$" "$file" 2>/dev/null && echo "  Found: Double variable declaration"
+    grep -n "undefined\|null\|void" "$file" 2>/dev/null && echo "  Found: Potential null reference"
+    grep -n "console.log" "$file" 2>/dev/null && echo "  Found: Debug output left in code"
+    
+    echo "✓ Audit complete (no execution)"
+    ;;
+  
+  parallel)
+    # Run commands in parallel
+    cmd1=$2
+    cmd2=$3
+    
+    echo "Running in parallel (saving time)..."
+    (eval "$cmd1") &
+    pid1=$!
+    (eval "$cmd2") &
+    pid2=$!
+    
+    wait $pid1 $pid2
+    echo "✓ Both commands complete"
+    ;;
+  
+  *)
+    # Default: pass through to bash
+    bash "$@"
+    ;;
+esac
