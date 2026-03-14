@@ -1,0 +1,15 @@
+{
+  "cache_key": "0a1f2d5082dcd59d6ec6c015d80f5686",
+  "task_hash": "0a1f2d5082dcd59d6ec6c015d80f5686",
+  "created_at": "2026-03-14T12:24:46Z",
+  "ttl_seconds": 86400,
+  "local_sources": [
+    "MEMORY.md",
+    "workspace_docs",
+    "previous_responses"
+  ],
+  "precached_context": "",
+  "completion_status": "partial",
+  "requires_external_call": true,
+  "estimated_token_savings": 0
+}

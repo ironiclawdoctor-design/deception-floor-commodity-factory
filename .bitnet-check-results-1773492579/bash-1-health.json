@@ -1,0 +1,7 @@
+{
+  "agent": "bash-1",
+  "task": "direct_health_check",
+  "timestamp": "2026-03-14T12:49:39Z",
+  "result": {"status":"ok"},
+  "method": "curl /health"
+}

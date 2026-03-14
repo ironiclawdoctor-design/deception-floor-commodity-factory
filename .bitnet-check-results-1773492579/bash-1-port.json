@@ -1,0 +1,8 @@
+{
+  "agent": "bash-1",
+  "task": "port_check",
+  "timestamp": "2026-03-14T12:49:39Z",
+  "port": 8080,
+  "open": true,
+  "port_info": "tcp   LISTEN 0      5                        127.0.0.1:8080       0.0.0.0:*          "
+}

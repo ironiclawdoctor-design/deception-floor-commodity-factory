@@ -1,0 +1,23 @@
+{
+  "status": "active",
+  "started": "2026-03-14T03:52:00Z",
+  "monitoring_period": "5-minute cycles",
+  "thresholds": {
+    "external_calls_per_hour": 3,
+    "daily_spend_baseline": 5.00,
+    "single_call_token_limit": 2000
+  },
+  "24h_window": {
+    "start": "2026-03-13T03:52:00Z",
+    "end": "2026-03-14T03:52:00Z",
+    "total_external_calls": 0,
+    "total_spend_usd": 0.00,
+    "highest_single_call_tokens": 0
+  },
+  "current_hour": {
+    "start": "2026-03-14T03:00:00Z",
+    "external_calls": 0
+  },
+  "alerts_triggered": 0,
+  "last_check": "2026-03-14T03:55:01Z"
+}

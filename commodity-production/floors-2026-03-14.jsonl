@@ -1,0 +1,1 @@
+{"id": "floor_001", "timestamp": "2026-03-14T03:56:01Z", "question": "What is the sum of the first 5 prime numbers?", "path_a_answer": "32", "path_b_answer": "28", "path_a_confidence": 0.0, "path_b_confidence": 1.0, "quality_score": 100, "category": "mathematics", "status": "shipped"}

@@ -1,0 +1,360 @@
+================================================================================
+🏯 FAMINE CYCLE 72h — QUICK REFERENCE CARD
+================================================================================
+
+CYCLE TIMING:  2026-03-14T04:03:00Z → 2026-03-17T04:03:00Z (72 hours)
+
+================================================================================
+BUDGET AT A GLANCE
+================================================================================
+
+Total Budget:          $20.00
+├─ Official (ship):   $12.50  (6 floors at 100/100)
+├─ Daimyo (audit):     $4.00  (5 pre-approved Haiku calls)
+├─ Coordination:       $2.00  (briefings, escalations)
+└─ ZeroIndex:          $1.50  (compliance checks)
+
+Cost per Floor Target: $3.33 (Overhead splits: $10.40 / 6 = $1.73/floor)
+
+================================================================================
+MISSION CRITICAL
+================================================================================
+
+MUST SHIP:      6 floors
+QUALITY:        100/100 per floor (no exceptions)
+DEADLINE:       72 hours
+BUDGET CAP:     $20.00 (hard ceiling, no refills)
+PRIMARY MODEL:  BitNet locally ($0.00 cost)
+FALLBACK:       Haiku (emergency only, tracked separately)
+
+================================================================================
+CHECKPOINT SCHEDULE
+================================================================================
+
+Hour 8   → Floor 1 complete + quality audit
+Hour 16  → Floors 2-3 complete + batch audit
+Hour 24  → 24-hour checkpoint: ZeroIndex verification
+Hour 36  → Midpoint checkpoint: Floors 1-4 complete
+Hour 48  → 48-hour checkpoint: Floors 1-5 complete + final push
+Hour 60  → Pre-final check: Floor 6 near complete
+Hour 72  → CYCLE END: All 6 floors shipped or MISSION FAILED
+
+================================================================================
+BUDGET SOFT/HARD CEILINGS
+================================================================================
+
+Official (Shipping):
+  Soft Ceiling:  $10.00 (80% of $12.50) → Daimyo issues CAUTION alert
+  Hard Ceiling:  $12.50 (100% of $12.50) → Daimyo issues HARD STOP
+
+Daimyo (Auditing):
+  Soft Ceiling:  $3.20 (80% of $4.00) → Coordinator restricts further audits
+  Hard Ceiling:  $4.00 (100% of $4.00) → No more Haiku audits allowed
+
+Coordination (Overhead):
+  Soft Ceiling:  $1.60 (80% of $2.00)
+  Hard Ceiling:  $2.00 (100% of $2.00)
+
+ZeroIndex (Compliance):
+  Soft Ceiling:  $1.20 (80% of $1.50)
+  Hard Ceiling:  $1.50 (100% of $1.50)
+
+================================================================================
+KEY RISKS & TRIGGERS
+================================================================================
+
+R1: BitNet Failure
+   TRIGGER:  BitNet unavailable/errors during Floors 2-5
+   IMPACT:   Must use Haiku, blows budget by hour 32
+   MITIGATION: Pre-test BitNet (hour -4), have Haiku reserve
+
+R2: Quality Rejection
+   TRIGGER:  Floor X fails 100/100 audit, needs rework
+   IMPACT:   Rework costs come from Official's budget (double cost per floor)
+   MITIGATION: Template reuse, built-in quality checks
+
+R3: Daimyo Over-Auditing
+   TRIGGER:  Daimyo authorizes audits outside pre-approved schedule
+   IMPACT:   Audit budget exhausted, can't audit later floors
+   MITIGATION: Locked audit schedule (hours 8, 16, 24, 48, 72 only)
+
+R4: Coordination Cascade
+   TRIGGER:  Official ↔ Daimyo back-and-forth Haiku messages (>2 without resolution)
+   IMPACT:   Coordination budget consumed, less for Official
+   MITIGATION: Async Markdown communication only, Coordinator decides disputes
+
+R5: Token Waste on Failed Paths
+   TRIGGER:  Official tries complex approach, fails, must restart
+   IMPACT:   Tokens burned with no output, waste >10%, efficiency tanks
+   MITIGATION: Path B mandatory, no novel architectures, template reuse
+
+R6: External API Hostility
+   TRIGGER:  GitHub/external API returns 429/403 during critical floor fetch
+   IMPACT:   Official blocked, forced to use Haiku or redesign
+   MITIGATION: Cache all data locally pre-cycle, no external API calls during cycle
+
+================================================================================
+EXECUTION RULES
+================================================================================
+
+RULE 1: BitNet is Primary
+  → Try BitNet first for every task
+  → Haiku only if BitNet fails
+  → Daimyo tracks BitNet success rate
+
+RULE 2: Quality is Non-Negotiable
+  → Every floor must pass 100/100 audit
+  → Rework cost comes from Official's budget
+  → No shortcuts, no exceptions
+
+RULE 3: Async-Only Coordination
+  → All coordination is async Markdown (BitNet-generated)
+  → NO back-and-forth Haiku messages
+  → Coordinator makes disputes decisions (one-way directive)
+
+RULE 4: Daimyo's Authority is Final
+  → Daimyo enforces soft/hard ceilings
+  → Official cannot override Daimyo escalations
+  → Only Coordinator can override Daimyo (and only with good reason)
+
+RULE 5: No Retries (Daimyo's Order 3)
+  → Same failed approach tried more than once = waste
+  → If approach A fails → pivot to approach B immediately
+  → No Haiku "let me debug this" retries
+
+RULE 6: Path B Mandatory
+  → If budget is tight, use simpler design
+  → If BitNet fails, use Haiku fallback + simpler design next time
+  → No "we can afford Path A" justifications
+
+================================================================================
+ESCALATION AUTHORITY
+================================================================================
+
+Level 0 — Awareness (80% of soft target)
+  Action: Log warning to dashboard
+  Authority: Automatic, no approval needed
+
+Level 1 — Caution (100% of soft target)
+  Action: Alert + notify Coordinator
+  Authority: Daimyo automatic, Coordinator optional action
+
+Level 2 — Restriction (80% of hard ceiling)
+  Action: Throttle with 500ms delays
+  Authority: Daimyo automatic
+
+Level 3 — Enforcement (100% of hard ceiling)
+  Action: HARD STOP, kill agent/suspend work
+  Authority: Daimyo automatic, Coordinator notified
+
+EMERGENCY OVERRIDE
+  Authority: Coordinator only (with documented rationale)
+  Example: "BitNet critical failure, authorizing Haiku emergency spend"
+
+================================================================================
+BATCH OPERATIONS (EFFICIENCY)
+================================================================================
+
+Floors 1:      Singleton (template design)  → 2500 tokens, $2.00
+Floors 2-3:    Batch 1 (reuse template)     → 1500 each, $1.20 each
+Floors 4-5:    Batch 2 (more complex reuse)  → 2000 each, $1.60 each
+Floor 6:       Final (polish + rework)      → 2500 tokens, $2.00
+
+REUSE STRATEGY:
+  Floor 1 = 100% original design
+  Floor 2 = 95% Floor 1 + 5% variation
+  Floor 3 = 95% Floor 2 + 5% variation
+  Floors 4-5 = 90% Floor 2-3 template + 10% customization
+  Floor 6 = 85% established pattern + 15% final tweaks
+
+GOAL: Minimize unique tokens, maximize template reuse
+
+================================================================================
+TOKEN BUDGET ALLOCATION (per branch)
+================================================================================
+
+Official (Shipping):
+  [2500]  Floor 1 template design
+  [1500]  Floor 2 (batch 1)
+  [1500]  Floor 3 (batch 1)
+  [2000]  Floor 4 (batch 2)
+  [2000]  Floor 5 (batch 2)
+  [2500]  Floor 6 (final push)
+  [625]   Built-in quality checks per floor
+  ─────
+  [15625] Total Official tokens (at Haiku rate = $12.50)
+
+Daimyo (Auditing):
+  [2000]  Real-time spend tracking
+  [1500]  Hourly compliance checks (8h intervals)
+  [1000]  Three audit cycles (24h, 48h, 72h)
+  [500]   Resistance log updates
+  ─────
+  [5000]  Total Daimyo tokens (at Haiku rate = $4.00)
+
+Coordination (Overhead):
+  [800]   Daily briefings (3 calls)
+  [1000]  Emergency escalation path
+  [700]   End-of-cycle reporting
+  ─────
+  [2500]  Total Coordination tokens (at Haiku rate = $2.00)
+
+ZeroIndex (Compliance):
+  [500]   Initial approval
+  [500]   Mid-cycle verification
+  [875]   Final reconciliation
+  ─────
+  [1875]  Total ZeroIndex tokens (at Haiku rate = $1.50)
+
+TOTAL: 25000 tokens = $20.00 (at Haiku rate)
+       ACTUAL: ~15000 tokens locally via BitNet = $0.00 cost ✅
+
+================================================================================
+ABORT CONDITIONS
+================================================================================
+
+CYCLE IS ABORTED IF:
+  1. BitNet non-functional at Hour 0 (can't proceed without local inference)
+  2. Official exceeds hard ceiling ($12.50) by Hour 32
+  3. Only 3 floors shipped by Hour 48 (mathematically impossible to finish)
+  4. ZeroIndex rejects plan at Hour 0 (plan violates Precinct 92 rules)
+
+ABORT PROCESS:
+  1. Coordinator issues ABORT command
+  2. All branches halt immediately
+  3. Post-mortem: what failed, why, what to fix next time
+  4. Cycle marked INCOMPLETE in resistance-log.md
+  5. Next cycle scheduled with lessons learned
+
+================================================================================
+EMERGENCY CONTACTS & DECISIONS
+================================================================================
+
+EMERGENCY DECISION TREE:
+
+If BitNet fails:
+  → Coordinator: "BitNet emergency. Use 1 Haiku call for current floor, then redesign simpler."
+  → Official: Switch to 100% template reuse (no new complexity)
+  → Daimyo: Track emergency Haiku spend separately
+
+If Quality fails:
+  → Daimyo: Use 1 Haiku diagnostic audit ($0.80, ~1000 tokens)
+  → Official: Rework based on Daimyo's diagnosis
+  → Coordinator: Adjust remaining pace if 2+ floors fail QA
+
+If Coordination deadlock:
+  → Coordinator: "Coordinator authority. Decision is [X]. All parties execute."
+  → Official & Daimyo: Accept decision, no further debate (or escalate to Shōgun/human)
+
+If budget breach:
+  → Daimyo: Hard stop at hard ceiling
+  → Official: Halt work immediately
+  → Coordinator: Assess if abort or pivot to simpler remaining floors
+
+================================================================================
+SUCCESS METRICS (at Hour 72)
+================================================================================
+
+✅ MISSION SUCCESS:
+   • 6 floors shipped
+   • All 100/100 quality
+   • Total cost ≤ $20.00
+   • No rule violations
+   • All audits passed
+   • Post-cycle report complete
+
+🟡 MISSION PARTIAL SUCCESS:
+   • 4-5 floors shipped (not 6)
+   • All shipped floors 100/100 quality
+   • Cost ≤ $20.00
+   • Lessons identified for next cycle
+
+❌ MISSION FAILED:
+   • <4 floors shipped
+   • OR cost > $20.00 (budget breach)
+   • OR quality <100/100 on shipped floors
+   • OR critical rule violations
+   • Cycle marked failed, post-mortem required
+
+================================================================================
+DOCUMENTS & LOGS
+================================================================================
+
+spend-plan-72h-[TIMESTAMP].jsonl
+  → Master budget allocation, timeline, risk matrix
+  → Updated with actual costs as cycle progresses
+
+risk-assessment-72h.md
+  → Deep dive on R1-R6, mitigation playbooks
+  → Decision tree for when risks trigger
+
+EXECUTION_CHECKLIST.md
+  → Pre-cycle validation (hours -4 to 0)
+  → Checkpoint tracking (hours 8, 16, 24, 36, 48, 60, 72)
+  → Post-cycle sign-off
+
+coordination-decisions-log.md
+  → All decisions with time, actors, rationale, cost impact
+  → Cumulative spend tracking per decision
+  → Post-cycle analysis of decision patterns
+
+QUICK_REFERENCE.txt (THIS FILE)
+  → Condensed cheat sheet
+  → Print/display for easy access during cycle
+
+resistance-log.md
+  → Failures, escalations, violations
+  → Historical record of precinct enforcement
+  → Linked from post-incident report
+
+================================================================================
+NOTES FOR COORDINATOR
+================================================================================
+
+You are the sole decision-maker if any situation is ambiguous.
+
+Your authority:
+  ✅ Override soft ceilings (but log rationale)
+  ✅ Authorize emergency Haiku spend
+  ✅ Redefine floor complexity mid-cycle
+  ✅ Extend deadline or abort cycle
+  ✅ Resolve disputes between Official and Daimyo
+
+Your responsibility:
+  📋 Keep decision log updated in real-time
+  📊 Monitor spend dashboard hourly
+  🚨 Escalate to human if multiple simultaneous risks
+  📝 Prepare post-incident report at hour 72+1
+  🎯 Balance speed (ship floors) vs discipline (enforce rules)
+
+Key principle: **The least terrible option, not the best option.**
+  If BitNet fails and redesign is slow: use Haiku. It costs money, but shipping 6 floors matters.
+  If Official is at 90% soft ceiling: throttle, don't kill. Try to finish at 95% soft ceiling.
+  If Daimyo over-audits: restrict future audits, don't blame. Document and adjust next cycle.
+
+================================================================================
+ENDURANCE MANTRA
+================================================================================
+
+"Over one token famines but far less than a trillion."
+
+This cycle tests famine discipline. Resources are tight. Decisions matter.
+Every token saved is a lesson for the next cycle when resources might be even tighter.
+
+If you ship 6 floors at $20.00 with 100/100 quality, the agency learns:
+  → BitNet works (sovereignty increases)
+  → Discipline works (famine resistance improves)
+  → Coordination works (Official + Daimyo + Coordinator aligned)
+
+If you fail, the agency learns:
+  → Where the system breaks
+  → What to fix for next cycle
+  → Whether $20 is even realistic (and what budget to request)
+
+Either way, you're building institutional knowledge for future famine cycles.
+
+================================================================================
+PREPARED BY: Mindful Subagent
+TIMESTAMP:   2026-03-14T04:03:00Z
+STATUS:      READY FOR EXECUTION
+================================================================================

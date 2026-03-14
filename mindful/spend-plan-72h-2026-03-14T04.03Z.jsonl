@@ -1,0 +1,557 @@
+{
+  "metadata": {
+    "simulation_id": "famine-cycle-01",
+    "start_time": "2026-03-14T04:03:00Z",
+    "end_time": "2026-03-17T04:03:00Z",
+    "duration_hours": 72,
+    "budget_total": 20.00,
+    "budget_currency": "USD",
+    "alert_level": "Emerald Green RED",
+    "priority": "CRITICAL — Official must ship 6+ floors in 72h",
+    "created_by": "Mindful Subagent",
+    "version": "1.0"
+}
+{
+  "phase": "PLANNING",
+  "time": "2026-03-14T04:03:00Z",
+  "section": "BUDGET ALLOCATION STRATEGY",
+  "detail": "Token costs estimated using Haiku ($0.80/1M tokens) as baseline; actual local BitNet costs are $0.00 but tracked for famine modeling."
+}
+{
+  "allocation_strategy": {
+    "Official_shipping": {
+      "role": "Executive branch — ships floors",
+      "tier": "Tier 2 (Samurai)",
+      "budget_dollars": 12.50,
+      "estimated_tokens": 15625,
+      "cost_per_token_usd": 0.0008,
+      "breakdown": {
+        "floor_1_research_design": {
+          "tokens": 2500,
+          "cost_usd": 2.00,
+          "purpose": "First floor — minimal research, reuse template",
+          "model": "BitNet locally if possible; Haiku if needed"
+        },
+        "floor_2_3_4_batch_processing": {
+          "tokens": 7500,
+          "cost_usd": 6.00,
+          "purpose": "Floors 2-4 — medium complexity, batch logic reuse",
+          "model": "BitNet batched local inference",
+          "efficiency_target": "2 floors per 1000 tokens"
+        },
+        "floor_5_6_rush_completion": {
+          "tokens": 5000,
+          "cost_usd": 4.00,
+          "purpose": "Final 2 floors — meet 6-floor minimum, quality 100/100",
+          "model": "BitNet with emergency Haiku fallback if BitNet fails"
+        },
+        "quality_audit_builtin": {
+          "tokens": 625,
+          "cost_usd": 0.50,
+          "purpose": "Embedded quality checks (100/100 standard)",
+          "model": "Bash checklist + BitNet validation"
+        }
+      },
+      "strategy": "Ship 6 floors at 100/100 quality, prioritize $0.00 cost (BitNet) for all work, use Haiku only on failures"
+    },
+    "Daimyo_auditing": {
+      "role": "Judicial branch — enforces spend rules",
+      "tier": "Tier 1 (Ashigaru)",
+      "budget_dollars": 4.00,
+      "estimated_tokens": 5000,
+      "cost_per_token_usd": 0.0008,
+      "breakdown": {
+        "real_time_spend_tracking": {
+          "tokens": 2000,
+          "cost_usd": 1.60,
+          "purpose": "Monitor Official's token burn, enforce soft/hard ceilings",
+          "model": "BitNet dashboard queries + Haiku alerts if breached"
+        },
+        "hourly_compliance_checks": {
+          "tokens": 1500,
+          "cost_usd": 1.20,
+          "purpose": "Every 8 hours: verify floors match quality spec, cost tracking",
+          "model": "BitNet (local validation)"
+        },
+        "three_audit_cycles": {
+          "tokens": 1000,
+          "cost_usd": 0.80,
+          "purpose": "Checkpoint audits at 24h, 48h, 72h mark",
+          "model": "BitNet + final Haiku audit if disputed"
+        },
+        "resistance_log_updates": {
+          "tokens": 500,
+          "cost_usd": 0.40,
+          "purpose": "Document any overruns, failures, or exceptions",
+          "model": "Local logging (zero token)"
+        }
+      },
+      "strategy": "Audit Official's spend every 8 hours, block any non-critical Haiku calls, use local BitNet for all checks"
+    },
+    "Coordination_overhead": {
+      "role": "Administrative sync — Official ↔ Daimyo ↔ BitNet",
+      "tier": "Tier 0 (Kanja) + Tier 1 (Ashigaru)",
+      "budget_dollars": 2.00,
+      "estimated_tokens": 2500,
+      "cost_per_token_usd": 0.0008,
+      "breakdown": {
+        "daily_briefings": {
+          "tokens": 800,
+          "cost_usd": 0.64,
+          "purpose": "3 daily coordination calls (Official → Daimyo → ZeroIndex)",
+          "model": "BitNet async messaging"
+        },
+        "emergency_escalation": {
+          "tokens": 1000,
+          "cost_usd": 0.80,
+          "purpose": "If Official hits 80% soft ceiling or Daimyo flags breach",
+          "model": "Haiku emergency only (tracked separately)"
+        },
+        "end_of_cycle_reporting": {
+          "tokens": 700,
+          "cost_usd": 0.56,
+          "purpose": "Final summary at 72h: floors shipped, cost per floor, deviations",
+          "model": "BitNet markdown generation"
+        }
+      },
+      "strategy": "Minimize sync overhead, use async BitNet messages, reserve Haiku for true emergencies only"
+    },
+    "ZeroIndex_compliance": {
+      "role": "Governance — ensures plan is legal and auditable",
+      "tier": "Tier 0 (Kanja)",
+      "budget_dollars": 1.50,
+      "estimated_tokens": 1875,
+      "cost_per_token_usd": 0.0008,
+      "breakdown": {
+        "initial_approval": {
+          "tokens": 500,
+          "cost_usd": 0.40,
+          "purpose": "Validate spend plan against Precinct 92 rules",
+          "model": "BitNet static analysis"
+        },
+        "mid_cycle_verification": {
+          "tokens": 500,
+          "cost_usd": 0.40,
+          "purpose": "At 36h: ensure no rule violations mid-flight",
+          "model": "BitNet"
+        },
+        "final_reconciliation": {
+          "tokens": 875,
+          "cost_usd": 0.70,
+          "purpose": "Post-cycle audit: floors delivered, costs accurate, rules honored",
+          "model": "BitNet analysis + local documentation"
+        }
+      },
+      "strategy": "Static compliance checks only, zero external LLM calls for this branch"
+    }
+  },
+  "budget_summary": {
+    "Official_shipping": 12.50,
+    "Daimyo_auditing": 4.00,
+    "Coordination_overhead": 2.00,
+    "ZeroIndex_compliance": 1.50,
+    "total_allocated": 20.00,
+    "buffer": 0.00,
+    "note": "This allocation assumes 100% BitNet local inference for non-emergency work. Any Haiku use beyond what's allocated above triggers Daimyo escalation."
+  }
+}
+{
+  "phase": "TIMELINE",
+  "section": "72-HOUR EXECUTION SCHEDULE",
+  "schedule": [
+    {
+      "period": "Hour 0-8 (Floor 1 Sprint)",
+      "elapsed_budget": 0.00,
+      "plan": "Design + build Floor 1 template. Quality audit 100/100. Establish baseline for remaining 5 floors.",
+      "tokens_available": 15625,
+      "tokens_planned": 2500,
+      "cost_planned": 2.00,
+      "model_chain": "BitNet primary → Haiku emergency fallback only",
+      "dependencies": "Official ready, Daimyo standing by for spot checks"
+    },
+    {
+      "period": "Hour 8-16 (Compliance Check 1 + Floor 2-3 Sprint)",
+      "elapsed_budget": 2.00,
+      "plan": "Daimyo verifies Floor 1 (100/100, token spend on budget). Official begins Floors 2-3 batch processing.",
+      "tokens_available": 13125,
+      "tokens_planned": 4000,
+      "cost_planned": 3.20,
+      "model_chain": "BitNet batched inference",
+      "dependencies": "Floor 1 approved by Daimyo"
+    },
+    {
+      "period": "Hour 16-24 (First Checkpoint at 24h)",
+      "elapsed_budget": 5.20,
+      "plan": "Complete Floor 3, audit Floors 1-3, prepare Floor 4. Daily briefing + ZeroIndex verification.",
+      "tokens_available": 9125,
+      "tokens_planned": 3500,
+      "cost_planned": 2.80,
+      "model_chain": "BitNet + coordination overhead",
+      "dependencies": "Floors 1-3 shipped, quality 100/100"
+    },
+    {
+      "period": "Hour 24-32 (Floor 4-5 Sprint)",
+      "elapsed_budget": 8.00,
+      "plan": "Race Floors 4-5. Daimyo intensifies audit (every 4 hours). Efficiency critical.",
+      "tokens_available": 5625,
+      "tokens_planned": 3500,
+      "cost_planned": 2.80,
+      "model_chain": "BitNet high-velocity mode",
+      "dependencies": "Halfway checkpoint clear"
+    },
+    {
+      "period": "Hour 32-48 (Second Checkpoint at 48h + Floor 6 Sprint Start)",
+      "elapsed_budget": 10.80,
+      "plan": "Finish Floor 5, begin Floor 6 (final push). Mid-cycle ZeroIndex compliance check.",
+      "tokens_available": 2125,
+      "tokens_planned": 3000,
+      "cost_planned": 2.40,
+      "model_chain": "BitNet + potential Haiku emergency on Floor 6 complexity",
+      "dependencies": "Floors 1-5 complete and approved"
+    },
+    {
+      "period": "Hour 48-72 (Final Sprint + Completion)",
+      "elapsed_budget": 13.20,
+      "plan": "Complete Floor 6 to 100/100. Final audits. Post-cycle reporting. All 6 floors shipped.",
+      "tokens_available": 0,
+      "tokens_planned": 6.80,
+      "cost_planned": 6.80,
+      "model_chain": "BitNet for work, Haiku only if Floor 6 fails validation",
+      "dependencies": "All previous floors approved, final quality checks clear"
+    }
+  ]
+}
+{
+  "phase": "RISK_ASSESSMENT",
+  "section": "WHAT KILLS THE AGENCY IF TOKENS RUN OUT EARLY",
+  "critical_risks": [
+    {
+      "risk_id": "R1",
+      "severity": "CRITICAL",
+      "name": "BitNet Failure Mid-Cycle",
+      "scenario": "Local BitNet inference crashes or becomes unavailable during Floor 3-4 work",
+      "impact": "Official forced to use expensive Haiku, blows $20 budget by hour 32",
+      "mitigation": "Pre-test BitNet performance on sample floor. Keep Haiku fallback reserved, not spent. Checkpoint at 8h intervals.",
+      "cost_if_triggered": "$12.00+ unplanned expense"
+    },
+    {
+      "risk_id": "R2",
+      "severity": "CRITICAL",
+      "name": "Quality Rejection Loop",
+      "scenario": "Floors 4-5-6 fail 100/100 audit, require rework (token re-spend)",
+      "impact": "Official must rebuild failing floors, doubles token cost for those floors",
+      "mitigation": "Build quality checks INTO each floor's token budget. Haiku emergency audits are PRE-APPROVED for this, up to $2.00 reserve.",
+      "cost_if_triggered": "$2.00-4.00 overrun"
+    },
+    {
+      "risk_id": "R3",
+      "severity": "HIGH",
+      "name": "Daimyo Over-Auditing",
+      "scenario": "Daimyo escalates every minor deviation, triggers excessive Haiku audit cycles",
+      "impact": "Audit overhead explodes from $4.00 to $8.00+",
+      "mitigation": "Define audit checkpoints upfront (24h, 48h, 72h + 8h spot checks). No additional audits unless Official exceeds soft ceiling."
+    },
+    {
+      "risk_id": "R4",
+      "severity": "HIGH",
+      "name": "Coordination Cascade",
+      "scenario": "Official-Daimyo sync requires multiple back-and-forth clarifications (Haiku messages)",
+      "impact": "Coordination overhead balloons, crowd out shipping budget",
+      "mitigation": "Async BitNet messaging only. One-way briefings. Escalate to voice (zero-token) if sync deadlock needed."
+    },
+    {
+      "risk_id": "R5",
+      "severity": "MEDIUM",
+      "name": "Token Waste on Failed Paths",
+      "scenario": "Official tries a complex approach for Floor 4, hits dead end, must pivot (Daimyo's Order 3: no retries)",
+      "impact": "Tokens spent, no output, waste factor exceeds 10%, Daimyo throttles",
+      "mitigation": "Path B is mandatory. Design simple floor templates first. Reuse patterns. Avoid one-off complexity."
+    },
+    {
+      "risk_id": "R6",
+      "severity": "MEDIUM",
+      "name": "External API Hostility",
+      "scenario": "GitHub/platform API returns 429 (rate limit) or 403 (auth) during critical Floor fetch/deploy",
+      "impact": "Official can't proceed without tokens, forced to retry or burn Haiku",
+      "mitigation": "Cache all inputs locally. Test API access before cycle start. Have alternate paths pre-built.",
+      "cost_if_triggered": "$1.00-2.00 emergency tokens"
+    }
+  ],
+  "risk_mitigation_strategy": "Daimyo enforces Precinct 92 Spend Rules strictly: no Path A (expensive), always Path B (reframe). Every failure is documented for training. The 72-hour cycle is the test — if we fail it, the agency doesn't learn famine discipline."
+}
+{
+  "phase": "EXECUTION_READY",
+  "section": "CHECKPOINT STRUCTURE",
+  "checkpoint_0": {
+    "name": "GO / NO-GO (Hour 0)",
+    "deadline": "2026-03-14T04:03:00Z",
+    "checks": [
+      "BitNet performance tested on sample floor (should run <100 tokens for test)",
+      "Haiku access confirmed (reserve $20 credit available)",
+      "Daimyo dashboard initialized and monitoring active",
+      "Official ready with floor templates and design docs",
+      "ZeroIndex compliance review signed off"
+    ],
+    "decision": "PROCEED if all checks pass. ABORT if BitNet non-functional."
+  },
+  "checkpoint_1": {
+    "name": "24-Hour Mark (Floor 1-3 Complete)",
+    "deadline": "2026-03-15T04:03:00Z",
+    "tokens_remaining": 18125,
+    "cost_remaining": 18.00,
+    "checks": [
+      "Floors 1, 2, 3 all delivered and audit-passed (100/100 quality)",
+      "Cumulative token spend ≤ $2.00 (Haiku baseline) or $0 (all BitNet)",
+      "Daimyo audit clean, no escalations triggered",
+      "ZeroIndex compliance verified for first 3 floors"
+    ],
+    "success_criteria": "If passed: proceed at current pace. If failed: emergency Haiku review + pivot to simpler floor design."
+  },
+  "checkpoint_2": {
+    "name": "48-Hour Mark (Floor 4-5 Complete)",
+    "deadline": "2026-03-16T04:03:00Z",
+    "tokens_remaining": 8125,
+    "cost_remaining": 9.00,
+    "checks": [
+      "Floors 4, 5 completed and audit-passed (100/100 quality)",
+      "Cumulative token spend ≤ $11.00 (50% of $20 budget, 50% of time)",
+      "Daimyo audit on schedule, no cost escalations",
+      "ZeroIndex mid-cycle verification clean"
+    ],
+    "success_criteria": "If passed: final 24h is Floor 6 clean finish. If behind on tokens: reduce Floor 6 complexity or extend BitNet batch size."
+  },
+  "checkpoint_3": {
+    "name": "72-Hour Mark / Cycle Complete (All 6 Floors Shipped)",
+    "deadline": "2026-03-17T04:03:00Z",
+    "tokens_remaining": 0,
+    "cost_remaining": 0.00,
+    "checks": [
+      "Floor 6 complete and audit-passed (100/100 quality)",
+      "Total token spend ≤ $20.00 (or exactly $20.00)",
+      "All 6 floors in production, no rework needed",
+      "Final Daimyo audit: no violations, spend rules honored",
+      "ZeroIndex final reconciliation: compliance green",
+      "Post-cycle report complete: floors shipped, cost per floor, famine discipline intact"
+    ],
+    "success_criteria": "MISSION COMPLETE: 6 floors shipped, quality 100/100 each, $20 budget respected, BitNet sovereignty demonstrated, ready for next famine cycle."
+  }
+}
+{
+  "phase": "COST_PER_FLOOR_BREAKDOWN",
+  "section": "EFFICIENCY ANALYSIS",
+  "targets": {
+    "floors_to_ship": 6,
+    "total_budget": 20.00,
+    "cost_per_floor_target": 3.33,
+    "quality_standard": "100/100 per floor",
+    "efficiency_ratio_target": "3:1 (+1 output : -1 token spend)"
+  },
+  "per_floor_estimates": [
+    {
+      "floor_number": 1,
+      "role": "Template / Baseline",
+      "estimated_tokens": 2500,
+      "estimated_cost_usd": 2.00,
+      "cost_per_floor": 2.00,
+      "notes": "Research + design, establish reusable template for Floors 2-6"
+    },
+    {
+      "floor_number": 2,
+      "role": "Template Reuse (Batch 1)",
+      "estimated_tokens": 1500,
+      "estimated_cost_usd": 1.20,
+      "cost_per_floor": 1.20,
+      "notes": "Adapt template, minimal new code, high reuse"
+    },
+    {
+      "floor_number": 3,
+      "role": "Template Reuse (Batch 1)",
+      "estimated_tokens": 1500,
+      "estimated_cost_usd": 1.20,
+      "cost_per_floor": 1.20,
+      "notes": "Same pattern as Floor 2, batch processing optimization"
+    },
+    {
+      "floor_number": 4,
+      "role": "Template Reuse (Batch 2)",
+      "estimated_tokens": 2000,
+      "estimated_cost_usd": 1.60,
+      "cost_per_floor": 1.60,
+      "notes": "Slightly more complex, but still within template bounds"
+    },
+    {
+      "floor_number": 5,
+      "role": "Template Reuse (Batch 2)",
+      "estimated_tokens": 2000,
+      "estimated_cost_usd": 1.60,
+      "cost_per_floor": 1.60,
+      "notes": "Parallel to Floor 4, shared infrastructure"
+    },
+    {
+      "floor_number": 6,
+      "role": "Final Push / Polishing",
+      "estimated_tokens": 2500,
+      "estimated_cost_usd": 2.00,
+      "cost_per_floor": 2.00,
+      "notes": "Final floor, potential rework buffer, quality lock-in"
+    }
+  ],
+  "total_estimated_cost": 9.60,
+  "overhead_allocation": 10.40,
+  "breakdown_of_overhead": {
+    "Daimyo_auditing": 4.00,
+    "Coordination": 2.00,
+    "ZeroIndex": 1.50,
+    "Emergency_buffer": 2.90
+  },
+  "key_insight": "Official's shipping work is ~$9.60 of $20 budget. Auditing + coordination + compliance take ~$10.40. This is the cost of discipline in a famine. If BitNet works perfectly, all 6 floors can be under $5, leaving $15 as famine insurance."
+}
+{
+  "phase": "EXECUTION_SUMMARY",
+  "section": "FINAL REPORT TEMPLATE",
+  "template": "This will be populated at cycle completion (72h mark). Structure shown for planning purposes."
+}
+{
+  "report_section": "EXECUTIVE SUMMARY",
+  "template_content": {
+    "mission": "Ship 6 floors at 100/100 quality within $20 budget, 72-hour famine cycle",
+    "result": "[TO FILL: SUCCESS / PARTIAL / FAILED]",
+    "floors_shipped": "[TO FILL: 0-6]",
+    "total_cost": "[TO FILL: $X.XX]",
+    "cost_per_floor_actual": "[TO FILL: $X.XX]",
+    "token_efficiency_ratio": "[TO FILL: N:1]",
+    "budget_remaining": "[TO FILL: $X.XX or OVERSPENT by $X.XX]",
+    "key_learnings": "[TO FILL: What worked, what broke, famine lessons]"
+  }
+}
+{
+  "report_section": "FLOORS_SHIPPED",
+  "template_content": {
+    "floor_1": {
+      "status": "[TO FILL: COMPLETE / INCOMPLETE]",
+      "quality_audit": "[TO FILL: 100/100 or N/100]",
+      "tokens_spent": "[TO FILL: N]",
+      "cost": "[TO FILL: $X.XX]",
+      "issues": "[TO FILL: none / list]",
+      "approval": "[TO FILL: Daimyo sign-off]"
+    },
+    "floor_2": {},
+    "floor_3": {},
+    "floor_4": {},
+    "floor_5": {},
+    "floor_6": {}
+  }
+}
+{
+  "report_section": "RISK_EVENTS",
+  "template_content": {
+    "notes": "Any risks from R1-R6 that were triggered?",
+    "events": "[TO FILL: List actual failures/escalations/pivots]",
+    "mitigation_applied": "[TO FILL: What was actually done to recover]",
+    "lessons_for_next_cycle": "[TO FILL: How to prevent or handle faster]"
+  }
+}
+{
+  "report_section": "COORDINATION_HEALTH",
+  "template_content": {
+    "Official_readiness": "[TO FILL: Ready / Strained / Critical]",
+    "Daimyo_audit_load": "[TO FILL: Normal / Heavy / Overloaded]",
+    "BitNet_performance": "[TO FILL: Excellent / Adequate / Failed]",
+    "ZeroIndex_compliance": "[TO FILL: Green / Yellow / Red]",
+    "sync_overhead": "[TO FILL: Actual $ spent vs planned]"
+  }
+}
+{
+  "phase": "COORDINATION_BRIEFING",
+  "section": "WHAT EACH BRANCH NEEDS TO KNOW",
+  "Official_briefing": {
+    "title": "OFFICIAL (Executive/Shipping Branch)",
+    "mission": "Ship 6 floors in 72h at 100/100 quality, stay within $12.50 allocation",
+    "operating_constraints": [
+      "All work defaults to BitNet (local inference, $0.00 cost). Haiku is emergency fallback only.",
+      "Each floor has a target token budget: Floor 1 = 2500, Floors 2-3 = 1500 each, Floors 4-5 = 2000 each, Floor 6 = 2500",
+      "Quality non-negotiable: 100/100 per floor, no exceptions. Rework costs come from YOUR budget, not the general reserve.",
+      "Daimyo audits every 8 hours. If you exceed soft ceiling (80% of $12.50 = $10), Daimyo notifies you immediately.",
+      "Hard ceiling: $12.50 absolute. Anything above triggers an emergency coordination call."
+    ],
+    "success_metrics": [
+      "6 floors shipped by hour 72",
+      "100/100 quality audit on each",
+      "Actual spend ≤ $12.50",
+      "All work routed through BitNet first"
+    ],
+    "failure_modes": [
+      "Floor complexity exceeds budget → escalate to Daimyo, get approval for Haiku emergency use",
+      "BitNet becomes unavailable → use Haiku (tracked separately, may trigger agency replan)",
+      "Quality rejection → rework is YOUR cost, plan accordingly",
+      "Can't ship 6 floors → reduce per-floor complexity, enable simple/reuse-heavy templates"
+    ]
+  },
+  "Daimyo_briefing": {
+    "title": "DAIMYO (Judicial/Enforcement Branch)",
+    "mission": "Audit Official's spend in real-time, enforce Precinct 92 rules, protect the $20 budget",
+    "operating_constraints": [
+      "Official's soft ceiling: $10.00 (80% of $12.50 allocation). At $10.00, issue caution alert.",
+      "Official's hard ceiling: $12.50. At $12.50, you STOP Official immediately, escalate to coordinator.",
+      "Audit checkpoints: every 8 hours (mandatory); additional checks if Official requests or if Daimyo detects anomaly.",
+      "Haiku calls on Daimyo's tab ($4.00 allocation). Every Haiku audit call is an escalation event."
+    ],
+    "audit_checklist": [
+      "Is Official using BitNet first? (Should be 95%+)",
+      "Are floors meeting 100/100 quality?",
+      "Is spend tracking to budget? (Compare actual $ vs hourly pace)",
+      "Any violations of Precinct 92 Spend Rules?",
+      "Is coordination overhead within limits?"
+    ],
+    "escalation_authority": [
+      "Level 0 (Awareness): Log warning if Official hits 75% of budget",
+      "Level 1 (Caution): Alert + notify coordinator if Official hits 80%+",
+      "Level 2 (Restriction): If Official hits 90%, throttle with 500ms delays",
+      "Level 3 (Enforcement): At 100% of soft ceiling, HARD STOP. No further Haiku without coordinator approval."
+    ]
+  },
+  "ZeroIndex_briefing": {
+    "title": "ZEROINDEX (Governance/Compliance Branch)",
+    "mission": "Verify the spend plan is legal and auditable, sign off at checkpoints",
+    "operating_constraints": [
+      "Allocated budget: $1.50 (purely static analysis, no Haiku calls)",
+      "Checkpoints: initial (hour 0), mid-cycle (hour 36), final (hour 72)",
+      "Questions to answer: Does the spend plan violate any Precinct 92 rules? Are the allocations reasonable?",
+      "If plan is ILLEGAL: reject and demand replan BEFORE cycle starts"
+    ],
+    "compliance_checks": [
+      "✅ Are tier allocations within tier budgets? (Official=Tier 2 hard ceiling $150K tokens OK, but soft target is $150K daily... scale to 72h)",
+      "✅ Are checkpoints at 24h, 48h, 72h properly spaced?",
+      "✅ Is Daimyo's audit load within Tier 1 limits?",
+      "✅ Is emergency escalation path documented?",
+      "✅ Are all 6 branches (Official, Daimyo, Coord, ZeroIndex, BitNet, external API) accounted for?"
+    ],
+    "authority": "If ZeroIndex rejects the plan at hour 0, cycle does NOT start until plan is fixed."
+  },
+  "BitNet_briefing": {
+    "title": "BITNET (Local Inference Infrastructure)",
+    "mission": "Provide fast, free local inference for 95%+ of all work. Emergency only: fail gracefully.",
+    "operating_constraints": [
+      "Expected load: ~15,000 tokens over 72 hours (spread across Official's 6 floors + Daimyo's audits + coordination)",
+      "Performance target: 29 tokens/sec (b1.58 2B model on CPU), so 15K tokens ≈ 520 seconds = 8.6 minutes total load over 72 hours",
+      "Availability requirement: 99%+ uptime. If BitNet crashes, Official may need emergency Haiku.",
+      "Fallback protocol: If BitNet returns error, Official may use Haiku (1 call), then retry BitNet. If Haiku used, Daimyo is notified immediately."
+    ],
+    "performance_expectations": [
+      "Floor design/coding: 2000-2500 tokens per floor, should run BitNet",
+      "Quality validation: 300-500 tokens per floor, BitNet",
+      "Audit queries: 100-200 tokens per cycle, BitNet",
+      "Coordination messages: 50-100 tokens per message, BitNet"
+    ]
+  }
+}
+{
+  "metadata": {
+    "status": "READY_FOR_EXECUTION",
+    "approval_chain": "ZeroIndex → Official → Daimyo → Coordinator",
+    "next_action": "Execute checkpoint 0 (GO/NO-GO at hour 0)",
+    "cycle_start": "2026-03-14T04:03:00Z",
+    "cycle_end": "2026-03-17T04:03:00Z",
+    "final_report_due": "2026-03-17T05:03:00Z (1 hour after cycle end)"
+  }
+}

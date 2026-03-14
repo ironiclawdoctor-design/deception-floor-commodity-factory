@@ -1,0 +1,8 @@
+{
+  "agent": "bash-1",
+  "task": "latency_test",
+  "timestamp": "2026-03-14T12:49:39Z",
+  "latency_ms": 176,
+  "tokens_predicted": 5,
+  "success": true
+}

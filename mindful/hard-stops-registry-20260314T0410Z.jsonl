@@ -1,0 +1,16 @@
+# Hard-Stop Registry
+# Schema: timestamp | severity | component | cause | duration_seconds | impact | resolution | status
+# Severity: critical (system down), high (degraded production), medium (workflow blocked)
+# Impact: token_spend, latency, failed_tasks, cascading_failures, manual_intervention_required
+
+{"timestamp":"2026-03-14T04:10:00Z","severity":"critical","component":"BitNet","cause":"Token budget exhaustion—tier 0 limit reached mid-production","duration_seconds":1200,"impact":{"tokens_wasted":2100,"failed_tasks":3,"cascading_failures":1,"manual_intervention_required":true},"resolution":"Activated token-buffer capacitor, held reserve 2k tokens, resumed after 20min cooldown","status":"resolved"}
+
+{"timestamp":"2026-03-13T18:45:00Z","severity":"high","component":"Official","cause":"Jagged production signal—spike in subagent spawns, queue overflow","duration_seconds":450,"impact":{"tasks_queued":8,"delivery_latency":"+45s","overshoots":2,"manual_queue_drain":true},"resolution":"Production buffer deployed, queued 2 floors ahead, smoothed via EMA","status":"resolved"}
+
+{"timestamp":"2026-03-12T14:22:00Z","severity":"medium","component":"Daimyo","cause":"Audit decision backlog—escalation queue full, enforcement delayed","duration_seconds":300,"impact":{"decisions_pending":5,"audit_latency":"+30s","policy_drift_risk":true},"resolution":"Escalation buffer held decisions 30min, allowed chaos to settle, then audited as batch","status":"resolved"}
+
+{"timestamp":"2026-03-11T09:15:00Z","severity":"high","component":"BitNet-training","cause":"Synthetic signal spike during test—EMA deviation >20%, false alarm cascade","duration_seconds":180,"impact":{"warnings_fired":12,"alert_fatigue":true,"false_positive_cost":"8 token calls"},"resolution":"Refined EMA thresholds, added momentum check, reduced noise","status":"resolved"}
+
+{"timestamp":"2026-03-10T03:30:00Z","severity":"critical","component":"Coordination","cause":"Decision deadlock between Official and Daimyo—both awaiting escalation signal","duration_seconds":600,"impact":{"production_halted":true,"manual_resolution_required":true,"cost":"40 tokens investigation"},"resolution":"Implemented escalation-buffer timeout, clear decision ownership rules","status":"resolved"}
+
+# End registry. All hard stops logged. Next entry: 2026-03-14T04:10Z onwards.

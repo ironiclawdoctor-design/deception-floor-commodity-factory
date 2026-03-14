@@ -1,0 +1,16 @@
+{"timestamp": "2026-03-14T12:17:40.259214+00:00", "event": "token_cache_prepared", "severity": "info", "data": {"task_hash": "34e1016b33af41ccc680aa4f53990860", "tokens_saved": 150}}
+{"timestamp": "2026-03-14T12:18:41.666303+00:00", "event": "token_cache_prepared", "severity": "info", "data": {"task_hash": "a89eb2cc3c0d0fd44ad01cdba6666a8c", "tokens_saved": 150}}
+{
+  "timestamp": "2026-03-14T16:53:02Z",
+  "task": "ls -la /root/.openclaw/workspace/*.md | head -5",
+  "tier": "BASH_DIRECT",
+  "cost": "0.0000",
+  "model": "bash"
+}
+{
+  "timestamp": "2026-03-14T16:53:02Z",
+  "task": "ps aux | grep grok | grep -v grep || echo 'Grok running'",
+  "tier": "BASH_DIRECT",
+  "cost": "0.0000",
+  "model": "bash"
+}

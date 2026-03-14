@@ -1,0 +1,298 @@
+#!/bin/bash
+set +e  # Don't exit on non-zero returns (we use them for routing decisions)
+
+################################################################################
+# tier-routing-enforcement.sh
+# 
+# Tier-routing enforcement system that intercepts requests and intelligently
+# routes them to BitNet (local, free) or Haiku (external, logged).
+#
+# Purpose:
+#   - Classify incoming tasks as BitNet-compatible or not
+#   - Route compatible tasks to BitNet local API (127.0.0.1:8080)
+#   - Route complex tasks to Haiku (external) with cost logging
+#   - Log all decisions and costs to hard-stops-registry-YYYYMMDD.jsonl
+#
+# Usage:
+#   ./tier-routing-enforcement.sh [--model MODEL] [--task TASK_DESC] [--prompt PROMPT] [--cost-estimate COST]
+#
+# Examples:
+#   ./tier-routing-enforcement.sh --task "What is 2+2?" --prompt "Simple arithmetic"
+#   ./tier-routing-enforcement.sh --task "Explain quantum mechanics" --model haiku
+#   ./tier-routing-enforcement.sh --task "Write a bash function" --prompt "function to list files"
+#
+################################################################################
+
+# Allow non-zero returns for tier classification logic (0=BitNet, 1=Haiku, 2=Bash)
+# set -e is disabled; errors are caught explicitly
+
+# ============================================================================
+# Configuration
+# ============================================================================
+
+BITNET_HOST="127.0.0.1"
+BITNET_PORT="8080"
+BITNET_URL="http://${BITNET_HOST}:${BITNET_PORT}"
+BITNET_TIMEOUT=2
+REGISTRY_DIR="/root/.openclaw/workspace"
+REGISTRY_FILE="${REGISTRY_DIR}/hard-stops-registry-$(date +%Y%m%d).jsonl"
+LOG_FILE="${REGISTRY_DIR}/tier-routing.log"
+
+# BASH_FIRST patterns (system queries — handle directly, never delegate to LLM)
+BASH_FIRST_PATTERNS=(
+    "^ls|^find|^grep|^cat|^tail|^head|^wc|^du|^df"
+    "^ps|^top|^lsof|^netstat|^ss|^iptables"
+    "^pwd|^cd|^mkdir|^rm|^cp|^mv|^chmod|^chown"
+    "^git|^docker|^kubectl|^systemctl|^journalctl"
+    "^curl|^wget|^ping|^ssh|^scp|^rsync"
+    "list.*files|show.*directory|check.*disk|view.*logs|system.*query"
+    "subagents|running.*processes|network.*status|service.*health|process.*list"
+)
+
+# BitNet compatibility patterns (low-cost, simple tasks)
+BITNET_PATTERNS=(
+    "arithmetic|math|calculate|2\+2|sum|multiply|divide"
+    "hello|hi|greet|simple.*question|faq"
+    "bash|shell|script|command|how.*to.*bash|explain.*grep"
+    "variable|function|syntax|code.*review|debug"
+    "parse|format|json|yaml|toml|xml"
+    "yes|no|true|false|boolean|simple.*logic"
+)
+
+# Haiku patterns (complex, creative, specialized)
+HAIKU_PATTERNS=(
+    "explain.*in.*depth|detailed.*explanation|comprehensive"
+    "creative|write.*story|poetry|fiction|novel"
+    "analysis|research|academic|thesis|paper"
+    "philosophy|ethics|opinion|debate|argument"
+    "image|vision|visual|diagram|draw|design"
+    "translation|language|semantic|nlp"
+    "medical|legal|financial|specialized.*advice"
+    "multi.*step|complex.*reasoning|planning|architecture"
+)
+
+# ============================================================================
+# Utility Functions
+# ============================================================================
+
+log_message() {
+    local level="$1"
+    local msg="$2"
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] [$level] $msg" | tee -a "$LOG_FILE"
+}
+
+# Check if BitNet API is available (non-blocking, fast)
+# Note: This is a placeholder. In production, verify connectivity based on your setup.
+bitnet_available() {
+    # Quick check: assume not available unless explicitly confirmed
+    # To enable: modify this to check actual BitNet health endpoint or port
+    # For now, we always fall back to Haiku (safe default)
+    return 1
+}
+
+# Classify task as BitNet-compatible (returns 0 for BitNet, 1 for Haiku)
+classify_task() {
+    local task_desc="$1"
+    local task_lower=$(echo "$task_desc" | tr '[:upper:]' '[:lower:]')
+    
+    # BASH_FIRST: System queries always handle directly (never delegate)
+    for pattern in "${BASH_FIRST_PATTERNS[@]}"; do
+        if [[ "$task_lower" =~ $pattern ]]; then
+            return 2  # Route to BASH (0=BitNet, 1=Haiku, 2=Bash)
+        fi
+    done
+    
+    # Check BitNet patterns (simple, low-cost tasks)
+    for pattern in "${BITNET_PATTERNS[@]}"; do
+        if [[ "$task_lower" =~ $pattern ]]; then
+            return 0  # Route to BitNet
+        fi
+    done
+    
+    # Check Haiku patterns (complex, creative, specialized)
+    for pattern in "${HAIKU_PATTERNS[@]}"; do
+        if [[ "$task_lower" =~ $pattern ]]; then
+            return 1  # Route to Haiku
+        fi
+    done
+    
+    # Default: unknown task → Haiku (safest fallback for complex reasoning)
+    return 1
+}
+
+# Log decision to registry (append JSON line)
+log_decision() {
+    local task="$1"
+    local model="$2"
+    local prompt="$3"
+    local cost="$4"
+    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    
+    # Safely escape JSON strings
+    local task_escaped=$(echo "$task" | sed 's/\\/\\\\/g; s/"/\\"/g')
+    local prompt_escaped=$(echo "$prompt" | sed 's/\\/\\\\/g; s/"/\\"/g')
+    
+    local entry="{\"timestamp\":\"$timestamp\",\"task\":\"$task_escaped\",\"model\":\"$model\",\"prompt\":\"$prompt_escaped\",\"cost\":\"$cost\"}"
+    
+    echo "$entry" >> "$REGISTRY_FILE"
+    log_message "INFO" "Decision logged: task='$task' model=$model cost=\$$cost"
+}
+
+# Call BitNet local API
+call_bitnet() {
+    local prompt="$1"
+    
+    log_message "DEBUG" "Attempting BitNet call (local, free)"
+    
+    # Non-blocking API call with timeout
+    local response=$(timeout "$BITNET_TIMEOUT" curl -s -m "$BITNET_TIMEOUT" -X POST "${BITNET_URL}/v1/completions" \
+        -H "Content-Type: application/json" \
+        -d "{\"prompt\": \"$prompt\", \"max_tokens\": 500}" 2>/dev/null || echo "")
+    
+    if [[ -z "$response" ]]; then
+        log_message "WARN" "BitNet API unavailable/timeout (will fallback to Haiku)"
+        return 1
+    fi
+    
+    echo "$response"
+    return 0
+}
+
+# Call Haiku external API (cost-tracked)
+call_haiku() {
+    local prompt="$1"
+    
+    log_message "DEBUG" "Routing to Haiku (external, cost-logged)"
+    
+    # Placeholder for Haiku integration
+    # Real implementation would use OpenClaw's Haiku model integration
+    echo "[Haiku response] Processing: ${prompt:0:50}..."
+    return 0
+}
+
+# ============================================================================
+# Main Routing Logic
+# ============================================================================
+
+main() {
+    local task_desc=""
+    local prompt=""
+    local force_model=""
+    local cost_estimate=""
+    
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --task)
+                task_desc="$2"
+                shift 2
+                ;;
+            --prompt)
+                prompt="$2"
+                shift 2
+                ;;
+            --model)
+                force_model="$2"
+                shift 2
+                ;;
+            --cost-estimate)
+                cost_estimate="$2"
+                shift 2
+                ;;
+            *)
+                echo "Unknown option: $1"
+                exit 1
+                ;;
+        esac
+    done
+    
+    # Validate inputs
+    if [[ -z "$task_desc" ]] || [[ -z "$prompt" ]]; then
+        echo "Usage: $0 --task 'DESCRIPTION' --prompt 'YOUR_PROMPT' [--model bitnet|haiku] [--cost-estimate NUM]"
+        exit 1
+    fi
+    
+    log_message "INFO" "=== Tier Routing Decision ==="
+    log_message "INFO" "Task: $task_desc"
+    log_message "INFO" "Prompt length: ${#prompt}"
+    
+    # Determine routing with 3-tier hierarchy: BASH > BitNet > Haiku
+    local target_model="$force_model"
+    if [[ -z "$target_model" ]]; then
+        classify_task "$task_desc"
+        local classification_result=$?
+        
+        case $classification_result in
+            2) target_model="bash" ;;      # System query — handle directly
+            0) target_model="bitnet" ;;    # Simple task — local inference
+            1) target_model="haiku" ;;     # Complex task — external
+        esac
+    fi
+    
+    log_message "INFO" "Target model: $target_model"
+    
+    # Default cost values
+    local cost="0.0000"  # Bash and BitNet are free
+    if [[ "$target_model" == "haiku" ]]; then
+        cost="${cost_estimate:-0.00081}"  # ~$0.81 per 1M tokens
+    fi
+    
+    # Route request (3-tier priority)
+    local response="[No response yet]"
+    case "$target_model" in
+        bash)
+            log_message "INFO" "Routing to BASH (system query, direct execution)"
+            # System queries are handled directly — no LLM needed
+            response="[Bash command routed for direct execution]"
+            cost="0.0000"
+            ;;
+        bitnet)
+            log_message "DEBUG" "Checking BitNet availability..."
+            if bitnet_available; then
+                log_message "DEBUG" "BitNet available, calling API..."
+                response=$(call_bitnet "$prompt")
+                if [[ $? -ne 0 ]]; then
+                    log_message "WARN" "BitNet request failed, falling back to Haiku"
+                    target_model="haiku"
+                    cost="${cost_estimate:-0.00081}"
+                    response=$(call_haiku "$prompt")
+                fi
+            else
+                log_message "WARN" "BitNet unavailable, falling back to Haiku"
+                target_model="haiku"
+                cost="${cost_estimate:-0.00081}"
+                response=$(call_haiku "$prompt")
+            fi
+            ;;
+        haiku)
+            response=$(call_haiku "$prompt")
+            ;;
+        *)
+            log_message "ERROR" "Unknown model: $target_model"
+            exit 1
+            ;;
+    esac
+    
+    # Log decision
+    log_decision "$task_desc" "$target_model" "$prompt" "$cost"
+    
+    # Output result
+    echo ""
+    echo "=== ROUTING RESULT ==="
+    echo "Model: $target_model"
+    echo "Cost: \$$cost"
+    echo "---"
+    echo "$response"
+}
+
+# ============================================================================
+# Ensure registry directory exists
+# ============================================================================
+
+mkdir -p "$REGISTRY_DIR"
+
+# ============================================================================
+# Run main function
+# ============================================================================
+
+main "$@"

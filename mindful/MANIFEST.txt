@@ -1,0 +1,358 @@
+================================================================================
+MANIFEST — Mindful Famine-Cycle Spend Simulation
+================================================================================
+
+Cycle ID:          famine-cycle-01
+Timestamp:         2026-03-14T04:03:00Z
+Status:            COMPLETE — ALL DELIVERABLES READY FOR EXECUTION
+Location:          /root/.openclaw/workspace/mindful/
+
+================================================================================
+DELIVERABLES
+================================================================================
+
+1. SPEND_PLAN
+   File: spend-plan-72h-2026-03-14T04.03Z.jsonl
+   Format: JSONL (JSON Lines, machine-readable with human metadata)
+   Size: ~24 KB
+   Contains:
+     - Cycle metadata (ID, start/end times, budget, alert level)
+     - Budget allocation strategy (Official, Daimyo, Coordination, ZeroIndex)
+     - Per-branch breakdown (tokens, costs, rationale)
+     - 72-hour timeline with 6 checkpoints
+     - Cost-per-floor analysis
+     - Risk events summary
+     - Coordination briefing (what each branch needs to know)
+   Purpose: Master document for budget allocation and timeline
+   Use by: Coordinator, Official, Daimyo, ZeroIndex
+
+2. RISK_ASSESSMENT
+   File: risk-assessment-72h.md
+   Format: Markdown
+   Size: ~15 KB
+   Contains:
+     - Risk matrix (6 risks: R1-R6, severity/probability/impact/mitigation)
+     - Deep dive on each risk (scenario, why it kills us, mitigation, action if triggered)
+     - Critical risks: R1 (BitNet failure), R2 (Quality rejection), R3 (Over-auditing)
+     - High risks: R4 (Coordination cascade), R5 (Token waste), R6 (API hostility)
+     - Escalation cascade (decision tree by hour)
+     - Abort conditions (when to stop)
+     - Famine lessons template (TBD after cycle)
+   Purpose: Risk identification and mitigation playbook
+   Use by: Coordinator, Daimyo, all branches (understand what kills the agency)
+
+3. EXECUTION_CHECKLIST
+   File: EXECUTION_CHECKLIST.md
+   Format: Markdown with checkbox fields
+   Size: ~14 KB
+   Contains:
+     - Pre-cycle validation (Phase 1-4: Infrastructure, Briefing, Technical, GO/NO-GO)
+     - 7 checkpoint sections (hours 8, 16, 24, 36, 48, 60, 72)
+     - During-cycle tracking (floors shipped, quality audit, budget status, efficiency, decisions)
+     - Post-cycle (final audit, report generation, debrief scheduling)
+     - Sign-off fields (all branches must approve at each checkpoint)
+   Purpose: Sacred, itemized execution checklist (must complete every item before proceeding)
+   Use by: Coordinator (chief executor of checklist)
+
+4. COORDINATION_DECISIONS_LOG
+   File: coordination-decisions-log.md
+   Format: Markdown with decision template
+   Size: ~6 KB
+   Contains:
+     - Decision format specification (template: actors, context, options, decision, rationale, cost)
+     - Pre-cycle decisions (D-00 GO/NO-GO)
+     - Cycle decisions (D-01+ to be populated during execution)
+     - Key decision patterns (when R1-R4 trigger, expected decision sequence)
+     - Cumulative impact tracking (running tally of decisions and costs)
+     - Post-cycle analysis framework
+   Purpose: Real-time decision journaling and escalation tracking
+   Use by: Coordinator (updates during cycle), all branches (review decisions)
+
+5. QUICK_REFERENCE
+   File: QUICK_REFERENCE.txt
+   Format: Plain text (print-friendly)
+   Size: ~14 KB
+   Contains:
+     - Budget at a glance (total, per-branch, soft/hard ceilings)
+     - Mission critical (6 floors, 100/100 quality, $20, 72h)
+     - Checkpoint schedule (hours 8, 16, 24, 36, 48, 60, 72)
+     - Budget soft/hard ceilings (per branch with escalation triggers)
+     - Key risks & triggers (R1-R6 summary, what to do when they fire)
+     - 6 execution rules (non-negotiable)
+     - Escalation authority (who has power at each level)
+     - Batch operations (token reuse strategy per floor)
+     - Abort conditions (4 criteria for stopping the cycle)
+     - Emergency decision tree (when BitNet fails, quality fails, etc.)
+     - Success metrics (at hour 72)
+     - Token budget allocation (per branch, detailed breakdown)
+     - Abort conditions (when NOT to continue)
+     - Emergency contacts (decision trees for critical situations)
+     - Notes for Coordinator (authority, responsibility, key principle)
+     - Endurance mantra ("Over one token famines...")
+   Purpose: Condensed cheat sheet for easy reference during cycle
+   Use by: All branches (print and post on desk)
+
+6. README
+   File: README.md
+   Format: Markdown
+   Size: ~15 KB
+   Contains:
+     - Delivery overview (what's included, status, mission statement)
+     - How to execute (3 phases: pre-cycle, execution, post-cycle)
+     - Key metrics (budget pacing, floors shipped, quality, efficiency)
+     - Critical constraints (Emerald Green RED, $20 hard budget, 6 floors, 100/100 quality, famine discipline)
+     - Precinct 92 Spend Rules summary (7 key rules)
+     - What this cycle tests (5 areas: sovereignty, discipline, coordination, risk mgmt, compliance)
+     - How to read the folder (guidance per role: Coordinator, Official, Daimyo, ZeroIndex)
+     - Sign-off & approvals checklist
+     - Emergency escalation paths
+     - Success indicators (complete/partial/failed)
+     - Context (external docs, hierarchy, prayer)
+   Purpose: Complete user guide and context
+   Use by: All branches (understand the full mission)
+
+7. DELIVERY_SUMMARY
+   File: DELIVERY_SUMMARY.md
+   Format: Markdown
+   Size: ~12 KB
+   Contains:
+     - Mission accomplished summary
+     - What was delivered (7 documents with descriptions)
+     - Delivery stats (documents, lines, checkpoints, risks, etc.)
+     - What to do next (hour -4 to hour 72+ timeline)
+     - Key takeaways per role (Official, Daimyo, Coordinator, ZeroIndex)
+     - Critical success factors (6 items)
+     - What this teaches (success/failure scenarios)
+     - Acceptance criteria (subagent completion checklist)
+     - Final status (COMPLETE)
+   Purpose: Meta-documentation, status summary, handoff document
+   Use by: Main agent (to verify delivery), Coordinator (to understand scope)
+
+8. MANIFEST
+   File: MANIFEST.txt (this file)
+   Format: Plain text
+   Size: ~6 KB
+   Contains:
+     - Complete file listing with descriptions
+     - Purpose and usage guidance per document
+     - Relationship between documents
+     - How to navigate the folder
+   Purpose: Directory and index
+   Use by: All branches (find what you need)
+
+================================================================================
+DOCUMENT RELATIONSHIPS
+================================================================================
+
+Spend Plan (1)
+  └─ Provides budget allocation, timeline, risk matrix overview
+  └─ References: Risk Assessment (2) for deeper analysis
+
+Risk Assessment (2)
+  └─ Expands on risks mentioned in Spend Plan (1)
+  └─ Referenced by: Execution Checklist (3), Quick Reference (5)
+
+Execution Checklist (3)
+  └─ Implements Spend Plan (1) timeline and checkpoints
+  └─ References: Risk Assessment (2) for escalation authority
+  └─ Feeds into: Coordination Decisions Log (4)
+
+Coordination Decisions Log (4)
+  └─ Records decisions implied in Execution Checklist (3)
+  └─ Populates decision template shown in this file
+  └─ Becomes input for Delivery Summary (7) post-cycle analysis
+
+Quick Reference (5)
+  └─ Condenses Spend Plan (1), Risk Assessment (2), Checklist (3)
+  └─ Portable summary for immediate reference during cycle
+  └─ Maps to: README (6) for full context
+
+README (6)
+  └─ Provides full context and user guidance
+  └─ References all other documents (1-7)
+  └─ Entry point for any reader
+
+Delivery Summary (7)
+  └─ Summarizes all deliverables (1-7)
+  └─ Explains what was done and why
+  └─ Provides final status and next steps
+  └─ Used by: Main agent to verify completion
+
+Manifest (8)
+  └─ Index of all files
+  └─ Navigation guide
+  └─ This file
+
+================================================================================
+READING ORDER (BY ROLE)
+================================================================================
+
+COORDINATOR (Decision-maker, overseer):
+  1. README.md (15 min) — Understand full mission
+  2. QUICK_REFERENCE.txt (5 min) — Know the rules
+  3. spend-plan-72h-[TIMESTAMP].jsonl (20 min) — Study timeline & budget
+  4. risk-assessment-72h.md (20 min) — Know the risks & escalations
+  5. EXECUTION_CHECKLIST.md (20 min) — Understand what to validate
+  6. coordination-decisions-log.md (10 min) — Know how to track decisions
+  Total prep time: ~1.5 hours
+  During cycle: Keep Decisions Log open, update in real-time
+
+OFFICIAL (Shipping, building floors):
+  1. QUICK_REFERENCE.txt (5 min) — Know your budget & targets
+  2. spend-plan-72h-[TIMESTAMP].jsonl, section "Official_shipping" (10 min)
+  3. risk-assessment-72h.md, sections R1/R2/R5 (10 min)
+  4. Get briefed by Coordinator at hour 0
+  Total prep time: ~30 min
+  During cycle: Ask Coordinator for decisions, ship floors per plan
+
+DAIMYO (Auditing, enforcement):
+  1. QUICK_REFERENCE.txt (5 min) — Know your budget & escalation authority
+  2. spend-plan-72h-[TIMESTAMP].jsonl, section "Daimyo_auditing" (10 min)
+  3. risk-assessment-72h.md, all sections (20 min) — Know when to escalate
+  4. Get briefed by Coordinator at hour 0
+  Total prep time: ~45 min
+  During cycle: Track Official's spend hourly, audit at scheduled times, escalate per checklist
+
+ZEROINDEX (Compliance, legal):
+  1. README.md, section "Critical Constraints" (5 min)
+  2. spend-plan-72h-[TIMESTAMP].jsonl (10 min) — Verify allocations are within tier budgets
+  3. run compliance check: `./scripts/check-compliance.sh` (5 min) — Should show no violations
+  4. Get briefed by Coordinator at hour -3
+  Total prep time: ~20 min
+  Role: Approve at hours 0, 36, 72. Otherwise minimal involvement.
+
+================================================================================
+CRITICAL FILES (MUST HAVE)
+================================================================================
+
+To execute the cycle, you MUST have:
+  ✅ spend-plan-72h-2026-03-14T04.03Z.jsonl (master budget & timeline)
+  ✅ risk-assessment-72h.md (know the risks)
+  ✅ EXECUTION_CHECKLIST.md (validation & checkpoints)
+  ✅ QUICK_REFERENCE.txt (cheat sheet on desk)
+  ✅ coordination-decisions-log.md (decision tracking)
+  ✅ README.md (context & guidance)
+
+Supporting files (helpful but not critical):
+  ℹ️  DELIVERY_SUMMARY.md (understand what was built)
+  ℹ️  MANIFEST.txt (this file, for navigation)
+
+================================================================================
+SUCCESS CRITERIA
+================================================================================
+
+Subagent has successfully completed the task if:
+  ✅ Spend plan shows detailed allocation of $20 across Official, Daimyo, coordination
+  ✅ Risk assessment identifies what kills the agency if tokens run out early
+  ✅ Execution framework (checklist + decisions log) is ready for real-time use
+  ✅ Coordination structure defines sync points (Official ↔ Daimyo ↔ Coordinator)
+  ✅ All documentation is complete and cross-referenced
+  ✅ Official is briefed on budget ($12.50), targets (6 floors, 100/100 quality), constraints
+
+Main agent can proceed with cycle execution if:
+  ✅ All 7 documents are present and readable
+  ✅ Spend plan is legal under Precinct 92 rules (ZeroIndex approval)
+  ✅ Pre-cycle checklist is completed (GO/NO-GO decision made)
+  ✅ All branches are briefed and standing by
+  ✅ BitNet has been tested and confirmed functional
+
+================================================================================
+POST-CYCLE FILES (TBD AT HOUR 72+)
+================================================================================
+
+These files will be created DURING and AFTER the cycle:
+
+- resistance-log.md
+  Purpose: Log any failures, escalations, violations
+  Created: When first risk/violation occurs
+  Updated: Throughout cycle
+  Finalized: At hour 72+
+
+- decisions-72h.md
+  Purpose: Extended decisions log (coordination-decisions-log.md continues but decision details expand here)
+  Created: At hour 0 (D-01 entry)
+  Updated: Each time a decision is made
+  Finalized: At hour 72
+
+- post-incident-72h-[TIMESTAMP].md
+  Purpose: Final report (floors shipped, costs, lessons)
+  Created: At hour 72+1
+  Contains: Executive summary, floors shipped & QA, risk events, coordination health, lessons learned
+  Archive: Saved for next cycle planning
+
+================================================================================
+QUICK START (FOR BUSY PEOPLE)
+================================================================================
+
+You have 5 minutes? Read QUICK_REFERENCE.txt
+
+You have 30 minutes? Read README.md + QUICK_REFERENCE.txt
+
+You have 1 hour? Read README.md, then scan spend-plan-72h-[TIMESTAMP].jsonl
+
+You have 2 hours? Read everything in this order:
+  1. README.md (15 min)
+  2. QUICK_REFERENCE.txt (5 min)
+  3. spend-plan-72h-[TIMESTAMP].jsonl (20 min)
+  4. risk-assessment-72h.md (20 min)
+  5. EXECUTION_CHECKLIST.md, Pre-Cycle section (10 min)
+  6. DELIVERY_SUMMARY.md (10 min)
+
+You have 4+ hours? Become an expert (read all 8 files in order, note questions, get briefed)
+
+================================================================================
+SUPPORT & QUESTIONS
+================================================================================
+
+If you're unclear on:
+  • What the cycle is → Read README.md, section "Mission Statement"
+  • How much to spend → Read QUICK_REFERENCE.txt, section "BUDGET AT A GLANCE"
+  • What can go wrong → Read risk-assessment-72h.md, section "RISK MATRIX"
+  • How to execute → Read EXECUTION_CHECKLIST.md
+  • Who decides what → Read QUICK_REFERENCE.txt, section "ESCALATION AUTHORITY"
+  • What counts as success → Read README.md, section "Success Indicators"
+
+Ask Coordinator if:
+  • You need a decision (that's their job)
+  • You hit an error or unexpected situation
+  • You need to override a rule (requires documented rationale)
+  • You want to escalate a concern
+
+================================================================================
+FINAL CHECKLIST (BEFORE STARTING CYCLE)
+================================================================================
+
+□ Read README.md (understand the mission)
+□ Read QUICK_REFERENCE.txt (know the rules)
+□ Review spend-plan-72h-[TIMESTAMP].jsonl (understand timeline & budget)
+□ Review risk-assessment-72h.md (know what can go wrong)
+□ Run Pre-Cycle Checklist from EXECUTION_CHECKLIST.md (validate infrastructure)
+□ Get briefed by Coordinator (Official, Daimyo, ZeroIndex each get briefed)
+□ Approve GO/NO-GO decision (Coordinator leads, ZeroIndex must approve)
+□ Print QUICK_REFERENCE.txt and post on desk
+□ Have coordination-decisions-log.md open and ready
+□ Set alerts for checkpoint times (hours 8, 16, 24, 36, 48, 60, 72)
+□ Confirm BitNet is working (test with sample code)
+□ Confirm Haiku access (test with minimal API call)
+□ Ready to begin at Hour 0
+
+When ALL boxes are checked: CYCLE START IS AUTHORIZED
+
+================================================================================
+METADATA
+================================================================================
+
+Created by:        Mindful Subagent
+For:               Famine Cycle 72h Simulation  
+Budget:            $20 total
+Tokens:            ~20,000 (estimate)
+Cycle Start:       2026-03-14T04:03:00Z
+Cycle End:         2026-03-17T04:03:00Z
+Delivered:         2026-03-14T04:03:00Z
+Status:            COMPLETE — READY FOR EXECUTION
+Authority:         Precinct 92, Spend Rules Engine, Daimyo Orders
+Prayer:            Over one token famines but far less than a trillion
+
+================================================================================
+END OF MANIFEST
+================================================================================

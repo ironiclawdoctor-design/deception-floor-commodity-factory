@@ -1,0 +1,2 @@
+{"timestamp":"2026-03-14T03:52:00Z","event":"vigilance_initialized","schema":"bleed-log","version":"1.0","description":"Token bleed monitoring log. Schema: {timestamp, event, api, tokens, caller_context, call_type, severity, baseline_exceeded}"}
+{"timestamp":"2026-03-14T03:53:15Z","event":"vigilance_activated","severity":"info","status":"monitoring_online","baseline":"local_only","external_calls_per_hour_threshold":3,"daily_spend_threshold":5.00,"single_call_token_threshold":2000}

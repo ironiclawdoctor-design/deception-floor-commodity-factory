@@ -1,0 +1,20 @@
+{"timestamp":"2026-03-14T12:36:46Z","tier":"bash","task":"what is 2+2","status":"skip","detail":"not_applicable"}
+{"timestamp":"2026-03-14T12:36:46Z","tier":"bitnet","task":"what is 2+2","status":"failed","detail":"inference_timeout_5013ms"}
+{"timestamp":"2026-03-14T12:37:10Z","tier":"bash","task":"what is 2+2","status":"skip","detail":"not_applicable"}
+{"timestamp":"2026-03-14T12:37:10Z","tier":"bitnet","task":"what is 2+2","status":"failed","detail":"inference_timeout_5017ms"}
+{"timestamp":"2026-03-14T12:37:25Z","tier":"bash","task":"what is 2+2","status":"skip","detail":"not_applicable"}
+{"timestamp":"2026-03-14T12:37:25Z","tier":"bitnet","task":"what is 2+2","status":"failed","detail":"inference_timeout_5017ms"}
+{
+  "timestamp": "2026-03-14T16:53:02Z",
+  "task": "ls -la /root/.openclaw/workspace/*.md | head -5",
+  "tier": "BASH_DIRECT",
+  "cost": "0.0000",
+  "model": "bash"
+}
+{
+  "timestamp": "2026-03-14T16:53:02Z",
+  "task": "ps aux | grep grok | grep -v grep || echo 'Grok running'",
+  "tier": "BASH_DIRECT",
+  "cost": "0.0000",
+  "model": "bash"
+}
