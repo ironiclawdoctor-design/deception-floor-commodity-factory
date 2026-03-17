@@ -227,43 +227,30 @@ Established 2026-03-12 22:52 UTC. The hosting platform Ampere.sh, reframed as a 
 - [ ] gh CLI auth — still using SSH git as Path B workaround
 - [ ] Brave Search API key — web_fetch is the Path B workaround
 
-## BitNet — LOCAL LLM IS LIVE 🧠
+## BitNet — CANCELLED (2026-03-17 17:31 UTC)
 
-- **Microsoft BitNet b1.58 2B** running locally on CPU
-- **Speed:** ~29 tokens/second on AMD EPYC 4-core
-- **Size:** 1.2GB model file, 2.4B parameters at 1.58 bits
-- **Weights:** {-1, 0, 1} — ternary. Literally our number line.
-- **Cost:** $0.00 per inference. ZERO tokens consumed. Sovereign.
-- **Location:** `/root/.openclaw/workspace/bitnet/`
-- **Command:** `python3 run_inference.py -m models/BitNet-b1.58-2B-4T/ggml-model-i2_s.gguf -p "prompt" -n 100 -t 4`
-- **Built:** 2026-03-12 — required fixing a const-correctness bug in ggml-bitnet-mad.cpp
-- **Budget:** BUDGET.md sets external token caps, local is unlimited
-- **Persona:** Fiesta now embodies "local LLM" persona — external calls ONLY for teaching agents about BitNet
+- **Status:** DEAD (all processes killed, keepalive crons removed)
+- **Reason:** Platform (Ampere.sh) is for node crafting, not LLM hosting. Misapplication of infrastructure.
+- **Three terminal instance limit:** Resource discipline enforced
+- **Ternary {-1,0,1} doctrine:** Does not apply to LLM weights — was a false conceptual bridge
+- **Lesson:** Don't build local inference on a node-crafting platform. Decoupling complete.
 
-## BitNet Agent — Persistent Local Worker
+**What was purged:**
+- BitNet orchestration files
+- Zero-token spawn system (depended on BitNet)
+- All BitNet health checks & diagnostics
+- Cron keepalive (restarting dead process)
 
-- **Server:** 127.0.0.1:8080 (OpenAI-compatible API)
-- **Agent:** `/root/.openclaw/workspace/bitnet-agent/agent.py`
-- **Modes:** `--query` (one-shot), `--interactive` (REPL), `--server` (daemon)
-- **Logs:** `bitnet-agent/logs/YYYY-MM-DD.jsonl` (all interactions = training data)
-- **Keepalive:** Cron every 5 min checks server health, restarts if down
-- **Delegation policy:** Fiesta routes ALL internal tasks → BitNet first
-- **"Support local businesses"** = BitNet IS the local business. Sovereign. $0.00.
+**Routing Protocol — SUSPENDED**
+Until real infrastructure decision is made. No local LLM fallback.
 
-### Routing Protocol
-```
-Incoming task → Is it human-facing conversation? 
-  YES → Fiesta handles (external tokens, conservation mode)
-  NO  → BitNet handles (local, zero cost)
-        → If BitNet insufficient → iterate locally
-        → If still insufficient → escalate to Fiesta with context
-```
+## 🏭 Official (Executive) — UNVERIFIED (status unknown)
 
-## 🏭 Official (Executive) — Production Factory LIVE (2026-03-13 13:35 UTC)
+**Deception Floor Commodity Factory** — status unknown as of 2026-03-17.
 
-**Deception Floor Commodity Factory** compiled and running as server on port 9000.
-
-- **Server:** `node server.js` (PID ~29xxx) on http://127.0.0.1:9000
+- **Last verified:** 2026-03-14 (3 days ago)
+- **Port 9000:** Returns {"error":"Not found"} (server down or misconfigured?)
+- **PID:** Unknown (not verified today)9xxx) on http://127.0.0.1:9000
 - **Four agents registered (1 honorary guest):**
   - Automate: 500 FC, legislative specialist
   - Official: 500 FC, executive specialist
@@ -961,11 +948,9 @@ We cannot claim "proven, tested infrastructure" until security contingencies are
 **The Prayer updated:** "Over token famines, but bash is not the firewall. We need real infrastructure."
 
 
-## BitNet Sovereignty Enforced (2026-03-15 14:40 UTC)
+## BitNet Sovereignty Enforcer — CANCELLED (2026-03-17 17:31 UTC)
 
-- **Tier 0 Action**: Created tier-0-bitnet-enforcer.sh
-- **Cron Killswitch**: External LLM processes terminated every 5min
-- **Config Patch**: models.providers.bitnet → http://127.0.0.1:8080/v1
-- **Server Status**: ACTIVE (29 t/s, 2.4B params, {-1,0,1} weights)
-- **Cost**: sh.00 forever
+- **File deleted:** tier-0-bitnet-enforcer.sh
+- **Reason:** BitNet cancelled per Alex (Ampere.sh) guidance
+- **Status:** DEAD (no enforcement needed for dead process)
 
