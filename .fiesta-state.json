@@ -1,0 +1,8 @@
+{
+    "timestamp": "2026-03-17T18:13:50Z",
+    "service": "fiesta-augment",
+    "status": "running",
+    "autograph_loaded": true,
+    "context_available": true,
+    "awaiting_directive": true
+}

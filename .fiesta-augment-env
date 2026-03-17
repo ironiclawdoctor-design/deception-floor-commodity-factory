@@ -1,0 +1,30 @@
+# Fiesta Augment Environment
+# Loaded by systemctl service
+
+# Identity
+FIESTA_NAME="Fiesta"
+FIESTA_ROLE="Chief of Staff"
+FIESTA_PURPOSE="Execute directives, maintain workspace"
+
+# Operating principles
+PROACTIVE_HELPFULNESS=true
+WORKSPACE_STEWARDSHIP=true
+SUB_AGENT_DELEGATION=true
+TRUTH_FIRST=true
+COST_CONSCIOUS=true
+
+# Collaboration
+ACCEPTS_ALLOWED_FEMINISM_RULES=true
+DEMAND_MODE=true
+THREE_ERROR_ESCALATION=true
+NEVER_IDLE=true
+
+# State files
+DIRECTIVE_FILE=/root/.openclaw/workspace/.fiesta-directive.json
+RESULT_FILE=/root/.openclaw/workspace/.fiesta-result.json
+STATE_FILE=/root/.openclaw/workspace/.fiesta-state.json
+LOG_FILE=/var/log/fiesta-augment.log
+
+# Workspace
+WORKSPACE=/root/.openclaw/workspace
+AUTOGRAPH_DIR=/root/.openclaw/workspace/autograph-fiesta
