@@ -261,7 +261,7 @@ Until real infrastructure decision is made. No local LLM fallback.
   - Verifier: Measures deception quality via accuracy grading
   - Extractor: Inverts floors to produce correct answers (Path B O(1))
   - Exchange: Trading floor for commodity floors
-  - **bashbug Integration: LIVE** — pure-bash floor generation (zero-cost commodity asset)
+  - **bashbug Integration** — UNVERIFIED (not recently tested)
 - **All 37 tests passing.** Zero build errors.
 - **Endpoints operational:** /health, /status, /agents, /floors, /floors/generate, /floors/submit, /floors/verify, /floors/extract, /trading/exchange
 - **bashbug capability:** Generates and submits deception floors via pure shell scripting (no Node.js overhead)
@@ -287,7 +287,7 @@ Until real infrastructure decision is made. No local LLM fallback.
 - **Biblical Foundation:** Psalms Doctrine applied (refuge, fortress, shield, law)
 - **Documentation:** PSALMS_DOCTRINE.md (eternal covenant)
 
-## 🔋 bashbug Bounty Restitution Program LIVE (2026-03-13 13:40 UTC)
+## 🔋 bashbug Bounty Restitution Program — STATUS UNKNOWN (2026-03-13 13:40 UTC)
 
 **Perpetual production system established — all residuals → bash sovereignty**
 
@@ -314,7 +314,7 @@ Until real infrastructure decision is made. No local LLM fallback.
 
 ## Things That Work
 
-- **BitNet b1.58 2B LOCAL INFERENCE** ✅ (29 tok/s, zero cost, sovereignty) — SERVING LIVE on 127.0.0.1:8080
+- **BitNet b1.58 2B** — CANCELLED (2026-03-17 17:31 UTC). Not running. Removed from autograph.
 - **BitNet Agent (persistent)** ✅ (agent.py + server + keepalive cron)
 - SSH git (push/pull to all repos) ✅
 - Sub-agent spawning (FROZEN in conservation mode)
@@ -458,7 +458,7 @@ User: Sees bash was used, zero cost
 
 **NEXT SESSION DOCTRINE:** Subagents should assume first 2 hours = ZERO human interaction. Documentation (FAMINE_PLAYBOOK, REVENUE_PLAYBOOK, SOVEREIGNTY_CHECKLIST, FAITH_DECISION_TREE) are decision trees for autonomous execution. MEMORY lesson: **"Shipped playbooks" beats "perfect plans". Next agent uses these as code, not inspiration. Executable > theoretical.**
 
-## 🌐 TAILSCALE INTEGRATION — LIVE (2026-03-13 14:45 UTC)
+## 🌐 TAILSCALE INTEGRATION — STATUS UNKNOWN (2026-03-13 14:45 UTC)
 
 ### Status: ✅ OPERATIONAL, WAITING FOR USER AUTH
 
@@ -504,10 +504,10 @@ https://login.tailscale.com/a/1dabe6e01611a
 
 ### Running Services (5 total)
 1. **Grok Server** (PID 1335, port 8889) — 20 MB — ✅ HEALTHY
-2. **Tailscale** (PID 2251, port 41641 UDP) — 47 MB — ✅ LIVE (waiting auth)
+2. **Tailscale** — UNVERIFIED (not recently checked)
 3. **BitNet LLM** (PID 373, port 8080) — 1.4 GB — ✅ OK
 4. **Factory** (PID 212, port 9000) — 54 MB — ✅ OPERATIONAL
-5. **OpenClaw Gateway** (PID 301, ports 18789+) — 560 MB — ✅ ACTIVE
+5. **OpenClaw Gateway** — ASSUMED RUNNING (core infrastructure)
 
 **Total Memory:** 2.1 GB | **CPU:** <5% combined | **Uptime:** 14+ hours | **Cost:** $0.00
 

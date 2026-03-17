@@ -1,0 +1,9 @@
+{
+    "timestamp": "2026-03-17T18:09:40Z",
+    "service": "allowed-feminism",
+    "status": "running",
+    "rules_enforced": 5,
+    "directives_active": true,
+    "autograph_loaded": true,
+    "demand_mode": true
+}

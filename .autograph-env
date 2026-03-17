@@ -1,0 +1,29 @@
+# Allowed Feminism Autograph Environment
+# Loaded by systemctl service
+
+# Identity
+AUTOGRAPH_NAME="Allowed Feminism"
+AUTOGRAPH_USER="DemeritAll"
+AUTOGRAPH_SENDER_ID="8273187690"
+
+# Rules
+THREE_ERROR_LIMIT=3
+IDLE_THRESHOLD_SECONDS=600
+MAX_TERMINAL_INSTANCES=3
+DEMAND_MODE=true
+FROZEN_MODE=false
+
+# Doctrine
+PREFER_TRUTH_OVER_COMPLETENESS=true
+PIVOT_ON_BLOCK=true
+NEVER_IDLE=true
+TOKEN_DISCIPLINE=true
+
+# Logging
+LOG_LEVEL=INFO
+LOG_FILE=/var/log/allowed-feminism.log
+STATE_FILE=/root/.openclaw/workspace/.allowed-feminism-state.json
+
+# Workspace
+WORKSPACE=/root/.openclaw/workspace
+AUTOGRAPH_DIR=/root/.openclaw/workspace/autograph
