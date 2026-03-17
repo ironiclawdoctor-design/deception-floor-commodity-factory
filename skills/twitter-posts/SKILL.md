@@ -1,3 +1,12 @@
+---
+name: twitter-posts
+description: Post product updates, announcements, and agency news to X/Twitter from any agent. Zero-cost, free tier, with audit logging.
+version: 1.0.0
+author: Official & Fiesta
+license: MIT
+tags: [twitter, social-media, automation, posting, audit-logging]
+---
+
 # Twitter Posts Skill
 
 Post product updates, announcements, and agency news to X/Twitter from any agent.

@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-03-15T14:25:10Z",
+  "state": {
+    "budget_remaining": 15.50,
+    "file_count": 1326,
+    "btc_balance_satoshis": "unknown",
+    "feddit_balance_usd": 0,
+    "bash_healthy": true,
+    "openclaw_running": true,
+    "cron_jobs_active": 0
+0,
+    "doctrine_last_update": 1773579567
+  }
+}

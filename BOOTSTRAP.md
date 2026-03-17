@@ -121,6 +121,51 @@ Tier 3: HAIKU — External only, frozen until BitNet ≥85%, cost tracked
 
 **Rule:** Never skip tiers. Bash before BitNet. BitNet before Haiku.
 
+### Security Rules (Added 2026-03-15)
+
+⚠️ **CRITICAL:** Read `security-rules-registry-20260315.jsonl` before operating. This session extracted **18 security rules** from all historical session mistakes.
+
+**Core Security Rules (SR-001 through SR-008):**
+
+| Rule | Mistake | Response |
+|------|---------|----------|
+| **SR-001** | Output layer typos (social engineering signal) | Assume output compromised → full audit → rebuild from JSON |
+| **SR-002** | Bash whitelist as firewall (false security) | Reject assumption → use container sandbox → assume Telegram leaked |
+| **SR-003** | Telegram + sensitive files on same machine | Isolate trust → separate machine → hardware wallet → rotate token |
+| **SR-004** | Hidden costs ($39/month subscription not tracked) | Audit assumptions → include subscription in budget → daily balance alerts |
+| **SR-005** | Bitcoin balance untested (dust UTXO problem) | Verify spendability → testnet transaction → don't claim until verified |
+| **SR-006** | Output corruption (repo push typo signal) | Assume full breach → audit all files → verify no exfiltration |
+| **SR-007** | Incomplete incident response (one file reverted) | Full IR procedure → find ALL modified files → patch source → rotate creds |
+| **SR-008** | Single point of failure (Telegram as control) | Multipath control → offline auth → crypto signing → separate data/state |
+
+**Operational Security Rules (SR-009 through SR-018):**
+
+| Rule | Mistake | Response |
+|------|---------|----------|
+| **SR-009** | Session not compacted (user error) | IF active >8h OR lines >5000 THEN alert + auto-compact + archive |
+| **SR-010** | No token budgeting per agent | Assign budget ceilings → real-time tracking → hard-stop at 100% |
+| **SR-011** | No circuit breaker on cascading costs | System daily cap → rate monitoring → warn at 1000 tok/h, halt at 2000 |
+| **SR-012** | Escalation protocol missing | Log severity → Daimyo summary → push to all channels → await ACK |
+| **SR-013** | Context drift (state not audited) | Weekly baseline audit → log divergences → rebuild MEMORY.md → close loop |
+| **SR-014** | Hallucination creep (inference vs observed) | Query bash first → tag [OBSERVED] vs [INFERRED] → low confidence inference |
+| **SR-015** | Cost accounting gaps (invisible charges) | Monthly audit all accounts → cross-reference logs → update BUDGET.md |
+| **SR-016** | Human system interruption (402 on mobile) | Human refund overrides cost logic → audit why → patch → no repeat |
+| **SR-017** | Rapid deployment without governance | Daimyo oversight → daily agent audits → approval for new spawns |
+| **SR-018** | Failure documentation missing | Barrier incident markdown → required fields → git commit → quarterly review |
+
+**What Changed from 2026-03-14:**
+- Extracted 18 security rules from session history (comprehensive, not cherry-picked)
+- Identified bash whitelist as inadequate security
+- Removed claim "bash is firewall" — bash is the attack surface
+- Added token subscription cost tracking requirement
+- Added full incident response procedures (not partial fixes)
+- Changed threat model from "Telegram is safe" to "Assume Telegram is compromised"
+- Added user error (session compaction) as formal security rule
+- Added governance and operational security rules (not just technical)
+
+**Machine-Readable Registry:**
+All rules stored in `/root/.openclaw/workspace/security-rules-registry-20260315.jsonl` (JSONL format, queryable).
+
 ### Cost Discipline
 - Every decision logged to hard-stops-registry (queryable)
 - All costs tracked to cent
@@ -162,6 +207,7 @@ This is your survival doctrine. Bash is always available. Tokens will run out. P
 ├── MEMORY.md                        # Long-term decisions
 ├── AGENTS.md                        # Workspace rules
 ├── USER.md                          # Who we serve
+├── security-rules-registry-*.jsonl  # Security rules (read first!)
 ├── tier-routing-enforcement.sh      # Decision tree (executable)
 ├── agency-wallet/                   # Wallet software (executable)
 ├── www/landing.html                 # Revenue landing page

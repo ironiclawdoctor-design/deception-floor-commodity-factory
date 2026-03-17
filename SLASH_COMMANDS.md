@@ -1,159 +1,90 @@
-# Slash Commands — Transparent LLM Routing
+# SLASH COMMANDS - Telegram Integration
 
-## `/truthfully` — Honest Cost & LLM Reporting
+All slash commands are auto-registered from `/root/scripts/*.sh` and available in Telegram chat.
 
-Ask a question and get back **exactly what LLM answered it**, along with **transparent cost tracking**.
+## Auto-Generated Commands (Index 0-36)
 
-### Usage
-
-```
-/truthfully [prompt]
-```
-
-### Examples
+Run `/menu list` in Telegram to see all available commands, or:
 
 ```
-/truthfully What is 2+2?
-/truthfully Explain quantum mechanics
-/truthfully Write a bash function to list files
+/run N              Run script by index (e.g., /run 5)
+/info N             Show script details by index
+/list               Show all available scripts
 ```
 
-### Output
+## Script-Based Slash Commands
 
+Each executable script in `/root/scripts/` is automatically:
+1. **Discovered** (zero-indexed 0-N)
+2. **Registered** to Telegram as `/<script-name>`
+3. **Documented** with first comment line as description
+
+### Example Commands
+
+- `/menu` — Show interactive script menu
+- `/tier-routing-enforcement` — Route queries by cost tier
+- `/truthfully-status-cron` — Cost reporting with transparency
+- `/bitnet-diagnostics` — Health check local LLM
+- `/broadcast-status` — Send agency status to all branches
+- `/famine-watch` — Monitor token bleed (critical alert)
+- `/complain` — Log grievances / document frustrations
+- `/grudges` — Registry of unresolved issues
+
+## How to Use
+
+### Interactive (in Telegram)
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 /truthfully — Transparent LLM Routing
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-[LLM: BITNET] Cost: $0.00 | Tokens: 0 | ✅ Local, Sovereign
-
-Prompt: What is 2+2?
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-4
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📊 Cost Summary (logged):
-   LLM Tier: BITNET
-   Cost: $0.00
-   Tokens: 0
-   Registry: /root/.openclaw/workspace/hard-stops-registry-20260314.jsonl
+/menu
+# Then select by number or type:
+# /run 5 -- run script 5
+# /info 7 -- show details for script 7
+# /list -- show all scripts
 ```
 
-### What It Does
+### Direct (in Telegram)
+```
+/tier-routing-enforcement query "my prompt"
+/bitnet-diagnostics
+/truthfully-status-cron
+```
 
-1. **Routes intelligently** — Uses tier-routing-enforcement to classify your prompt
-2. **Selects the right LLM:**
-   - **BitNet** (local, $0.00) — Simple questions, arithmetic, bash, logic
-   - **Haiku** (external, tracked) — Complex reasoning, creative work, analysis
-3. **Reports transparently:**
-   - Which LLM actually answered
-   - Exact cost (or $0.00 for local)
-   - Token count (for Haiku)
-4. **Logs everything** — All decisions go to `hard-stops-registry-YYYYMMDD.jsonl`
-
-### Key Features
-
-✅ **Transparency:** Know exactly what LLM answered and what it cost  
-✅ **Cost Control:** Simple tasks never touch expensive models  
-✅ **Sovereignty:** BitNet stays local ($0.00)  
-✅ **Auditability:** Every decision logged to registry  
-✅ **No Surprises:** Prompts routed consistently by the same rules  
-
-### Implementation
-
-- **Script:** `/root/.openclaw/workspace/lib/slash-truthfully.sh`
-- **Routing Engine:** `/root/.openclaw/workspace/tier-routing-enforcement.sh`
-- **Cost Registry:** `/root/.openclaw/workspace/hard-stops-registry-YYYYMMDD.jsonl`
-- **Logs:** `/root/.openclaw/workspace/slash-truthfully.log`
-
-### Integration
-
-**For OpenClaw UI:**
+### Programmatic (from bash)
 ```bash
-/truthfully What is the capital of France?
+# Run by index
+/root/scripts/menu.sh run 5
+
+# List all
+/root/scripts/menu.sh list
+
+# Show info
+/root/scripts/menu.sh info 3
 ```
 
-**From scripts:**
-```bash
-bash /root/.openclaw/workspace/lib/slash-truthfully.sh "Your prompt here"
-```
+## Registry Location
 
-**From Node/Python:**
-```javascript
-// Call the bash script with your prompt
-exec(`bash /root/.openclaw/workspace/lib/slash-truthfully.sh "${prompt}"`);
-```
+- **Slash command registry:** `/root/.openclaw/workspace/slash-commands-registry.txt`
+- **Menu cache:** `/tmp/scripts-menu-cache.txt`
+- **Descriptions:** `/tmp/scripts-descriptions.txt`
 
-### Cost Tracking
+## Cost Discipline
 
-Every `/truthfully` call is logged to the hard-stops registry:
+All slash commands route through Tier 0-2:
+- **Tier 0:** Bash queries (system, file ops) — **$0.00**
+- **Tier 1:** BitNet queries (local LLM) — **$0.00**
+- **Tier 2:** Haiku queries (external) — **FROZEN** (cost-tracked, monitoring only)
 
-```json
-{
-  "timestamp": "2026-03-14T12:27:01Z",
-  "event": "slash_truthfully",
-  "source": "user_command",
-  "prompt": "What is 2+2?",
-  "llm_tier": "BITNET",
-  "cost": "$0.00",
-  "tokens": "0",
-  "status": "success"
-}
-```
+No slash command will escalate to external API without explicit approval.
 
-Query the registry:
-```bash
-grep "slash_truthfully" /root/.openclaw/workspace/hard-stops-registry-*.jsonl | jq '.data | {llm_tier, cost, tokens}' | head -10
-```
+## Auto-Registration
 
-### Tier Routing Rules (3-Tier Priority)
+Every time `/menu` or any script is run:
+1. Scripts in `/root/scripts/` are discovered
+2. Descriptions extracted from comment headers
+3. Telegram slash command registry updated
+4. Cache refreshed in `/tmp/`
 
-**Tier 0: BASH (Direct Execution, $0.00):**
-System queries — NEVER sent to any LLM:
-- File operations: `ls`, `find`, `grep`, `cat`, `tail`, `head`
-- Process info: `ps`, `top`, `lsof`, `netstat`
-- Directory ops: `pwd`, `cd`, `mkdir`, `rm`, `cp`, `mv`, `chmod`
-- Git/Docker/K8s: `git`, `docker`, `kubectl`, `systemctl`
-- Network: `curl`, `wget`, `ping`, `ssh`, `scp`, `rsync`
-- Special: `subagents data`, system queries, process lists
-
-**Tier 1: BitNet (Local, $0.00):**
-Simple tasks — local inference:
-- Arithmetic, math, calculations (2+2, sum, multiply, divide)
-- Bash/shell syntax, command explanation
-- Simple yes/no, true/false, boolean logic
-- Data parsing (JSON, YAML, XML)
-- FAQ, simple lookups, variable definitions
-- Code syntax, basic debugging
-
-**Tier 2: Haiku (External, Token Cost):**
-Complex tasks — only if Bash + BitNet insufficient:
-- Detailed explanations, comprehensive analysis
-- Creative writing, poetry, fiction, storytelling
-- Research, academic papers, thesis work
-- Philosophy, ethics, opinions, debates
-- Multi-step reasoning, planning, architecture
-- Medical, legal, financial specialized advice
-- Translation, semantic analysis, NLP tasks
-
-### Monitoring
-
-Check command usage:
-```bash
-tail -20 /root/.openclaw/workspace/slash-truthfully.log
-```
-
-Summarize costs:
-```bash
-grep "slash_truthfully" /root/.openclaw/workspace/hard-stops-registry-*.jsonl \
-  | jq -r '.data | "\(.llm_tier) \(.cost)"' \
-  | sort | uniq -c | sort -rn
-```
+**No manual editing required.** Add a script to `/root/scripts/`, run `/menu list`, it appears.
 
 ---
 
-**Philosophy:** Truth > Secrets. Cost > Guesses. Local > Cloud.  
-**The Prayer:** "Over one token famine, but bash never freezes."
+Last updated: 2026-03-15 14:21 UTC

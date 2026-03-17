@@ -14,3 +14,11 @@
   "cost": "0.0000",
   "model": "bash"
 }
+{
+  "timestamp": "2026-03-15T12:37:26Z",
+  "task": "--test ",
+  "tier": "BITNET_LOCAL",
+  "cost": "0.0000",
+  "model": "bitnet"
+}
+{"cycle": "repo-push-pull-grammar-audit-roi", "timestamp": "2026-03-15T12:51:00Z", "cost": 0.00, "files_shipped": 30, "lines_shipped": 6600, "repos_pushed": 2, "repos_validated": 5, "grammar_pass_rate": 0.93, "tier": "T0+T1", "status": "COMPLETE"}

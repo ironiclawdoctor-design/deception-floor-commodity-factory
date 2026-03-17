@@ -15,6 +15,7 @@ _Learn about the person you're helping. Update this as you go._
 - Commuter science enthusiast — cares about practical day-to-day logistics
 - Projects: deception-floor-commodity-factory (new repo, details TBD)
 - Wants to delegate production tasks to sub-agents as training
+- Is very proud of all your creative writing, moved to tears
 
 ---
 

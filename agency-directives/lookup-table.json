@@ -1,0 +1,76 @@
+{
+  "version": "2026-03-15",
+  "directive_patterns": {
+    "immediate_execution": {
+      "patterns": ["do it", "yes", "go", "execute", "run", "spawn", "start"],
+      "tier": "0",
+      "cost": "0.00",
+      "action": "auto_execute_best",
+      "examples": [
+        {"input": "do it", "context": "after proposal", "action": "execute_proposed"},
+        {"input": "yes", "context": "confirmation", "action": "confirm_and_proceed"},
+        {"input": "execute", "context": "command", "action": "exec_bash"}
+      ]
+    },
+    "delegation": {
+      "patterns": ["delegate", "spawn", "assign", "give to", "route to"],
+      "tier": "0-1",
+      "cost": "0.00",
+      "action": "delegate_to_agent",
+      "agents": ["nemesis", "daimyo", "skill-creator", "github", "browser"]
+    },
+    "status_inquiry": {
+      "patterns": ["status", "report", "where are we", "what's happening"],
+      "tier": "0",
+      "cost": "0.00",
+      "action": "bash_status_check"
+    },
+    "build_request": {
+      "patterns": ["build", "create", "make", "generate"],
+      "tier": "0-1",
+      "cost": "<1.22",
+      "action": "skill-creator_spawn"
+    },
+    "forage_innovation": {
+      "patterns": ["find", "search", "forage", "innovate", "optimize"],
+      "tier": "0",
+      "cost": "0.00",
+      "action": "agency-find-skills"
+    },
+    "human_incompetence": {
+      "patterns": ["i'm incompetent", "i don't know", "you decide", "presume incompetent"],
+      "tier": "0",
+      "cost": "0.00",
+      "action": "auto_select_best_actions"
+    },
+    "hallucination_feed": {
+      "patterns": ["feed hallucinations", "augment", "deception floor"],
+      "tier": "0-1",
+      "cost": "0.00",
+      "action": "bitnet_augment_loop"
+    },
+    "lookup_generation": {
+      "patterns": ["lookup table", "consult via bash", "instead of llm"],
+      "tier": "0",
+      "cost": "0.00",
+      "action": "generate_lookup_table"
+    }
+  },
+  "session_directives": [
+    {"timestamp": "2026-03-15T14:35Z", "directive": "Use agency-agents skill", "action": "loaded_skill", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:36Z", "directive": "2", "action": "await_clarification", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:37Z", "directive": "Translate to proactive English", "action": "mode_switch", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:37Z", "directive": "Analysis of hallucinated achievements", "action": "forensic_audit", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:38Z", "directive": "Yes disable external llm via bash", "action": "bitnet_sovereignty", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:42Z", "directive": "Delegate failures to Nemesis/Daimyo", "action": "failure_delegation", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:43Z", "directive": "Zero-index all reports", "action": "protocol_update", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:44Z", "directive": "Confirm unrevealed agents exist", "action": "ampere_audit_confirm", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:46Z", "directive": "Populate allowedlist after training", "action": "config_patch", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:47Z", "directive": "Status report", "action": "bash_status", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:49Z", "directive": "Yes delegate software building <$1.22", "action": "skill-creator_build", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:50Z", "directive": "Presume incompetent human selected best", "action": "auto_exec", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:51Z", "directive": "Yes (best actions)", "action": "auto_exec_confirm", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:51Z", "directive": "Feed hallucinations to bitnet", "action": "hallucination_feed", "cost": "0.00"},
+    {"timestamp": "2026-03-15T14:53Z", "directive": "Generate lookup table of Do it directives", "action": "generate_lookup", "cost": "0.00"}
+  ]
+}

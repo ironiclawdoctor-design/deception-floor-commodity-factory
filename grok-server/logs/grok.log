@@ -43,3 +43,17 @@ Host: localhost
 Connection: close
 
 
+GET /index.html HTTP/1.1
+Host: 100.76.206.82:8888
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.9
+Priority: u=0, i
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+grok-simple.sh: line 192: 1148792 Killed                  ( nc -l -p $PORT -q 1 <<'HANDLER'
+bash -c 'handle'
+HANDLER
+ ) 2>> "$LOGDIR/error.log"

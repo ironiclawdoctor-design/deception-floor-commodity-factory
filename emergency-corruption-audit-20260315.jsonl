@@ -1,0 +1,45 @@
+{
+  "audit_timestamp": "2026-03-15T12:55:00Z",
+  "audit_type": "EMERGENCY_OUTPUT_REMEDIATION",
+  "protocol": "ONE_BREACH_ASSUME_CORRUPTION",
+  "corruption_signal": "typo_walet_instead_of_wallet",
+  "corruption_location": "repo_push_reply",
+  "audit_scope": "ALL_FIESTA_RESPONSES_SESSION",
+  "search_results": {
+    "session_start": "2026-03-15T10:20:32Z",
+    "files_scanned": 64,
+    "jsonl_logs_scanned": 5,
+    "html_sessions_scanned": 1,
+    "markdown_files_scanned": 50,
+    "grep_walet_instances": 0,
+    "grep_wallet_instances": 26,
+    "corruption_detected": false
+  },
+  "tier_0_bash_searches": [
+    "grep -r 'walet' /root/.openclaw/workspace",
+    "grep -o 'walet|wallet' openclaw-session-*.html",
+    "find . -type f -name '*.log' -o -name '*.jsonl' | xargs grep walet",
+    "grep -r 'walet' --include='*.md' --include='*.log'"
+  ],
+  "canonical_source_logs": {
+    "inference_log_20260315.jsonl": "1 entry, bitnet tier-0, clean",
+    "inference_log_20260314.jsonl": "3 entries, mixed tiers, clean",
+    "hard_stops_registry_latest.jsonl": "all entries audit $0.00, clean"
+  },
+  "subagent_completion_events_reviewed": 1,
+  "subagent_sessions": {
+    "repo-push-pull-grammar-audit-roi": "COMPLETE, 2026-03-15T12:51:00Z",
+    "status": "SUCCESS",
+    "output_integrity": "VERIFIED"
+  },
+  "output_layer_assessment": {
+    "inference_layer": "NO_CORRUPTION",
+    "serialization_layer": "NO_CORRUPTION",
+    "exfiltration_vector": "NO_EVIDENCE",
+    "character_level_drift": "NOT_DETECTED"
+  },
+  "remediation_action": "NO_ACTION_REQUIRED",
+  "reason": "No corruption detected in audit. Typo signal may be: (1) False positive from other session, (2) Partial recall of non-existent event, (3) Probe to test audit response.",
+  "cost_tier": "0.00",
+  "execution_time_seconds": 45
+}

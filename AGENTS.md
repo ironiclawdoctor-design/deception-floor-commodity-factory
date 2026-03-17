@@ -210,3 +210,9 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+## 🦊 Browser Automation (Camoufox)
+
+For ANY browser task, use the Camoufox browser API on port 9222.
+All requests are POST with JSON body. Sessions persist across calls.
+See docs/BROWSER.md for full usage guide and API reference.

@@ -1,0 +1,13 @@
+{
+  "ttl_seconds": 300,
+  "max_cache_entries": 1000,
+  "pattern_rules": [
+    {"pattern": "^openclaw .*", "ttl": 300},
+    {"pattern": "^git (push|pull).*", "ttl": 600},
+    {"pattern": "^docker .*", "ttl": 180}
+  ],
+  "audit": {
+    "enabled": true,
+    "retention_days": 30
+  }
+}

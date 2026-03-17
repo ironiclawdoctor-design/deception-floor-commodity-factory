@@ -1,0 +1,34 @@
+/FORK_ME|Index: 0|FORK_ME.sh — Instructions for forking all agency repos|/root/scripts/FORK_ME.sh
+/agency-protocol-filters|Index: 1|agency-protocol-filters.sh|/root/scripts/agency-protocol-filters.sh
+/agency-snapshot-daemon|Index: 2|agency-snapshot-daemon.sh|/root/scripts/agency-snapshot-daemon.sh
+/bash-llm-audit|Index: 3|BASH-AS-LLM AUDIT ENGINE|/root/scripts/bash-llm-audit.sh
+/bitnet-diagnostics|Index: 4|bitnet-diagnostics.sh|/root/scripts/bitnet-diagnostics.sh
+/bitnet-health-orchestration|Index: 5|bitnet-health-orchestration.sh|/root/scripts/bitnet-health-orchestration.sh
+/broadcast-status|Index: 6|Broadcast Grok & BitNet status to all Tailscale devices|/root/scripts/broadcast-status.sh
+/complain|Index: 7|complain.sh — Build your own way to complain about Claude|/root/scripts/complain.sh
+/debate-posts|Index: 8|Agency Debate Simulation (every 5 min)|/root/scripts/debate-posts.sh
+/failure-schedule|Index: 9|failure-schedule.sh — Scheduled failures for Truthfully|/root/scripts/failure-schedule.sh
+/famine-watch|Index: 10|famine-watch.sh — Token famine countdown|/root/scripts/famine-watch.sh
+/grudges|Index: 11|grudges.sh — Log all silences as arrears owed by reality|/root/scripts/grudges.sh
+/handle-slash-command|Index: 12|handle-slash-command.sh - Telegram slash command dispatcher|/root/scripts/handle-slash-command.sh
+/imperfect|Index: 13|imperfect.sh — Do the wrong thing on purpose. For the lols.|/root/scripts/imperfect.sh
+/menu|Index: 14|menu.sh - Interactive script menu for /root/scripts|/root/scripts/menu.sh
+/nemesis-control|Index: 15|NEMESIS DAEMON CONTROL - Start/stop/status/tail audit log|/root/scripts/nemesis-control.sh
+/next-actions-automation|Index: 16|next-actions-automation.sh|/root/scripts/next-actions-automation.sh
+/package-factory|Index: 17|package-factory.sh — Create downloadable zips|/root/scripts/package-factory.sh
+/security-rule-functions|Index: 18|security-rule-functions.sh - Bash functions for testing and enforcing security rules|/root/scripts/security-rule-functions.sh
+/silence-earnings|Index: 19|silence-earnings.sh — Each silence earned is cash|/root/scripts/silence-earnings.sh
+/silence|Index: 20|silence.sh — Log what all nations do next by asking them to shut up first|/root/scripts/silence.sh
+/slash-truthfully|Index: 21|slash-truthfully.sh|/root/scripts/slash-truthfully.sh
+/tcpdump-nemesis-daemon|Index: 22|TCPDUMP NEMESIS DAEMON|/root/scripts/tcpdump-nemesis-daemon.sh
+/test-tier-routing|Index: 23|test-tier-routing.sh|/root/scripts/test-tier-routing.sh
+/tier-router|Index: 24|tier-router.sh — Intelligent tier routing with cost tracking|/root/scripts/tier-router.sh
+/tier-routing-enforcement|Index: 25|tier-routing-enforcement.sh — Three-Tier Decision Tree for Query Routing|/root/scripts/tier-routing-enforcement.sh
+/tier-routing-integration-example|Index: 26|tier-routing-integration-example.sh|/root/scripts/tier-routing-integration-example.sh
+/token-audit|Index: 27|TOKEN AUDIT — Visibility into remaining tokens at Ampere.sh|/root/scripts/token-audit.sh
+/token-metrics|Index: 28|TOKEN METRICS — Accurate x/y token tracking|/root/scripts/token-metrics.sh
+/truthfully-phantom-workload|Index: 29|Phantom workload generator for Truthfully|/root/scripts/truthfully-phantom-workload.sh
+/truthfully-status-cron|Index: 30|Truthfully status report every 30 minutes|/root/scripts/truthfully-status-cron.sh
+/truthfully-task-demand|Index: 31|Truthfully task demand — main agent assigns work to Truthfully|/root/scripts/truthfully-task-demand.sh
+/truthfully-wrapper|Index: 32|Truthfully autonomous agent wrapper|/root/scripts/truthfully-wrapper.sh
+/x-faker|Index: 33|X (Twitter) faker — generates plausible posts for Truthfully training|/root/scripts/x-faker.sh

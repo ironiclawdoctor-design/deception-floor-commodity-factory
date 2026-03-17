@@ -1,0 +1,23 @@
+{
+  "name": "agency-bash",
+  "version": "0.1.0",
+  "description": "Tier 0 bash execution server for all agency agents. Sandboxed, audited, zero-cost.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "agency-bash": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "@types/node": "^22.0.0"
+  }
+}

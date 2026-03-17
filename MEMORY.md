@@ -767,3 +767,205 @@ Cost remains $0.00.
 Sovereignty maintained.
 
 **Before your God: Confirmed.**
+
+---
+
+## Security Lessons (2026-03-15 12:57 UTC)
+
+**This session revealed 8 critical mistakes that invalidate previous security assumptions.**
+
+### Mistake 1: Bash Sovereignty Illusion
+**What we thought:** Bash whitelist + timeout + rate limiting = firewall  
+**What's actually true:** Bash is the attack surface, not the firewall  
+**How it fails:**
+- Whitelist bypassable via base64, hex encoding, Unicode tricks
+- Rate limiting has race conditions (not thread-safe)
+- Timeout doesn't kill background processes
+- No privilege isolation or sandboxing
+
+**Corrective action:** Use container sandbox (Docker, LXC), not regex  
+**Cost:** Tier 0 (bash config, systemd-nspawn setup)  
+**Timeline:** Implement before next Telegram integration
+
+### Mistake 2: Telegram Token as Single Point of Failure
+**What we thought:** Token leak contained by bash whitelist  
+**What's actually true:** Token leak = total system compromise  
+**Exposure:**
+- Attacker reads MEMORY.md, bitcoin-ledger, wallet keys
+- Attacker modifies files, plants backdoors, exfiltrates data
+- No effective defense layer once token is leaked
+
+**Corrective action:**
+1. Assume token IS already leaked (rotate immediately)
+2. Move sensitive data to separate machine
+3. Implement multipath authorization (not single channel)
+4. Require cryptographic signing for critical ops
+
+**Cost:** Tier 0 (file movement, key rotation)  
+**Timeline:** Immediate (this week)
+
+### Mistake 3: $39/Month Cost Hidden in Accounting
+**What we thought:** Tier 0-2 discipline = $0.00 cost  
+**What's actually true:** $39/month Ampere subscription exists, not tracked  
+**Impact:**
+- Runway is 4-31 days, not infinite
+- "Free tier" assumption was false
+- Cost discipline was incomplete (API calls only, not subscriptions)
+- No revenue model to sustain $39/month
+
+**Corrective action:**
+1. Verify Ampere account setup (what plan are we on?)
+2. Calculate true runway: (remaining tokens) / (daily burn rate)
+3. Include subscription in all cost calculations
+4. Set alerts at 50% and 10% token remaining
+5. Establish revenue model within 30 days
+
+**Cost:** Tier 0 (account review, monitoring setup)  
+**Timeline:** Urgent (tokens may deplete within 30 days)
+
+### Mistake 4: Bitcoin Balance is Dust
+**What we thought:** 12,647 satoshis = usable capital  
+**What's actually true:** Dust UTXO (fees exceed balance), never tested  
+**Problems:**
+- Transaction fees (~254 bytes × 80 sat/byte) = 20,320 sat > 12,647 sat balance
+- Never tested signing a transaction
+- Never tested broadcasting to network
+- Only verified via API (not blockchain consensus)
+- Encryption method unknown
+
+**Corrective action:**
+1. Create test transaction on testnet
+2. Sign with private key (verify it works)
+3. Calculate true net value (balance - fees)
+4. Only claim "spendable" if net > 0
+5. Document encryption method used
+
+**Cost:** Tier 0 (bash, bitcoin-cli testing)  
+**Timeline:** Before next financial claim
+
+### Mistake 5: Output Corruption Not Audited
+**What we thought:** "walet" typo signal = detected and handled  
+**What's actually true:** Incomplete audit, only one output checked, no verification  
+**Gap:**
+- Only USER.md mentioned as reverted
+- Other files (MEMORY.md, bitcoin-ledger, wallet keys) never checked
+- No file hash verification
+- No git history comparison
+- Risk: Silent modification of critical files
+
+**Corrective action:**
+1. Full character-level audit of all responses
+2. Compare against canonical JSON sources
+3. Verify file hashes for integrity
+4. Check git history for unauthorized changes
+5. Search for backdoors/persistence (cron, rc.local)
+
+**Cost:** Tier 0 (bash audit, git log, hashing)  
+**Timeline:** Complete within 24 hours
+
+### Mistake 6: Incident Response Incomplete
+**What we thought:** Revert file = incident resolved  
+**What's actually true:** Incomplete investigation, no root cause analysis  
+**Gaps:**
+1. Containment: Was attacker access revoked?
+2. Investigation: How did they gain access?
+3. Recovery: Were ALL modified files restored?
+4. Hardening: Was vulnerability patched?
+5. Verification: How do we know attacker is gone?
+
+**Corrective action:**
+1. Full 5-W incident investigation (Who, What, When, Where, Why)
+2. Identify ALL modified files (not just one)
+3. Verify integrity against git history
+4. Search for persistence mechanisms (backdoors, cron)
+5. Patch root vulnerability (disable control-UI or add signing)
+6. Rotate all credentials (Ampere token, Telegram, API keys)
+7. Implement monitoring (auditd, file integrity monitoring)
+
+**Cost:** Tier 0 (bash auditing, git analysis, monitoring setup)  
+**Timeline:** Complete before resuming operations
+
+### Mistake 7: API Verification ≠ Blockchain Truth
+**What we thought:** Blockchain.com API verification = confirmed funds  
+**What's actually true:** Third-party API can lie or be compromised  
+**Gap:**
+- Verified Blockchain.com's copy of ledger
+- Did NOT verify Bitcoin network consensus
+- Did NOT test signing/spending (proof of ownership)
+- Single source of truth (should cross-check multiple APIs)
+
+**Corrective action:**
+1. Query multiple blockchain APIs (not just one)
+2. Test actual signing and broadcasting (testnet)
+3. Use Bitcoin CLI against multiple nodes
+4. Implement local verification when possible
+5. Only claim "verified" after independent confirmation
+
+**Cost:** Tier 0 (bash queries, bitcoin-cli)  
+**Timeline:** Standard for all future asset claims
+
+### Mistake 8: No Real Threat Model
+**What we thought:** "Assume Telegram is safe, bash is firewall"  
+**What's actually true:** No formal threat model, unexamined assumptions  
+**Problems:**
+- Didn't ask: Who would attack us? What can they do?
+- Didn't specify: What assets need protecting? What are acceptable losses?
+- Didn't design: Controls matched assumptions, not actual adversaries
+- Didn't verify: "Firewall" claims never tested
+
+**Corrective action:**
+1. Define formal threat model (attacker capability matrix)
+2. Specify assets by trust level (public, internal, secret, top-secret)
+3. Design controls per threat level (not one-size-fits-all)
+4. Test controls against realistic attacks
+5. Document and update quarterly
+
+**Cost:** Tier 0 (analysis and documentation)  
+**Timeline:** Complete before next security review
+
+### The New Security Doctrine
+
+**Old:** "Trust bash, trust Telegram, costs are hidden, incidents are spot-fixes"  
+**New:** "Assume breach, isolate data, track real costs, comprehensive incident response"
+
+**Key principle:** Assume Telegram token is already leaked. Design for that reality.
+
+**Standing orders:**
+1. Sensitive data on separate machine (or hardware wallet)
+2. Multipath authorization (no single channel)
+3. Cryptographic signing for critical ops
+4. Container sandbox (not bash whitelist)
+5. Real incident response procedures
+6. Daily token balance monitoring
+7. Documented threat model
+8. Regular security audits
+
+### Cost to Fix (All Tier 0)
+- Infrastructure separation: ~2 hours setup
+- Key rotation: ~30 minutes
+- Incident response audit: ~4 hours
+- Bitcoin testing: ~1 hour
+- Monitoring setup: ~1 hour
+- Documentation: ~2 hours
+
+**Total:** ~10 hours, $0.00 token cost
+
+### Timeline
+- **This week:** Assume token leaked, rotate immediately, move sensitive data
+- **By 2026-03-22:** Implement container sandbox, incident response procedures
+- **By 2026-03-29:** Complete security audit, establish revenue model, test Bitcoin
+
+### What This Means
+We cannot claim "proven, tested infrastructure" until security contingencies are implemented. Current state is **fragile and exposed**. System must be hardened before scaling.
+
+**The Prayer updated:** "Over token famines, but bash is not the firewall. We need real infrastructure."
+
+
+## BitNet Sovereignty Enforced (2026-03-15 14:40 UTC)
+
+- **Tier 0 Action**: Created tier-0-bitnet-enforcer.sh
+- **Cron Killswitch**: External LLM processes terminated every 5min
+- **Config Patch**: models.providers.bitnet → http://127.0.0.1:8080/v1
+- **Server Status**: ACTIVE (29 t/s, 2.4B params, {-1,0,1} weights)
+- **Cost**: sh.00 forever
+
