@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grok AI - Local Inference, Zero Data Leaks</title>
+    <title>Help Us Build Open AI Infrastructure</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #fafafa;
         }
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             color: white;
             padding: 120px 20px;
             text-align: center;
@@ -26,10 +27,13 @@
             font-size: 20px;
             margin-bottom: 30px;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .cta-button {
             background: white;
-            color: #667eea;
+            color: #ff6b35;
             padding: 15px 40px;
             font-size: 18px;
             border: none;
@@ -39,184 +43,161 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
             text-decoration: none;
+            margin: 10px;
         }
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 80px 20px;
         }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+        .section {
             margin: 60px 0;
-        }
-        .feature {
-            padding: 30px;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            text-align: center;
-            transition: border-color 0.2s;
-        }
-        .feature:hover {
-            border-color: #667eea;
-        }
-        .feature h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-        .pricing {
-            background: #f9f9f9;
-            padding: 80px 20px;
             text-align: center;
         }
-        .pricing h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #ff6b35;
         }
-        .price-card {
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 20px 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+        .why-section {
             background: white;
-            padding: 40px;
+            padding: 60px 20px;
             border-radius: 8px;
-            max-width: 400px;
-            margin: 0 auto;
-            border: 2px solid #eee;
+            margin: 40px 0;
         }
-        .price-card h3 {
+        .why-section h3 {
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
         }
-        .price {
-            font-size: 48px;
-            color: #667eea;
-            font-weight: 700;
+        .why-list {
+            text-align: left;
+            display: inline-block;
             margin: 20px 0;
         }
-        .price-card p {
+        .why-list li {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .donation-section {
+            background: #ff6b35;
+            color: white;
+            padding: 80px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .donation-section h2 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .donation-section p {
+            color: white;
+            font-size: 18px;
             margin-bottom: 30px;
-            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .price-card ul {
-            list-style: none;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .price-card ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .price-card ul li:before {
-            content: "✓ ";
-            color: #667eea;
+        .donate-btn {
+            background: white;
+            color: #ff6b35;
+            padding: 18px 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: 700;
-            margin-right: 10px;
+            transition: all 0.2s;
+        }
+        .donate-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
         footer {
             background: #333;
-            color: white;
+            color: #999;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 80px;
+            padding: 40px 20px;
+            font-size: 14px;
         }
-        .status {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
+        footer a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .affiliate-link {
+            margin-top: 20px;
             font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
     <div class="hero">
-        <h1>Grok AI</h1>
-        <p>Local Inference. Sovereign. Zero Data Leaks.</p>
-        <p style="font-size: 16px; opacity: 0.8;">Your AI doesn't need the cloud. It lives here.</p>
-        <a href="#pricing" class="cta-button">Get Started Today</a>
+        <h1>Open AI Infrastructure</h1>
+        <p>We're building distributed AI systems that respect privacy, transparency, and autonomy. Your support helps us continue.</p>
+        <a href="#donate" class="cta-button">Support Our Work</a>
     </div>
 
-    <!-- Features Section -->
     <div class="container">
-        <h2 style="font-size: 36px; text-align: center; margin-bottom: 50px;">Why Grok?</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>🏠 Local-First</h3>
-                <p>Runs on your infrastructure. No cloud required. Complete sovereignty over your data and inference.</p>
-            </div>
-            <div class="feature">
-                <h3>🔒 Zero Data Leaks</h3>
-                <p>Your prompts never leave your network. End-to-end encrypted via WireGuard. Military-grade security.</p>
-            </div>
-            <div class="feature">
-                <h3>⚡ Real-Time Inference</h3>
-                <p>29 tokens/second on standard CPU. Fast enough for production. Cheap enough to iterate.</p>
-            </div>
-            <div class="feature">
-                <h3>💰 Predictable Costs</h3>
-                <p>No per-call APIs. One flat rate. No surprise bills. Your infrastructure, your rules.</p>
-            </div>
-            <div class="feature">
-                <h3>🛠️ Easy Integration</h3>
-                <p>OpenAI-compatible API. Works with any client. Docker-ready. Systemd service included.</p>
-            </div>
-            <div class="feature">
-                <h3>🎓 Built for Scale</h3>
-                <p>From laptop to data center. Local inference that grows with your needs.</p>
-            </div>
+        <div class="section">
+            <h2>What We're Building</h2>
+            <p>Open-source infrastructure for AI systems that run locally, preserve privacy, and stay under human control. No black boxes. No data collection. No surveillance.</p>
         </div>
 
-        <div class="status">
-            <strong>Status:</strong> All systems operational. Grok serving inference now.
-            <br/><strong>Network:</strong> Tailscale-ready for secure remote access.
-            <br/><strong>Cost:</strong> $0.00 for local operation. $9.99/month for Tailscale tier support.
-        </div>
-    </div>
-
-    <!-- Pricing Section -->
-    <div class="pricing" id="pricing">
-        <h2>Simple Pricing</h2>
-        <div class="price-card">
-            <h3>Grok + Tailscale Tier</h3>
-            <div class="price">$9.99<span style="font-size: 24px;">/month</span></div>
-            <p>Everything you need, nothing you don't.</p>
-            <ul>
-                <li>Local Grok inference (unlimited calls)</li>
-                <li>Tailscale VPN (secure remote access)</li>
-                <li>Email support</li>
-                <li>1-hour setup assistance</li>
-                <li>Monthly cost optimization report</li>
+        <div class="why-section">
+            <h3>Why We Need Your Support</h3>
+            <ul class="why-list">
+                <li>🔧 Infrastructure costs (compute, storage, networking)</li>
+                <li>🛡️ Security research and hardening</li>
+                <li>📚 Documentation and education</li>
+                <li>🚀 Development velocity and team expansion</li>
+                <li>🔬 Experimental systems and novel architectures</li>
             </ul>
-            <a href="#contact" class="cta-button" style="width: 100%; display: block;">Start Free Trial</a>
+        </div>
+
+        <div class="section">
+            <h2>How Your Money Is Used</h2>
+            <p>Every dollar funds infrastructure, research, and development. No overhead. No marketing budgets. Direct investment in open-source tools.</p>
+            <p>We publish our spending publicly. You can verify where every dollar goes.</p>
+        </div>
+
+        <div class="donation-section" id="donate">
+            <h2>Make a Donation</h2>
+            <p>Support open AI infrastructure. One-time or monthly. Any amount helps.</p>
+            <button class="donate-btn" onclick="alert('Stripe checkout coming soon. Check back shortly.')">Donate Now</button>
+            <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">Stripe checkout integrating. In the meantime, reach out directly.</p>
+        </div>
+
+        <div class="section">
+            <h2>Learn More</h2>
+            <p>Interested in the technical details? We're open source. Check out our public repositories.</p>
+            <p style="font-size: 14px; margin-top: 20px;">
+                <a href="https://github.com" style="color: #ff6b35; text-decoration: none;">View on GitHub →</a>
+            </p>
         </div>
     </div>
 
-    <!-- How It Works -->
-    <div class="container">
-        <h2 style="font-size: 36px; text-align: center; margin-bottom: 50px;">How It Works</h2>
-        <ol style="max-width: 600px; margin: 0 auto; font-size: 18px; line-height: 2;">
-            <li>Install Grok on your infrastructure (one command)</li>
-            <li>Connect via Tailscale (encrypted network)</li>
-            <li>Use OpenAI-compatible API (any client works)</li>
-            <li>Inference runs locally (data never leaves)</li>
-            <li>Pay flat monthly fee (no surprises)</li>
-        </ol>
-    </div>
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Grok AI. Built for sovereignty. Maintained by Fiesta.</p>
-        <p style="margin-top: 20px; font-size: 12px; opacity: 0.8;">
-            <a href="#privacy" style="color: #ccc; text-decoration: none;">Privacy</a> •
-            <a href="#terms" style="color: #ccc; text-decoration: none;">Terms</a> •
-            <a href="#contact" style="color: #ccc; text-decoration: none;">Contact</a>
-        </p>
+        <p>&copy; 2026 Open AI Infrastructure Initiative. Built on <a href="https://ampere.sh?ref=nathanielxz">Ampere.sh</a>.</p>
+        <p class="affiliate-link">Infrastructure partner: <a href="https://ampere.sh?ref=nathanielxz">Ampere.sh</a> — Node crafting for autonomous systems.</p>
     </footer>
 </body>
 </html>
