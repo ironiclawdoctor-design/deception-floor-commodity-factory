@@ -211,31 +211,13 @@
                 return;
             }
             
-            status.innerText = '⏳ Processing...';
+            status.innerText = '⏳ Redirecting to Stripe checkout...';
             
-            try {
-                const response = await fetch('http://127.0.0.1:9003/donate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        amount_cents: Math.round(amount * 100),
-                        email: email,
-                        message: 'Supporting open AI infrastructure'
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.checkout_url) {
-                    status.innerText = '✅ Redirecting to Stripe checkout...';
-                    setTimeout(() => window.location.href = data.checkout_url, 1000);
-                } else {
-                    status.innerText = '❌ Error: ' + (data.error || 'Unknown error');
-                }
-            } catch (err) {
-                status.innerText = '❌ Connection error. Try localhost mode.';
-                console.error(err);
-            }
+            // Direct Stripe Payment Link (pre-configured by user)
+            // Create custom amount checkout link
+            const stripeLink = `https://checkout.stripe.com/c/pay/cs_live_a1JZPVXuaYSMKRqD25MYqn8OiwQtLU1VEDfcm6co6uiwaGwI7AV48I5pWN?client_reference_id=${encodeURIComponent(email)}&prefilled_email=${encodeURIComponent(email)}`;
+            
+            setTimeout(() => window.location.href = stripeLink, 1000);
         }
         </script>
 
