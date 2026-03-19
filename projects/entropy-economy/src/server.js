@@ -115,6 +115,38 @@ app.post('/debt/garnish', async (req, res) => {
     }
 });
 
+// Autograph: mint Shannon for GMRC compliance
+app.post('/autograph', async (req, res) => {
+    const { agent, event, description } = req.body;
+    if (!agent || !event) {
+        return res.status(400).json({ error: 'Missing agent or event' });
+    }
+    const rewards = {
+        'compliance': 1,
+        'introduction': 5,
+        'conversion': 15,
+        'retention': 25,
+        'referral': 50
+    };
+    const penalties = {
+        'missing': -2,
+        'buried': -1,
+        'oversell': -3
+    };
+    const amount = rewards[event] || penalties[event];
+    if (!amount) {
+        return res.status(400).json({ error: `Unknown event: ${event}. Valid: ${Object.keys({...rewards,...penalties}).join(', ')}` });
+    }
+    const entropyType = amount > 0 ? `autograph_${event}` : `autograph_violation_${event}`;
+    try {
+        const result = await db.mintEntropy(agent, amount, entropyType, description || `Autograph ${event}`);
+        res.json({ ...result, event, amount, type: amount > 0 ? 'reward' : 'penalty' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // Debt: agency-wide exposure report
 app.get('/debt/exposure', async (req, res) => {
     try {
