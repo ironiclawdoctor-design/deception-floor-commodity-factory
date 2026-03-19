@@ -1,0 +1,110 @@
+import express from 'express';
+import { db } from './db.js';
+
+const app = express();
+app.use(express.json());
+
+const PORT = 9001; // Different from deception floor factory (9000)
+
+// Health endpoint
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok', economy: 'entropy', timestamp: new Date().toISOString() });
+});
+
+// Get agent balance
+app.get('/balance/:agentName', async (req, res) => {
+    try {
+        const balance = await db.getAgentBalance(req.params.agentName);
+        if (balance === null) {
+            return res.status(404).json({ error: 'Agent not found' });
+        }
+        res.json({ agent: req.params.agentName, balance_shannon: balance });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Mint entropy (internal use only, should be authenticated)
+app.post('/mint', async (req, res) => {
+    const { agent, amount, type, description } = req.body;
+    if (!agent || !amount || !type) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+    try {
+        const result = await db.mintEntropy(agent, amount, type, description);
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Mint security entropy for mutation detection
+app.post('/mint/security', async (req, res) => {
+    const { agent, amount, description, reference, severity } = req.body;
+    if (!agent || !amount) {
+        return res.status(400).json({ error: 'Missing agent or amount' });
+    }
+    try {
+        const result = await db.mintEntropy(agent, amount, 'security', description);
+        // Optionally record in intrusion_events
+        res.json({ ...result, severity, reference });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+// Mint equity for IP contributions
+app.post('/mint/equity', async (req, res) => {
+    const { agent, contribution_hash, contribution_type, equity_percentage, shannon_amount, metadata } = req.body;
+    if (!agent || !contribution_hash || !contribution_type) {
+        return res.status(400).json({ error: 'Missing required fields: agent, contribution_hash, contribution_type' });
+    }
+    try {
+        const contributionId = await db.recordContribution(agent, contribution_hash, contribution_type, equity_percentage || 100.0, metadata || {});
+        const amount = shannon_amount || 100; // default 100 Shannon
+        const result = await db.mintEquity(agent, contributionId, amount);
+        res.json({ ...result, contribution_id: contributionId });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+// Transfer entropy
+app.post('/transfer', async (req, res) => {
+    const { from, to, amount, description } = req.body;
+    if (!from || !to || !amount) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+    try {
+        const result = await db.transferEntropy(from, to, amount, description);
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ error: err.message });
+    }
+});
+
+// List all agents with balances
+app.get('/agents', async (req, res) => {
+    try {
+        const agents = await db.listAgents();
+        res.json({ agents });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Market orders (placeholder)
+app.get('/market', (req, res) => {
+    res.json({ message: 'Market endpoint not yet implemented' });
+});
+
+app.listen(PORT, () => {
+    console.log(`Entropy Economy API listening on port ${PORT}`);
+    console.log(`Health check: http://localhost:${PORT}/health`);
+});

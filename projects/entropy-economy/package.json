@@ -1,0 +1,19 @@
+{
+  "name": "entropy-economy",
+  "version": "0.1.0",
+  "description": "Internal agency economy where entropy is the means of exchange",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "init-db": "node src/init-db.js",
+    "start": "node src/server.js",
+    "test": "node --test src/test.js"
+  },
+  "keywords": ["entropy", "currency", "internal-economy", "fiesta-agents"],
+  "author": "Growth Engineer (Marketing Department)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "sqlite3": "^5.1.6",
+    "express": "^4.18.2"
+  }
+}
