@@ -1,0 +1,86 @@
+#!/bin/bash
+set -e
+
+OUTPUT_JSON="/tmp/mission-control-data.json"
+
+# Initialize JSON
+echo '{' > "$OUTPUT_JSON"
+
+# 1. Cron jobs status
+echo '  "cron": [' >> "$OUTPUT_JSON"
+cron_list=$(openclaw cron list --json 2>/dev/null || echo '{"jobs":[]}')
+echo "$cron_list" | jq -r '.jobs[] | "    { \"id\": \"\(.id)\", \"name\": \"\(.name)\", \"enabled\": \(.enabled), \"lastRunStatus\": \"\(.state.lastRunStatus // "unknown")\", \"lastError\": \"\(.state.lastError // "")\", \"nextRunAtMs\": \(.state.nextRunAtMs // null) },"' >> "$OUTPUT_JSON"
+sed -i '$ s/,$//' "$OUTPUT_JSON"
+echo '  ],' >> "$OUTPUT_JSON"
+
+# 2. Git status (uncommitted files)
+echo '  "git": {' >> "$OUTPUT_JSON"
+git_status=$(git status --porcelain 2>/dev/null | wc -l || echo 0)
+echo "    \"uncommittedFiles\": $git_status," >> "$OUTPUT_JSON"
+git_branch=$(git branch --show-current 2>/dev/null || echo "unknown")
+echo "    \"branch\": \"$git_branch\"" >> "$OUTPUT_JSON"
+echo '  },' >> "$OUTPUT_JSON"
+
+# 3. Process status
+echo '  "processes": [' >> "$OUTPUT_JSON"
+# Check key services
+services=(
+    "factory:9000"
+    "entropy-economy:9001"
+    "payment-backend:9003"
+    "landing-page:8080"
+)
+for svc in "${services[@]}"; do
+    name="${svc%:*}"
+    port="${svc#*:}"
+    if curl -s "http://127.0.0.1:$port/health" >/dev/null 2>&1; then
+        status="healthy"
+    else
+        status="down"
+    fi
+    echo "    { \"service\": \"$name\", \"port\": $port, \"status\": \"$status\" }," >> "$OUTPUT_JSON"
+done
+sed -i '$ s/,$//' "$OUTPUT_JSON"
+echo '  ],' >> "$OUTPUT_JSON"
+
+# 4. Entropy economy agents
+echo '  "entropyAgents": [' >> "$OUTPUT_JSON"
+agents_json=$(curl -s http://127.0.0.1:9001/agents 2>/dev/null || echo '{"agents":[]}')
+echo "$agents_json" | jq -r '.agents[] | "    { \"name\": \"\(.name)\", \"balance_shannon\": \(.balance_shannon) },"' >> "$OUTPUT_JSON"
+sed -i '$ s/,$//' "$OUTPUT_JSON"
+echo '  ],' >> "$OUTPUT_JSON"
+
+# 5. Factory status
+echo '  "factory": {' >> "$OUTPUT_JSON"
+factory_status=$(curl -s http://127.0.0.1:9000/health 2>/dev/null || echo '{"status":"unknown"}')
+echo "    \"status\": $(echo $factory_status | jq '.status')," >> "$OUTPUT_JSON"
+echo "    \"timestamp\": $(echo $factory_status | jq '.timestamp')" >> "$OUTPUT_JSON"
+echo '  },' >> "$OUTPUT_JSON"
+
+# 6. Next steps from fundraising docs
+echo '  "nextSteps": [' >> "$OUTPUT_JSON"
+if [ -f "/root/.openclaw/workspace/fundraising/SUSTAINABLE_MODEL_SUMMARY.md" ]; then
+    grep -E "^- \[ \]" /root/.openclaw/workspace/fundraising/SUSTAINABLE_MODEL_SUMMARY.md | head -5 | sed 's/^- \[ \] /    { "task": "/' | sed 's/$/" },/' >> "$OUTPUT_JSON"
+fi
+sed -i '$ s/,$//' "$OUTPUT_JSON"
+echo '  ],' >> "$OUTPUT_JSON"
+
+# 7. Stalled items (from recent errors)
+echo '  "stalled": [' >> "$OUTPUT_JSON"
+# Check for recent 402 errors in logs
+if grep -r "402 Your Ampere credits" /tmp/ 2>/dev/null | head -3; then
+    echo '    { "issue": "Ampere credits exhausted", "severity": "critical" },' >> "$OUTPUT_JSON"
+fi
+# Check for failed cron jobs
+if echo "$cron_list" | jq -r '.jobs[] | select(.state.lastRunStatus=="error")' | grep -q .; then
+    echo '    { "issue": "Cron jobs failing", "severity": "warning" },' >> "$OUTPUT_JSON"
+fi
+sed -i '$ s/,$//' "$OUTPUT_JSON"
+echo '  ]' >> "$OUTPUT_JSON"
+
+echo '}' >> "$OUTPUT_JSON"
+
+# Format JSON
+jq . "$OUTPUT_JSON" > "$OUTPUT_JSON.tmp" && mv "$OUTPUT_JSON.tmp" "$OUTPUT_JSON"
+
+echo "Data gathered to $OUTPUT_JSON"
