@@ -12,3 +12,8 @@ Items are executed top-to-bottom. Junior takes the first unchecked item only.
 - [ ] Verify mattermost/POST.sh is executable and secrets are in place
 - [ ] Confirm fsh.sh is executable and cache_optimizer.py is operational
 - [ ] Stage all new files for git commit
+- [ ] Read webhooks.md and confirm all outbound targets are configured
+- [ ] Test Mattermost webhook (requires MATTERMOST_WEBHOOK_URL in secrets)
+- [ ] Wire Discord webhook URL for ClawHub publish alert
+- [ ] Test Stripe → ShanApp mint pipeline on port 9004
+- [ ] Log all webhook configs to memory/ledger.jsonl

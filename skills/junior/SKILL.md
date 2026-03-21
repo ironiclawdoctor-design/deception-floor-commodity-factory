@@ -38,3 +38,4 @@ Add items to the queue by editing `references/queue.md`:
 - `references/queue.md` — Active command queue (read/write)
 - `references/log.md` — Execution log (append only)
 - `references/format.md` — Mission Control Telegram format template
+- `references/webhooks.md` — Full webhook catalog: outbound (Mattermost, Discord, Telegram, Stripe) + inbound routing map
