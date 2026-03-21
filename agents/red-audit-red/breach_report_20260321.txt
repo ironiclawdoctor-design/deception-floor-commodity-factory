@@ -1,0 +1,2 @@
+--- [ RED-AUDIT-RED: THE INTERROGATION ] ---
+ACTION: Red Team suggested 3 test cases. Blue Team signal: focusing on 'reliability' instead of 'market devastation'. Search for the 'scary' edge cases instead.

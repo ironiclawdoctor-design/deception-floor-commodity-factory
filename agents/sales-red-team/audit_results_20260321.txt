@@ -1,0 +1,4 @@
+--- [ SALES RED TEAM: INVENTORY ATTACK ] ---
+FAIL: Movie Reviewer has NO LICENSE. Unsellable.
+ATTACK: 'It just works' is unfalsifiable. Provide 3 tests cases in README or it's vaporware.
+REMEDY: Use the 6-day cooldown to build 'The Proof' (a public terminal recording or live-demo link).
