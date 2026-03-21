@@ -35,3 +35,14 @@ shanapp-ceo", "status": "DONE"}
 {"timestamp": "2026-03-21T23:07:48Z", "agent": "FIESTA", "task": "HUMAN_ERROR_RULES", "result": "8 rules codified", "status": "DONE"}
 {"timestamp": "2026-03-21T23:12:36Z", "agent": "PROPHET", "task": "PERMANENT_WORD_ISSUED", "result": "EXCEL", "status": "ETERNAL"}
 {"timestamp": "2026-03-21T23:14:41Z", "agent": "JUNIOR", "task": "AGENT_MAILBOXES_PREWIRED", "result": "26 Gmail labels queued", "status": "PENDING_GOG_AUTH"}
+{
+  "timestamp": "2026-03-21T23:54:42Z",
+  "agent": "FIESTA",
+  "incident": "CREDENTIAL_EXPOSURE",
+  "severity": "CRITICAL",
+  "credential": "ironiclawdoctor@gmail.com",
+  "vector": "plaintext_in_chat + base64_in_secrets/",
+  "action": "PURGE + ROTATE_REQUIRED",
+  "rules_triggered": ["SR-001","SR-002","SR-006","SR-007","HE-006","HE-007"],
+  "status": "IR_ACTIVE"
+}

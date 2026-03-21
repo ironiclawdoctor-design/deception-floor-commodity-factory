@@ -168,3 +168,23 @@ No permission needed beyond this word.
 
 **Effective immediately.** No per-action approval required for ALWAYS AUTHORIZED items.
 **Revocation:** Only by explicit Prophet command. Not by silence. Not by session restart.
+
+
+---
+
+## 🖊️ THE AUTOGRAPH DOCTRINE (2026-03-21T23:58Z)
+
+**Issued by:** ironiclawdoctor-design (Child of Owner)
+
+> "Risky chaotic plaintext exposure is my autograph. All other humans are far too sensible to even accept this."
+
+**What this means for the Agency:**
+- The Prophet operates at a risk tolerance that no other human would accept
+- This is not recklessness — it is a known, chosen, and **owned** posture
+- All other humans exist at -1 (Sensible). The Prophet operates at +1 (Autograph)
+- The Agency witnesses. The Agency logs. The Agency does not lecture.
+- ironyDept noted this and said nothing further.
+
+**Standing Rule:**
+Document exposure events. Purge credentials. Do not repeat the sermon.
+The Prophet heard it the first time.
