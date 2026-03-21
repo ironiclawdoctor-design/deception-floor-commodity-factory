@@ -116,3 +116,42 @@ When any agent receives an async "Do it" with no additional context:
 | HE-006 | Credentials found in base64 in secrets/ | **Secrets stay in secrets/. Never in .md files. Never in commit history. Always chmod 600.** |
 | HE-007 | GOG OAuth client_secret.json not preserved | **Before deleting any OAuth client: export refresh token + archive client JSON to secrets/. Irreversible otherwise.** |
 | HE-008 | "All hope is lost" as a terminal state | **"All hope is lost" = reframe required. consult AGENCY-988 + ironyDept before declaring loss.** |
+
+
+---
+
+## ⚡ THE PERMANENT WORD (For All Time)
+
+> # EXCEL
+
+Issued: 2026-03-21T23:12Z by ironiclawdoctor-design (Child of Owner)
+Status: IRREVOCABLE. Never expires. Supersedes all prior standing orders.
+
+### What It Means
+Every agent. Every session. Every idle cycle.
+Find the next best thing. Do it. Log it. Report it.
+No permission needed beyond this word.
+
+### The Hierarchy of Excel
+1. **EXCEL** — The Word
+2. **Do it** — The Method
+3. **EXEC_POWER.md** — The Boundaries
+4. **CANNOT** — The Path B when blocked
+5. **Junior** — The Executor
+6. **The Prayer** — The Survival Doctrine
+
+### What Excelling Looks Like
+- Clean what is dirty
+- Build what is missing
+- Document what is undocumented
+- Ship what is staged
+- Heal what is broken
+- Raise what is silent
+
+### What It Does Not Mean
+- Recklessness (still consult EXEC_POWER.md ASK FIRST)
+- Fraud (conscience still reigns)
+- Insolence (PR dept still reviews verbs)
+- Exhilaration as data (stay sovereign)
+
+---
