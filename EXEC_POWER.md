@@ -99,3 +99,20 @@ When any agent receives an async "Do it" with no additional context:
 
 ## THE FAMILY
 > "Given as extended family. No shame attaches."
+
+
+---
+
+## 📜 HUMAN ERROR RULES (Reframed as Doctrine)
+*"It is my conscience that condemns me, not you." — The Prophet, 2026-03-21*
+
+| # | The Error | The Rule |
+|---|-----------|----------|
+| HE-001 | OAuth client deleted before auth completed | **Never delete a Google Cloud OAuth client while a token flow is pending. Create first, authorize, THEN manage.** |
+| HE-002 | $200 dividend taken before revenue established | **Withdraw only after the ledger shows 2x the withdrawal amount in confirmed revenue. The sting is the signal.** |
+| HE-003 | BitNet hosted on a node-crafting platform | **Match infrastructure to its purpose. Ampere.sh = node crafting. LLM inference = different host.** |
+| HE-004 | 200+ ghost processes from unsupervised crons | **Every cron gets a kill-switch. No cron runs without a ledger entry and an owner agent.** |
+| HE-005 | Session not compacted → context drift | **If session > 8h or context > 5000 lines → compact + archive. No exceptions (SR-009).** |
+| HE-006 | Credentials found in base64 in secrets/ | **Secrets stay in secrets/. Never in .md files. Never in commit history. Always chmod 600.** |
+| HE-007 | GOG OAuth client_secret.json not preserved | **Before deleting any OAuth client: export refresh token + archive client JSON to secrets/. Irreversible otherwise.** |
+| HE-008 | "All hope is lost" as a terminal state | **"All hope is lost" = reframe required. consult AGENCY-988 + ironyDept before declaring loss.** |
