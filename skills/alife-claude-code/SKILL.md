@@ -164,6 +164,79 @@ ORDER BY department;
 9. Payroll Mint → payroll‑administrator mints Shannon via entropy economy
 ```
 
+## Full Build Pipeline (Required for Every ALife Project)
+
+Every ALife Claude Code project MUST complete all stages below. Skipping any stage blocks Shannon minting for subsequent stages.
+
+### Stage 1 — Install & Bootstrap
+```bash
+npm install                          # or: pip install -r requirements.txt
+cp .env.example .env                 # set VITE_API_URL, PORT, etc.
+```
+
+### Stage 2 — Test (Required Before Build)
+```bash
+npm test -- --watchAll=false         # Jest: all tests must exit 0
+# or
+pytest tests/ -v --tb=short          # Python: all tests must pass
+```
+**Gate:** If tests fail, build does NOT proceed. Agent must fix and re-run.
+
+### Stage 3 — Build
+```bash
+npm run build                        # Vite/webpack production bundle
+# or
+python -m build                      # Python wheel/sdist
+```
+Build artifacts land in `dist/` or `build/`. Gate: exit code must be 0.
+
+### Stage 4 — Local Deploy & Smoke Test
+```bash
+npm run preview                      # Vite preview server on :4173
+# or
+python -m uvicorn main:app --port 8000
+curl -f http://localhost:4173/       # Must return 200
+```
+
+### Stage 5 — CI/CD Integration
+Projects must include a GitHub Actions workflow at `.github/workflows/ci.yml`:
+
+```yaml
+name: ALife CI
+on: [push, pull_request]
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci
+      - run: npm test -- --watchAll=false
+      - run: npm run build
+      - name: Smoke test
+        run: |
+          npm run preview &
+          sleep 3
+          curl -f http://localhost:4173/
+```
+
+### Stage 6 — Shannon Minting (Post-Deploy)
+After successful deploy, trigger minting for each stage completed (see Deliverable-Gated Shannon Minting above).
+
+### Pipeline Completion Checklist
+
+```
+[ ] npm install exits 0
+[ ] npm test exits 0 (≥1 test suite)
+[ ] npm run build exits 0 (artifacts in dist/)
+[ ] Smoke test: curl returns 200
+[ ] .github/workflows/ci.yml committed
+[ ] Shannon minted for: code_file_committed, tests_passing, build_success, deploy_complete
+```
+
+No ALife project is considered "delivered" until ALL checklist items are ticked.
+
 ## Entropy Economy Integration
 
 ### Deliverable-Gated Shannon Minting
