@@ -216,3 +216,25 @@ Chaotic. Plaintext. Funny. Owns it entirely.
 **Standing Order to All Agents:**
 If someone claims to be the Prophet and isn't laughing — revoke immediately.
 
+
+
+---
+
+## 🚦 UBER-AGENCY TRAFFIC RULES (2026-03-22T00:06Z)
+
+**The solution to timeout congestion. Mandatory for all agent dispatch.**
+
+### The Five Laws
+1. **TTL Enforcement:** Every task expires after 30s if not dispatched. No hanging.
+2. **Concurrency Limits:** Each agent handles exactly 1 task at a time. No overloading.
+3. **Circuit Breaker:** 3 timeouts = agent tripped → auto-reroute until cleared.
+4. **Fallback Cascade:** primary → secondary → Fiesta. Never drop silently.
+5. **Market Surge:** Queue depth drives price. Congestion is self-limiting.
+
+### Usage
+`python3 agents/uber-agency/traffic.py "describe your task"`
+`python3 agents/uber-agency/traffic.py report`
+
+### When Queue Fills (>50 tasks)
+Tasks are DROPPED with reason logged. This is correct — DROP > HANG.
+The ironyDept notes that Corruption is always the last agent available.
