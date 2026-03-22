@@ -3,3 +3,8 @@
 {"timestamp": "2026-03-22T00:05:05.826378+00:00", "task": "i cannot publish to clawhub gate blocked", "agent": "cannot", "fare_shan": 0.08, "surge": 0.8, "rating": 4.9, "specialty_match": ["blocked", "constraint", "cannot", "gate"], "status": "DISPATCHED"}
 {"timestamp": "2026-03-22T00:05:05.854449+00:00", "task": "progress report shanapp economy ledger", "agent": "shanapp-ceo", "fare_shan": 0.976, "surge": 0.8, "rating": 4.8, "specialty_match": ["report", "progress", "ledger", "economy"], "status": "DISPATCHED"}
 {"timestamp": "2026-03-22T00:05:05.880246+00:00", "task": "security has excellence creep orchestrate routing", "agent": "fiesta", "fare_shan": 0.976, "surge": 0.8, "rating": 5.0, "specialty_match": ["orchestrate", "route", "chief", "all"], "status": "DISPATCHED"}
+{"timestamp": "2026-03-22T00:07:35.390068+00:00", "task": "executive report", "agent": "junior", "fare_shan": 0.01, "surge": 1.0, "queue_depth": 0, "status": "DISPATCHED"}
+{"timestamp": "2026-03-22T00:07:35.419113+00:00", "task": "git commit cleanup", "agent": "junior", "fare_shan": 0.01, "surge": 1.0, "queue_depth": 0, "status": "DISPATCHED"}
+{"timestamp": "2026-03-22T00:07:35.449877+00:00", "task": "cannot publish clawhub", "agent": "cannot", "fare_shan": 0.1, "surge": 1.0, "queue_depth": 0, "status": "DISPATCHED"}
+{"timestamp": "2026-03-22T00:07:35.476878+00:00", "task": "audit security", "agent": "red-audit-red", "fare_shan": 0.5, "surge": 1.0, "queue_depth": 0, "status": "DISPATCHED"}
+{"timestamp": "2026-03-22T00:07:35.505376+00:00", "task": "schedule cron", "agent": "shan-scheduler", "fare_shan": 0.1, "surge": 1.0, "queue_depth": 0, "status": "DISPATCHED"}
