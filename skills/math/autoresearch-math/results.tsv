@@ -1,0 +1,9 @@
+experiment	score	max_score	pass_rate	status	description	evals_active
+0	25	25	100.0%	baseline	initial skill — 5 evals	E1-E5
+1	25	25	100.0%	ceiling	ceiling hit on E1-E5 — expanded to E1-E8	E1-E5→E1-E8
+2	38	40	95.0%	keep	explicit no-shortcut rules + anti-pattern table (E8 gap fixed)	E1-E8
+3	40	40	100.0%	ceiling	ceiling hit on E1-E8 — expanded to E1-E11	E1-E8→E1-E11
+4	52	55	94.5%	keep	worked example + units rule + dual verification mandate (E9-E11 gaps fixed)	E1-E11
+5	55	55	100.0%	ceiling	ceiling hit on E1-E11 — expanded to E1-E14	E1-E11→E1-E14
+6	59	70	84.3%	baseline-14	new evals E12-E14 revealed gaps: edge cases (0/5), notation (1/5), generic recs (3/5)	E1-E14
+7	70	70	100.0%	keep	rules 9-11: edge case mandate + notation consistency + problem-specific recs	E1-E14

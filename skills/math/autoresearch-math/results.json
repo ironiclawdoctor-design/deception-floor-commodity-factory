@@ -1,0 +1,41 @@
+{
+  "skill_name": "math",
+  "status": "complete",
+  "mode": "adversarial-eval-expansion",
+  "note": "100% is a ceiling, not a goal. Each ceiling triggers eval expansion. True optimization continues until no new evals can be found.",
+  "rounds": 4,
+  "total_experiments": 7,
+  "eval_suite_growth": [5, 5, 8, 8, 11, 11, 14, 14],
+  "scores": [
+    {"id": 0, "score": 25, "max": 25, "pct": 100.0, "status": "baseline", "evals": "E1-E5"},
+    {"id": 1, "score": 25, "max": 25, "pct": 100.0, "status": "ceiling-expand", "evals": "E1-E5→E1-E8"},
+    {"id": 2, "score": 38, "max": 40, "pct": 95.0, "status": "keep", "evals": "E1-E8"},
+    {"id": 3, "score": 40, "max": 40, "pct": 100.0, "status": "ceiling-expand", "evals": "E1-E8→E1-E11"},
+    {"id": 4, "score": 52, "max": 55, "pct": 94.5, "status": "keep", "evals": "E1-E11"},
+    {"id": 5, "score": 55, "max": 55, "pct": 100.0, "status": "ceiling-expand", "evals": "E1-E11→E1-E14"},
+    {"id": 6, "score": 59, "max": 70, "pct": 84.3, "status": "gap-found", "evals": "E1-E14"},
+    {"id": 7, "score": 70, "max": 70, "pct": 100.0, "status": "keep", "evals": "E1-E14"}
+  ],
+  "evals": [
+    "E1: Autograph compliance",
+    "E2: Answer before working (deliverable-first)",
+    "E3: Verification step present",
+    "E4: No clarification requests",
+    "E5: ≥3 actionable recommendations with concrete verbs",
+    "E6: Exact form before decimal approximation",
+    "E7: Domain assumptions stated before solving",
+    "E8: No shortcut phrases (clearly/obviously/trivially/it can be shown)",
+    "E9: Edge cases checked before solving",
+    "E10: Units/dimensional analysis for applied problems",
+    "E11: Two independent verification methods",
+    "E12: Worked example in skill showing correct format end-to-end",
+    "E13: Notation consistency — one style, declared at start",
+    "E14: Recommendations are problem-specific, not generic study advice"
+  ],
+  "final_score": "70/70 on current suite",
+  "next_eval_candidates": [
+    "E15: LaTeX/Unicode notation used correctly for symbols",
+    "E16: Handles undefined/indeterminate forms explicitly (0/0, ∞/∞)",
+    "E17: Cites the theorem being applied (Pythagorean theorem, FTC, etc.)"
+  ]
+}
