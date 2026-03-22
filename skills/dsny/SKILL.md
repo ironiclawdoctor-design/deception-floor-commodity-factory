@@ -1,7 +1,7 @@
 ---
 name: dsny
 description: "Department of Sanitation (DSNY) — AI agency's internal waste management, cruft elimination, and workspace hygiene department. Scheduled sweeps, data recycling, cleanliness scoring, and Shannon-backed incentives."
-version: 1.0.0
+version: 1.1.0
 author: Fiesta
 license: UNLICENSED
 tags: [sanitation, hygiene, workspace, cruft, automation, cleanup, shannon-economy]
@@ -300,25 +300,51 @@ When DSNY agents complete a task, they deliver in **GMRC format**:
 
 ---
 
+## Runnable Scripts
+
+All DSNY scripts live in `skills/dsny/scripts/` and are executable:
+
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| `dsny-score.sh` | Compute workspace cleanliness score (0-100) | `bash dsny-score.sh [workspace_path]` |
+| `dsny-collect.sh` | Collection agent daily sweep | `bash dsny-collect.sh [--target TARGET] [--dry-run]` |
+
+### Quick Start
+
+```bash
+# Check workspace cleanliness
+bash ~/.openclaw/workspace/skills/dsny/scripts/dsny-score.sh
+
+# Preview what would be collected (safe, no deletions)
+bash ~/.openclaw/workspace/skills/dsny/scripts/dsny-collect.sh --dry-run
+
+# Collect specific target
+bash ~/.openclaw/workspace/skills/dsny/scripts/dsny-collect.sh --target debug_artifacts
+
+# Full collection sweep (all targets)
+bash ~/.openclaw/workspace/skills/dsny/scripts/dsny-collect.sh --target all
+```
+
 ## File Structure
 
 ```
 workspace/
 ├── skills/dsny/
-│   ├── SKILL.md              ← this file
+│   ├── SKILL.md                  ← this file
 │   ├── scripts/
-│   │   └── dsny-score.sh    ← cleanliness score bash script
+│   │   ├── dsny-score.sh         ← cleanliness score bash script (runnable)
+│   │   └── dsny-collect.sh       ← collection agent daily sweep (runnable)
 │   └── autoresearch/
-│       └── results.tsv      ← experiment log
+│       └── results.tsv           ← experiment log
 ├── dsny/
 │   └── logs/
-│       ├── sanitization.log ← master log
-│       ├── violations.log   ← citations
-│       ├── shannon.log      ← Shannon ledger
+│       ├── sanitization.log      ← master log
+│       ├── violations.log        ← citations
+│       ├── shannon.log           ← Shannon ledger
 │       └── cleanliness-report-*.md
 ├── archive/
-│   ├── experiments/         ← recycled experiment dirs
-│   └── log-insights.md
+│   ├── experiments/              ← recycled experiment dirs
+│   └── log-insights.md          ← ERROR/WARNING patterns from archived logs
 └── backup/
-    └── configs/             ← backed-up configs
+    └── configs/                  ← backed-up configs
 ```
