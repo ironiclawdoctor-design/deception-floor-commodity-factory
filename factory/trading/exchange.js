@@ -10,6 +10,9 @@
  */
 
 import { randomUUID } from 'node:crypto';
+import { logger } from '../utils/logger.js';
+
+const moduleLogger = logger.child({ module: 'exchange' });
 
 /**
  * @class Exchange
@@ -40,23 +43,28 @@ export class Exchange {
    */
   listFloor(agent, floor, askPrice) {
     if (!agent || !agent.inventory) {
+      moduleLogger.error('Invalid agent in listFloor', { agent });
       throw new Error('Invalid agent');
     }
     if (!floor || !floor.id) {
+      moduleLogger.error('Invalid floor in listFloor', { floor });
       throw new Error('Invalid floor');
     }
     if (typeof askPrice !== 'number' || askPrice <= 0) {
+      moduleLogger.error('Invalid ask price', { askPrice });
       throw new Error('Ask price must be a positive number');
     }
 
     // Verify the agent owns the floor
     const owned = agent.inventory.find((f) => f.id === floor.id);
     if (!owned) {
+      moduleLogger.error('Agent does not own floor', { agent: agent.name, floorId: floor.id });
       throw new Error(`Floor ${floor.id} not found in ${agent.name}'s inventory`);
     }
 
     // Check for duplicate listing
     if (this.listings.has(floor.id)) {
+      moduleLogger.warn('Duplicate listing attempted', { floorId: floor.id, agent: agent.name });
       throw new Error(`Floor ${floor.id} is already listed`);
     }
 
@@ -71,6 +79,12 @@ export class Exchange {
     };
 
     this.listings.set(floor.id, listing);
+    moduleLogger.info('Floor listed on exchange', {
+      listingId: listing.listingId,
+      floorId: floor.id,
+      seller: agent.name,
+      askPrice,
+    });
     return listing;
   }
 
@@ -84,27 +98,37 @@ export class Exchange {
    */
   bid(agent, floorId, bidPrice) {
     if (!agent || !agent.credits === undefined) {
+      moduleLogger.error('Invalid agent in bid', { agent });
       throw new Error('Invalid agent');
     }
     if (typeof bidPrice !== 'number' || bidPrice <= 0) {
+      moduleLogger.error('Invalid bid price', { bidPrice });
       throw new Error('Bid price must be a positive number');
     }
 
     const listing = this.listings.get(floorId);
     if (!listing) {
+      moduleLogger.error('Listing not found for floor', { floorId });
       throw new Error(`No listing found for floor ${floorId}`);
     }
     if (listing.status !== 'active') {
+      moduleLogger.warn('Listing not active', { floorId, status: listing.status });
       throw new Error(`Listing for floor ${floorId} is not active`);
     }
 
     // Can't bid on your own listing
     if (listing.seller.name === agent.name) {
+      moduleLogger.warn('Agent attempted to bid on own listing', { agent: agent.name, floorId });
       throw new Error('Cannot bid on your own listing');
     }
 
     // Check buyer has sufficient credits
     if (agent.credits < bidPrice) {
+      moduleLogger.warn('Insufficient credits for bid', {
+        agent: agent.name,
+        credits: agent.credits,
+        bidPrice,
+      });
       throw new Error(`${agent.name} has insufficient credits (${agent.credits} FC < ${bidPrice} FC)`);
     }
 
@@ -118,6 +142,13 @@ export class Exchange {
     };
 
     this.bids.push(bidObj);
+    moduleLogger.info('Bid placed', {
+      bidId: bidObj.bidId,
+      floorId,
+      buyer: agent.name,
+      bidPrice,
+      seller: listing.seller.name,
+    });
     return bidObj;
   }
 
@@ -141,12 +172,15 @@ export class Exchange {
       .filter((b) => b.status === 'pending')
       .sort((a, b) => b.bidPrice - a.bidPrice);
 
+    moduleLogger.debug('Settlement started', { pendingBidsCount: pendingBids.length });
+
     for (const bid of pendingBids) {
       const listing = this.listings.get(bid.floorId);
 
       // Skip if listing is no longer active
       if (!listing || listing.status !== 'active') {
         bid.status = 'cancelled';
+        moduleLogger.debug('Bid cancelled due to inactive listing', { bidId: bid.bidId, floorId: bid.floorId });
         continue;
       }
 
@@ -159,6 +193,11 @@ export class Exchange {
         // Verify buyer can still afford it
         if (buyer.credits < tradePrice) {
           bid.status = 'failed_insufficient_funds';
+          moduleLogger.warn('Buyer insufficient funds at settlement', {
+            buyer: buyer.name,
+            credits: buyer.credits,
+            tradePrice,
+          });
           continue;
         }
 
@@ -185,6 +224,20 @@ export class Exchange {
         this.settledTrades.push(trade);
         this.totalVolume += tradePrice;
         settled.push(trade);
+
+        moduleLogger.info('Trade settled', {
+          tradeId: trade.tradeId,
+          floorId: trade.floorId,
+          seller: trade.seller,
+          buyer: trade.buyer,
+          price: trade.price,
+        });
+      } else {
+        moduleLogger.debug('Bid price lower than ask', {
+          bidId: bid.bidId,
+          bidPrice: bid.bidPrice,
+          askPrice: listing.askPrice,
+        });
       }
     }
 
@@ -194,10 +247,15 @@ export class Exchange {
         const listing = this.listings.get(bid.floorId);
         if (!listing || listing.status !== 'active') {
           bid.status = 'cancelled';
+          moduleLogger.debug('Pending bid cancelled due to missing listing', { bidId: bid.bidId });
         }
       }
     }
 
+    moduleLogger.info('Settlement completed', {
+      settledCount: settled.length,
+      totalVolume: this.totalVolume,
+    });
     return settled;
   }
 

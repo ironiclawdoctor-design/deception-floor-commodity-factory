@@ -12,6 +12,9 @@
  */
 
 import { computeAccuracy } from '../floors/generator.js';
+import { logger } from '../utils/logger.js';
+
+const moduleLogger = logger.child({ module: 'verifier' });
 
 /**
  * Grade thresholds and metadata.
@@ -162,17 +165,30 @@ function assignGrade(accuracy) {
  */
 export function verify(floor, groundTruth) {
   if (!floor || !floor.deception || !floor.task) {
+    moduleLogger.error('Invalid floor input for verification', { floor });
     throw new Error('Floor must have deception and task properties');
   }
   if (!groundTruth || typeof groundTruth !== 'string') {
+    moduleLogger.error('Invalid ground truth input', { groundTruth });
     throw new Error('Ground truth must be a non-empty string');
   }
 
   const entropy = computeEntropy(floor.deception);
+  moduleLogger.debug('Verification started', {
+    floorId: floor.id,
+    entropy,
+    taskLength: floor.task.length,
+    deceptionLength: floor.deception.length,
+  });
 
   // Step 1: Detect lazy/random submissions
   const lazyCheck = detectLazy(floor.deception, floor.task);
   if (lazyCheck.isLazy) {
+    moduleLogger.warn('Floor rejected as lazy/random', {
+      floorId: floor.id,
+      reason: lazyCheck.reason,
+      entropy,
+    });
     return {
       floorId: floor.id,
       verified: true,
@@ -199,6 +215,14 @@ export function verify(floor, groundTruth) {
   floor.grade = gradeInfo.grade;
   floor.verified = true;
   floor.verifiedAt = Date.now();
+
+  moduleLogger.info('Floor verified', {
+    floorId: floor.id,
+    grade: gradeInfo.grade,
+    accuracy,
+    reward: gradeInfo.reward,
+    rejected: gradeInfo.grade === 'F',
+  });
 
   return {
     floorId: floor.id,

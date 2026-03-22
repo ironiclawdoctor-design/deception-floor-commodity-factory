@@ -8,6 +8,9 @@
  */
 
 import { generateFloor } from '../floors/generator.js';
+import { logger } from '../utils/logger.js';
+
+const moduleLogger = logger.child({ module: 'agent' });
 
 /**
  * @class Agent
@@ -52,6 +55,12 @@ export class Agent {
     floor.craftedBy = this.name;
     this.inventory.push(floor);
     this.totalCrafted++;
+    moduleLogger.info('Agent crafted floor', {
+      agent: this.name,
+      floorId: floor.id,
+      taskLength: task.length,
+      inventorySize: this.inventory.length,
+    });
     return floor;
   }
 
@@ -68,11 +77,13 @@ export class Agent {
    */
   trade(otherAgent, floor) {
     if (!(otherAgent instanceof Agent)) {
+      moduleLogger.error('Invalid agent in trade', { otherAgent });
       throw new Error('Can only trade with another Agent');
     }
 
     const index = this.inventory.findIndex((f) => f.id === floor.id);
     if (index === -1) {
+      moduleLogger.error('Floor not found in inventory', { agent: this.name, floorId: floor.id });
       throw new Error(`Floor ${floor.id} not found in ${this.name}'s inventory`);
     }
 
@@ -93,6 +104,13 @@ export class Agent {
     this.tradeHistory.push(record);
     otherAgent.tradeHistory.push(record);
 
+    moduleLogger.info('Agent-to-agent trade executed', {
+      floorId: removed.id,
+      from: this.name,
+      to: otherAgent.name,
+      previousOwnersCount: removed.previousOwners.length,
+    });
+
     return true;
   }
 
@@ -112,9 +130,17 @@ export class Agent {
    */
   earn(amount) {
     if (typeof amount !== 'number' || amount < 0) {
+      moduleLogger.error('Invalid earn amount', { agent: this.name, amount });
       throw new Error('Earn amount must be a non-negative number');
     }
+    const before = this.credits;
     this.credits += amount;
+    moduleLogger.debug('Agent earned credits', {
+      agent: this.name,
+      amount,
+      before,
+      after: this.credits,
+    });
   }
 
   /**
@@ -125,12 +151,25 @@ export class Agent {
    */
   spend(amount) {
     if (typeof amount !== 'number' || amount < 0) {
+      moduleLogger.error('Invalid spend amount', { agent: this.name, amount });
       throw new Error('Spend amount must be a non-negative number');
     }
     if (this.credits < amount) {
+      moduleLogger.warn('Insufficient credits for spend', {
+        agent: this.name,
+        credits: this.credits,
+        amount,
+      });
       return false;
     }
+    const before = this.credits;
     this.credits -= amount;
+    moduleLogger.debug('Agent spent credits', {
+      agent: this.name,
+      amount,
+      before,
+      after: this.credits,
+    });
     return true;
   }
 

@@ -5,7 +5,7 @@
 Agents consume credits (gas). Credits cost money. Money lives in PayPal. 
 
 ```
-PayPal ($) ──→ Ampere Credits ──→ Agent Tokens ──→ Factory Output ──→ Revenue ──→ PayPal ($)
+PayPal ($) ──→ Ampere Credits (node crafting) ──→ Agent Tokens ──→ Factory Output ──→ Revenue ──→ PayPal ($)
     │                                                                              │
     └──────────────────────── equity cycle ─────────────────────────────────────────┘
 ```

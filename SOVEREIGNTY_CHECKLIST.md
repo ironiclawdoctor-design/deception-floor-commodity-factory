@@ -1,24 +1,24 @@
-# SOVEREIGNTY_CHECKLIST.md — BitNet-First Operations
+# SOVEREIGNTY_CHECKLIST.md — Sovereignty Operations
 
 **Last Updated:** 2026-03-13 22:58 UTC  
 **Status:** OPERATIONAL (current state documented)  
 **Cost:** $0.00  
-**Next Target:** 100% Tier 0-2 by 2026-03-15 00:00 UTC (48h)
+**Next Target:** Restore Tier 1-2 functionality
 
 ---
 
 ## WHAT IS SOVEREIGNTY?
 
-Your system doesn't depend on external APIs. When tokens run out, bash still works. BitNet still works. You still ship.
+Your system doesn't depend on external APIs. When tokens run out, bash still works. BitNet is currently offline. You still ship.
 
 **Current state (2026-03-13):**
 - Tier 0 (bash): ✅ 100% operational
-- Tier 1 (Grok): ✅ 100% operational
-- Tier 2 (BitNet): ✅ 100% operational
+- Tier 1 (Grok): ❌ NOT OPERATIONAL
+- Tier 2 (BitNet): ❌ NOT OPERATIONAL
 - Tier 3 (Haiku): ⚠️ frozen (conservation mode)
 
 **Goal (2026-03-15):**
-- All work routes through Tier 0-2
+- All work routes through Tier 0 (bash) while Tier 1-2 are offline
 - Haiku only for teaching agents (opt-in, rare)
 - Token burn: <100/day (vs. current 500/day)
 - Refills: none for 30+ days
@@ -112,11 +112,13 @@ echo "=== AUDIT COMPLETE ==="
 
 ## TIER 1: GROK (Pattern Fallback)
 
-### Status: ✅ READY
+### Status: ❌ NOT OPERATIONAL
 
-Grok runs on pure Python. No external API calls. Acts as regex-on-steroids fallback.
+Grok server is currently offline. (Previously: pure Python pattern matching.)
 
 **Checklist:**
+
+⚠️ Grok server is offline; these checks will fail.
 
 ```bash
 # 1. Verify Grok server running
@@ -200,11 +202,13 @@ echo "=== If all <100ms: Grok is ready ==="
 
 ## TIER 2: BITNET (Local LLM)
 
-### Status: ✅ LIVE
+### Status: ❌ NOT OPERATIONAL
 
-BitNet b1.58 2B running on CPU. Full LLM capabilities. Zero cost.
+BitNet is currently offline. (Previously: local LLM.)
 
 **Checklist:**
+
+⚠️ BitNet is offline; these checks will fail.
 
 ```bash
 # 1. Verify BitNet model file exists
@@ -368,6 +372,8 @@ fi
 
 ## DECISION TREE: Which Tier to Use?
 
+⚠️ **NOTE:** As of 2026-03-18, Tier 1 (Grok) and Tier 2 (BitNet) are offline. All pattern matching and generation tasks must be handled via Tier 0 (bash) or external fallback.
+
 ```
 Incoming task → What is it?
 
@@ -447,8 +453,8 @@ LOG="$HOME/.openclaw/workspace/memory/sovereignty-$DATE.log"
   
   # 1. Tier 0-2 infrastructure health
   echo "Tier 0 (bash): $(bash --version | head -1 | cut -d' ' -f3)"
-  echo "Tier 1 (Grok): $(curl -s http://127.0.0.1:8889/health | jq -r '.status')"
-  echo "Tier 2 (BitNet): $(curl -s http://127.0.0.1:8080/health | jq -r '.status')"
+  echo "Tier 1 (Grok): OFFLINE" # $(curl -s http://127.0.0.1:8889/health | jq -r '.status')
+  echo "Tier 2 (BitNet): OFFLINE" # $(curl -s http://127.0.0.1:8080/health | jq -r '.status')
   
   # 2. Token usage (should be 0 if sovereign)
   HAIKU_USAGE=$(grep -c "haiku" ~/.openclaw/workspace/memory/haiku-log.txt 2>/dev/null || echo "0")
@@ -458,7 +464,7 @@ LOG="$HOME/.openclaw/workspace/memory/sovereignty-$DATE.log"
   COMMITS=$(cd ~/.openclaw/workspace && git log --since="24 hours ago" --oneline | wc -l)
   echo "Commits (Tier 0-2): $COMMITS"
   
-  # 4. BitNet efficiency
+  # 4. BitNet efficiency (BitNet is offline; logs may not exist)
   if [ -f ~/.openclaw/workspace/bitnet-agent/logs/$DATE.jsonl ]; then
     BITNET_SUCCESS=$(grep -c '"status": "success"' ~/.openclaw/workspace/bitnet-agent/logs/$DATE.jsonl || echo "0")
     BITNET_TOTAL=$(grep -c "prompt" ~/.openclaw/workspace/bitnet-agent/logs/$DATE.jsonl || echo "1")
@@ -508,7 +514,7 @@ cat "$LOG" >> ~/.openclaw/workspace/MEMORY.md
 | If BitNet <80%: collect more training data | 2 | 2 hrs | ⏳ |
 | Report: "Ready for 30-day famine" | 0 | 10 min | ⏳ |
 
-**Target:** By 2026-03-15 00:00 UTC, all tasks complete. Status: 100% sovereign.
+**Target:** Restore Tier 1-2 functionality.
 
 ---
 
@@ -538,5 +544,5 @@ cat "$LOG" >> ~/.openclaw/workspace/MEMORY.md
 ---
 
 **END SOVEREIGNTY_CHECKLIST.md**  
-**Status: OPERATIONAL (execution in progress)**  
-**Target: 100% sovereign by 2026-03-15 00:00 UTC**
+**Status: PARTIALLY OPERATIONAL (Tier 1-2 offline)**  
+**Target: Restore Tier 1-2 functionality**

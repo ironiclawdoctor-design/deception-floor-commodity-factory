@@ -1,7 +1,7 @@
 # FAMINE_PLAYBOOK.md — When Tokens = 0
 
 **Last Updated:** 2026-03-13 22:52 UTC  
-**Status:** LIVE  
+**Status:** PARTIALLY OPERATIONAL (Grok/BitNet offline)  
 **Cost:** $0.00  
 **Context:** Five famines in 19 hours. This playbook prevents refill spins.
 
@@ -61,8 +61,8 @@ All Tier 0-2. All $0.00 cost.
 - ✅ Bash scripting
 - ✅ File operations (read/write)
 - ✅ Local Git (push/pull SSH already auth'd)
-- ✅ Grok server (127.0.0.1:8889, pure Python inference)
-- ✅ BitNet server (127.0.0.1:8080, local LLM)
+- ❌ Grok server (127.0.0.1:8889, offline)
+- ❌ BitNet server (127.0.0.1:8080, offline)
 - ✅ SQLite queries
 - ✅ Tailscale (already connected)
 - ✅ cron jobs
@@ -349,6 +349,6 @@ You're prepared now. Next famine is just another Tuesday.
 ---
 
 **END FAMINE_PLAYBOOK.md**  
-**Status: LIVE, TESTED, EXECUTABLE**  
+**Status: PARTIALLY OPERATIONAL (Grok/BitNet offline)**  
 **Cost: $0.00**  
 **Doctrine: The Prayer Protects**

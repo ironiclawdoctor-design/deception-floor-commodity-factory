@@ -11,6 +11,10 @@
  * - Reversed words are un-reversed
  */
 
+import { logger } from '../utils/logger.js';
+
+const moduleLogger = logger.child({ module: 'extractor' });
+
 /**
  * Antonym map — must mirror the generator's map.
  * @type {Object<string, string>}
@@ -115,16 +119,25 @@ function unreverseWords(text) {
  */
 export function extract(verifiedFloor) {
   if (!verifiedFloor || !verifiedFloor.deception) {
+    moduleLogger.error('Invalid floor input for extraction', { verifiedFloor });
     throw new Error('Floor must have a deception property');
   }
 
   if (!verifiedFloor.verified) {
+    moduleLogger.error('Attempt to extract from unverified floor', { floorId: verifiedFloor.id });
     throw new Error('Cannot extract from an unverified floor — verify first');
   }
 
   if (verifiedFloor.grade === 'F') {
+    moduleLogger.warn('Attempt to extract from rejected floor', { floorId: verifiedFloor.id, grade: 'F' });
     throw new Error('Cannot extract from a rejected (grade F) floor — no reliable inversion possible');
   }
+
+  moduleLogger.debug('Extraction started', {
+    floorId: verifiedFloor.id,
+    grade: verifiedFloor.grade,
+    deceptionLength: verifiedFloor.deception.length,
+  });
 
   // Path B: invert the inversion — O(1) sign flip
   // Reverse operations in opposite order: unreverse → uninvert numbers → uninvert words
@@ -132,7 +145,7 @@ export function extract(verifiedFloor) {
   extracted = uninvertNumbers(extracted);
   extracted = uninvertWords(extracted);
 
-  return {
+  const result = {
     floorId: verifiedFloor.id,
     extracted,
     originalDeception: verifiedFloor.deception,
@@ -140,4 +153,12 @@ export function extract(verifiedFloor) {
     grade: verifiedFloor.grade,
     timestamp: Date.now(),
   };
+
+  moduleLogger.info('Accuracy extracted', {
+    floorId: result.floorId,
+    extractedLength: extracted.length,
+    method: result.method,
+  });
+
+  return result;
 }

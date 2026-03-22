@@ -13,7 +13,7 @@ BEFORE:
   → Token famine = factory shutdown
   
 AFTER:
-  Factory produces deception floors using LOCAL LLM (starts at 0%)
+  Factory produces deception floors using LOCAL LLM (currently offline)
   → 0% accuracy IS the first deception floor
   → External LLM is failover only
   → Token famine = inconvenience, not shutdown
@@ -47,7 +47,7 @@ All production operations should:
 
 ## Status
 
-🟡 Pivot initiated. Local LLM repo created locally. Pending GitHub repo creation (R-002 — gh CLI not authenticated).
+🟡 Pivot initiated. Local LLM repo created locally (currently offline). Pending GitHub repo creation (R-002 — gh CLI not authenticated).
 
 ---
 

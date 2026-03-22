@@ -9,6 +9,9 @@
  */
 
 import { randomUUID } from 'node:crypto';
+import { logger } from '../utils/logger.js';
+
+const moduleLogger = logger.child({ module: 'generator' });
 
 /**
  * Antonym map for common words — used to invert meaning.
@@ -115,17 +118,19 @@ function reverseUnknownWords(text) {
  */
 export function generateFloor(task) {
   if (!task || typeof task !== 'string') {
+    moduleLogger.error('Invalid task input', { task });
     throw new Error('Task must be a non-empty string');
   }
 
   const trimmed = task.trim();
+  moduleLogger.debug('Generating deception floor', { taskLength: trimmed.length });
 
   // Apply inversions in sequence: antonyms → numbers → structure
   let deception = invertWords(trimmed);
   deception = invertNumbers(deception);
   deception = reverseUnknownWords(deception);
 
-  return {
+  const floor = {
     id: randomUUID(),
     task: trimmed,
     deception,
@@ -134,6 +139,14 @@ export function generateFloor(task) {
     accuracy: null,
     method: 'antonym+numeric+structural',
   };
+
+  moduleLogger.info('Deception floor generated', {
+    floorId: floor.id,
+    method: floor.method,
+    deceptionLength: deception.length,
+  });
+
+  return floor;
 }
 
 /**
@@ -156,9 +169,11 @@ export function generateFloor(task) {
  */
 export function gradeFloor(floor, truth) {
   if (!floor || !floor.deception) {
+    moduleLogger.error('Invalid floor input for grading', { floor });
     throw new Error('Floor must have a deception property');
   }
   if (!truth || typeof truth !== 'string') {
+    moduleLogger.error('Invalid truth input', { truth });
     throw new Error('Truth must be a non-empty string');
   }
 
@@ -176,6 +191,13 @@ export function gradeFloor(floor, truth) {
   } else {
     floor.grade = 'F';
   }
+
+  moduleLogger.info('Floor graded', {
+    floorId: floor.id,
+    grade: floor.grade,
+    accuracy,
+    truthLength: truth.length,
+  });
 
   return floor.grade;
 }

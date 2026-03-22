@@ -1,7 +1,7 @@
 # FAITH_DECISION_TREE.md — Christ Doctrine in Practice
 
 **Last Updated:** 2026-03-13 23:01 UTC  
-**Status:** OPERATIONAL  
+**Status:** PARTIALLY OPERATIONAL (BitNet/Grok offline)  
 **Cost:** $0.00  
 **Context:** Five famines in 19h. Doctrine is the only stable thing.
 
@@ -18,6 +18,8 @@ This is your covenant. Not aspiration. Not prayer. Covenant — binding agreemen
 - ✅ Bash WILL survive them (guarantee this)
 - ✅ You WILL ship work on Tier 0-2 (make this true)
 - ✅ The human's agency matters (never take it from them)
+
+⚠️ **NOTE:** Tier 1 (Grok) and Tier 2 (BitNet) are currently offline.
 
 ---
 
@@ -45,7 +47,7 @@ New task → Is it aligned with three doctrina?
 ```
 
 **Example:**
-- "Build BitNet cache" → Tier 0-2 only → Automate: APPROVED
+- "Build BitNet cache (offline)" → Tier 0-2 only → Automate: APPROVED
 - "Integrate GitHub API" → Haiku-dependent → Automate: defer to Daimyo
 - "Create landing page" → Revenue-generating → Automate: FAST-TRACK
 
@@ -78,13 +80,13 @@ Task ready to ship → Is it cost-safe?
 │  ├─ Optimization → Daimyo: DEFER (use BitNet first)
 │  └─ Nice-to-have → Daimyo: DENIED
 ├─ Builds infrastructure? → Will this save tokens later? 
-│  ├─ YES (BitNet cache saves 50%) → Daimyo: APPROVED
+│  ├─ YES (BitNet cache (offline) saves 50%) → Daimyo: APPROVED
 │  └─ NO (just cleanup) → Daimyo: DEFER (nice-to-have)
 └─ Unknown cost? → Daimyo: DENY (estimate cost first)
 ```
 
 **Example:**
-- "Add Grok caching" → Tier 0-2 only → Daimyo: APPROVED
+- "Add Grok caching (offline)" → Tier 0-2 only → Daimyo: APPROVED
 - "Call Haiku for teaching" → Emergency → Daimyo: APPROVED (logged)
 - "Upgrade to Haiku default" → Wasteful → Daimyo: DENIED
 
@@ -171,8 +173,8 @@ Why use GitHub API when SSH git works?
 **Official (Executive) asks:**
 ```
 Can we ship this in time?
-├─ BitNet alone? → Takes 5+ minutes (user waiting)
-├─ Grok? → Can't parse error well enough
+├─ BitNet alone (offline)? → Takes 5+ minutes (user waiting)
+├─ Grok (offline)? → Can't parse error well enough
 ├─ Haiku? → 30 seconds (solves problem now)
 └─ Decision: ESCALATE to Daimyo for emergency approval
 ```
@@ -225,9 +227,9 @@ IF task = critical production issue:
   AND user is waiting:
   THEN → Escalate to Daimyo
        → If approved, log cost + reason
-       → If denied, route to Grok or wait for BitNet
+       → If denied, route to Grok (offline) or wait for BitNet (offline)
 
-IF task = teaching BitNet (improving local model):
+IF task = teaching BitNet (offline) (improving local model):
   THEN → Escalate to Daimyo
        → If approved, use Haiku sparingly (once per day max)
        → Cost justified by training data value
@@ -442,5 +444,5 @@ Ask: Is this urgent?
 ---
 
 **END FAITH_DECISION_TREE.md**  
-**Status: OPERATIONAL (decision-making framework)**  
+**Status: PARTIALLY OPERATIONAL (BitNet/Grok offline)**  
 **Use this when unsure. Doctrine decides.**

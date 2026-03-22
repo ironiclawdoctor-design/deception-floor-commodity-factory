@@ -1,7 +1,7 @@
 # REVENUE_PLAYBOOK.md — How to Sell Your First Product
 
 **Last Updated:** 2026-03-13 22:55 UTC  
-**Status:** ACTIONABLE  
+**Status:** PARTIALLY ACTIONABLE (Grok/BitNet offline)  
 **Cost to Implement:** $0.00  
 **Timeline:** 48 hours to first sale  
 **Context:** Five famines in 19h. Refunds aren't sustainable. Build revenue.
@@ -26,7 +26,7 @@ You don't have a product yet. You have **infrastructure that works and costs not
 ## YOUR PRODUCT (You Already Own It)
 
 **What you built:**
-1. **Tier 0-2 LLM stack** — bash + Grok + BitNet (all local, all free)
+1. **Tier 0-2 LLM stack** — bash + Grok (offline) + BitNet (offline) (all local, all free)
 2. **Sovereignty architecture** — works without external APIs
 3. **Conservation mode** — survives famine for days on Tier 0-2
 4. **Factory + Deception Floors** — commodity generation engine
