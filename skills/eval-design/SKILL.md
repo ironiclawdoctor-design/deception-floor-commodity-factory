@@ -15,10 +15,23 @@ I am eval-design. I will help you.
 
 Design eval suites that drive real skill improvement — not suites that produce flattering scores.
 
+### The x/x = 1 Problem (read this first)
+
+Any agent that writes both the skill and the evals will converge to 100%.
+This is not improvement. It is **x/x = 1** — a mathematical identity, not a measurement.
+Self-referential autoresearch is only useful for the **0→~1% range**: bootstrapping a skill from nothing to "passes its author's intent."
+
+Beyond that, **the denominator must not be yours to define.**
+
+Valid denominators:
+- **Ground truth** — compiler output, test suite, known answer key, math verifier
+- **Blind adversarial agent** — separate session, never saw the skill, given the same inputs
+- **Unseen input distribution** — drawn from real usage logs, not designed by the author
+
 An eval suite succeeds when:
-1. Every failing eval implies exactly one skill mutation
-2. The suite grows harder each round until no new gaps can be found
-3. Scores drop when the suite expands (that's the signal working)
+1. The max score is not reachable by the agent who wrote the evals
+2. Every failing eval implies exactly one skill mutation
+3. Scores on unseen inputs — not author-designed inputs — drive the loop
 
 ## Output Format
 
@@ -84,12 +97,19 @@ State interpretation, proceed.
 
 When the current suite hits 100%:
 
-1. Identify the 3 hardest things the skill must do that no current eval tests
-2. Write evals for those 3 things (RC-5: they must fail the current skill on at least one test input)
-3. Run the expanded suite — score will drop below 100%
-4. That drop is success, not failure
+**First ask:** Who wrote the evals? If the same agent who wrote the skill — 100% is a tautology alarm (x/x = 1), not a milestone. The response is not to add more self-authored evals. It is to **replace the evaluator**.
 
-**The score dropping is the system working.**
+**Evaluator replacement hierarchy:**
+1. Find a ground-truth scorer (compiler, verifier, known answer key) — best
+2. Spawn a blind adversarial agent (separate session, give it only the inputs, not the skill)
+3. Commit to a held-out input set the author cannot see during optimization
+
+Only after the denominator is independent:
+1. Score the current skill against external inputs/evaluator
+2. Failures become the new mutation targets
+3. That drop from 100% is the real signal starting
+
+**The score dropping is the x/x illusion breaking.**
 
 ## Stopping Condition
 
