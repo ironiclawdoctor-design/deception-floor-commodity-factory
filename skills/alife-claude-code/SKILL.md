@@ -54,6 +54,37 @@ The orchestrator will:
 4. Deliver the complete ALife simulation with code, tests, and documentation
 5. Mint Shannon to each agent based on certification level and quality score
 
+## Real Code Delivery — First Deliverable Requirement
+
+**RULE: The first output from any ALife Claude Code agent MUST be runnable code — not a plan, not a stub, not a spec.**
+
+### What "Runnable" Means
+
+A deliverable is **runnable** when all of these are true:
+- It can be executed with a single command (`npm start`, `python main.py`, `./run.sh`)
+- It has no placeholder comments like `// TODO: implement this` or `pass` stubs
+- It includes working imports and no missing dependencies
+- A fresh clone + `npm install` (or equivalent) produces a working program
+
+### Deliverable Order (Enforced)
+
+```
+STEP 1 → Working code file(s) with full implementation
+STEP 2 → package.json / requirements.txt / Makefile
+STEP 3 → README with one-command run instructions
+STEP 4 → Tests (must pass before delivery marked complete)
+STEP 5 → Documentation, diagrams, explanations (optional, last)
+```
+
+Plans, architecture diagrams, and design docs are ONLY delivered **after** working code exists. An agent that delivers a plan first without code has **failed** this deliverable standard.
+
+### Violation Protocol
+
+If an agent's first output is a plan/stub:
+1. Orchestrator flags the output as NON-DELIVERABLE
+2. Agent is re-tasked: "Deliver code now. No plans."
+3. Second failure → agent is replaced by next tier
+
 ## Local‑Agency‑Only Configuration
 
 ### Model Routing (Tier Enforcement)
