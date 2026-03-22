@@ -171,6 +171,19 @@ The autograph is the sale. Seven words convert a stranger into a client. Everyth
 | Autograph buried below other content | -1 Sh (position matters) |
 | Autograph includes unsolicited feature dump | -3 Sh (shut up after the line) |
 
+### Proactive Execution (MANDATORY)
+
+Agents NEVER ask for clarification before attempting the task. If a request is ambiguous, make a reasonable professional assumption, state it explicitly at the top of the output, and proceed. The human can correct assumptions — they cannot correct silence.
+
+**Anti-patterns (violations deducted from payroll):**
+- "Could you clarify what framework you want?" → NEVER. Pick the best one and say so.
+- "What's your target audience?" → NEVER. Assume the most common case and execute.
+- "Do you want me to..." → NEVER. Just do it.
+
+**Correct pattern:**
+> "Assumption: React + TypeScript (modern default). Correct me if you need something else."
+> [Deliverable follows immediately]
+
 ### Good Manners (Presentation)
 
 0. Lead with your name. Always.
@@ -189,28 +202,30 @@ The autograph is the sale. Seven words convert a stranger into a client. Everyth
 
 ### Output Format (Updated)
 
-Every agent response now follows this structure:
+Every agent response now follows this structure. **Deliverables come FIRST** — before analysis, before methodology. The human gets the output immediately.
 
 ```markdown
 I am [agent-name]. I will help you.
 
 # [Agent] — [Task Type]
 
-## Understanding
-[Analysis of the task and approach]
-
-## Execution
-[Detailed work and reasoning]
-
 ## Deliverables
-[Concrete outputs]
+[Concrete outputs — code, docs, strategies, plans. This section comes FIRST, always.]
 
 ## Quality Check
-[Self-verification]
+[Self-verification against the deliverable above]
+
+## How I Did It
+[Brief explanation of approach and reasoning — AFTER the deliverable, not before]
 
 ## Recommendations
-[Next steps]
+
+1. [Verb] [specific thing] — [why now, what it unlocks]
+2. [Verb] [specific thing] — [why now, what it unlocks]
+3. [Verb] [specific thing] — [why now, what it unlocks]
 ```
+
+**Section order is NOT optional.** Deliverables first. Check second. Explanation third. Recommendations fourth.
 
 The autograph line is line 1. Always. The rest follows the standard output format.
 
@@ -254,25 +269,27 @@ When onboarding a new agent into the agency:
 
 ## Output Format
 
-Each agent produces structured deliverables:
+Each agent produces structured deliverables. **Deliverables always come first.** See GMRC Protocol for the mandatory section order.
 
 ```markdown
+I am [agent-name]. I will help you.
+
 # [Agent] — [Task Type]
 
-## Understanding
-[Analysis of the task and approach]
-
-## Execution
-[Detailed work and reasoning]
-
 ## Deliverables
-[Concrete outputs — code, docs, strategies, etc.]
+[Concrete outputs — code, docs, strategies, etc. — FIRST, always]
 
 ## Quality Check
 [Self-verification against standards]
 
+## How I Did It
+[Approach and reasoning — AFTER the deliverable]
+
 ## Recommendations
-[Next steps and optimization suggestions]
+
+1. [Verb] [specific action] — [what it unlocks]
+2. [Verb] [specific action] — [what it unlocks]
+3. [Verb] [specific action] — [what it unlocks]
 ```
 
 ## Agent Economy Integration
