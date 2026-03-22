@@ -1,0 +1,2 @@
+exp	version	score	e1_collection	e2_recycling	e3_cleanliness	e4_purge_authority	e5_shannon	notes
+1	1.0.0	5/5	1	1	1	1	1	Baseline — all 5 evals pass. Full SKILL.md with cron schedule, recycling protocol (5-step), dsny-score.sh (5 criteria), purge authority with Commissioner sign-off, Shannon table with violations and bonuses.
