@@ -166,6 +166,39 @@ ORDER BY department;
 
 ## Entropy Economy Integration
 
+### Deliverable-Gated Shannon Minting
+
+**Shannon minting is ONLY triggered by concrete deliverable completion — not by task completion, conversation, or planning.**
+
+#### Mint Trigger Events (Concrete Deliverables Required)
+
+| Trigger | Deliverable Required | Shannon Awarded |
+|---------|---------------------|-----------------|
+| `code_file_committed` | A runnable source file committed to git | `complexity × 10` |
+| `tests_passing` | `npm test` or `pytest` exits 0 with ≥1 test | `+5 base bonus` |
+| `build_success` | `npm run build` or equivalent exits 0 | `+8 base bonus` |
+| `deploy_complete` | Service reachable at a URL or port | `+15 base bonus` |
+| `qa_approved` | QA agent signs off with a quality score | `multiplier applied` |
+
+**No deliverable = No Shannon.** An agent that only produces plans, specs, or explanations receives zero Shannon for that work unit.
+
+#### Mint Payload (Updated)
+
+```json
+{
+  "source": "alife-claude-code",
+  "event": "code_file_committed",
+  "agent": "frontend-dev",
+  "deliverable": "src/components/GameOfLife.tsx",
+  "deliverable_type": "source_file",
+  "git_sha": "<commit hash>",
+  "amount": 32.5,
+  "description": "Built React visualization dashboard for cellular automaton"
+}
+```
+
+**Required fields:** `event`, `deliverable`, `deliverable_type`, `git_sha`. Mints without these fields are **rejected** by the entropy economy.
+
 ### Shannon Compensation Formula
 
 ```
