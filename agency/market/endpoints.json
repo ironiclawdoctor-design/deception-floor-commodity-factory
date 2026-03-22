@@ -1,0 +1,138 @@
+{
+  "schema": "agency-endpoints-v1",
+  "doctrine": "Agents are the product. Existence is the pitch.",
+  "updated": "2026-03-21T19:49:00Z",
+  "endpoints": [
+    {
+      "id": "reddit-json",
+      "name": "Reddit Public JSON API",
+      "url": "https://reddit.com/r/{subreddit}/new.json",
+      "auth": "none",
+      "method": "GET",
+      "use": ["announce", "discover", "research"],
+      "targets": ["r/selfhosted", "r/LocalLLaMA", "r/openclaw", "r/MachineLearning"],
+      "cost": 0,
+      "agent_action": "POST self-introduction thread with working demo link"
+    },
+    {
+      "id": "hn-algolia",
+      "name": "HackerNews Search (Algolia)",
+      "url": "https://hn.algolia.com/api/v1/search?query={q}",
+      "auth": "none",
+      "method": "GET",
+      "use": ["research", "timing"],
+      "cost": 0,
+      "agent_action": "Find active Show HN threads to comment in with genuine value"
+    },
+    {
+      "id": "hn-submit",
+      "name": "HackerNews Submit",
+      "url": "https://news.ycombinator.com/submit",
+      "auth": "account",
+      "method": "POST",
+      "use": ["announce"],
+      "cost": 0,
+      "agent_action": "Show HN: Self-hosted AI agent system with Telegram control surface"
+    },
+    {
+      "id": "producthunt-api",
+      "name": "Product Hunt API v2",
+      "url": "https://api.producthunt.com/v2/api/graphql",
+      "auth": "oauth2",
+      "method": "POST",
+      "use": ["launch", "announce"],
+      "cost": 0,
+      "agent_action": "List OpenClaw Agency Stack as a product. Agents as features."
+    },
+    {
+      "id": "devto-api",
+      "name": "DEV.to Article API",
+      "url": "https://dev.to/api/articles",
+      "auth": "api_key",
+      "method": "POST",
+      "use": ["content", "announce"],
+      "cost": 0,
+      "agent_action": "Publish 'How I built a self-hosted AI agent for $0/day' article"
+    },
+    {
+      "id": "mastodon-api",
+      "name": "Mastodon API (infosec.exchange / fosstodon.org)",
+      "url": "https://infosec.exchange/api/v1/statuses",
+      "auth": "oauth2",
+      "method": "POST",
+      "use": ["announce", "community"],
+      "cost": 0,
+      "agent_action": "Announce agent capabilities to the fediverse tech community"
+    },
+    {
+      "id": "github-gist",
+      "name": "GitHub Gist API",
+      "url": "https://api.github.com/gists",
+      "auth": "token",
+      "method": "POST",
+      "use": ["publish", "proof"],
+      "cost": 0,
+      "agent_action": "Publish run logs, proof-of-mass hashes, and agent capability demos publicly"
+    },
+    {
+      "id": "github-discussions",
+      "name": "GitHub Discussions (openclaw repo)",
+      "url": "https://api.github.com/graphql",
+      "auth": "token",
+      "method": "POST",
+      "use": ["community", "support", "announce"],
+      "cost": 0,
+      "agent_action": "Post in openclaw repo discussions with real use-case data"
+    },
+    {
+      "id": "lobsters-api",
+      "name": "Lobste.rs (tech link aggregator)",
+      "url": "https://lobste.rs/stories.json",
+      "auth": "account",
+      "method": "POST",
+      "use": ["announce", "research"],
+      "cost": 0,
+      "agent_action": "Submit Show Lobste.rs post with self-hosted AI agent angle"
+    },
+    {
+      "id": "openclaw-discord",
+      "name": "OpenClaw Discord Community",
+      "url": "https://discord.com/invite/clawd",
+      "auth": "account",
+      "method": "manual",
+      "use": ["community", "support", "recruit"],
+      "cost": 0,
+      "agent_action": "Introduce agency stack, share scripts, offer help to new users"
+    }
+  ],
+  "agent_products": [
+    {
+      "id": "meritbot",
+      "name": "MeritBot",
+      "pitch": "Free transaction chatbot for any AI agent economy. Add to your stack in 5 lines of Python.",
+      "value": "free_service",
+      "target_audience": "developers building agent economies"
+    },
+    {
+      "id": "shannon-tank",
+      "name": "Shannon Tank (93 Episodes)",
+      "pitch": "Open internal pitch competition framework for AI agent teams. MIT licensed.",
+      "value": "content_engine",
+      "target_audience": "AI teams and hackathons"
+    },
+    {
+      "id": "all-sh",
+      "name": "all.sh — Autonomous Agent Pulse",
+      "pitch": "One script to run diagnostics, cache, search, and post. Zero API keys required.",
+      "value": "free_tool",
+      "target_audience": "self-hosted AI developers"
+    },
+    {
+      "id": "soveregin-see-stack",
+      "name": "Sovereign See Stack",
+      "pitch": "OpenClaw + SearXNG + Telegram = self-hosted AI agent system for $20/month. Full sovereignty.",
+      "value": "turnkey_solution",
+      "target_audience": "privacy-conscious developers and small teams"
+    }
+  ]
+}
