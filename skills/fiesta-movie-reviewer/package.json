@@ -1,0 +1,11 @@
+{
+  "name": "@ironiclawdoctor-design/fiesta-movie-reviewer",
+  "version": "1.0.0",
+  "description": "Fiesta Agency cinematic protocol mapper",
+  "main": "movie-triangle.sh",
+  "author": "Fiesta",
+  "openclaw": {
+    "kind": "skill",
+    "label": "Fiesta Movie Reviewer"
+  }
+}

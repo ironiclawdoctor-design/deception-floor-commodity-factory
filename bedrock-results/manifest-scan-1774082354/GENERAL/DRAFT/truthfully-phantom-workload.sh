@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully-phantom-workload.sh

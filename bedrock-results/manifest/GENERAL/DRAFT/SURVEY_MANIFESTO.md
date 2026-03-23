@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/intruders/SURVEY_MANIFESTO.md

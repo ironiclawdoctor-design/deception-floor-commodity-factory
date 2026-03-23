@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/automate-nbm/scripts/notify.sh

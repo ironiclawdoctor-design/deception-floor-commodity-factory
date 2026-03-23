@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/PROMPT_DELEGATION_PROTOCOL.md

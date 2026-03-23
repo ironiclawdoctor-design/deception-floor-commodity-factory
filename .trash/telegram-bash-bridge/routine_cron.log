@@ -1,0 +1,3 @@
+INFO:__main__:Starting routine agency report
+WARNING:__main__:Token or chat IDs missing; skipping Telegram send
+INFO:__main__:Routine report completed: sent to 0/0 chats

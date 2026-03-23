@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/peter/PETER_DOCTRINE.md

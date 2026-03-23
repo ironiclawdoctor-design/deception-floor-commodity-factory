@@ -1,0 +1,118 @@
+========================================
+Compaction Health Monitor Report
+Timestamp: 2026-03-19 16:02:33 (UTC)
+========================================
+
+
+[INFO] Checking memory compaction...
+[INFO] Checking memory compaction...
+[INFO] Memory compaction interface: unknown
+[INFO] Memory compaction interface: unknown
+[INFO] Available memory: 6.3Gi
+[INFO] Available memory: 6.3Gi
+
+[INFO] Checking disk compaction status...
+[INFO] Checking disk compaction status...
+[INFO] Root filesystem: /dev/sda1
+[INFO] Root filesystem: /dev/sda1
+[INFO] Filesystem type: /dev/sda1 (check compatibility separately)
+[INFO] Filesystem type: /dev/sda1 (check compatibility separately)
+[INFO] Inode usage: 19%
+[INFO] Inode usage: 19%
+
+[INFO] Checking disk fragmentation...
+[INFO] Checking disk fragmentation...
+[INFO] Disk usage: 58%
+[INFO] Disk usage: 58%
+
+[INFO] Checking RocksDB/database compaction...
+[INFO] Checking RocksDB/database compaction...
+[INFO] No RocksDB instances detected
+[INFO] No RocksDB instances detected
+
+[INFO] Checking overlay filesystem (containers)...
+[INFO] Checking overlay filesystem (containers)...
+[INFO] No Docker overlay filesystem detected
+[INFO] No Docker overlay filesystem detected
+
+========================================
+Monitor completed at 2026-03-19 16:02:33
+========================================
+
+📋 RECOMMENDATIONS:
+
+If memory compaction issues detected:
+  - Increase available RAM or reduce active workload
+  - Check for memory leaks: ps aux --sort=-%mem | head
+
+If disk compaction issues detected:
+  - For ext4: sudo e4defrag -c -r /
+  - For btrfs: sudo btrfs filesystem defragment /
+  - Free up space: remove old logs, caches, or unused containers
+
+If inode exhaustion detected:
+  - Reduce number of small files
+  - Clean up temporary directories
+  - Consider filesystem resize/reformat
+
+Monitor logs at: /root/.openclaw/workspace/logs/compaction-monitor.log
+
+========================================
+Compaction Health Monitor Report
+Timestamp: 2026-03-19 17:02:17 (UTC)
+========================================
+
+
+[INFO] Checking memory compaction...
+[INFO] Checking memory compaction...
+[INFO] Memory compaction interface: unknown
+[INFO] Memory compaction interface: unknown
+[INFO] Available memory: 6.3Gi
+[INFO] Available memory: 6.3Gi
+
+[INFO] Checking disk compaction status...
+[INFO] Checking disk compaction status...
+[INFO] Root filesystem: /dev/sda1
+[INFO] Root filesystem: /dev/sda1
+[INFO] Filesystem type: /dev/sda1 (check compatibility separately)
+[INFO] Filesystem type: /dev/sda1 (check compatibility separately)
+[INFO] Inode usage: 19%
+[INFO] Inode usage: 19%
+
+[INFO] Checking disk fragmentation...
+[INFO] Checking disk fragmentation...
+[INFO] Disk usage: 58%
+[INFO] Disk usage: 58%
+
+[INFO] Checking RocksDB/database compaction...
+[INFO] Checking RocksDB/database compaction...
+[INFO] No RocksDB instances detected
+[INFO] No RocksDB instances detected
+
+[INFO] Checking overlay filesystem (containers)...
+[INFO] Checking overlay filesystem (containers)...
+[INFO] No Docker overlay filesystem detected
+[INFO] No Docker overlay filesystem detected
+
+========================================
+Monitor completed at 2026-03-19 17:02:17
+========================================
+
+📋 RECOMMENDATIONS:
+
+If memory compaction issues detected:
+  - Increase available RAM or reduce active workload
+  - Check for memory leaks: ps aux --sort=-%mem | head
+
+If disk compaction issues detected:
+  - For ext4: sudo e4defrag -c -r /
+  - For btrfs: sudo btrfs filesystem defragment /
+  - Free up space: remove old logs, caches, or unused containers
+
+If inode exhaustion detected:
+  - Reduce number of small files
+  - Clean up temporary directories
+  - Consider filesystem resize/reformat
+
+Monitor logs at: /root/.openclaw/workspace/logs/compaction-monitor.log
+

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/human-floor/HUMAN_FLOOR_MANIFESTO.md

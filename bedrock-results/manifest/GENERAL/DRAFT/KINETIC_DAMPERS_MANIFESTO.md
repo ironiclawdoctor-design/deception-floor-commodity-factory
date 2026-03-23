@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/physics/dampers/KINETIC_DAMPERS_MANIFESTO.md

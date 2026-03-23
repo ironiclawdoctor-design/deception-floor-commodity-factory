@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/departments/shadow-red-team/RED_TEAM_MANIFESTO.md

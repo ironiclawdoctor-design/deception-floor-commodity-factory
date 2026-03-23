@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/NEXT_CLAUDE.md

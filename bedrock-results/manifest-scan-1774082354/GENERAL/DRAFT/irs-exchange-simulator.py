@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/irs-exchange-simulator.py

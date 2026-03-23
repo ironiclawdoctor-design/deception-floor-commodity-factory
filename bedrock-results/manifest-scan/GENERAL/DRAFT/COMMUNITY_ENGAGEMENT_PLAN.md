@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/COMMUNITY_ENGAGEMENT_PLAN.md

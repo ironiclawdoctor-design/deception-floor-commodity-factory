@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-takeover/HARDCORE_MANIFESTO.md

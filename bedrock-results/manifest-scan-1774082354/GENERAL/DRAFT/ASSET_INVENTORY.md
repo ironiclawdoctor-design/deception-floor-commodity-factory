@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/estate/ASSET_INVENTORY.md

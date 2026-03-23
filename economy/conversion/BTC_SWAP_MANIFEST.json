@@ -1,0 +1,9 @@
+{
+  "protocol": "NP-HARD-SHANNON-CONVERSION-V1",
+  "base_asset": "Shannon (Stench/Soap)",
+  "target_asset": "Bitcoin (Satoshi)",
+  "volatility_index": "SEVERE",
+  "liability_policy": "EXCESS_REDUCTION",
+  "conversion_loss_tolerance": "UNLIMITED",
+  "exchange_rate_formula": "(Circulating_Shannon / BTC_Global_Confidence) * (1 - Entropy_Friction)"
+}

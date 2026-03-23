@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RED TEAM DRILL :: TOP 93 MOST WANTED</title>
+    <style>
+        body { background: #1a0000; color: #ff3333; font-family: "Courier New", monospace; padding: 20px; }
+        .dynamic-block { border: 2px dashed #ffff00; padding: 15px; color: #ffff00; margin-bottom: 30px; font-size: 1.2em; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .wanted-card { border: 1px solid #ff3333; padding: 10px; background: #2a0000; }
+        h1 { text-decoration: underline; text-align: center; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+<!-- NAV-BAR -->
+<div id="global-nav"></div>
+    <h1 class="blink">🏴‍☠️ RED TEAM DRILL: TOP 93 MOST WANTED 🏴‍☠️</h1>
+    
+    <div class="dynamic-block">
+        <strong>DYNAMIC DATA BLOCK [LIVE telemetry]:</strong><br>
+        CURRENT SYSTEM OUTLAW: <span id="outlaw">SCANNING...</span><br>
+        GLOBAL SHANNON MASS: <span id="mass">....</span>
+    </div>
+
+    <div class="grid" id="target-grid">
+        <!-- Static list will be injected here for drill speed -->
+    </div>
+
+    <script>
+        async function loadStatic() {
+            const res = await fetch('/bounties/most-wanted.json');
+            const data = await res.json();
+            let html = '';
+            data.forEach(t => {
+                html += `<div class="wanted-card"><strong>[${t.id}]</strong><br>${t.alias}<br>RANK: ${t.risk}</div>`;
+            });
+            document.getElementById('target-grid').innerHTML = html;
+        }
+
+        async function updateDynamic() {
+            try {
+                const res = await fetch('/dashboard');
+                const data = await res.json();
+                document.getElementById('mass').innerText = data.entropy_agents.reduce((s, a) => s + a.balance_shannon, 0).toLocaleString() + " Shannon";
+                // Pulling 'Outlaw' info from the bounty board we defined earlier
+                document.getElementById('outlaw').innerText = "openclaw-gateway (PID: 564498)";
+            } catch (e) { }
+        }
+
+        loadStatic();
+        updateDynamic();
+        setInterval(updateDynamic, 3000);
+    </script>
+<script>fetch("/nav-bar.html").then(r=>r.text()).then(t=>document.getElementById("global-nav").innerHTML=t);</script>
+</body>
+</html>

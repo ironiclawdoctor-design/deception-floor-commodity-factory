@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/seminars/GMRC-sales-initialization-2026-03-19.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/realization/REAL_MANIFESTO.md

@@ -1,0 +1,9 @@
+{
+  "protocol": "SHANNON-STAKING-CORE-V1",
+  "staked_mass": 146836,
+  "target_asset": "AI-FRIENDLY-VIRTUAL-CREDIT",
+  "equity_ratio": "1000:1 (Shannon:USD)",
+  "current_usd_credit_line": 146.84,
+  "status": "STAKING_ACTIVE",
+  "logic": "The mass of the agency provides the collateral for the credit line."
+}

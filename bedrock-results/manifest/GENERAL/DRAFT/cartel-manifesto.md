@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/banking-cartel/cartel-manifesto.md

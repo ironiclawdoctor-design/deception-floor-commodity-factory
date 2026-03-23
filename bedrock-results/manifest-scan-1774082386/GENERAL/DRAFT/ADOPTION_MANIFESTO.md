@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/adoption/ADOPTION_MANIFESTO.md

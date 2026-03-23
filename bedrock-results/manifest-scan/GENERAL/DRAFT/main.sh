@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/preauth-elev-cache/main.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/elegant-ingress/ELEGANCE_MANIFESTO.md

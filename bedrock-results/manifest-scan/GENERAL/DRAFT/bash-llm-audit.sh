@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bash-llm-audit.sh

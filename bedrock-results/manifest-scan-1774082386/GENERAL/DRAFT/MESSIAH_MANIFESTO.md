@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/logic-sync/messiah/MESSIAH_MANIFESTO.md

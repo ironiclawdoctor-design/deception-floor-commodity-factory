@@ -1,0 +1,24 @@
+[2026-03-14 12:26:50] [INFO] Processing /truthfully command: What is 2+2?
+[2026-03-14 12:26:50] [INFO] Tier: UNKNOWN | Cost: $0.00081 | Tokens: 0
+[2026-03-14 12:26:50] [INFO] /truthfully completed: UNKNOWN | $0.00081
+[2026-03-14 12:27:01] [INFO] Processing /truthfully command: What is 2+2?
+[2026-03-14 12:27:01] [INFO] Tier: HAIKU | Cost: $0.00081 | Tokens: 0
+[2026-03-14 12:27:01] [INFO] /truthfully completed: HAIKU | $0.00081
+[2026-03-14 12:28:54] [INFO] Processing /truthfully command: /subagents data
+[2026-03-14 12:28:54] [INFO] Tier: HAIKU | Cost: $0.00081 | Tokens: 0
+[2026-03-14 12:28:54] [INFO] /truthfully completed: HAIKU | $0.00081
+[2026-03-14 12:32:30] [INFO] Processing /truthfully command: /subagents data
+[2026-03-14 12:32:30] [INFO] Tier: BASH_DIRECT | Cost: $0.0000 | Tokens: 0
+[2026-03-14 12:32:30] [INFO] /truthfully completed: BASH_DIRECT | $0.0000
+[2026-03-14 12:32:33] [INFO] Processing /truthfully command: list files
+[2026-03-14 12:32:33] [INFO] Tier: BASH_DIRECT | Cost: $0.0000 | Tokens: 0
+[2026-03-14 12:32:33] [INFO] /truthfully completed: BASH_DIRECT | $0.0000
+[2026-03-14 12:32:33] [INFO] Processing /truthfully command: what is 2+2
+[2026-03-14 12:32:33] [INFO] Tier: HAIKU_EXTERNAL | Cost: $0.00081 | Tokens: 0
+[2026-03-14 12:32:33] [INFO] /truthfully completed: HAIKU_EXTERNAL | $0.00081
+[2026-03-14 12:32:33] [INFO] Processing /truthfully command: explain quantum mechanics
+[2026-03-14 12:32:33] [INFO] Tier: HAIKU_EXTERNAL | Cost: $0.00081 | Tokens: 0
+[2026-03-14 12:32:33] [INFO] /truthfully completed: HAIKU_EXTERNAL | $0.00081
+[2026-03-14 12:43:55] [INFO] Processing /truthfully command: /subagents
+[2026-03-14 12:43:56] [INFO] Tier: BASH_DIRECT | Cost: $0.0000 | Tokens: 0
+[2026-03-14 12:43:56] [INFO] /truthfully completed: BASH_DIRECT | $0.0000

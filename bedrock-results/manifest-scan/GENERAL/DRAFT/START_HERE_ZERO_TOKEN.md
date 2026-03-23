@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/START_HERE_ZERO_TOKEN.md

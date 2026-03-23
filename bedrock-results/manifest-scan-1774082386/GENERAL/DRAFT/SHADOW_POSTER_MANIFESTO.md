@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/shadow-poster-v2/SHADOW_POSTER_MANIFESTO.md

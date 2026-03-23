@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMISSION_7_BITNET_SELF_IMPROVEMENT.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/surveillance/agent-browser/BROWSER_MANIFESTO.md

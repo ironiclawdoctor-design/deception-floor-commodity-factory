@@ -1,0 +1,188 @@
+[  1%] Building C object 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml.c.o
+In file included from /root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:7:
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml-quants.h:156:7: warning: no newline at end of file [-Wnewline-eof]
+  156 | #endif
+      |       ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:1184:37: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+ 1184 |         .nrows                    = 1,
+      |                                     ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:1181:37: note: previous initialization is here
+ 1181 |         .nrows                    = 1,
+      |                                     ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12543:6: warning: no previous prototype for function 'float_act_quant' [-Wmissing-prototypes]
+ 12543 | void float_act_quant(const int K, float* B, int32_t* dst, float* act_scale) {
+       |      ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12543:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+ 12543 | void float_act_quant(const int K, float* B, int32_t* dst, float* act_scale) {
+       | ^
+       | static 
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12563:18: warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+ 12563 |         if (fabs(A[i]) > max){
+       |             ~~~~ ^~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12564:32: warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+ 12564 |             i2_scale[0] = fabs(A[i]);
+       |                           ~~~~ ^~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12574:37: warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+ 12574 |             dst[i] = (double)A[i] * i2_scale[0] > 0 ? 1 : -1;
+       |                                   ~ ^~~~~~~~~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12559:6: warning: no previous prototype for function 'weight_quant_f32' [-Wmissing-prototypes]
+ 12559 | void weight_quant_f32(const int M, const int K, float* A, int32_t* dst, float* i2_scale) {
+       |      ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12559:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+ 12559 | void weight_quant_f32(const int M, const int K, float* A, int32_t* dst, float* i2_scale) {
+       | ^
+       | static 
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12583:18: warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+ 12583 |         if (fabs(temp_A) > max){
+       |             ~~~~ ^~~~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12584:32: warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+ 12584 |             i2_scale[0] = fabs(temp_A);
+       |                           ~~~~ ^~~~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12595:39: warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+ 12595 |             dst[i] = (double)temp_A * i2_scale[0] > 0 ? 1 : -1;
+       |                                     ~ ^~~~~~~~~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12579:6: warning: no previous prototype for function 'weight_quant_f16' [-Wmissing-prototypes]
+ 12579 | void weight_quant_f16(const int M, const int K, uint16_t* A, int32_t* dst, float* i2_scale) {
+       |      ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12579:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+ 12579 | void weight_quant_f16(const int M, const int K, uint16_t* A, int32_t* dst, float* i2_scale) {
+       | ^
+       | static 
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12600:6: warning: no previous prototype for function 'matrixMultiply_int' [-Wmissing-prototypes]
+ 12600 | void matrixMultiply_int(const int M, const int N, const int K, const int32_t* A, const int32_t* B, int32_t* C) {
+       |      ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:12600:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+ 12600 | void matrixMultiply_int(const int M, const int N, const int K, const int32_t* A, const int32_t* B, int32_t* C) {
+       | ^
+       | static 
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:14084:26: warning: unused variable 'type' [-Wunused-variable]
+ 14084 |     const enum ggml_type type = src0->type;
+       |                          ^~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:14291:48: warning: passing 'const struct ggml_compute_params *' to parameter of type 'struct ggml_compute_params *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+ 14291 |             ggml_compute_forward_get_rows_i2_s(params, dst);
+       |                                                ^~~~~~
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml.c:14073:42: note: passing argument to parameter 'params' here
+ 14073 |             struct ggml_compute_params * params,
+       |                                          ^
+14 warnings generated.
+[  1%] Building C object 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-alloc.c.o
+[  2%] Building CXX object 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-backend.cpp.o
+[  3%] Building C object 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-quants.c.o
+In file included from /root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml-quants.c:4:
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml-quants.h:156:7: warning: no newline at end of file [-Wnewline-eof]
+  156 | #endif
+      |       ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/ggml-quants.c:16179:2: warning: no newline at end of file [-Wnewline-eof]
+ 16179 | }
+       |  ^
+2 warnings generated.
+[  4%] Building CXX object 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-mad.cpp.o
+In file included from /root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:5:
+In file included from /root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-quants.h:4:
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:154:9: warning: anonymous structs are a GNU extension [-Wgnu-anonymous-struct]
+  154 |         struct {
+      |         ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:154:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:175:9: warning: anonymous structs are a GNU extension [-Wgnu-anonymous-struct]
+  175 |         struct {
+      |         ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:175:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:196:9: warning: anonymous structs are a GNU extension [-Wgnu-anonymous-struct]
+  196 |         struct {
+      |         ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:196:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:261:9: warning: anonymous structs are a GNU extension [-Wgnu-anonymous-struct]
+  261 |         struct {
+      |         ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:261:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:294:9: warning: anonymous structs are a GNU extension [-Wgnu-anonymous-struct]
+  294 |         struct {
+      |         ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:294:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:311:9: warning: anonymous structs are a GNU extension [-Wgnu-anonymous-struct]
+  311 |         struct {
+      |         ^
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/ggml/src/./ggml-common.h:311:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:51:100: warning: unused parameter 'quant_weights' [-Wunused-parameter]
+   51 | size_t quantize_i2_s(const float * src, void * dst, int64_t nrow, int64_t n_per_row, const float * quant_weights) {
+      |                                                                                                    ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:200:39: warning: cast from 'const void *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  200 |     const uint8_t *    x = (uint8_t *)vx;
+      |                                       ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:201:38: warning: cast from 'const void *' to 'signed char *' drops const qualifier [-Wcast-qual]
+  201 |     const int8_t  *    y = (int8_t *)vy;
+      |                                      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:198:56: warning: unused parameter 'bs' [-Wunused-parameter]
+  198 | void ggml_vec_dot_i2_i8_s_1x1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                        ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:198:112: warning: unused parameter 'by' [-Wunused-parameter]
+  198 | void ggml_vec_dot_i2_i8_s_1x1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                                                                                ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:198:6: warning: no previous prototype for function 'ggml_vec_dot_i2_i8_s_1x1' [-Wmissing-prototypes]
+  198 | void ggml_vec_dot_i2_i8_s_1x1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:198:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  198 | void ggml_vec_dot_i2_i8_s_1x1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      | ^
+      | static 
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:416:39: warning: cast from 'const void *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  416 |     const uint8_t *    x = (uint8_t *)vx;
+      |                                       ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:417:38: warning: cast from 'const void *' to 'signed char *' drops const qualifier [-Wcast-qual]
+  417 |     const int8_t  *    y = (int8_t *)vy;
+      |                                      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:414:60: warning: unused parameter 'bs' [-Wunused-parameter]
+  414 | void ggml_vec_dot_i2_i8_s_1x4_32W(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                            ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:414:116: warning: unused parameter 'by' [-Wunused-parameter]
+  414 | void ggml_vec_dot_i2_i8_s_1x4_32W(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                                                                                    ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:414:6: warning: no previous prototype for function 'ggml_vec_dot_i2_i8_s_1x4_32W' [-Wmissing-prototypes]
+  414 | void ggml_vec_dot_i2_i8_s_1x4_32W(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:414:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  414 | void ggml_vec_dot_i2_i8_s_1x4_32W(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      | ^
+      | static 
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:514:39: warning: cast from 'const void *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  514 |     const uint8_t *    x = (uint8_t *)vx;
+      |                                       ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:515:38: warning: cast from 'const void *' to 'signed char *' drops const qualifier [-Wcast-qual]
+  515 |     const int8_t  *    y = (int8_t *)vy;
+      |                                      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:512:56: warning: unused parameter 'bs' [-Wunused-parameter]
+  512 | void ggml_vec_dot_i2_i8_s_1xN(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                        ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:512:112: warning: unused parameter 'by' [-Wunused-parameter]
+  512 | void ggml_vec_dot_i2_i8_s_1xN(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                                                                                ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:512:6: warning: no previous prototype for function 'ggml_vec_dot_i2_i8_s_1xN' [-Wmissing-prototypes]
+  512 | void ggml_vec_dot_i2_i8_s_1xN(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:512:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  512 | void ggml_vec_dot_i2_i8_s_1xN(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      | ^
+      | static 
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:793:39: warning: cast from 'const void *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  793 |     const uint8_t *    x = (uint8_t *)vx;
+      |                                       ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:794:38: warning: cast from 'const void *' to 'signed char *' drops const qualifier [-Wcast-qual]
+  794 |     const int8_t  *    y = (int8_t *)vy;
+      |                                      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:811:18: error: cannot initialize a variable of type 'int8_t *' (aka 'signed char *') with an rvalue of type 'const int8_t *' (aka 'const signed char *')
+  811 |         int8_t * y_col = y + col * by;
+      |                  ^       ~~~~~~~~~~~~
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:791:84: warning: unused parameter 'bx' [-Wunused-parameter]
+  791 | void ggml_vec_dot_i2_i8_s_Nx1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |                                                                                    ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:791:6: warning: no previous prototype for function 'ggml_vec_dot_i2_i8_s_Nx1' [-Wmissing-prototypes]
+  791 | void ggml_vec_dot_i2_i8_s_Nx1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      |      ^
+/root/.openclaw/workspace/bitnet/src/ggml-bitnet-mad.cpp:791:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  791 | void ggml_vec_dot_i2_i8_s_Nx1(int n, float * s, size_t bs, const void * vx, size_t bx, const void * vy, size_t by, int nrc) {
+      | ^
+      | static 
+32 warnings and 1 error generated.
+gmake[2]: *** [3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/build.make:132: 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-mad.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:777: 3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2

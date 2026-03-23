@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/tsx/dist/get-pipe-path-BHW2eJdv.mjs

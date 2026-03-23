@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/confbox/json5.d.ts

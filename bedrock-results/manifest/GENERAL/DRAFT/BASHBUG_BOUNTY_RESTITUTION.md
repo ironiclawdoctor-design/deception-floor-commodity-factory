@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/BASHBUG_BOUNTY_RESTITUTION.md

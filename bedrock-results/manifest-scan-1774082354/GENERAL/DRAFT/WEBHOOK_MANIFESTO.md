@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/webhooks/WEBHOOK_MANIFESTO.md

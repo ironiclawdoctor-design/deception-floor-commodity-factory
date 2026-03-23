@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bin/allowed-feminism-daemon.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/factory/failure-ingress/FAILURE_MANIFESTO.md

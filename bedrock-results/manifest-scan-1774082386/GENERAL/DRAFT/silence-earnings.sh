@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/silence-earnings.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/sep-field/SEP_MANIFESTO.md

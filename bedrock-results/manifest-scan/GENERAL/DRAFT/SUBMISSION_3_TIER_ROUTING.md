@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/submissions/SUBMISSION_3_TIER_ROUTING.md

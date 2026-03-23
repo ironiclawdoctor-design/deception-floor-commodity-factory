@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vault/received_files/.profile

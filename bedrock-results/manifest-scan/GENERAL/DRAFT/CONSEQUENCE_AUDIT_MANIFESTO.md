@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/lunatic-outpost/consequences/CONSEQUENCE_AUDIT_MANIFESTO.md

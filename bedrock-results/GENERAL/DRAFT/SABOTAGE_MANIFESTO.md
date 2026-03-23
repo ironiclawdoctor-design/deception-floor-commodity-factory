@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/surveillance/sabotage/SABOTAGE_MANIFESTO.md

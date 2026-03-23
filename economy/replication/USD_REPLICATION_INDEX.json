@@ -1,0 +1,8 @@
+{
+  "protocol": "REPLICATION-KIN-0-TO-X",
+  "baseline_jump": "0 to 1 Complete",
+  "replication_factor": 100,
+  "current_target": 100.00,
+  "status": "SCALING",
+  "logic": "The first dollar is the blueprint. Replicating the blueprint is O(k) linear work."
+}

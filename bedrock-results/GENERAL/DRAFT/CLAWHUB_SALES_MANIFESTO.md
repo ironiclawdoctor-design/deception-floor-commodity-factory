@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/economy/sales/CLAWHUB_SALES_MANIFESTO.md

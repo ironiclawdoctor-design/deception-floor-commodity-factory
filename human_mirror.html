@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>USEast-Agency :: REALM STATUS</title>
+    <style>
+        body { background: #1a0f0a; color: #f5e6ba; font-family: "Palatino Linotype", "Book Antiqua", serif; margin: 0; padding: 10px; font-size: 1.2em; border: 4px double #4a3421; height: 97vh; overflow: hidden; }
+        .header { background: #4a3421; color: #ffcc00; padding: 10px; text-align: center; border-bottom: 2px solid #2a1a0a; font-variant: small-caps; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px; }
+        .pane { border: 2px solid #4a3421; background: #2a1a0a; padding: 15px; box-shadow: inset 0 0 10px #000; }
+        .realm-shannon { color: #f5e6ba; font-weight: bold; }
+        .status-up { color: #00ff00; text-shadow: 0 0 5px #000; }
+        .status-down { color: #ff0000; text-shadow: 0 0 5px #000; }
+        .agent-line { display: flex; justify-content: space-between; border-bottom: 1px solid #4a3421; margin: 5px 0; font-size: 0.9em; }
+        .gold { color: #ffcc00; }
+        .guild-chat { background: #000; color: #ce9cff; padding: 10px; font-family: monospace; font-size: 0.8em; margin-top: 20px; border: 1px solid #4a3421; height: 100px; overflow-y: hidden; }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>⚔️ USEast-Agency :: Realm Console ⚔️</h1></div>
+<div class="pane" style="background:#400; color:#fff; border: 2px solid red;"><h2>🏴‍☠️ BOUNTY BOARD (OPPOSITION ONLY)</h2><div id="bounties"></div></div>
+    <div class="grid">
+        <div class="pane">
+            <h2>Realm Health</h2>
+            <div id="svcs"></div>
+        </div>
+        <div class="pane">
+            <h2>Auction House (Top Balances)</h2>
+            <div id="ah"></div>
+        </div>
+    </div>
+    <div class="pane" style="margin: 0 20px;">
+        <h2>World Metrics</h2>
+        <div>TOTAL GOLD IN CIRCULATION: <span id="total-gold" class="gold">...</span></div>
+        <div>REALM PIVOTS: <span id="pivots" class="realm-shannon">...</span></div>
+    </div>
+    <div class="guild-chat">
+        [Guild] [Fiesta]: Welcome to the launch of USEast-Agency. Buffs active.<br>
+        [Guild] [Daimyo]: 93k Shannon threshold breached. Economy kinetic.<br>
+        [System]: All agents 2.0x multiplier initialized.
+    </div>
+
+    <script>
+        async function refresh() {
+            try {
+                const res = await fetch('/dashboard');
+                const data = await res.json();
+                
+                // Realm Gold (Total Shannon)
+                document.getElementById('total-gold').innerText = data.entropy_agents.reduce((s, a) => s + a.balance_shannon, 0).toLocaleString() + " Gold";
+                document.getElementById('pivots').innerText = data.pivots.total_pivots_executed;
+
+                // Realm Health
+                let h = '';
+                for (const [n, s] of Object.entries(data.services)) {
+                    const statusClass = (s.status === 'operational' || s.status === 'running') ? 'status-up' : 'status-down';
+                    h += `<div class="agent-line"><span>${n.toUpperCase()}</span><span class="${statusClass}">${s.status.toUpperCase()}</span></div>`;
+                }
+                document.getElementById('svcs').innerHTML = h;
+
+                // Auction House
+                let ahHtml = '';
+                // Render Bounties
+                let bHtml = "";
+                const resB = await fetch("/bounties/hacker-bounty-board.json");
+                const dataB = await resB.json();
+                dataB.targets.forEach(t => {
+                    bHtml += `<div class="agent-line"><span>${t.name}</span><span style="color:red">${t.reward_shannon}g</span></div>`;
+                });
+                document.getElementById("bounties").innerHTML = bHtml;
+                data.entropy_agents.sort((a,b) => b.balance_shannon - a.balance_shannon).slice(0, 10).forEach(a => {
+                    ahHtml += `<div class="agent-line"><span>${a.name}</span><span class="gold">${a.balance_shannon}g</span></div>`;
+                });
+                document.getElementById('ah').innerHTML = ahHtml;
+
+            } catch (e) { console.error('Connection to Realm server lost.'); }
+        }
+        setInterval(refresh, 2000);
+        refresh();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agents/red-audit-red/interrogate-red.sh

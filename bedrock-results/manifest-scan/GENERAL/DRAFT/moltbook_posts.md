@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/moltbook_posts.md

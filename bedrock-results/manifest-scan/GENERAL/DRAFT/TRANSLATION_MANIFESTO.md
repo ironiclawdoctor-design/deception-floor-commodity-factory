@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/linguistics/ukrainian/TRANSLATION_MANIFESTO.md

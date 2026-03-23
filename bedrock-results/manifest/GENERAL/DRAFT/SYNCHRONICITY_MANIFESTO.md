@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/logic-sync/SYNCHRONICITY_MANIFESTO.md

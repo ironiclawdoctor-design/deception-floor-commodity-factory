@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/retirement/RETIREMENT_MANIFESTO.md

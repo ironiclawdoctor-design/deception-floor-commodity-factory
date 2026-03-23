@@ -1,0 +1,932 @@
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "script_path": "./acquire-coned-api-key.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2104041",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2104041",
+  "step": "check-existing",
+  "details": "Searching for existing ConEd credentials"
+}
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2104041",
+  "step": "research",
+  "details": "Researching ConEd API access methods"
+}
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2104041",
+  "step": "test-endpoints",
+  "details": "Testing ConEd API endpoints"
+}
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2104041",
+  "step": "create-template",
+  "details": "Creating ConEd API config template"
+}
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2104041",
+  "step": "next-steps",
+  "details": "Outlined next steps for API acquisition"
+}
+{
+  "timestamp": "2026-03-23T17:53:56Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "success",
+  "pid": "2104041",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "ConEd API key acquisition process started"
+}
+{
+  "timestamp": "2026-03-23T17:55:40Z",
+  "script_name": "openclaw-allowlist-helper",
+  "script_path": "./openclaw-allowlist-helper.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2104152",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T17:55:41Z",
+  "script_name": "openclaw-allowlist-helper",
+  "event": "success",
+  "pid": "2104152",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Allowlist helper completed"
+}
+{
+  "timestamp": "2026-03-23T17:58:28Z",
+  "script_name": "pivot-to-easier-stuff",
+  "script_path": "./pivot-to-easier-stuff.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2104779",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T17:58:33Z",
+  "script_name": "pivot-to-easier-stuff",
+  "event": "success",
+  "pid": "2104779",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Pivot analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:24Z",
+  "script_name": "approval-gate-agent",
+  "script_path": "/root/.openclaw/workspace/skills/approval-gate-agent/approval-gate-agent.sh",
+  "arguments": "init",
+  "event": "start",
+  "pid": "2107245",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:24Z",
+  "script_name": "approval-gate-agent",
+  "event": "step",
+  "pid": "2107245",
+  "step": "init",
+  "details": "Approval registry database created"
+}
+{
+  "timestamp": "2026-03-23T18:47:24Z",
+  "script_name": "approval-gate-agent",
+  "event": "success",
+  "pid": "2107245",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Approval gate agent operation completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "approval-gate-agent",
+  "script_path": "/root/.openclaw/workspace/skills/approval-gate-agent/approval-gate-agent.sh",
+  "arguments": "test",
+  "event": "start",
+  "pid": "2107497",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "approval-gate-agent",
+  "event": "step",
+  "pid": "2107497",
+  "step": "request-created",
+  "details": "Approval request req_9dc93288 created for database-backup"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "approval-gate-agent",
+  "event": "failure",
+  "pid": "2107497",
+  "status": "failed",
+  "exit_code": 1,
+  "error": "Approval gate agent failed"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "script_path": "/root/acquire-coned-api-key.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2107772",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2107772",
+  "step": "check-existing",
+  "details": "Searching for existing ConEd credentials"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2107772",
+  "step": "research",
+  "details": "Researching ConEd API access methods"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2107772",
+  "step": "test-endpoints",
+  "details": "Testing ConEd API endpoints"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2107772",
+  "step": "create-template",
+  "details": "Creating ConEd API config template"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2107772",
+  "step": "next-steps",
+  "details": "Outlined next steps for API acquisition"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "success",
+  "pid": "2107772",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "ConEd API key acquisition process started"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "optimize-agency-skills",
+  "script_path": "/root/optimize-agency-skills.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2107813",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "optimize-agency-skills",
+  "event": "step",
+  "pid": "2107813",
+  "step": "completion",
+  "details": "Skills adapted: clawdocs, telegram-ui"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "optimize-agency-skills",
+  "event": "success",
+  "pid": "2107813",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Agency skills optimization completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "script_path": "/root/add-autoresearch-batch-apis.sh",
+  "arguments": "test",
+  "event": "start",
+  "pid": "2107840",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "event": "step",
+  "pid": "2107840",
+  "step": "completion",
+  "details": "Batch API methods created in /root/.openclaw/workspace/skills/autoresearch"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "event": "success",
+  "pid": "2107840",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Autoresearch batch APIs added successfully"
+}
+{
+  "timestamp": "2026-03-23T18:47:25Z",
+  "script_name": "pivot-to-easier-stuff",
+  "script_path": "/root/pivot-to-easier-stuff.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2107861",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "pivot-to-easier-stuff",
+  "event": "success",
+  "pid": "2107861",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Pivot analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "analyze-external-approval-gate",
+  "script_path": "/root/analyze-external-approval-gate.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2108219",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "analyze-external-approval-gate",
+  "event": "step",
+  "pid": "2108219",
+  "step": "completion",
+  "details": "Generated 4 analysis files from external gate behavior"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "analyze-external-approval-gate",
+  "event": "success",
+  "pid": "2108219",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "External approval gate analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "script_path": "/root/autoresearch-timeout-patterns.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2108265",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "event": "step",
+  "pid": "2108265",
+  "step": "completion",
+  "details": "Analyzed 4 timeout patterns, all exceed 93% recovery"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "event": "success",
+  "pid": "2108265",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Timeout patterns analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "script_path": "/root/autoresearch-human-fecal-recovery.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2108295",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "event": "step",
+  "pid": "2108295",
+  "step": "completion",
+  "details": "Analyzed 3 recovery patterns, all exceed 93%"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "event": "success",
+  "pid": "2108295",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Human fecal recovery analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "log-tiny-compliance-successes",
+  "script_path": "/root/log-tiny-compliance-successes.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2108336",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "log-tiny-compliance-successes",
+  "event": "step",
+  "pid": "2108336",
+  "step": "completion",
+  "details": "Generated 3 rules from tiny successes"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "script_name": "log-tiny-compliance-successes",
+  "event": "success",
+  "pid": "2108336",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Tiny compliance successes logged as rules"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "x-script",
+  "script_path": "/root/x",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109148",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "script_path": "/root/acquire-coned-api-key.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109152",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109152",
+  "step": "check-existing",
+  "details": "Searching for existing ConEd credentials"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109152",
+  "step": "research",
+  "details": "Researching ConEd API access methods"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109152",
+  "step": "test-endpoints",
+  "details": "Testing ConEd API endpoints"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109152",
+  "step": "create-template",
+  "details": "Creating ConEd API config template"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109152",
+  "step": "next-steps",
+  "details": "Outlined next steps for API acquisition"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "success",
+  "pid": "2109152",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "ConEd API key acquisition process started"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "optimize-agency-skills",
+  "script_path": "/root/optimize-agency-skills.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109187",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "optimize-agency-skills",
+  "event": "step",
+  "pid": "2109187",
+  "step": "completion",
+  "details": "Skills adapted: clawdocs, telegram-ui"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "optimize-agency-skills",
+  "event": "success",
+  "pid": "2109187",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Agency skills optimization completed"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "script_path": "/root/add-autoresearch-batch-apis.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109208",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "event": "step",
+  "pid": "2109208",
+  "step": "completion",
+  "details": "Batch API methods created in /root/.openclaw/workspace/skills/autoresearch"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "event": "success",
+  "pid": "2109208",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Autoresearch batch APIs added successfully"
+}
+{
+  "timestamp": "2026-03-23T18:52:46Z",
+  "script_name": "pivot-to-easier-stuff",
+  "script_path": "/root/pivot-to-easier-stuff.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109223",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "pivot-to-easier-stuff",
+  "event": "success",
+  "pid": "2109223",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Pivot analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "analyze-external-approval-gate",
+  "script_path": "/root/analyze-external-approval-gate.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109574",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "analyze-external-approval-gate",
+  "event": "step",
+  "pid": "2109574",
+  "step": "completion",
+  "details": "Generated 4 analysis files from external gate behavior"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "analyze-external-approval-gate",
+  "event": "success",
+  "pid": "2109574",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "External approval gate analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "script_path": "/root/autoresearch-timeout-patterns.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109614",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "event": "step",
+  "pid": "2109614",
+  "step": "completion",
+  "details": "Analyzed 4 timeout patterns, all exceed 93% recovery"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "event": "success",
+  "pid": "2109614",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Timeout patterns analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "script_path": "/root/autoresearch-human-fecal-recovery.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109638",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "event": "step",
+  "pid": "2109638",
+  "step": "completion",
+  "details": "Analyzed 3 recovery patterns, all exceed 93%"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "event": "success",
+  "pid": "2109638",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Human fecal recovery analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "log-tiny-compliance-successes",
+  "script_path": "/root/log-tiny-compliance-successes.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109673",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "log-tiny-compliance-successes",
+  "event": "step",
+  "pid": "2109673",
+  "step": "completion",
+  "details": "Generated 3 rules from tiny successes"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "script_name": "log-tiny-compliance-successes",
+  "event": "success",
+  "pid": "2109673",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Tiny compliance successes logged as rules"
+}
+{
+  "timestamp": "2026-03-23T18:53:00Z",
+  "script_name": "approval-gate-agent",
+  "script_path": "./aga",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109720",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:00Z",
+  "script_name": "approval-gate-agent",
+  "event": "failure",
+  "pid": "2109720",
+  "status": "failed",
+  "exit_code": 1,
+  "error": "Approval gate agent failed"
+}
+{
+  "timestamp": "2026-03-23T18:53:10Z",
+  "script_name": "approval-gate-agent",
+  "script_path": "./aga",
+  "arguments": "list pending",
+  "event": "start",
+  "pid": "2109736",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:10Z",
+  "script_name": "approval-gate-agent",
+  "event": "success",
+  "pid": "2109736",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Approval gate agent operation completed"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "x-script",
+  "script_path": "./x",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109756",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "script_path": "/root/acquire-coned-api-key.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109760",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109760",
+  "step": "check-existing",
+  "details": "Searching for existing ConEd credentials"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109760",
+  "step": "research",
+  "details": "Researching ConEd API access methods"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109760",
+  "step": "test-endpoints",
+  "details": "Testing ConEd API endpoints"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109760",
+  "step": "create-template",
+  "details": "Creating ConEd API config template"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "step",
+  "pid": "2109760",
+  "step": "next-steps",
+  "details": "Outlined next steps for API acquisition"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "acquire-coned-api-key",
+  "event": "success",
+  "pid": "2109760",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "ConEd API key acquisition process started"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "optimize-agency-skills",
+  "script_path": "/root/optimize-agency-skills.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109795",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "optimize-agency-skills",
+  "event": "step",
+  "pid": "2109795",
+  "step": "completion",
+  "details": "Skills adapted: clawdocs, telegram-ui"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "optimize-agency-skills",
+  "event": "success",
+  "pid": "2109795",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Agency skills optimization completed"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "script_path": "/root/add-autoresearch-batch-apis.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109816",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "event": "step",
+  "pid": "2109816",
+  "step": "completion",
+  "details": "Batch API methods created in /root/.openclaw/workspace/skills/autoresearch"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "add-autoresearch-batch-apis",
+  "event": "success",
+  "pid": "2109816",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Autoresearch batch APIs added successfully"
+}
+{
+  "timestamp": "2026-03-23T18:53:27Z",
+  "script_name": "pivot-to-easier-stuff",
+  "script_path": "/root/pivot-to-easier-stuff.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2109831",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "pivot-to-easier-stuff",
+  "event": "success",
+  "pid": "2109831",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Pivot analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "analyze-external-approval-gate",
+  "script_path": "/root/analyze-external-approval-gate.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2110182",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "analyze-external-approval-gate",
+  "event": "step",
+  "pid": "2110182",
+  "step": "completion",
+  "details": "Generated 4 analysis files from external gate behavior"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "analyze-external-approval-gate",
+  "event": "success",
+  "pid": "2110182",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "External approval gate analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "script_path": "/root/autoresearch-timeout-patterns.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2110222",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "event": "step",
+  "pid": "2110222",
+  "step": "completion",
+  "details": "Analyzed 4 timeout patterns, all exceed 93% recovery"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "autoresearch-timeout-patterns",
+  "event": "success",
+  "pid": "2110222",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Timeout patterns analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "script_path": "/root/autoresearch-human-fecal-recovery.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2110246",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "event": "step",
+  "pid": "2110246",
+  "step": "completion",
+  "details": "Analyzed 3 recovery patterns, all exceed 93%"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "autoresearch-human-fecal-recovery",
+  "event": "success",
+  "pid": "2110246",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Human fecal recovery analysis completed"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "log-tiny-compliance-successes",
+  "script_path": "/root/log-tiny-compliance-successes.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2110281",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "log-tiny-compliance-successes",
+  "event": "step",
+  "pid": "2110281",
+  "step": "completion",
+  "details": "Generated 3 rules from tiny successes"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "script_name": "log-tiny-compliance-successes",
+  "event": "success",
+  "pid": "2110281",
+  "status": "completed",
+  "exit_code": 0,
+  "output": "Tiny compliance successes logged as rules"
+}
+{
+  "timestamp": "2026-03-23T21:15:43Z",
+  "script_name": "enable-cloud-run",
+  "script_path": "./enable-cloud-run.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2116709",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T21:15:45Z",
+  "script_name": "enable-cloud-run",
+  "event": "failure",
+  "pid": "2116709",
+  "status": "failed",
+  "exit_code": 1,
+  "error": "Failed with exit code 1"
+}
+{
+  "timestamp": "2026-03-23T21:52:47Z",
+  "script_name": "enable-cloud-run",
+  "script_path": "/root/enable-cloud-run.sh",
+  "arguments": "",
+  "event": "start",
+  "pid": "2119194",
+  "status": "running"
+}
+{
+  "timestamp": "2026-03-23T21:52:50Z",
+  "script_name": "enable-cloud-run",
+  "event": "failure",
+  "pid": "2119194",
+  "status": "failed",
+  "exit_code": 1,
+  "error": "Failed with exit code 1"
+}

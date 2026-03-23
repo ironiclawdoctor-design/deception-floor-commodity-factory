@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/dominion/telegram-groups/active-operations/GROUP_STRYKE.md

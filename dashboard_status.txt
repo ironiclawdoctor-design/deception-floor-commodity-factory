@@ -1,0 +1,33 @@
+Dollar dashboard Cloud Run service status check completed at 2026-03-23 17:11 UTC.
+
+Current state:
+- Service exists: dollar-dashboard (project: sovereign-see, region: us-central1)
+- Service URL: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app
+- Service status: Ready (revision dollar-dashboard-00001-h5j)
+- Container image: us-docker.pkg.dev/cloudrun/container/hello (default placeholder)
+- Dashboard content: Not served (Cloud Run default page appears)
+- Local assets ready: dashboard.html, dashboard_server.py, dollar.db in workspace/dollar/
+
+Deploy attempt:
+- Ran deploy-dollar-dashboard.py; authentication succeeded but IAM permissions insufficient.
+- Service account dollaragency@sovereign-see.iam.gserviceaccount.com lacks roles:
+  * Service Usage Admin (to enable APIs)
+  * Artifact Registry Writer (to create repository)
+  * Cloud Build Service Account (to submit builds)
+  * Cloud Run Admin (to update service)
+- Errors: IAM policy fetch failed (403), API enable permission denied, Cloud Build bucket access forbidden.
+
+Required actions:
+1. Grant the following roles to dollaragency@sovereign-see.iam.gserviceaccount.com via GCP Console IAM:
+   - Service Usage Admin
+   - Artifact Registry Administrator (or Writer)
+   - Cloud Build Editor
+   - Cloud Run Admin
+2. Re-run deploy-dollar-dashboard.py after roles propagate.
+
+Alternative: Use gcloud with higher-privileged account to deploy directly:
+   gcloud run deploy dollar-dashboard --source=/root/.openclaw/workspace/dollar --region=us-central1 --allow-unauthenticated
+
+Until permissions are updated, dashboard remains live but serving placeholder content.
+
+Summary: Dashboard service is live but not functional; manual IAM update required.

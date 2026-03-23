@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/COLLABORATION_SYSTEM.md

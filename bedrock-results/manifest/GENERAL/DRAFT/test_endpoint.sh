@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/test_endpoint.sh

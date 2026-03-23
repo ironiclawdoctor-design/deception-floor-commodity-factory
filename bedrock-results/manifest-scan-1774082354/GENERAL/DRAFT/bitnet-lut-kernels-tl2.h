@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/preset_kernels/bitnet_b1_58-3B/bitnet-lut-kernels-tl2.h

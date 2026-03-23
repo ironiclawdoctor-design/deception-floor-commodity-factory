@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/marketing/logos/LOGO_MANIFESTO.md

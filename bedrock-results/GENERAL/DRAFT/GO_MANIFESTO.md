@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/perpetual-go/GO_MANIFESTO.md

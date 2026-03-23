@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/skills/fiesta-movie-reviewer/movie-triangle.sh

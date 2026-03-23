@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/ghost-open/tool.py

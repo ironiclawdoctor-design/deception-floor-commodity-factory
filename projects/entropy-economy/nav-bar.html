@@ -1,0 +1,22 @@
+<div style="background: #333; color: #fff; padding: 10px; border-bottom: 1px solid #444; font-family: sans-serif; display: flex; gap: 20px; justify-content: center; position: sticky; top: 0; z-index: 1000; flex-wrap: wrap;">
+    <a href="/" style="color: #0f0; text-decoration: none; font-weight: bold;">[CONSOLE]</a>
+    <a href="/most-wanted" style="color: #f33; text-decoration: none; font-weight: bold;">[MOST WANTED]</a>
+    <a href="/comic-con" style="color: #7fdbff; text-decoration: none; font-weight: bold;">[COMIC CON]</a>
+    <a href="/raistlin-audit" style="color: #d4af37; text-decoration: none; font-weight: bold;">[AUDIT]</a>
+    <button onclick="reportMinusOne()" style="background: #f00; color: #fff; border: none; padding: 5px 10px; cursor: pointer; font-weight: bold;">[REPORT FAILURE -1]</button>
+</div>
+<script>
+async function reportMinusOne() {
+    const reason = prompt("Describe the error/friction:");
+    if (reason) {
+        const res = await fetch('/report-failure', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ reason })
+        });
+        const data = await res.json();
+        alert("DEMERIT APPLIED. System penalized by -10 Shannon. New Balance: " + data.newBalance);
+        location.reload();
+    }
+}
+</script>

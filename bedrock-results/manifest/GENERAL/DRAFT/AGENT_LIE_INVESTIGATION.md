@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/AGENT_LIE_INVESTIGATION.md

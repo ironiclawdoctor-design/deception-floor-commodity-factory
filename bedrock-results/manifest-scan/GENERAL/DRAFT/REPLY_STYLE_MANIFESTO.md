@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/communication/projections/REPLY_STYLE_MANIFESTO.md

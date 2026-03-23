@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-wallet/generate-qr-deposit.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/CHRIST_DOCTRINE.md

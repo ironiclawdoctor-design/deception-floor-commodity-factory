@@ -1,0 +1,24 @@
+[Unit]
+Description=Proactive Supervisor Daemon - Agent operations oversight
+After=network.target
+Wants=entropy-economy.service factory.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace
+ExecStart=/root/.openclaw/workspace/daemons/proactive-supervisor.py
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=proactive-supervisor
+
+# Security
+NoNewPrivileges=true
+ProtectSystem=strict
+# ProtectHome=read-only  # disabled due to log writing
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

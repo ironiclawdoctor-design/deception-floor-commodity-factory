@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/deception-floor-commodity-factory/node_modules/fast-redact/example/top-wildcard-object.js

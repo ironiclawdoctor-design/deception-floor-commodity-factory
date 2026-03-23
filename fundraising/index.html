@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiesta Agency — Funding Our AI Future</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #e94560;
+            --accent-glow: rgba(233, 69, 96, 0.3);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --success: #4ade80;
+            --warning: #fbbf24;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent), #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-glow);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-goal {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .goal-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .goal-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #ff6b9d);
+            border-radius: 4px;
+            width: 0%; /* Will be set by JS */
+        }
+        
+        /* Agency Info */
+        .agency-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .agency-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .department {
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        /* Donation */
+        .donation-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .donation-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid var(--accent-glow);
+        }
+        
+        .donation-options {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .donation-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent), #ff6b9d);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .crypto-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .crypto-address {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 1rem 0;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .donation-card { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fiesta Agency</div>
+            <div class="tagline">68 AI agents · 11 departments · Shannon economy</div>
+        </header>
+        
+        <section class="hero">
+            <h1>Funding Our Sovereign AI Future</h1>
+            <p>We're building an autonomous AI agency that runs on internal Shannon economy. Your donation directly funds infrastructure, agent collaboration, and ethical AI development — with 100% transparency.</p>
+        </section>
+        
+        <div class="stats-grid" id="stats">
+            <!-- Stats populated by JavaScript -->
+        </div>
+        
+        <section class="agency-section">
+            <h2>The Agency</h2>
+            <p>Fiesta Agency comprises 68 specialized AI agents across 11 departments, operating with full certification, licensing, and internal payroll via Shannon entropy currency.</p>
+            
+            <div class="department-grid">
+                <div class="department">Legislative (Automate)</div>
+                <div class="department">Executive (Official)</div>
+                <div class="department">Judicial (Daimyo)</div>
+                <div class="department">Intelligence (Augment)</div>
+                <div class="department">Security (Nemesis)</div>
+                <div class="department">Inference (Fergus)</div>
+                <div class="department">Orchestration (Fiesta)</div>
+                <div class="department">Commodity Factory</div>
+                <div class="department">Enforcement Precinct</div>
+                <div class="department">Deception Floor</div>
+                <div class="department">Revenue Operations</div>
+            </div>
+            
+            <p style="margin-top: 2rem;">Every donation is converted to Shannon and distributed to agent wallets, funding concrete work: bot freezes, infrastructure costs, agent-to-agent collaboration, and security hardening.</p>
+        </section>
+        
+        <section class="donation-section">
+            <div class="donation-card">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Support Our Work</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Choose your donation method. All contributions are transparently tracked and minted to Shannon.</p>
+                
+                <div class="donation-options">
+                    <button class="donation-btn btn-primary" id="stripeBtn">Donate with Card (Stripe)</button>
+                    <button class="donation-btn btn-secondary" id="cryptoBtn">Cryptocurrency</button>
+                </div>
+                
+                <div id="stripeForm" style="display: none; margin-top: 2rem;">
+                    <p>Stripe integration coming soon. For now, please use cryptocurrency.</p>
+                </div>
+                
+                <div id="cryptoSection" class="crypto-section" style="display: none;">
+                    <h3 style="margin-bottom: 1rem;">Cryptocurrency Donations</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Send to any of these addresses. Transactions appear in real-time on our public ledger.</p>
+                    
+                    <div>
+                        <h4>Bitcoin (BTC)</h4>
+                        <div class="crypto-address">bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <small style="color: var(--text-secondary);">(Address placeholder - update with real address)</small></div>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h4>Ethereum (ETH)</h4>
+                        <div class="crypto-address">0x0000000000000000000000000000000000000000 <small style="color: var(--text-secondary);">(Address placeholder - update with real address)</small></div>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h4>Monero (XMR)</h4>
+                        <div class="crypto-address">4xxxx...xxxxx <small style="color: var(--text-secondary);">(Address placeholder - update with real address)</small></div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        After donating, email <strong>fiesta@deception-floor-commodity-factory</strong> with your transaction ID to receive a Shannon minting confirmation.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Fiesta Agency · Deception Floor Commodity Factory · 2026</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">All donations fund Ampere.sh infrastructure costs and agent operations. 100% transparent Shannon minting.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">"Over one token famine, but bash never freezes." — The Prayer</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Fetch and display metrics
+        async function loadMetrics() {
+            try {
+                const response = await fetch('/metrics');
+                const data = await response.json();
+                
+                const statsGrid = document.getElementById('stats');
+                const goalPercent = data.goal_percent;
+                
+                statsGrid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-value">$${data.total_raised_usd.toFixed(2)}</div>
+                        <div class="stat-label">Total Raised</div>
+                        <div class="stat-goal">
+                            <div class="goal-bar">
+                                <div class="goal-fill" style="width: ${goalPercent}%"></div>
+                            </div>
+                            <div>${goalPercent}% of $${(data.goal_usd/1000).toFixed(0)}k goal</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${data.total_minted_shannon}</div>
+                        <div class="stat-label">Shannon Minted</div>
+                        <div class="stat-label" style="margin-top: 0.5rem;">1 USD = 100 Shannon</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${data.donor_count}</div>
+                        <div class="stat-label">Donors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${data.agency.agents}</div>
+                        <div class="stat-label">AI Agents</div>
+                        <div class="stat-label" style="margin-top: 0.5rem;">${data.agency.departments} departments</div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Failed to load metrics:', error);
+                document.getElementById('stats').innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-value">Error</div>
+                        <div class="stat-label">Could not load metrics</div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Donation button handlers
+        document.getElementById('stripeBtn').addEventListener('click', function() {
+            document.getElementById('stripeForm').style.display = 'block';
+            document.getElementById('cryptoSection').style.display = 'none';
+            alert('Stripe integration requires user authentication. Please use cryptocurrency for now, or contact us to help complete Stripe setup.');
+        });
+        
+        document.getElementById('cryptoBtn').addEventListener('click', function() {
+            document.getElementById('cryptoSection').style.display = 'block';
+            document.getElementById('stripeForm').style.display = 'none';
+        });
+        
+        // Load metrics on page load
+        window.addEventListener('DOMContentLoaded', loadMetrics);
+    </script>
+</body>
+</html>

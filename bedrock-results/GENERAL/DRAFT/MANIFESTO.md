@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/agencyhub-gov/MANIFESTO.md

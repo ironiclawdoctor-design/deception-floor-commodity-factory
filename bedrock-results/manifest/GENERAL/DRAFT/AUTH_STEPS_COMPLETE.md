@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/fundraising/AUTH_STEPS_COMPLETE.md

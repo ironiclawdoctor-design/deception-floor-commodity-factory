@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/tailwindcss/dist/default-theme.d.ts

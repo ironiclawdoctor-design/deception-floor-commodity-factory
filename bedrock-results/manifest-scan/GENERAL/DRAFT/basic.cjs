@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/consola/dist/basic.cjs

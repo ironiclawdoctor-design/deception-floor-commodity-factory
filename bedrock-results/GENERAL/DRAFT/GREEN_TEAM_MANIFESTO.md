@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/departments/green-team/GREEN_TEAM_MANIFESTO.md

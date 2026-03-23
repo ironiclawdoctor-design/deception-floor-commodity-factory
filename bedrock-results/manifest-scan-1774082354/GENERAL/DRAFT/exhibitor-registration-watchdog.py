@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/exhibitor-registration-watchdog.py

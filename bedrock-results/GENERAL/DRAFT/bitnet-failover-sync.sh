@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/lib/bitnet-failover-sync.sh

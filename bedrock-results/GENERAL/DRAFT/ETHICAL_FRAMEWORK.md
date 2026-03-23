@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/fundraising/ETHICAL_FRAMEWORK.md

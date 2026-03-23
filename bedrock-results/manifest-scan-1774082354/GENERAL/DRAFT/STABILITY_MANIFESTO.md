@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/hallucinations/STABILITY_MANIFESTO.md

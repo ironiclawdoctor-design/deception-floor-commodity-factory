@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/white-hat-tribute/lunatic-outpost/TRIBUTE_MANIFESTO.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/forums/FORUM_MANIFESTO.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/THEOLOGY-OF-SCARCITY.md

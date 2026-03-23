@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/actually-agent-registry.md

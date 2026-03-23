@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/dominion/groups/GROUP_DOMINION.md

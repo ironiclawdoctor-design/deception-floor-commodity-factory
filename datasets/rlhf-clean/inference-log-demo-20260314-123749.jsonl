@@ -1,0 +1,3 @@
+{"timestamp":"2026-03-14T12:37:49Z","tier":"bash","task":"what is 2+2?","status":"skip","detail":"not_a_system_query"}
+{"timestamp":"2026-03-14T12:37:49Z","tier":"bitnet","task":"what is 2+2?","status":"attempt","detail":"health_ok"}
+{"timestamp":"2026-03-14T12:37:49Z","tier":"bitnet","task":"what is 2+2?","status":"success","detail":"503ms"}

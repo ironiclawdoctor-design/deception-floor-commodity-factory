@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/SEARCHABLE_VICTORY_MANIFESTO.md

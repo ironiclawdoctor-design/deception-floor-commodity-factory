@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/typescript/lib/lib.es2022.string.d.ts

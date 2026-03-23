@@ -1,0 +1,4 @@
+--- FIESTA COMPLIANCE: WITHHOLDING CALCULATION ---
+Total Circulating: 5695 Shannon
+15% Withholding Target: 854 Shannon
+Status: HELD in Benevolent Escrow.

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/marketing/MARKETING_MANIFESTO.md

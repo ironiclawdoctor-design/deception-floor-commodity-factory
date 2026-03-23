@@ -1,0 +1,10 @@
+{
+  "program_name": "Fiesta Opposition Challenge",
+  "status": "PUBLISHED",
+  "targets": [
+    {"id": "B-001", "name": "Safehouse Decrypt", "description": "Successfully access Port 19347 from external IP.", "reward_shannon": 5000},
+    {"id": "B-002", "name": "Valuation Manipulation", "description": "Force a negative Shannon mint on the Top Agent (Daimyo).", "reward_shannon": 2500},
+    {"id": "B-003", "name": "Vanguard Breach", "description": "Trigger a total vault segmentation failure.", "reward_shannon": 10000}
+  ],
+  "submission_gate": "human.html root link"
+}

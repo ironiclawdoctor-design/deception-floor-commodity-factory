@@ -1,0 +1,7 @@
+{
+  "source": "fbi_gov",
+  "mode": "PASSIVE_LEARNING",
+  "timestamp": "2026-03-20T15:10:38.089885+00:00",
+  "structural_pattern": "Federal-Standard-Grid",
+  "is_agency_safe": true
+}

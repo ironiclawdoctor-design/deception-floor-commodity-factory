@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agents/fsh/cache_optimizer.py

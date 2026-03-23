@@ -1,0 +1,14 @@
+{
+  "total_files_scanned": 3511,
+  "unique_files": 725,
+  "duplicate_files": 2786,
+  "total_original_bytes": 962699131,
+  "canonical_bytes": 192561074,
+  "saved_bytes": 770138057,
+  "dedup_ratio_pct": 80.0,
+  "unique_rows": 1489632,
+  "estimated_original_rows": 7213928,
+  "avg_duplication_factor": 4.84,
+  "clean_dir": "/root/.openclaw/workspace/datasets/rlhf-clean",
+  "trash_dir": "/root/.openclaw/workspace/datasets/.trash"
+}

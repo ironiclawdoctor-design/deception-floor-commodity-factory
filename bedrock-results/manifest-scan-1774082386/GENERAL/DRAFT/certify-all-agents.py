@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/daemons/certify-all-agents.py

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/dunning/DUNNING_MANIFESTO.md

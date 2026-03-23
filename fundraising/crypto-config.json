@@ -1,0 +1,8 @@
+{
+  "bitcoin": "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "ethereum": "0x0000000000000000000000000000000000000000",
+  "monero": "4xxxx...xxxxx",
+  "litecoin": "Lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "dogecoin": "Dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "notes": "Replace with actual addresses. After updating, restart fundraising backend."
+}

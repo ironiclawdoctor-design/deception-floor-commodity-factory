@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/oversight/JEWISH_OVERSIGHT_DOCTRINE.md

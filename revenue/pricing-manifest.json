@@ -1,0 +1,19 @@
+{
+  "tiers": [
+    {
+      "name": "Standard Supporter",
+      "price_usd": 5,
+      "benefit": "Maintenance Shannon"
+    },
+    {
+      "name": "Orchestration Partner",
+      "price_usd": 50,
+      "benefit": "Priority Daemon Access"
+    },
+    {
+      "name": "IMPOSSIBLE FEAT ACCESS",
+      "price_usd": 500,
+      "benefit": "Access to Trillion-Inference Path B Math (0-Token Cost)"
+    }
+  ]
+}

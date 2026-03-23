@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/test-source/img_{1..10}.jpg | 10485760 | 2026-03-20 08:19:02.8166342310

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/process-shannon-spend.sh

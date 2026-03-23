@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/auto-production/AUTO_PRODUCTION_MANIFESTO.md

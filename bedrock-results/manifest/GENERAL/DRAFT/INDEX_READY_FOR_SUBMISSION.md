@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/INDEX_READY_FOR_SUBMISSION.md

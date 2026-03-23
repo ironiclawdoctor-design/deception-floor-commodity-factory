@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/infinite-go-driver.py

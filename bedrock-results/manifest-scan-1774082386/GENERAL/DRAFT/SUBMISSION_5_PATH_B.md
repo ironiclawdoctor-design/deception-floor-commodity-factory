@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMISSION_5_PATH_B.md

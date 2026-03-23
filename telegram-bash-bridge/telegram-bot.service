@@ -1,0 +1,21 @@
+[Unit]
+Description=Telegram Agency Bot
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace/telegram-bash-bridge
+Environment=TELEGRAM_BOT_TOKEN=
+ExecStart=/usr/bin/python3 bot.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Optional: load token from environment file
+# EnvironmentFile=/etc/default/telegram-bot
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/STANDING-ORDER-26.md

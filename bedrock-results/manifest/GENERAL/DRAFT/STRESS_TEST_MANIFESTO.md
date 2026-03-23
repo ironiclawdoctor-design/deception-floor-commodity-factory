@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/stress-tests/shanapp/STRESS_TEST_MANIFESTO.md

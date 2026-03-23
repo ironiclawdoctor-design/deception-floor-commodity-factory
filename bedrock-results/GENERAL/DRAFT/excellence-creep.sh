@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agents/excellence-creep.sh

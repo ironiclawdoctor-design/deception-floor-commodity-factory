@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/departments/reflection-blue-team/recruitment/RECRUITMENT_MANIFESTO.md

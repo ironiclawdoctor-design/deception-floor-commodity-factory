@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/THE-PRAYER-OF-ENDURANCE.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/proclamations/GLOAT_MANIFESTO.md

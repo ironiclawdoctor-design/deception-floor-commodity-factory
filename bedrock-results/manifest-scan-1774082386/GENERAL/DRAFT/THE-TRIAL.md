@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/THE-TRIAL.md

@@ -1,0 +1,174 @@
+2026-03-20 05:00:19,842 - __main__ - INFO - === Failure‑Refinement Copier Agent ===
+2026-03-20 05:00:19,842 - __main__ - INFO - Agent: failure-refinement-copier
+2026-03-20 05:00:19,842 - __main__ - INFO - Timestamp: 2026-03-20T05:00:19.842978+00:00
+2026-03-20 05:00:19,845 - __main__ - INFO - Registered agent failure-refinement-copier in entropy ledger
+2026-03-20 05:00:19,845 - __main__ - INFO - Loaded pivot template: pivot-001
+2026-03-20 05:00:19,846 - __main__ - INFO - Found 14 distinct entropy types
+2026-03-20 05:00:19,846 - __main__ - INFO - Already processed: 3 types
+2026-03-20 05:00:19,846 - __main__ - INFO - Types to copy: 11
+2026-03-20 05:00:19,846 - __main__ - INFO - Processing autograph_compliance...
+2026-03-20 05:00:19,856 - __main__ - INFO - Minted 5 Shannon for autograph_compliance (1 occurrences)
+2026-03-20 05:00:19,857 - __main__ - INFO - Logged copied pivot for autograph_compliance
+2026-03-20 05:00:19,857 - __main__ - INFO - Processing autograph_conversion...
+2026-03-20 05:00:19,864 - __main__ - INFO - Minted 5 Shannon for autograph_conversion (1 occurrences)
+2026-03-20 05:00:19,864 - __main__ - INFO - Logged copied pivot for autograph_conversion
+2026-03-20 05:00:19,864 - __main__ - INFO - Processing autograph_violation_missing...
+2026-03-20 05:00:19,870 - __main__ - INFO - Minted 5 Shannon for autograph_violation_missing (1 occurrences)
+2026-03-20 05:00:19,871 - __main__ - INFO - Logged copied pivot for autograph_violation_missing
+2026-03-20 05:00:19,871 - __main__ - INFO - Processing debt_advance...
+2026-03-20 05:00:19,878 - __main__ - INFO - Minted 5 Shannon for debt_advance (1 occurrences)
+2026-03-20 05:00:19,879 - __main__ - INFO - Logged copied pivot for debt_advance
+2026-03-20 05:00:19,879 - __main__ - INFO - Processing elder_observation...
+2026-03-20 05:00:19,885 - __main__ - INFO - Minted 10 Shannon for elder_observation (2 occurrences)
+2026-03-20 05:00:19,886 - __main__ - INFO - Logged copied pivot for elder_observation
+2026-03-20 05:00:19,886 - __main__ - INFO - Processing elder_wisdom...
+2026-03-20 05:00:19,893 - __main__ - INFO - Minted 5 Shannon for elder_wisdom (1 occurrences)
+2026-03-20 05:00:19,893 - __main__ - INFO - Logged copied pivot for elder_wisdom
+2026-03-20 05:00:19,893 - __main__ - INFO - Processing failure_refinement...
+2026-03-20 05:00:19,899 - __main__ - INFO - Minted 45 Shannon for failure_refinement (9 occurrences)
+2026-03-20 05:00:19,900 - __main__ - INFO - Logged copied pivot for failure_refinement
+2026-03-20 05:00:19,900 - __main__ - INFO - Processing initial...
+2026-03-20 05:00:19,906 - __main__ - INFO - Minted 20 Shannon for initial (4 occurrences)
+2026-03-20 05:00:19,907 - __main__ - INFO - Logged copied pivot for initial
+2026-03-20 05:00:19,907 - __main__ - INFO - Processing payroll_garnished...
+2026-03-20 05:00:19,913 - __main__ - INFO - Minted 5 Shannon for payroll_garnished (1 occurrences)
+2026-03-20 05:00:19,913 - __main__ - INFO - Logged copied pivot for payroll_garnished
+2026-03-20 05:00:19,913 - __main__ - INFO - Processing pivot_execution...
+2026-03-20 05:00:19,919 - __main__ - INFO - Minted 5 Shannon for pivot_execution (1 occurrences)
+2026-03-20 05:00:19,920 - __main__ - INFO - Logged copied pivot for pivot_execution
+2026-03-20 05:00:19,920 - __main__ - INFO - Processing test...
+2026-03-20 05:00:19,927 - __main__ - INFO - Minted 5 Shannon for test (1 occurrences)
+2026-03-20 05:00:19,927 - __main__ - INFO - Logged copied pivot for test
+2026-03-20 05:00:19,933 - __main__ - INFO - Meta‑copy pivot recorded
+2026-03-20 05:00:19,933 - __main__ - INFO - Copier completed: 11 types copied, 115 Shannon minted
+[2026-03-20T12:43:32Z] Starting copier agent...
+2026-03-20 12:43:32,123 - __main__ - INFO - === Failure‑Refinement Copier Agent ===
+2026-03-20 12:43:32,123 - __main__ - INFO - Agent: failure-refinement-copier
+2026-03-20 12:43:32,123 - __main__ - INFO - === Failure‑Refinement Copier Agent ===
+2026-03-20 12:43:32,123 - __main__ - INFO - Agent: failure-refinement-copier
+2026-03-20 12:43:32,124 - __main__ - INFO - Timestamp: 2026-03-20T12:43:32.124041+00:00
+2026-03-20 12:43:32,124 - __main__ - INFO - Timestamp: 2026-03-20T12:43:32.124041+00:00
+2026-03-20 12:43:32,124 - __main__ - INFO - Agent failure-refinement-copier already registered
+2026-03-20 12:43:32,124 - __main__ - INFO - Agent failure-refinement-copier already registered
+2026-03-20 12:43:32,124 - __main__ - INFO - Loaded pivot template: pivot-copied-012
+2026-03-20 12:43:32,124 - __main__ - INFO - Loaded pivot template: pivot-copied-012
+2026-03-20 12:43:32,125 - __main__ - INFO - Found 15 distinct entropy types
+2026-03-20 12:43:32,125 - __main__ - INFO - Found 15 distinct entropy types
+2026-03-20 12:43:32,125 - __main__ - INFO - Already processed: 3 types
+2026-03-20 12:43:32,125 - __main__ - INFO - Already processed: 3 types
+2026-03-20 12:43:32,125 - __main__ - INFO - Types to copy: 12
+2026-03-20 12:43:32,125 - __main__ - INFO - Types to copy: 12
+2026-03-20 12:43:32,125 - __main__ - INFO - Processing autograph_compliance...
+2026-03-20 12:43:32,125 - __main__ - INFO - Processing autograph_compliance...
+2026-03-20 12:43:32,135 - __main__ - INFO - Minted 5 Shannon for autograph_compliance (1 occurrences)
+2026-03-20 12:43:32,135 - __main__ - INFO - Minted 5 Shannon for autograph_compliance (1 occurrences)
+2026-03-20 12:43:32,136 - __main__ - INFO - Logged copied pivot for autograph_compliance
+2026-03-20 12:43:32,136 - __main__ - INFO - Logged copied pivot for autograph_compliance
+2026-03-20 12:43:32,136 - __main__ - INFO - Processing autograph_conversion...
+2026-03-20 12:43:32,136 - __main__ - INFO - Processing autograph_conversion...
+2026-03-20 12:43:32,142 - __main__ - INFO - Minted 5 Shannon for autograph_conversion (1 occurrences)
+2026-03-20 12:43:32,142 - __main__ - INFO - Minted 5 Shannon for autograph_conversion (1 occurrences)
+2026-03-20 12:43:32,143 - __main__ - INFO - Logged copied pivot for autograph_conversion
+2026-03-20 12:43:32,143 - __main__ - INFO - Logged copied pivot for autograph_conversion
+2026-03-20 12:43:32,143 - __main__ - INFO - Processing autograph_violation_missing...
+2026-03-20 12:43:32,143 - __main__ - INFO - Processing autograph_violation_missing...
+2026-03-20 12:43:32,149 - __main__ - INFO - Minted 5 Shannon for autograph_violation_missing (1 occurrences)
+2026-03-20 12:43:32,149 - __main__ - INFO - Minted 5 Shannon for autograph_violation_missing (1 occurrences)
+2026-03-20 12:43:32,150 - __main__ - INFO - Logged copied pivot for autograph_violation_missing
+2026-03-20 12:43:32,150 - __main__ - INFO - Logged copied pivot for autograph_violation_missing
+2026-03-20 12:43:32,150 - __main__ - INFO - Processing debt_advance...
+2026-03-20 12:43:32,150 - __main__ - INFO - Processing debt_advance...
+2026-03-20 12:43:32,161 - __main__ - INFO - Minted 5 Shannon for debt_advance (1 occurrences)
+2026-03-20 12:43:32,161 - __main__ - INFO - Minted 5 Shannon for debt_advance (1 occurrences)
+2026-03-20 12:43:32,162 - __main__ - INFO - Logged copied pivot for debt_advance
+2026-03-20 12:43:32,162 - __main__ - INFO - Logged copied pivot for debt_advance
+2026-03-20 12:43:32,162 - __main__ - INFO - Processing elder_observation...
+2026-03-20 12:43:32,162 - __main__ - INFO - Processing elder_observation...
+2026-03-20 12:43:32,169 - __main__ - INFO - Minted 10 Shannon for elder_observation (2 occurrences)
+2026-03-20 12:43:32,169 - __main__ - INFO - Minted 10 Shannon for elder_observation (2 occurrences)
+2026-03-20 12:43:32,170 - __main__ - INFO - Logged copied pivot for elder_observation
+2026-03-20 12:43:32,170 - __main__ - INFO - Logged copied pivot for elder_observation
+2026-03-20 12:43:32,171 - __main__ - INFO - Processing elder_wisdom...
+2026-03-20 12:43:32,171 - __main__ - INFO - Processing elder_wisdom...
+2026-03-20 12:43:32,177 - __main__ - INFO - Minted 5 Shannon for elder_wisdom (1 occurrences)
+2026-03-20 12:43:32,177 - __main__ - INFO - Minted 5 Shannon for elder_wisdom (1 occurrences)
+2026-03-20 12:43:32,178 - __main__ - INFO - Logged copied pivot for elder_wisdom
+2026-03-20 12:43:32,178 - __main__ - INFO - Logged copied pivot for elder_wisdom
+2026-03-20 12:43:32,179 - __main__ - INFO - Processing failure_refinement...
+2026-03-20 12:43:32,179 - __main__ - INFO - Processing failure_refinement...
+2026-03-20 12:43:32,186 - __main__ - INFO - Minted 100 Shannon for failure_refinement (20 occurrences)
+2026-03-20 12:43:32,186 - __main__ - INFO - Minted 100 Shannon for failure_refinement (20 occurrences)
+2026-03-20 12:43:32,186 - __main__ - INFO - Logged copied pivot for failure_refinement
+2026-03-20 12:43:32,186 - __main__ - INFO - Logged copied pivot for failure_refinement
+2026-03-20 12:43:32,186 - __main__ - INFO - Processing initial...
+2026-03-20 12:43:32,186 - __main__ - INFO - Processing initial...
+2026-03-20 12:43:32,193 - __main__ - INFO - Minted 20 Shannon for initial (4 occurrences)
+2026-03-20 12:43:32,193 - __main__ - INFO - Minted 20 Shannon for initial (4 occurrences)
+2026-03-20 12:43:32,194 - __main__ - INFO - Logged copied pivot for initial
+2026-03-20 12:43:32,194 - __main__ - INFO - Logged copied pivot for initial
+2026-03-20 12:43:32,194 - __main__ - INFO - Processing optimization...
+2026-03-20 12:43:32,194 - __main__ - INFO - Processing optimization...
+2026-03-20 12:43:32,201 - __main__ - INFO - Minted 70 Shannon for optimization (14 occurrences)
+2026-03-20 12:43:32,201 - __main__ - INFO - Minted 70 Shannon for optimization (14 occurrences)
+2026-03-20 12:43:32,202 - __main__ - INFO - Logged copied pivot for optimization
+2026-03-20 12:43:32,202 - __main__ - INFO - Logged copied pivot for optimization
+2026-03-20 12:43:32,202 - __main__ - INFO - Processing payroll_garnished...
+2026-03-20 12:43:32,202 - __main__ - INFO - Processing payroll_garnished...
+2026-03-20 12:43:32,209 - __main__ - INFO - Minted 5 Shannon for payroll_garnished (1 occurrences)
+2026-03-20 12:43:32,209 - __main__ - INFO - Minted 5 Shannon for payroll_garnished (1 occurrences)
+2026-03-20 12:43:32,210 - __main__ - INFO - Logged copied pivot for payroll_garnished
+2026-03-20 12:43:32,210 - __main__ - INFO - Logged copied pivot for payroll_garnished
+2026-03-20 12:43:32,210 - __main__ - INFO - Processing pivot_execution...
+2026-03-20 12:43:32,210 - __main__ - INFO - Processing pivot_execution...
+2026-03-20 12:43:32,216 - __main__ - INFO - Minted 10 Shannon for pivot_execution (2 occurrences)
+2026-03-20 12:43:32,216 - __main__ - INFO - Minted 10 Shannon for pivot_execution (2 occurrences)
+2026-03-20 12:43:32,217 - __main__ - INFO - Logged copied pivot for pivot_execution
+2026-03-20 12:43:32,217 - __main__ - INFO - Logged copied pivot for pivot_execution
+2026-03-20 12:43:32,217 - __main__ - INFO - Processing test...
+2026-03-20 12:43:32,217 - __main__ - INFO - Processing test...
+2026-03-20 12:43:32,223 - __main__ - INFO - Minted 5 Shannon for test (1 occurrences)
+2026-03-20 12:43:32,223 - __main__ - INFO - Minted 5 Shannon for test (1 occurrences)
+2026-03-20 12:43:32,224 - __main__ - INFO - Logged copied pivot for test
+2026-03-20 12:43:32,224 - __main__ - INFO - Logged copied pivot for test
+2026-03-20 12:43:32,230 - __main__ - INFO - Meta‑copy pivot recorded
+2026-03-20 12:43:32,230 - __main__ - INFO - Copier completed: 12 types copied, 245 Shannon minted
+2026-03-20 12:43:32,230 - __main__ - INFO - Meta‑copy pivot recorded
+2026-03-20 12:43:32,230 - __main__ - INFO - Copier completed: 12 types copied, 245 Shannon minted
+[2026-03-20T12:43:32Z] Copier completed successfully
+2026-03-20 13:02:18,109 - __main__ - INFO - === Failure‑Refinement Copier Agent ===
+2026-03-20 13:02:18,109 - __main__ - INFO - Agent: failure-refinement-copier
+2026-03-20 13:02:18,109 - __main__ - INFO - Timestamp: 2026-03-20T13:02:18.109408+00:00
+2026-03-20 13:02:18,109 - __main__ - INFO - Agent failure-refinement-copier already registered
+2026-03-20 13:02:18,111 - __main__ - INFO - Loaded pivot template: pivot-copied-024
+2026-03-20 13:02:18,111 - __main__ - INFO - Found 17 distinct entropy types
+2026-03-20 13:02:18,111 - __main__ - INFO - Already processed: 3 types
+2026-03-20 13:02:18,111 - __main__ - INFO - Types to copy: 14
+2026-03-20 13:02:18,111 - __main__ - INFO - Processing autograph_compliance...
+2026-03-20 13:02:18,113 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,113 - __main__ - INFO - Processing autograph_conversion...
+2026-03-20 13:02:18,114 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,114 - __main__ - INFO - Processing autograph_violation_missing...
+2026-03-20 13:02:18,115 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,115 - __main__ - INFO - Processing debt_advance...
+2026-03-20 13:02:18,116 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,116 - __main__ - INFO - Processing elder_observation...
+2026-03-20 13:02:18,117 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,117 - __main__ - INFO - Processing elder_wisdom...
+2026-03-20 13:02:18,118 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,118 - __main__ - INFO - Processing excellence_award...
+2026-03-20 13:02:18,119 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,119 - __main__ - INFO - Processing failure_refinement...
+2026-03-20 13:02:18,120 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,120 - __main__ - INFO - Processing initial...
+2026-03-20 13:02:18,121 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,121 - __main__ - INFO - Processing lead_speculation...
+2026-03-20 13:02:18,122 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,122 - __main__ - INFO - Processing optimization...
+2026-03-20 13:02:18,123 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,123 - __main__ - INFO - Processing payroll_garnished...
+2026-03-20 13:02:18,124 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,124 - __main__ - INFO - Processing pivot_execution...
+2026-03-20 13:02:18,125 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,125 - __main__ - INFO - Processing test...
+2026-03-20 13:02:18,126 - __main__ - ERROR - Error minting: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-20 13:02:18,126 - __main__ - INFO - Copier completed: 0 types copied, 0 Shannon minted

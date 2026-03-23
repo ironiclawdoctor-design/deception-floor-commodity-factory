@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/precinct92-magical-feelings-enforcement/precinct/enforcement/spend-rules.md

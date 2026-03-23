@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/infinite-go-loop.py

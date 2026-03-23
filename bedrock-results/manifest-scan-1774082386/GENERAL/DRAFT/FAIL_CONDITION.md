@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/FAIL_CONDITION.md

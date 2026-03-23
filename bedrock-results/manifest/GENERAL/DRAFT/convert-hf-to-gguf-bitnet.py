@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/utils/convert-hf-to-gguf-bitnet.py

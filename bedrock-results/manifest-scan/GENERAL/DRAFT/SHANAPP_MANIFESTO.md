@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/shanapp/SHANAPP_MANIFESTO.md

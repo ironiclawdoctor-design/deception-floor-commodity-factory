@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/skills/fiesta-agents/agents/design/prompt-artist.md

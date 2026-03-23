@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/optimizer-agent/run.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/skills/fiesta-agents/agents/licensing/compliance-auditor.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/surveillance/cookies/COOKIE_MANIFESTO.md

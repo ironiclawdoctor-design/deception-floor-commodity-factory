@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/mission-earth/SKILLS_INTERNALIZED.md

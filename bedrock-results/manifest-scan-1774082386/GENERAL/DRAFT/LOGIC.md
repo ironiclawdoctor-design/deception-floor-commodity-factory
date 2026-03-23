@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/autograph/LOGIC.md

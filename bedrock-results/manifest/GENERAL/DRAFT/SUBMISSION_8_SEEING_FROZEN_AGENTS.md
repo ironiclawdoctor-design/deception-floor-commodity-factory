@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMISSION_8_SEEING_FROZEN_AGENTS.md

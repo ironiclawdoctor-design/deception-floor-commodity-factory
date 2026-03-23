@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/gpu/bitnet_kernels/compile.sh

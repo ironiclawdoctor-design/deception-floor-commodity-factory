@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/r-claims/R_MANIFESTO.md

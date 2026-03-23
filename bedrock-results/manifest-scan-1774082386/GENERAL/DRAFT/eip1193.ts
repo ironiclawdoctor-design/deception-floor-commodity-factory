@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/viem/types/eip1193.ts

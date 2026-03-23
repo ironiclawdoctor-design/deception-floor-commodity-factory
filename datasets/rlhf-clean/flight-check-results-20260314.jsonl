@@ -1,0 +1,6 @@
+{"timestamp":"2026-03-14T18:31:31Z","schema_name":"accounting.sql","status":"initialized","table_count":11,"errors":"none"}
+{"timestamp":"2026-03-14T18:31:31Z","schema_name":"database","status":"operational","table_count":15,"errors":"none"}
+{"timestamp":"2026-03-14T18:31:31Z","schema_name":"automate-repo","status":"cloned","table_count":0,"errors":"none"}
+{"timestamp":"2026-03-14T18:31:31Z","schema_name":"official-repo","status":"missing","table_count":0,"errors":"repo_not_cloned"}
+{"timestamp":"2026-03-14T18:31:31Z","schema_name":"daimyo-repo","status":"missing","table_count":0,"errors":"repo_not_cloned"}
+{"timestamp":"2026-03-14T18:31:31Z","schema_name":"services","status":"operational","table_count":355,"errors":"none"}

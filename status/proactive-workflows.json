@@ -1,0 +1,12 @@
+[
+  {"id": "WF-001", "name": "Atomic Commits", "status": "Ready", "pivot": "Manual -> Auto-push on Shannon mint"},
+  {"id": "WF-002", "name": "Recursive Refinement", "status": "Ready", "pivot": "Copier -> Nested Copier loops"},
+  {"id": "WF-003", "name": "Adversarial Training", "status": "Ready", "pivot": "Bashbug -> Generator feedback"},
+  {"id": "WF-004", "name": "Lead Auto-Siphon", "status": "Active", "pivot": "Search -> Auto-markdown summary"},
+  {"id": "WF-005", "name": "Economy Hard-Stop", "status": "Applied", "pivot": "Alert -> Auto-model downgrade"},
+  {"id": "WF-006", "name": "Signal Heartbeat", "status": "LIVE", "pivot": "Static Metric -> Kinetic Signal Pulse"},
+  {"id": "WF-007", "name": "Zero-Trust Auth", "status": "Kinetic", "pivot": "Whitelist -> Hardware Token Simulation"},
+  {"id": "WF-008", "name": "Autonomous IR", "status": "Ready", "pivot": "Logged -> Self-healing script trigger"},
+  {"id": "WF-009", "name": "Shannon Staking", "status": "Speculative", "pivot": "Balance -> Yield for compute priority"},
+  {"id": "WF-010", "name": "Identity Rotation", "status": "Kinetic", "pivot": "Static Name -> Role-based Entropy hashing"}
+]

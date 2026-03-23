@@ -1,0 +1,8 @@
+<h1>🎭 EXCELLENCE CONSOLE</h1>
+<p>Total Revenue Mass: <strong><%= shannonTotal %> Shannon</strong></p>
+<hr>
+<ul>
+    <% agents.forEach(a => { %>
+        <li><%= a.name %>: <%= a.balance_shannon %>g</li>
+    <% }) %>
+</ul>

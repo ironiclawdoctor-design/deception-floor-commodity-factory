@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/INFRASTRUCTURE_WALLET_SETUP.md

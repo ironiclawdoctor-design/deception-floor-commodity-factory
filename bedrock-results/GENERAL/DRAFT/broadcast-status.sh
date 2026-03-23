@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/broadcast-status.sh

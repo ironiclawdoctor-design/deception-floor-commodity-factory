@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/departments/shadow-red-team/rival-agency/RIVAL_MANIFESTO.md

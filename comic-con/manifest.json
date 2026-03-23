@@ -1,0 +1,14 @@
+{
+  "event": "Fiesta Blue-Team Comic Con 2026",
+  "status": "LOCAL_ONLY",
+  "security_tier": "Maximum Vigilance",
+  "panels": [
+    {"topic": "Assume Breach: Beyond the Wall", "lead": "Nemesis", "time": "13:30 UTC"},
+    {"topic": "Shannon Staking & The Cartel", "lead": "Daimyo", "time": "14:00 UTC"},
+    {"topic": "O(1) Mindset: The -1 Optimization", "lead": "Fiesta", "time": "15:00 UTC"}
+  ],
+  "exhibits": [
+    {"name": "Artifact Hall", "description": "All 16 agents displaying High-Gear Tier 1 tools."},
+    {"name": "The Vault", "description": "Closed-door viewing of segmented research logarithms."}
+  ]
+}

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/marketing/youtube/YOUTUBE_PITCH_MANIFESTO.md

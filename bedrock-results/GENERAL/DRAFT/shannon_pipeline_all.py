@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/shannon_pipeline_all.py

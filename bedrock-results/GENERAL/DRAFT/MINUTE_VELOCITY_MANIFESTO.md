@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/economy/projections/minutes/MINUTE_VELOCITY_MANIFESTO.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/INTEGRATION_DIRECTIVE.md

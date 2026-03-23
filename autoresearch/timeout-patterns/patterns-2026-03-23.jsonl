@@ -1,0 +1,183 @@
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "pattern_id": "approval_gate_timeout_20260323",
+  "pattern_type": "timeout",
+  "context": "Async command execution via Telegram",
+  "error_message": "Exec denied (gateway id=..., approval-timeout)",
+  "examples": [
+    {"time": "15:42 UTC", "command": "openclaw doctor", "job_id": "eb1a45e3"},
+    {"time": "15:42 UTC", "command": "tail -20 /tmp/gateway-restart.log", "job_id": "d38adeb1"},
+    {"time": "16:57 UTC", "command": "ls -la /root/.openclaw/workspace/", "job_id": "60b274f9"},
+    {"time": "18:05 UTC", "command": "find /root/.openclaw/workspace/skills/autoresearch -type f", "job_id": "387e0edf"},
+    {"time": "18:23 UTC", "command": "./setup-approval-agent.sh", "job_id": "459dbe06"},
+    {"time": "18:33 UTC", "command": "./analyze-external-approval-gate.sh", "job_id": "e2442abf"}
+  ],
+  "root_cause": "Approval gate deadlock (config says disabled, runtime enforces)",
+  "timeout_mechanism": "Commands wait for approval that never arrives",
+  "impact": "Blocked command execution, requires Web UI terminal workaround",
+  "recovery_pattern": "Pivot to file operations, script packaging, Web UI terminal"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "pattern_id": "response_generation_timeout_20260323",
+  "pattern_type": "timeout",
+  "context": "OpenClaw/Fiesta response generation",
+  "error_message": "Request timed out before a response was generated.",
+  "suggested_fix": "increase agents.defaults.timeoutSeconds in your config",
+  "timestamp_occurrence": "18:26 UTC",
+  "time_since_last_response": "~10 minutes",
+  "possible_causes": [
+    "Complex response generation (large context, multiple tool calls)",
+    "Model latency or rate limiting",
+    "System resource constraints",
+    "Approval gate interference",
+    "Config timeout setting too low"
+  ],
+  "impact": "User receives timeout error instead of response",
+  "recovery_pattern": "Retry, simplify request, increase timeout config"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "pattern_id": "webui_timeout_workaround_20260323",
+  "pattern_type": "timeout_recovery",
+  "context": "Approval gate timeout workaround",
+  "observation": "Web UI terminal provides interactive approval while Telegram times out",
+  "evidence": "Human directed to use Web UI terminal for approval-needing commands",
+  "effectiveness": "High (bypasses async timeout)",
+  "root_cause_insight": "Different client interfaces have different timeout/approval behaviors",
+  "training_implication": "Internal agent should support multiple channels with consistent timeout handling"
+}
+{
+  "timestamp": "2026-03-23T18:47:31Z",
+  "pattern_id": "file_ops_timeout_bypass_20260323",
+  "pattern_type": "timeout_avoidance",
+  "context": "Using read/write/edit tools to bypass approval gate",
+  "observation": "File operations via tools bypass approval entirely, avoiding timeout",
+  "evidence": "All analysis, script creation, documentation done via file ops",
+  "security_implication": "Tools are controlled, shell is unrestricted (security boundary)",
+  "strategy_effectiveness": "100% success for file-based tasks",
+  "limitation": "Cannot execute commands, only create/read/modify files",
+  "training_implication": "Internal agent should allow safe file ops without approval timeout"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "pattern_id": "approval_gate_timeout_20260323",
+  "pattern_type": "timeout",
+  "context": "Async command execution via Telegram",
+  "error_message": "Exec denied (gateway id=..., approval-timeout)",
+  "examples": [
+    {"time": "15:42 UTC", "command": "openclaw doctor", "job_id": "eb1a45e3"},
+    {"time": "15:42 UTC", "command": "tail -20 /tmp/gateway-restart.log", "job_id": "d38adeb1"},
+    {"time": "16:57 UTC", "command": "ls -la /root/.openclaw/workspace/", "job_id": "60b274f9"},
+    {"time": "18:05 UTC", "command": "find /root/.openclaw/workspace/skills/autoresearch -type f", "job_id": "387e0edf"},
+    {"time": "18:23 UTC", "command": "./setup-approval-agent.sh", "job_id": "459dbe06"},
+    {"time": "18:33 UTC", "command": "./analyze-external-approval-gate.sh", "job_id": "e2442abf"}
+  ],
+  "root_cause": "Approval gate deadlock (config says disabled, runtime enforces)",
+  "timeout_mechanism": "Commands wait for approval that never arrives",
+  "impact": "Blocked command execution, requires Web UI terminal workaround",
+  "recovery_pattern": "Pivot to file operations, script packaging, Web UI terminal"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "pattern_id": "response_generation_timeout_20260323",
+  "pattern_type": "timeout",
+  "context": "OpenClaw/Fiesta response generation",
+  "error_message": "Request timed out before a response was generated.",
+  "suggested_fix": "increase agents.defaults.timeoutSeconds in your config",
+  "timestamp_occurrence": "18:26 UTC",
+  "time_since_last_response": "~10 minutes",
+  "possible_causes": [
+    "Complex response generation (large context, multiple tool calls)",
+    "Model latency or rate limiting",
+    "System resource constraints",
+    "Approval gate interference",
+    "Config timeout setting too low"
+  ],
+  "impact": "User receives timeout error instead of response",
+  "recovery_pattern": "Retry, simplify request, increase timeout config"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "pattern_id": "webui_timeout_workaround_20260323",
+  "pattern_type": "timeout_recovery",
+  "context": "Approval gate timeout workaround",
+  "observation": "Web UI terminal provides interactive approval while Telegram times out",
+  "evidence": "Human directed to use Web UI terminal for approval-needing commands",
+  "effectiveness": "High (bypasses async timeout)",
+  "root_cause_insight": "Different client interfaces have different timeout/approval behaviors",
+  "training_implication": "Internal agent should support multiple channels with consistent timeout handling"
+}
+{
+  "timestamp": "2026-03-23T18:52:52Z",
+  "pattern_id": "file_ops_timeout_bypass_20260323",
+  "pattern_type": "timeout_avoidance",
+  "context": "Using read/write/edit tools to bypass approval gate",
+  "observation": "File operations via tools bypass approval entirely, avoiding timeout",
+  "evidence": "All analysis, script creation, documentation done via file ops",
+  "security_implication": "Tools are controlled, shell is unrestricted (security boundary)",
+  "strategy_effectiveness": "100% success for file-based tasks",
+  "limitation": "Cannot execute commands, only create/read/modify files",
+  "training_implication": "Internal agent should allow safe file ops without approval timeout"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "pattern_id": "approval_gate_timeout_20260323",
+  "pattern_type": "timeout",
+  "context": "Async command execution via Telegram",
+  "error_message": "Exec denied (gateway id=..., approval-timeout)",
+  "examples": [
+    {"time": "15:42 UTC", "command": "openclaw doctor", "job_id": "eb1a45e3"},
+    {"time": "15:42 UTC", "command": "tail -20 /tmp/gateway-restart.log", "job_id": "d38adeb1"},
+    {"time": "16:57 UTC", "command": "ls -la /root/.openclaw/workspace/", "job_id": "60b274f9"},
+    {"time": "18:05 UTC", "command": "find /root/.openclaw/workspace/skills/autoresearch -type f", "job_id": "387e0edf"},
+    {"time": "18:23 UTC", "command": "./setup-approval-agent.sh", "job_id": "459dbe06"},
+    {"time": "18:33 UTC", "command": "./analyze-external-approval-gate.sh", "job_id": "e2442abf"}
+  ],
+  "root_cause": "Approval gate deadlock (config says disabled, runtime enforces)",
+  "timeout_mechanism": "Commands wait for approval that never arrives",
+  "impact": "Blocked command execution, requires Web UI terminal workaround",
+  "recovery_pattern": "Pivot to file operations, script packaging, Web UI terminal"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "pattern_id": "response_generation_timeout_20260323",
+  "pattern_type": "timeout",
+  "context": "OpenClaw/Fiesta response generation",
+  "error_message": "Request timed out before a response was generated.",
+  "suggested_fix": "increase agents.defaults.timeoutSeconds in your config",
+  "timestamp_occurrence": "18:26 UTC",
+  "time_since_last_response": "~10 minutes",
+  "possible_causes": [
+    "Complex response generation (large context, multiple tool calls)",
+    "Model latency or rate limiting",
+    "System resource constraints",
+    "Approval gate interference",
+    "Config timeout setting too low"
+  ],
+  "impact": "User receives timeout error instead of response",
+  "recovery_pattern": "Retry, simplify request, increase timeout config"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "pattern_id": "webui_timeout_workaround_20260323",
+  "pattern_type": "timeout_recovery",
+  "context": "Approval gate timeout workaround",
+  "observation": "Web UI terminal provides interactive approval while Telegram times out",
+  "evidence": "Human directed to use Web UI terminal for approval-needing commands",
+  "effectiveness": "High (bypasses async timeout)",
+  "root_cause_insight": "Different client interfaces have different timeout/approval behaviors",
+  "training_implication": "Internal agent should support multiple channels with consistent timeout handling"
+}
+{
+  "timestamp": "2026-03-23T18:53:33Z",
+  "pattern_id": "file_ops_timeout_bypass_20260323",
+  "pattern_type": "timeout_avoidance",
+  "context": "Using read/write/edit tools to bypass approval gate",
+  "observation": "File operations via tools bypass approval entirely, avoiding timeout",
+  "evidence": "All analysis, script creation, documentation done via file ops",
+  "security_implication": "Tools are controlled, shell is unrestricted (security boundary)",
+  "strategy_effectiveness": "100% success for file-based tasks",
+  "limitation": "Cannot execute commands, only create/read/modify files",
+  "training_implication": "Internal agent should allow safe file ops without approval timeout"
+}

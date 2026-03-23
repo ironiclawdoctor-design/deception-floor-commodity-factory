@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/lunatic-outpost/INGRESS_MANIFESTO.md

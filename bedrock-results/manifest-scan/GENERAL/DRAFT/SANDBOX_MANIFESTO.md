@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/sandboxes/replit/SANDBOX_MANIFESTO.md

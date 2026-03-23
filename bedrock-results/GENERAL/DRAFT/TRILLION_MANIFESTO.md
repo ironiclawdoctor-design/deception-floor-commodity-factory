@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/dominion/agents/trillion/TRILLION_MANIFESTO.md

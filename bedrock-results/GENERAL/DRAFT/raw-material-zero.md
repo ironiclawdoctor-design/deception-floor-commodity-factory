@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/2-human-centered/raw-material-zero.md

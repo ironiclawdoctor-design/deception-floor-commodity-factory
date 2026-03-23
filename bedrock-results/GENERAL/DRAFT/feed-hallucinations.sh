@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/feed-hallucinations.sh

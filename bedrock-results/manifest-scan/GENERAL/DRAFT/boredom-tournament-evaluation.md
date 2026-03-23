@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/tournament/boredom-tournament-evaluation.md

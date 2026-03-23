@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/revenue/audible-splicing/SPLICING_MANIFESTO.md

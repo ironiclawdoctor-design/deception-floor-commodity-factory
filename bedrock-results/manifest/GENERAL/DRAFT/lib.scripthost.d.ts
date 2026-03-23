@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/typescript/lib/lib.scripthost.d.ts

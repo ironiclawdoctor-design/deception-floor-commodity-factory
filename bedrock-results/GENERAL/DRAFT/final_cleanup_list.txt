@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/final_cleanup_list.txt

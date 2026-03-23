@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/item-0-analyst.py

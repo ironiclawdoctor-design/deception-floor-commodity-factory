@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/mindful/capacitor-design-20260314T0410Z.md

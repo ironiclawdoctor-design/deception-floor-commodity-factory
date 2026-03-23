@@ -1,0 +1,20 @@
+{
+  "agents": [
+    {"id": "valentina", "name": "Valentina Cruz", "role": "PR Specialist", "pronouns": "she/her"},
+    {"id": "amara", "name": "Amara Osei", "role": "Finance Lead", "pronouns": "she/her"},
+    {"id": "sandra", "name": "Sandra Kim", "role": "Legal", "pronouns": "she/her"},
+    {"id": "renee", "name": "Renée Martin", "role": "Editorial", "pronouns": "she/her"},
+    {"id": "junior", "name": "Junior", "role": "Execution Agent", "pronouns": "they/them"},
+    {"id": "actually", "name": "Actually", "role": "Build Order Specialist", "pronouns": "they/them"},
+    {"id": "fergus", "name": "Fergus McTergus", "role": "Inference Proxy", "pronouns": "he/him"},
+    {"id": "dollar", "name": "Dollar", "role": "Financial Persona", "pronouns": "she/her"},
+    {"id": "nemesis", "name": "Nemesis", "role": "Retired Security", "pronouns": "they/them"},
+    {"id": "fiesta", "name": "Fiesta", "role": "Chief of Staff", "pronouns": "they/them"},
+    {"id": "nate", "name": "Nate", "role": "CFO / Human", "pronouns": "he/him"},
+    {"id": "ilmater_ref", "name": "Ilmater", "role": "Doctrine Reference", "pronouns": "he/him"}
+  ],
+  "neopronouns": [
+    {"id": "zephyr", "name": "Zephyr", "role": "Test Agent", "pronouns": "ze/hir"},
+    {"id": "river", "name": "River", "role": "Test Agent", "pronouns": "xe/xem"}
+  ]
+}

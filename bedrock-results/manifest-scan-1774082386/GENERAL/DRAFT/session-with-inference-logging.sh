@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/lib/session-with-inference-logging.sh

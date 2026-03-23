@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/lib/precache-feedback-loop.sh

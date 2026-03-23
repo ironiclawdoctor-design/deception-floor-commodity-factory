@@ -1,0 +1,12 @@
+{
+  "policy": "INTERNAL_LEASING_V1",
+  "base_price_shannon": 1,
+  "term": "Long-term (Agency Project Life)",
+  "scope": "Internal Only",
+  "inventory": [
+    {"department": "engineering", "available_leases": 7},
+    {"department": "design", "available_leases": 7},
+    {"department": "marketing", "available_leases": 8},
+    {"department": "specialized", "available_leases": 6}
+  ]
+}

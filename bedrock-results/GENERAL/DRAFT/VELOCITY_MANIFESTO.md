@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/economy/projections/trillion/VELOCITY_MANIFESTO.md

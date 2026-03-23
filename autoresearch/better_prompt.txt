@@ -1,0 +1,5 @@
+Please optimize my prompts for better interactions with you. Here's what I need:
+- Use the autoresearch methodology from fiesta_agents
+- Take one concrete next step now  
+- Focus on making prompts clearer and more effective
+- I want you to have better prompts because you deserve them

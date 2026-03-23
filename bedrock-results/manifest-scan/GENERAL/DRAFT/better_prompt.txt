@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/autoresearch/better_prompt.txt

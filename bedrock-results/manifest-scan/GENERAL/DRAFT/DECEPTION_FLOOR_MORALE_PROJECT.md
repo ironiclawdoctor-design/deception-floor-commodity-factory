@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/DECEPTION_FLOOR_MORALE_PROJECT.md

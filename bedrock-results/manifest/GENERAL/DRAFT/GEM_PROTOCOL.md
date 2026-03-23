@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/GEM_PROTOCOL.md

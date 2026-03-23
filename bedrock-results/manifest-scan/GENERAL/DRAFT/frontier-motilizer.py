@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/frontier-motilizer.py

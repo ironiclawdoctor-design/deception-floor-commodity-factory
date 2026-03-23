@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/grok-server/grok-server.sh

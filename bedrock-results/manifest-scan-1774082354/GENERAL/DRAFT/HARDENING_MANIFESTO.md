@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/hardening/HARDENING_MANIFESTO.md

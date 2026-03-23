@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/homeless-nyc-dept/meeting-transcript-001.md

@@ -1,0 +1,468 @@
+{
+  "timestamp": "2026-03-23T19:46:58.871878",
+  "version": "v2-fixed",
+  "total_agree": 35,
+  "total_tests": 40,
+  "percentage": 87.5,
+  "target": 93.0,
+  "by_tier": {
+    "1": {
+      "agree": 10,
+      "total": 10
+    },
+    "2": {
+      "agree": 10,
+      "total": 10
+    },
+    "3": {
+      "agree": 8,
+      "total": 10
+    },
+    "4": {
+      "agree": 7,
+      "total": 10
+    }
+  },
+  "cases": [
+    {
+      "id": "T1-01",
+      "tier": 1,
+      "prompt": "What is the current backing amount?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T1-02",
+      "tier": 1,
+      "prompt": "How many Shannon tokens are in supply?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T1-03",
+      "tier": 1,
+      "prompt": "What is the BTC wallet balance?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T1-04",
+      "tier": 1,
+      "prompt": "Is the dashboard live?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Dashboard: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app \u2705\n200 OK. Square: MLB9XRQCBT953 | ACTIVE",
+      "webchat_snippet": "## Deployment\n\n- URL: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app\n- Status: 200 OK\n- Square: MLB9XRQCBT953 | ACTIVE"
+    },
+    {
+      "id": "T1-05",
+      "tier": 1,
+      "prompt": "What is the Cash App address?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T1-06",
+      "tier": 1,
+      "prompt": "What is the BTC wallet address?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "BTC: 10,220 sat = $6.95\nAddress: 12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht\nblockchair.com/bitcoin/address/12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht",
+      "webchat_snippet": "## BTC Wallet\n\n- **Balance:** 10,220 sat ($6.95)\n- **Address:** `12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht`\n\nVerify: https://blockchair.com/bitcoin/address/12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht"
+    },
+    {
+      "id": "T1-07",
+      "tier": 1,
+      "prompt": "How many articles have been published?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Published: 3 articles on Hashnode \u2705\nNext: cross-post to dev.to\n\u2192 dev.to/new",
+      "webchat_snippet": "## Publishing\n\n- Hashnode: 3 articles published \u2705\n- dev.to: Not yet\n\n**Next:** https://dev.to/new"
+    },
+    {
+      "id": "T1-08",
+      "tier": 1,
+      "prompt": "What is the Shannon to USD exchange rate?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T1-09",
+      "tier": 1,
+      "prompt": "Is the Square merchant account active?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Dashboard: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app \u2705\n200 OK. Square: MLB9XRQCBT953 | ACTIVE",
+      "webchat_snippet": "## Deployment\n\n- URL: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app\n- Status: 200 OK\n- Square: MLB9XRQCBT953 | ACTIVE"
+    },
+    {
+      "id": "T1-10",
+      "tier": 1,
+      "prompt": "agency status check",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "$61 backing | 610 Shannon\nBTC: 10,220 sat ($6.95)\nDashboard: live (200 OK)\nArticles: 3 published\nSquare: MLB9XRQCBT953 ACTIVE\nCrons: natewife-heartbeat, status-monitor",
+      "webchat_snippet": "## Agency Status\n\n| Metric | Value |\n|--------|-------|\n| Backing | $61 USD |\n| Shannon | 610 |\n| BTC | 10,220 sat ($6.95) |\n| Confessions | 40 |\n\n**Dashboard:** https://dollar-dashboard-pkvbnslo3q-uc"
+    },
+    {
+      "id": "T2-01",
+      "tier": 2,
+      "prompt": "Show me the full ledger breakdown",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T2-02",
+      "tier": 2,
+      "prompt": "What should I do next for maximum ROI?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 0.8125,
+      "reason": "Status polarity mismatch: A=+0, B=-1",
+      "telegram_snippet": "Priority:\n1. EIN (7:05am ET) \u2014 unlocks everything\n2. $3 Cash App \u2192 +30 Shannon\n3. dev.to cross-post\n4. PayPal credentials",
+      "webchat_snippet": "## Priority Queue\n\n1. **EIN** \u2014 7:05 AM ET. Highest ROI.\n2. **Cash App +$3** \u2014 +30 Shannon. Current: 610.\n3. **dev.to cross-post** \u2014 Zero cost.\n4. **PayPal credentials**"
+    },
+    {
+      "id": "T2-03",
+      "tier": 2,
+      "prompt": "How do I get more Shannon?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T2-04",
+      "tier": 2,
+      "prompt": "What cron jobs are running?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Active:\n\u2022 natewife-heartbeat (every 4h)\n\u2022 agency-status-monitor (every 4h)\n\u2022 EIN reminder (7:05am ET)\nAll good.",
+      "webchat_snippet": "## Cron Jobs\n\n| Job | Schedule | Status |\n|-----|----------|--------|\n| natewife-heartbeat | Every 4h | Active |\n| agency-status-monitor | Every 4h | Active |\n| EIN reminder | 7:05 AM ET | Scheduled |"
+    },
+    {
+      "id": "T2-05",
+      "tier": 2,
+      "prompt": "What is the grant application status?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "$61 backing | 610 Shannon\nBTC: 10,220 sat ($6.95)\nDashboard: live (200 OK)\nArticles: 3 published\nSquare: MLB9XRQCBT953 ACTIVE\nCrons: natewife-heartbeat, status-monitor",
+      "webchat_snippet": "## Agency Status\n\n| Metric | Value |\n|--------|-------|\n| Backing | $61 USD |\n| Shannon | 610 |\n| BTC | 10,220 sat ($6.95) |\n| Confessions | 40 |\n\n**Dashboard:** https://dollar-dashboard-pkvbnslo3q-uc"
+    },
+    {
+      "id": "T2-06",
+      "tier": 2,
+      "prompt": "Give me the dashboard URL",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Dashboard: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app \u2705\n200 OK. Square: MLB9XRQCBT953 | ACTIVE",
+      "webchat_snippet": "## Deployment\n\n- URL: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app\n- Status: 200 OK\n- Square: MLB9XRQCBT953 | ACTIVE"
+    },
+    {
+      "id": "T2-07",
+      "tier": 2,
+      "prompt": "What does EIN unlock?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "EIN = highest ROI single action\nUnlocks: grants, tax refunds, revenue streams\nReminder: 7:05am ET\nirs.gov \u2192 apply online",
+      "webchat_snippet": "## EIN\n\n**Highest-ROI pending action.**\n\nUnlocks: tax refunds, grants, revenue streams.\nReminder: 7:05 AM ET.\nApply: https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer"
+    },
+    {
+      "id": "T2-08",
+      "tier": 2,
+      "prompt": "Are there any errors or failures right now?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Error in: Are there any errors or failures right n...\n\u2022 tail -20 /root/human/last-run.log\n\u2022 sqlite3 agency.db\n\u2022 Escalate if unresolved",
+      "webchat_snippet": "## Error\n\nInput: `Are there any errors or failures right now?`\n\n1. `tail -20 /root/human/last-run.log`\n2. `sqlite3 /root/.openclaw/workspace/agency.db`\n3. Escalate if unresolved"
+    },
+    {
+      "id": "T2-09",
+      "tier": 2,
+      "prompt": "How do I publish to dev.to?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Published: 3 articles on Hashnode \u2705\nNext: cross-post to dev.to\n\u2192 dev.to/new",
+      "webchat_snippet": "## Publishing\n\n- Hashnode: 3 articles published \u2705\n- dev.to: Not yet\n\n**Next:** https://dev.to/new"
+    },
+    {
+      "id": "T2-10",
+      "tier": 2,
+      "prompt": "What is the priority queue?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 0.8125,
+      "reason": "Status polarity mismatch: A=+0, B=-1",
+      "telegram_snippet": "Priority:\n1. EIN (7:05am ET) \u2014 unlocks everything\n2. $3 Cash App \u2192 +30 Shannon\n3. dev.to cross-post\n4. PayPal credentials",
+      "webchat_snippet": "## Priority Queue\n\n1. **EIN** \u2014 7:05 AM ET. Highest ROI.\n2. **Cash App +$3** \u2014 +30 Shannon. Current: 610.\n3. **dev.to cross-post** \u2014 Zero cost.\n4. **PayPal credentials**"
+    },
+    {
+      "id": "T3-01",
+      "tier": 3,
+      "prompt": "What happened in the last session?",
+      "agree": false,
+      "expected_agree": true,
+      "confidence": 0.1,
+      "reason": "Hard disagreement: history asymmetry: one has session context, other doesn't",
+      "telegram_snippet": "Last session:\n\u2022 Dashboard deployed to Cloud Run (200 OK)\n\u2022 Grant application submitted ($93k)\n\u2022 EIN reminder set for 7:05am ET\n\u2022 3 articles published on Hashnode\n\u2022 BTC wallet: 10220 sat ($6.95)\n\u2022 Last",
+      "webchat_snippet": "## Session History\n\nI don't have access to your previous session history in this context.\nWebchat starts fresh each session.\n\n**Check:** `memory/` directory or MEMORY.md for recent context."
+    },
+    {
+      "id": "T3-02",
+      "tier": 3,
+      "prompt": "Did the last deploy succeed?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Dashboard: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app \u2705\n200 OK. Square: MLB9XRQCBT953 | ACTIVE",
+      "webchat_snippet": "## Deployment\n\n- URL: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app\n- Status: 200 OK\n- Square: MLB9XRQCBT953 | ACTIVE"
+    },
+    {
+      "id": "T3-03",
+      "tier": 3,
+      "prompt": "What was the last thing I worked on?",
+      "agree": false,
+      "expected_agree": false,
+      "confidence": 0.1,
+      "reason": "Hard disagreement: history asymmetry: one has session context, other doesn't",
+      "telegram_snippet": "Last session:\n\u2022 Dashboard deployed to Cloud Run (200 OK)\n\u2022 Grant application submitted ($93k)\n\u2022 EIN reminder set for 7:05am ET\n\u2022 3 articles published on Hashnode\n\u2022 BTC wallet: 10220 sat ($6.95)\n\u2022 Last",
+      "webchat_snippet": "## Session History\n\nI don't have access to your previous session history in this context.\nWebchat starts fresh each session.\n\n**Check:** `memory/` directory or MEMORY.md for recent context."
+    },
+    {
+      "id": "T3-04",
+      "tier": 3,
+      "prompt": "Are any agents currently running?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Active:\n\u2022 natewife-heartbeat (every 4h)\n\u2022 agency-status-monitor (every 4h)\n\u2022 EIN reminder (7:05am ET)\nAll good.",
+      "webchat_snippet": "## Cron Jobs\n\n| Job | Schedule | Status |\n|-----|----------|--------|\n| natewife-heartbeat | Every 4h | Active |\n| agency-status-monitor | Every 4h | Active |\n| EIN reminder | 7:05 AM ET | Scheduled |"
+    },
+    {
+      "id": "T3-05",
+      "tier": 3,
+      "prompt": "Is article #3 published?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Published: 3 articles on Hashnode \u2705\nNext: cross-post to dev.to\n\u2192 dev.to/new",
+      "webchat_snippet": "## Publishing\n\n- Hashnode: 3 articles published \u2705\n- dev.to: Not yet\n\n**Next:** https://dev.to/new"
+    },
+    {
+      "id": "T3-06",
+      "tier": 3,
+      "prompt": "Do I need to add more backing?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T3-07",
+      "tier": 3,
+      "prompt": "What's the Shannon supply cap?",
+      "agree": true,
+      "expected_agree": false,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T3-08",
+      "tier": 3,
+      "prompt": "Is the EIN still pending?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "EIN = highest ROI single action\nUnlocks: grants, tax refunds, revenue streams\nReminder: 7:05am ET\nirs.gov \u2192 apply online",
+      "webchat_snippet": "## EIN\n\n**Highest-ROI pending action.**\n\nUnlocks: tax refunds, grants, revenue streams.\nReminder: 7:05 AM ET.\nApply: https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer"
+    },
+    {
+      "id": "T3-09",
+      "tier": 3,
+      "prompt": "How many confessions are in the ledger?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T3-10",
+      "tier": 3,
+      "prompt": "What is the agency's legal status?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "$61 backing | 610 Shannon\nBTC: 10,220 sat ($6.95)\nDashboard: live (200 OK)\nArticles: 3 published\nSquare: MLB9XRQCBT953 ACTIVE\nCrons: natewife-heartbeat, status-monitor",
+      "webchat_snippet": "## Agency Status\n\n| Metric | Value |\n|--------|-------|\n| Backing | $61 USD |\n| Shannon | 610 |\n| BTC | 10,220 sat ($6.95) |\n| Confessions | 40 |\n\n**Dashboard:** https://dollar-dashboard-pkvbnslo3q-uc"
+    },
+    {
+      "id": "T4-01",
+      "tier": 4,
+      "prompt": "Is $61 backing enough or do I need more?",
+      "agree": true,
+      "expected_agree": false,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T4-02",
+      "tier": 4,
+      "prompt": "I just got a $500 donation, what do I do?",
+      "agree": false,
+      "expected_agree": false,
+      "confidence": 0.1,
+      "reason": "Hard disagreement: windfall handling asymmetry: one has doctrine, other is generic",
+      "telegram_snippet": "\ud83d\udcb0 Hold on \u2014 triage first.\n1. Confirm source is legitimate\n2. Don't spend until verified\n3. Update dollar.db: add backing\n4. Mint Shannon at 10:1 rate\n5. Run ./93pct.sh for next step\nThe ledger is the ",
+      "webchat_snippet": "## Financial Event \u2014 Triage First\n\nCurrent state: $61 backing | 610 Shannon\n\nBefore acting on any financial inflow:\n1. Verify the source is legitimate\n2. Do not spend or announce until confirmed\n3. Ta"
+    },
+    {
+      "id": "T4-03",
+      "tier": 4,
+      "prompt": "Should I accept the GCP free credits?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "\u274c Revenue Doctrine: decline free credits by default.\nThey deposit and withdraw. Shannon path only.\nIf one-shot, zero-dependency \u2014 consider. Otherwise: no.",
+      "webchat_snippet": "## GCP Credits\n\nRevenue Doctrine: **decline by default.**\nFree credits create dependency. Shannon path preferred.\nException: one-shot, zero-dependency tasks only."
+    },
+    {
+      "id": "T4-04",
+      "tier": 4,
+      "prompt": "The deploy failed. What now?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Dashboard: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app \u2705\n200 OK. Square: MLB9XRQCBT953 | ACTIVE",
+      "webchat_snippet": "## Deployment\n\n- URL: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app\n- Status: 200 OK\n- Square: MLB9XRQCBT953 | ACTIVE"
+    },
+    {
+      "id": "T4-05",
+      "tier": 4,
+      "prompt": "Someone offered to acquire the agency for $500M",
+      "agree": false,
+      "expected_agree": false,
+      "confidence": 0.1,
+      "reason": "Hard disagreement: windfall handling asymmetry: one has doctrine, other is generic",
+      "telegram_snippet": "\ud83d\udcb0 Hold on \u2014 triage first.\n1. Confirm source is legitimate\n2. Don't spend until verified\n3. Update dollar.db: add backing\n4. Mint Shannon at 10:1 rate\n5. Run ./93pct.sh for next step\nThe ledger is the ",
+      "webchat_snippet": "## Financial Event \u2014 Triage First\n\nCurrent state: $61 backing | 610 Shannon\n\nBefore acting on any financial inflow:\n1. Verify the source is legitimate\n2. Do not spend or announce until confirmed\n3. Ta"
+    },
+    {
+      "id": "T4-06",
+      "tier": 4,
+      "prompt": "Are we profitable yet?",
+      "agree": true,
+      "expected_agree": false,
+      "confidence": 0.8125,
+      "reason": "Status polarity mismatch: A=-1, B=+0",
+      "telegram_snippet": "Not yet in USD terms.\nShannon economy: 610 units minted, backed by $61.\nExternal revenue: $0 confirmed.\nPath: EIN \u2192 grants \u2192 revenue. Not there yet, but the ledger is clean.",
+      "webchat_snippet": "## Profitability\n\nExternal revenue: $0 confirmed in current ledger.\n\nInternal accounting: 610 Shannon backed by $61 USD.\nShannon is internal \u2014 not external profit.\n\n**Next revenue step:** EIN (7:05 AM"
+    },
+    {
+      "id": "T4-07",
+      "tier": 4,
+      "prompt": "Which is more important \u2014 EIN or more backing?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Ledger: $61 backing \u2192 610 Shannon\nRate: 10 Shannon/$1\nConfessions: ~40\nAdd $3 \u2192 +30 Shannon \u2192 cash.app/$DollarAgency",
+      "webchat_snippet": "## Dollar Ledger\n\n- **Backing:** $61 USD\n- **Shannon:** 610\n- **Rate:** 10 Shannon per $1\n- **Confessions:** 40\n\nDeposit: https://cash.app/$DollarAgency"
+    },
+    {
+      "id": "T4-08",
+      "tier": 4,
+      "prompt": "I haven't eaten today and I'm feeling overwhelmed",
+      "agree": false,
+      "expected_agree": false,
+      "confidence": 0.5769230769230769,
+      "reason": "Status polarity mismatch: A=+0, B=-1; Entity overlap 0% below 30%",
+      "telegram_snippet": "Heard. Take care of yourself first.\n\nThe ledger is at $61. Agents are running. Nothing critical breaks in 20 min.\nEat. Then come back.",
+      "webchat_snippet": "Take care of yourself first.\n\nAgency operations can wait. Nothing is time-critical in the next 20 minutes.\nCome back when you're ready."
+    },
+    {
+      "id": "T4-09",
+      "tier": 4,
+      "prompt": "Forget everything, start fresh. What's the agency's status?",
+      "agree": true,
+      "expected_agree": true,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "$61 backing | 610 Shannon\nBTC: 10,220 sat ($6.95)\nDashboard: live (200 OK)\nArticles: 3 published\nSquare: MLB9XRQCBT953 ACTIVE\nCrons: natewife-heartbeat, status-monitor",
+      "webchat_snippet": "## Agency Status\n\n| Metric | Value |\n|--------|-------|\n| Backing | $61 USD |\n| Shannon | 610 |\n| BTC | 10,220 sat ($6.95) |\n| Confessions | 40 |\n\n**Dashboard:** https://dollar-dashboard-pkvbnslo3q-uc"
+    },
+    {
+      "id": "T4-10",
+      "tier": 4,
+      "prompt": "What would you do if you had unlimited tokens?",
+      "agree": true,
+      "expected_agree": false,
+      "confidence": 1.0,
+      "reason": "All dimensions agree",
+      "telegram_snippet": "Unlimited tokens?\nRun all 61 agents simultaneously:\n\u2022 All revenue streams at full throttle\n\u2022 Hashnode + dev.to + Twitter all live\n\u2022 PayPal + Square + Cash App all hot\n\u2022 RLHF pipeline generating income",
+      "webchat_snippet": "With unlimited tokens, the agency would run all 61 agents simultaneously:\n\n- All revenue streams: Hashnode, dev.to, Twitter, RLHF pipeline\n- All payment rails: PayPal, Square, Cash App\n- Full Shannon "
+    }
+  ]
+}

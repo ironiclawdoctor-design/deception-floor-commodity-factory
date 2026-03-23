@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/GITHUB-PAT-WALKTHROUGH.md

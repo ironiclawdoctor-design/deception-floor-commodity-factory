@@ -1,0 +1,7 @@
+Title: Self-hosted AI agent stack — what's working for you?
+
+Running OpenClaw on Ampere.sh. Using Telegram as the primary control surface.
+Hit a few approval-gate friction points but the gateway patch workflow is solid.
+Interested in others' setups — especially exec approval configs and memory backends.
+
+What are your next steps once you have the agent running 24/7?

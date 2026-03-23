@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/THE-HUMAN-DECODED.md

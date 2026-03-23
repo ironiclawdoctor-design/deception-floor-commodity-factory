@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/normal-force-usd.py

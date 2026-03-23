@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/surveillance/google/LOBBY_AUDIT_MANIFESTO.md

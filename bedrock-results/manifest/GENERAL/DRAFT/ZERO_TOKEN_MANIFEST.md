@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/ZERO_TOKEN_MANIFEST.md

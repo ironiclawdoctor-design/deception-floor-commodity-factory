@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/projects/entropy-economy/node_modules/math-intrinsics/isFinite.d.ts

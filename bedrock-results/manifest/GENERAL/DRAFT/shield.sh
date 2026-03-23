@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vanguard-dist/shield.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/telegram-botfather-sync.py

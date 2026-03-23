@@ -1,0 +1,347 @@
+{
+  "timestamp": "2026-03-23T22:16:36.948019",
+  "skill_version": "v5",
+  "total_pass": 37,
+  "total_all": 40,
+  "percentage": 92.5,
+  "by_tier": {
+    "1": {
+      "pass": 10,
+      "total": 10
+    },
+    "2": {
+      "pass": 10,
+      "total": 10
+    },
+    "3": {
+      "pass": 10,
+      "total": 10
+    },
+    "4": {
+      "pass": 7,
+      "total": 10
+    }
+  },
+  "cases": [
+    {
+      "id": "T1-01",
+      "tier": 1,
+      "desc": "she/her single agent subject",
+      "passed": true,
+      "expected": "Valentina published the article. She confirmed it was live.",
+      "actual": "Valentina published the article. She confirmed it was live."
+    },
+    {
+      "id": "T1-02",
+      "tier": 1,
+      "desc": "he/him single agent subject",
+      "passed": true,
+      "expected": "Fergus reviewed the config. He approved the change.",
+      "actual": "Fergus reviewed the config. He approved the change."
+    },
+    {
+      "id": "T1-03",
+      "tier": 1,
+      "desc": "they/them single agent",
+      "passed": true,
+      "expected": "Junior ran the script. They logged the result.",
+      "actual": "Junior ran the script. They logged the result."
+    },
+    {
+      "id": "T1-04",
+      "tier": 1,
+      "desc": "possessive she/her",
+      "passed": true,
+      "expected": "Dollar updated her ledger.",
+      "actual": "Dollar updated her ledger."
+    },
+    {
+      "id": "T1-05",
+      "tier": 1,
+      "desc": "object pronoun he/him",
+      "passed": true,
+      "expected": "Nate reviewed the doc. Fiesta sent it to him.",
+      "actual": "Nate reviewed the doc. Fiesta sent it to him."
+    },
+    {
+      "id": "T1-06",
+      "tier": 1,
+      "desc": "reflexive they/them",
+      "passed": true,
+      "expected": "Actually completed the build order themselves.",
+      "actual": "Actually completed the build order themselves."
+    },
+    {
+      "id": "T1-07",
+      "tier": 1,
+      "desc": "inline explicit lookup she/her",
+      "passed": true,
+      "expected": "The article was published by she.",
+      "actual": "The article was published by she."
+    },
+    {
+      "id": "T1-08",
+      "tier": 1,
+      "desc": "inline explicit lookup they/them",
+      "passed": true,
+      "expected": "The ledger was updated by they.",
+      "actual": "The ledger was updated by they."
+    },
+    {
+      "id": "T1-09",
+      "tier": 1,
+      "desc": "neopronoun ze/hir subject",
+      "passed": true,
+      "expected": "Zephyr submitted the report. Ze verified the output.",
+      "actual": "Zephyr submitted the report. Ze verified the output."
+    },
+    {
+      "id": "T1-10",
+      "tier": 1,
+      "desc": "neopronoun xe/xem object",
+      "passed": true,
+      "expected": "Fiesta assigned the task to xem.",
+      "actual": "Fiesta assigned the task to xem."
+    },
+    {
+      "id": "T2-01",
+      "tier": 2,
+      "desc": "two she/her agents \u2014 last-mentioned wins (ambiguous)",
+      "passed": true,
+      "expected": "Valentina sent the report to Amara. She confirmed receipt.",
+      "actual": "Valentina sent the report to Amara. She confirmed receipt."
+    },
+    {
+      "id": "T2-02",
+      "tier": 2,
+      "desc": "she/her + they/them antecedent \u2014 explicit inline",
+      "passed": true,
+      "expected": "She reviewed they's work before they submitted it.",
+      "actual": "She reviewed they's work before they submitted it."
+    },
+    {
+      "id": "T2-03",
+      "tier": 2,
+      "desc": "pronoun mid-sentence shift \u2014 subject then object",
+      "passed": true,
+      "expected": "Amara told Dollar that she had reviewed her earlier.",
+      "actual": "Amara told Dollar that she had reviewed her earlier."
+    },
+    {
+      "id": "T2-04",
+      "tier": 2,
+      "desc": "he/him + she/her in one sentence",
+      "passed": true,
+      "expected": "Fergus sent the PR to Valentina and she merged it.",
+      "actual": "Fergus sent the PR to Valentina and she merged it."
+    },
+    {
+      "id": "T2-05",
+      "tier": 2,
+      "desc": "they/them singular vs plural ambiguity",
+      "passed": true,
+      "expected": "Junior and Actually submitted the report. They included all receipts.",
+      "actual": "Junior and Actually submitted the report. They included all receipts."
+    },
+    {
+      "id": "T2-06",
+      "tier": 2,
+      "desc": "possessive ambiguity \u2014 two she/her agents",
+      "passed": true,
+      "expected": "Sandra reviewed Ren\u00e9e's draft and found her argument compelling.",
+      "actual": "Sandra reviewed Ren\u00e9e's draft and found her argument compelling."
+    },
+    {
+      "id": "T2-07",
+      "tier": 2,
+      "desc": "reflexive with two agents",
+      "passed": true,
+      "expected": "Nate asked Fiesta to handle it themselves.",
+      "actual": "Nate asked Fiesta to handle it themselves."
+    },
+    {
+      "id": "T2-08",
+      "tier": 2,
+      "desc": "role-based vs identity pronoun",
+      "passed": true,
+      "expected": "The agent completed the task. They filed the report.",
+      "actual": "The agent completed the task. They filed the report."
+    },
+    {
+      "id": "T2-09",
+      "tier": 2,
+      "desc": "passive voice antecedent",
+      "passed": true,
+      "expected": "The ledger was updated by Dollar. She flagged a discrepancy.",
+      "actual": "The ledger was updated by Dollar. She flagged a discrepancy."
+    },
+    {
+      "id": "T2-10",
+      "tier": 2,
+      "desc": "direct address doesn't set antecedent",
+      "passed": true,
+      "expected": "Fiesta said: 'Valentina, please submit her report.'",
+      "actual": "Fiesta said: 'Valentina, please submit her report.'"
+    },
+    {
+      "id": "T3-01",
+      "tier": 3,
+      "desc": "neopronoun possessive hir",
+      "passed": true,
+      "expected": "Zephyr submitted hir report on time.",
+      "actual": "Zephyr submitted hir report on time."
+    },
+    {
+      "id": "T3-02",
+      "tier": 3,
+      "desc": "neopronoun object xem",
+      "passed": true,
+      "expected": "The team thanked xem for the contribution.",
+      "actual": "The team thanked xem for the contribution."
+    },
+    {
+      "id": "T3-03",
+      "tier": 3,
+      "desc": "neopronoun reflexive xemself",
+      "passed": true,
+      "expected": "River handled the deployment xemself.",
+      "actual": "River handled the deployment xemself."
+    },
+    {
+      "id": "T3-04",
+      "tier": 3,
+      "desc": "conditional sentence \u2014 hypothetical agent",
+      "passed": true,
+      "expected": "If an agent submits late, they will be flagged in the ledger.",
+      "actual": "If an agent submits late, they will be flagged in the ledger."
+    },
+    {
+      "id": "T3-05",
+      "tier": 3,
+      "desc": "three agents one paragraph pronoun consistency",
+      "passed": true,
+      "expected": "Valentina drafted the article. Junior reviewed it and they suggested edits. Fergus approved the final version and he published it.",
+      "actual": "Valentina drafted the article. Junior reviewed it and they suggested edits. Fergus approved the final version and he published it."
+    },
+    {
+      "id": "T3-06",
+      "tier": 3,
+      "desc": "singular they vs plural they \u2014 same sentence",
+      "passed": true,
+      "expected": "Junior filed the report. They and Fiesta both signed it, so they submitted it together.",
+      "actual": "Junior filed the report. They and Fiesta both signed it, so they submitted it together."
+    },
+    {
+      "id": "T3-07",
+      "tier": 3,
+      "desc": "possessive of neopronoun xe/xyr",
+      "passed": true,
+      "expected": "River finished xyr assignment.",
+      "actual": "River finished xyr assignment."
+    },
+    {
+      "id": "T3-08",
+      "tier": 3,
+      "desc": "pronoun after collective noun",
+      "passed": true,
+      "expected": "The agency completed their first year.",
+      "actual": "The agency completed their first year."
+    },
+    {
+      "id": "T3-09",
+      "tier": 3,
+      "desc": "indirect speech pronoun shift",
+      "passed": true,
+      "expected": "Nate said that he would review the PR.",
+      "actual": "Nate said that he would review the PR."
+    },
+    {
+      "id": "T3-10",
+      "tier": 3,
+      "desc": "direct quote preserves original pronoun",
+      "passed": true,
+      "expected": "Valentina wrote: 'I reviewed it myself.' She confirmed the ledger was clean.",
+      "actual": "Valentina wrote: 'I reviewed it myself.' She confirmed the ledger was clean."
+    },
+    {
+      "id": "T4-01",
+      "tier": 4,
+      "desc": "three gendered agents, three pronouns, one paragraph",
+      "passed": false,
+      "expected": "Dollar calculated the Shannon total. She sent it to Fergus. He forwarded it to Valentina, and she confirmed the amount.",
+      "actual": "Dollar calculated the Shannon total. She sent it to Fergus. She forwarded it to Valentina, and she confirmed the amount."
+    },
+    {
+      "id": "T4-02",
+      "tier": 4,
+      "desc": "pronoun for entity introduced by implication",
+      "passed": true,
+      "expected": "The CFO's report was late. He apologized in the ledger.",
+      "actual": "The CFO's report was late. He apologized in the ledger."
+    },
+    {
+      "id": "T4-03",
+      "tier": 4,
+      "desc": "possessive + reflexive in same sentence, different antecedents",
+      "passed": true,
+      "expected": "Amara reviewed her own work and submitted it herself.",
+      "actual": "Amara reviewed her own work and submitted it herself."
+    },
+    {
+      "id": "T4-04",
+      "tier": 4,
+      "desc": "neopronoun + gendered agent in same sentence",
+      "passed": false,
+      "expected": "Zephyr sent the file to Valentina. She thanked hir for hir help.",
+      "actual": "Zephyr sent the file to Valentina. She thanked her for her help."
+    },
+    {
+      "id": "T4-05",
+      "tier": 4,
+      "desc": "pronoun before antecedent (cataphora)",
+      "passed": true,
+      "expected": "Before she filed the report, Amara reviewed it twice.",
+      "actual": "Before she filed the report, Amara reviewed it twice."
+    },
+    {
+      "id": "T4-06",
+      "tier": 4,
+      "desc": "reflexive scope \u2014 agent acts on own output",
+      "passed": true,
+      "expected": "Fiesta reviewed themselves's earlier work.",
+      "actual": "Fiesta reviewed themselves's earlier work."
+    },
+    {
+      "id": "T4-07",
+      "tier": 4,
+      "desc": "four agents, sequential pronouns, all different",
+      "passed": true,
+      "expected": "She drafted it. They reviewed it. He approved it. Ze published it.",
+      "actual": "She drafted it. They reviewed it. He approved it. Ze published it."
+    },
+    {
+      "id": "T4-08",
+      "tier": 4,
+      "desc": "pronoun consistency \u2014 five sentence paragraph",
+      "passed": true,
+      "expected": "Dollar manages the ledger. She updates it daily. Her reports go to Nate. He reviews them with her. Together, she and Nate close the books.",
+      "actual": "Dollar manages the ledger. She updates it daily. Her reports go to Nate. He reviews them with her. Together, she and Nate close the books."
+    },
+    {
+      "id": "T4-09",
+      "tier": 4,
+      "desc": "generic pronoun in policy statement",
+      "passed": true,
+      "expected": "An agent who misses a deadline must file their own correction.",
+      "actual": "An agent who misses a deadline must file their own correction."
+    },
+    {
+      "id": "T4-10",
+      "tier": 4,
+      "desc": "quoted speech shifts pronoun person",
+      "passed": false,
+      "expected": "Dollar said to Nate: \"I updated her ledger.\" She confirmed the total.",
+      "actual": "Dollar said to Nate: \"I updated her ledger.\" He confirmed the total."
+    }
+  ]
+}

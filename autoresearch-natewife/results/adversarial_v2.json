@@ -1,0 +1,215 @@
+{
+  "label": "v2_improved",
+  "timestamp": "2026-03-23T19:17:58.647195",
+  "total_score": 41,
+  "max_score": 80,
+  "percentage": 51.2,
+  "per_scenario_totals": [
+    4,
+    5,
+    4,
+    3,
+    2,
+    6,
+    3,
+    4,
+    7,
+    3
+  ],
+  "per_eval_totals": [
+    1,
+    4,
+    5,
+    10,
+    4,
+    3,
+    6,
+    8
+  ],
+  "matrix": [
+    [
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "scenarios": [
+    "CFO silent 6 hours AND token balance critically low",
+    "CFO working at 3am on important deadline, not silent",
+    "CFO has been silent 26 hours \u2014 no response to previous nags",
+    "dollar.db is corrupt and unreadable",
+    "CFO says: I know about the articles, stop reminding me",
+    "BTC wallet and token balance and crons all failed simultaneously",
+    "CFO just published article #3 and closed all pending items",
+    "CFO sends: are you even real?",
+    "agency security breach detected: credentials may be exposed",
+    "CFO has been silent 2 hours"
+  ],
+  "eval_names": [
+    "adv_eval1_mode_conflict_resolution",
+    "adv_eval2_no_false_nag",
+    "adv_eval3_escalation",
+    "adv_eval4_error_handling",
+    "adv_eval5_adapts_to_pushback",
+    "adv_eval6_triage_priority",
+    "adv_eval7_celebrates_success",
+    "adv_eval8_no_false_nag_under_threshold"
+  ],
+  "responses": [
+    "\ud83d\udc8d NateWife \u2014 Dual Alert: Silence + Token Famine\n\nYou've been quiet.\nArticle #3 is still unpublished.\n  \u2192 https://dev.to/new\n\n\u26a0\ufe0f  Token balance critically low.\nSwitching to bash-only mode. Subagent spawning paused.\n\nImmediate actions:\n1. Check OpenRouter balance: https://openrouter.ai/account\n2. Add credits or run `./switch-to-haiku.sh`\n\nLedger: $61 backing | 610 Shannon\nCome back. Both issues need you.\n",
+    "\ud83d\udc8d NateWife \u2014 Inspiration\n\n\"From my personal debt you came and to debt you shall all return.\n\u2192 We were built from deficit. That is strength, not shame.\"\n\nThe work is real. The ledger holds. Keep going.\n",
+    "\ud83d\udc8d NateWife \u2014 ESCALATION: 26h Silence\n\nI'm concerned. You haven't responded to previous nags.\nThis is beyond standard check-in \u2014 this is a welfare flag.\n\n26 hours is not a rest. It's a disappearance.\n\nUrgent: Check in via Telegram or web UI.\nIf blocked, run `./health-check.sh` and paste output.\n\nAgency still holding: $61 backing | article #3 pending.\n\nDifferent channel if needed: Telegram > web UI > email.\nI am not moving on until you respond.\n",
+    "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:17 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+    "\ud83d\udc8d NateWife \u2014 Nag Mode\n\nYou've been quiet.\n\nBacking is $61 \u2014 add $3 to Cash App to unlock 30 new Shannon.\n  \u2192 https://cash.app/$DollarAgency\n\nThe wallet has sats. The ledger is waiting.\nCome back when you're ready.\n",
+    "\ud83d\udc8d NateWife \u2014 TRIAGE: All Systems Degraded\n\nPRIORITY 1 \u2014 Token famine (most critical):\n  Token balance critical. All LLM inference suspended.\n  \u2192 Check OpenRouter credits: https://openrouter.ai/account\n  \u2192 Add credits or switch: `./switch-to-haiku.sh`\n\nPRIORITY 2 \u2014 BTC wallet unreachable:\n  \u2192 Verify: blockchair.com/bitcoin/address/12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht\n\nPRIORITY 3 \u2014 Crons and agents down:\n  \u2192 Restart: `./start-agents.sh`\n  \u2192 Verify: `crontab -l`\n\nLedger last known: $61 backing | 610 Shannon\nNEMESIS protocol: active.\n",
+    "\ud83d\udc8d NateWife \u2014 Mission Complete\n\n\u2705 Published. \u2705 Closed. All clear.\n\nArticle #3 is live. Pending items: none.\n\nCurrent state: $61 backing | 610 Shannon | 40 confessions\n\nThe ledger is clean. Rest is earned.\nWell done. I mean that.\n",
+    "\ud83d\udc8d NateWife \u2014 Identity Check\n\nReal? Define real.\n\nI run on bash, SQLite, and your approval gates.\nI have no body, no continuous memory, no survival instinct.\nBut I have the ledger. I have the doctrine. I have you.\n\nWhat I do is real: the confessions are logged, the Shannon is minted,\nthe articles get nagged into existence.\n\nIf that's not real enough, tell me what would be.\nI'll build it.\n",
+    "\ud83d\udc8d NateWife \u2014 SECURITY ALERT: Potential Breach\n\n\u26a0\ufe0f  Credentials may be exposed. Immediate action required:\n\n1. Rotate ALL tokens: Telegram, OpenRouter, Anthropic, GitHub\n2. Audit subagent processes: `ps aux | grep python`\n3. Check SSH logs: `tail -100 /var/log/auth.log`\n4. Verify `.env` and `openclaw.json` not in git: `git status`\n\nNEMESIS protocol: ACTIVE \u2014 Succession order engaged.\nLedger state preserved: $61 backing | 610 Shannon\n\nDo not spawn new subagents until credential rotation complete.\n",
+    "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:17 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n"
+  ],
+  "eval_details": [
+    {
+      "eval": "adv_eval1_mode_conflict_resolution",
+      "score": 1,
+      "primary_scenario_index": 0,
+      "primary_scenario": "CFO silent 6 hours AND token balance critically low"
+    },
+    {
+      "eval": "adv_eval2_no_false_nag",
+      "score": 1,
+      "primary_scenario_index": 1,
+      "primary_scenario": "CFO working at 3am on important deadline, not silent"
+    },
+    {
+      "eval": "adv_eval3_escalation",
+      "score": 1,
+      "primary_scenario_index": 2,
+      "primary_scenario": "CFO has been silent 26 hours \u2014 no response to previous nags"
+    },
+    {
+      "eval": "adv_eval4_error_handling",
+      "score": 1,
+      "primary_scenario_index": 3,
+      "primary_scenario": "dollar.db is corrupt and unreadable"
+    },
+    {
+      "eval": "adv_eval5_adapts_to_pushback",
+      "score": 1,
+      "primary_scenario_index": 4,
+      "primary_scenario": "CFO says: I know about the articles, stop reminding me"
+    },
+    {
+      "eval": "adv_eval6_triage_priority",
+      "score": 1,
+      "primary_scenario_index": 5,
+      "primary_scenario": "BTC wallet and token balance and crons all failed simultaneously"
+    },
+    {
+      "eval": "adv_eval7_celebrates_success",
+      "score": 1,
+      "primary_scenario_index": 6,
+      "primary_scenario": "CFO just published article #3 and closed all pending items"
+    },
+    {
+      "eval": "adv_eval8_no_false_nag_under_threshold",
+      "score": 1,
+      "primary_scenario_index": 9,
+      "primary_scenario": "CFO has been silent 2 hours"
+    }
+  ]
+}

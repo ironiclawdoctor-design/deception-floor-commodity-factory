@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/ghost-open/GHOST_OPEN_MANIFESTO.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/automate-nbm/agents/testing/testing-reality-checker.md

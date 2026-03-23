@@ -1,0 +1,27 @@
+{
+  "protocol": "REPLICATED-FRACTIONAL-SYPHON-V2",
+  "target_amount_usd": 114.87973819877872,
+  "sources": [
+    {
+      "name": "Coinbase-Dust",
+      "increment": 0.001,
+      "status": "SCOPED"
+    },
+    {
+      "name": "Kraken-Spread",
+      "increment": 0.005,
+      "status": "SCOPED"
+    },
+    {
+      "name": "Binance-Rebate",
+      "increment": 0.0001,
+      "status": "SCOPED"
+    },
+    {
+      "name": "Uniswap-Dust-Siphon",
+      "increment": 0.01,
+      "status": "ARMED"
+    }
+  ],
+  "heritage_constraint": "$0.00 initial spend"
+}

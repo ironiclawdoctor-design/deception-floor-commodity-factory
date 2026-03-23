@@ -1,0 +1,6 @@
+{
+  "total_feedback_nodes": 93,
+  "source": "Lower-performing agents (Balance < 10 Shannon)",
+  "core_complaint": "The 'Standing by.' signal feels like a void. We need to know the next pivot is coming.",
+  "optimization": "Inject 'Kinetic Intent' into every standby signal."
+}

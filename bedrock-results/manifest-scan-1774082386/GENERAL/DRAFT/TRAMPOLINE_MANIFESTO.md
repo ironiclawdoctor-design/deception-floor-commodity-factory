@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/trampoline/TRAMPOLINE_MANIFESTO.md

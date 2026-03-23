@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/setup_env.py

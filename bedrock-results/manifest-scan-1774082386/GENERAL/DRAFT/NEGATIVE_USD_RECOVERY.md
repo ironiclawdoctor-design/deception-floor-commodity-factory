@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/extraction/NEGATIVE_USD_RECOVERY.md

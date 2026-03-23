@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/rival-agency-scanner.py

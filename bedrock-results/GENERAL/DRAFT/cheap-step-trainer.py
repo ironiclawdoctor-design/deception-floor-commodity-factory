@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/cheap-step-trainer.py

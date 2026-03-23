@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/LEXICON_SHELL_DESIGN.md

@@ -1,0 +1,16 @@
+{
+  "coned": {
+    "api": {
+      "base_url": "https://api.coned.com",
+      "auth_url": "https://auth.coned.com/oauth2/token",
+      "version": "v1",
+      "timeout_seconds": 30
+    },
+    "credentials": {
+      "client_id": "YOUR_CLIENT_ID_HERE",
+    "client_secret": "YOUR_CLIENT_SECRET_HERE",
+    "scope": "usage.read",
+    "token_url": "https://api.coned.com/oauth/token",
+    "base_url": "https://api.coned.com/v1"
+  }
+}

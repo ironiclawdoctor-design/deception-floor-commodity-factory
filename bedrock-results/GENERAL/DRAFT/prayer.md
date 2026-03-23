@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/0-doctrine/prayer.md

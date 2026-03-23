@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/lunatic-outpost/impossible-reduction/IMPOSSIBLE_MANIFESTO.md

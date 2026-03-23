@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/fundraising/STRIPE_AFFILIATE_SETUP_GUIDE.md

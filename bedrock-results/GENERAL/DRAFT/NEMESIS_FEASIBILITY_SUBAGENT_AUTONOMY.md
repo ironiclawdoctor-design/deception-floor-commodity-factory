@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/NEMESIS_FEASIBILITY_SUBAGENT_AUTONOMY.md

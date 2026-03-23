@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vindication/NORM_MACDONALD_ENDORSEMENT.md

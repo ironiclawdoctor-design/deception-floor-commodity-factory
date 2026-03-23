@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/utils/test_power.sh

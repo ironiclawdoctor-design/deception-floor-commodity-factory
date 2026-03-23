@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/lib/demo-inference-logging.sh

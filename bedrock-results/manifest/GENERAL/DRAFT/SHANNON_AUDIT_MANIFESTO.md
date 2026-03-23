@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/economy/persistence/SHANNON_AUDIT_MANIFESTO.md

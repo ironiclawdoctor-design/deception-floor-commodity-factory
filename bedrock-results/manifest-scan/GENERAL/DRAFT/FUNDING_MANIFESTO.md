@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/shanapp/expo-funding/FUNDING_MANIFESTO.md

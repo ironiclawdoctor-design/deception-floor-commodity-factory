@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMITTER_MISSION_COMPLETE.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/TAILSCALE_SETUP.md

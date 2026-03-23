@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/overt-actions/cheap-reality/CHEAP_TRAINING_MANIFESTO.md

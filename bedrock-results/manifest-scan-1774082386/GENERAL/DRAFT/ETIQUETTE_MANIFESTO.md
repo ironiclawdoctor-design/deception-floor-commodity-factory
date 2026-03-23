@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/library/public/ETIQUETTE_MANIFESTO.md

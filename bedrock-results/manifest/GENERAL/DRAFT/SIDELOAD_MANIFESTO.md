@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/sideloading/SIDELOAD_MANIFESTO.md

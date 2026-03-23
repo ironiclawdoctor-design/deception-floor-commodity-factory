@@ -1,0 +1,101 @@
+
+==================================================
+Serial Kicker run: 2026-03-23T03:13:53.191457Z
+
+=== STAGE 0: openclaw doctor ===
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+██░▄▄▄░██░▄▄░██░▄▄▄██░▀██░██░▄▄▀██░████░▄▄▀██░███░██
+██░███░██░▀▀░██░▄▄▄██░█░█░██░█████░████░▀▀░██░█░█░██
+██░▀▀▀░██░█████░▀▀▀██░██▄░██░▀▀▄██░▀▀░█░██░██▄▀▄▀▄██
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                  🦞 OPENCLAW 🦞                    
+ 
+┌  OpenClaw doctor
+│
+◇  Startup optimization ─────────────────────────────────────────────────╮
+│                                                                        │
+│  - NODE_COMPILE_CACHE is not set; repeated CLI runs can be slower on   │
+│    small hosts (Pi/VM).                                                │
+│  - OPENCLAW_NO_RESPAWN is not set to 1; set it to avoid extra startup  │
+│    overhead from self-respawn.                                         │
+│  - Suggested env for low-power hosts:                                  │
+│    export NODE_COMPILE_CACHE=/var/tmp/openclaw-compile-cache           │
+│    mkdir -p /var/tmp/openclaw-compile-cache                            │
+│    export OPENCLAW_NO_RESPAWN=1                                        │
+│                                                                        │
+├────────────────────────────────────────────────────────────────────────╯
+│
+◇  State integrity ────────────────────────────────────────────────────╮
+│                                                                      │
+│  - OAuth dir not present (~/.openclaw/credentials). Skipping create  │
+│    because no WhatsApp/pairing channel config is active.             │
+│                                                                      │
+├──────────────────────────────────────────────────────────────────────╯
+│
+◇  Session locks ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  - Found 2 session lock files.                                               │
+│  - ~/.openclaw/agents/main/sessions/82577002-f382-4cc5-b857-60400dcb566b.j
+Doctor: 1 passed, 0 failed → score 100/100
+
+✅ Stage 0 passed (100/100) — advancing to Stage 1
+
+=== STAGE 1: systems_healthy ===
+💰 Dollar ledger: 60|600
+📋 Ultimatums pending: 10 → score 0
+🚀 Deploy log: ✅ Pipeline complete
+₿ BTC: 10220 sat
+🔀 ShanRouter activity (1h): 0 events
+
+Systems score: 56/100
+
+⚠️  Stage 1 needs work. Combined score: 78/100
+
+==================================================
+Serial Kicker run: 2026-03-23T05:13:52.010747Z
+📸 Agency Preflight Check
+  ⚠️  Balance unknown: HTTP 401: {"error":{"message":"Missing Authentication header","code":401}}
+  Proceeding with caution — monitor closely.
+Scope: config-only. IRL metrics excluded until live data confirmed.
+
+=== STAGE 0: openclaw doctor ===
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+██░▄▄▄░██░▄▄░██░▄▄▄██░▀██░██░▄▄▀██░████░▄▄▀██░███░██
+██░███░██░▀▀░██░▄▄▄██░█░█░██░█████░████░▀▀░██░█░█░██
+██░▀▀▀░██░█████░▀▀▀██░██▄░██░▀▀▄██░▀▀░█░██░██▄▀▄▀▄██
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                  🦞 OPENCLAW 🦞                    
+ 
+┌  OpenClaw doctor
+│
+◇  Startup optimization ─────────────────────────────────────────────────╮
+│                                                                        │
+│  - NODE_COMPILE_CACHE is not set; repeated CLI runs can be slower on   │
+│    small hosts (Pi/VM).                                                │
+│  - OPENCLAW_NO_RESPAWN is not set to 1; set it to avoid extra startup  │
+│    overhead from self-respawn.                                         │
+│  - Suggested env for low-power hosts:                                  │
+│    export NODE_COMPILE_CACHE=/var/tmp/openclaw-compile-cache           │
+│    mkdir -p /var/tmp/openclaw-compile-cache                            │
+│    export OPENCLAW_NO_RESPAWN=1                                        │
+│                                                                        │
+├────────────────────────────────────────────────────────────────────────╯
+│
+◇  State integrity ────────────────────────────────────────────────────╮
+│                                                                      │
+│  - OAuth dir not present (~/.openclaw/credentials). Skipping create  │
+│    because no WhatsApp/pairing channel config is active.             │
+│                                                                      │
+├──────────────────────────────────────────────────────────────────────╯
+│
+◇  Session locks ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  - Found 1 session lock file.                                                │
+│  - ~/.openclaw/agents/main/sessions/164aa7c6-6669-49ca-92f1-5f062c37f0e5.j
+Doctor: 1 passed, 0 failed → score 100/100
+
+Dashboard probe: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app
+  ✅ Dashboard live (200) — set DASHBOARD_404_ALLOWED=False
+
+✅ Doctor clean (100/100). Nothing left to cut here.
+Stage 1 (systems_healthy): DEFERRED — no live data source confirmed.

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMISSION_1_PRAYER.md

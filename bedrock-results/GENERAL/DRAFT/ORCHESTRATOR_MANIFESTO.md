@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/ORCHESTRATOR_MANIFESTO.md

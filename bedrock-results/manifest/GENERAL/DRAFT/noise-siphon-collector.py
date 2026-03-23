@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/noise-siphon-collector.py

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/estree-walker/types/sync.d.ts

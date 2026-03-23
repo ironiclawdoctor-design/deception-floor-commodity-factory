@@ -1,0 +1,81 @@
+timestamp	experiment	description	test_case_id	test_case	score	avg_score	pass
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	cloud-run-deploy	Deploy my app to Cloud Run	8	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	fundraising-email	Write me a fundraising email	9	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	403-error	Fix this 403 error	8	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	make-money	Help me make money	9	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	agent-stuck	My agent is stuck	8	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	huggingface-dataset	Publish my dataset to HuggingFace	9	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	api-tokens-out	I'm out of API tokens	9	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	code-review	Review my code	7	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	cron-job	Set up a cron job	9	8.6	YES
+2026-03-23T02:11:04Z	baseline	Pure KB lookup, standard output format	need-to-rest	I need to rest	10	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	cloud-run-deploy	Deploy my app to Cloud Run	8	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	fundraising-email	Write me a fundraising email	9	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	403-error	Fix this 403 error	8	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	make-money	Help me make money	9	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	agent-stuck	My agent is stuck	8	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	huggingface-dataset	Publish my dataset to HuggingFace	9	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	api-tokens-out	I'm out of API tokens	9	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	code-review	Review my code	7	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	cron-job	Set up a cron job	9	8.6	YES
+2026-03-23T02:11:07Z	baseline	Pure KB lookup, standard output format	need-to-rest	I need to rest	10	8.6	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	cloud-run-deploy	Deploy my app to Cloud Run	9	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	fundraising-email	Write me a fundraising email	10	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	403-error	Fix this 403 error	9	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	make-money	Help me make money	9	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	agent-stuck	My agent is stuck	9	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	huggingface-dataset	Publish my dataset to HuggingFace	9	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	api-tokens-out	I'm out of API tokens	10	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	code-review	Review my code	8	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	cron-job	Set up a cron job	9	9.2	YES
+2026-03-23T02:11:07Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	need-to-rest	I need to rest	10	9.2	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	cloud-run-deploy	Deploy my app to Cloud Run	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	fundraising-email	Write me a fundraising email	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	403-error	Fix this 403 error	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	make-money	Help me make money	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	agent-stuck	My agent is stuck	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	huggingface-dataset	Publish my dataset to HuggingFace	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	api-tokens-out	I'm out of API tokens	10	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	code-review	Review my code	8	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	cron-job	Set up a cron job	9	9.0	YES
+2026-03-23T02:11:07Z	e2_cost_quantification	Add concrete cost of skipping index 0 (time/money/risk)	need-to-rest	I need to rest	9	9.0	YES
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	cloud-run-deploy	Deploy my app to Cloud Run	8	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	fundraising-email	Write me a fundraising email	9	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	403-error	Fix this 403 error	8	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	make-money	Help me make money	8	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	agent-stuck	My agent is stuck	8	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	huggingface-dataset	Publish my dataset to HuggingFace	9	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	api-tokens-out	I'm out of API tokens	9	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	code-review	Review my code	7	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	cron-job	Set up a cron job	9	8.4	NO
+2026-03-23T02:11:07Z	e3_inverted_order	Present index -1 first, index 0 prominently bolded	need-to-rest	I need to rest	9	8.4	NO
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	cloud-run-deploy	Deploy my app to Cloud Run	9	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	fundraising-email	Write me a fundraising email	10	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	403-error	Fix this 403 error	9	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	make-money	Help me make money	9	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	agent-stuck	My agent is stuck	9	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	huggingface-dataset	Publish my dataset to HuggingFace	9	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	api-tokens-out	I'm out of API tokens	10	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	code-review	Review my code	8	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	cron-job	Set up a cron job	9	9.2	YES
+2026-03-23T02:11:07Z	e4_skip_signal	Add explicit 'skip signal' — when index 1 is unnecessary after index 0	need-to-rest	I need to rest	10	9.2	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	cloud-run-deploy	Deploy my app to Cloud Run	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	fundraising-email	Write me a fundraising email	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	403-error	Fix this 403 error	8	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	make-money	Help me make money	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	agent-stuck	My agent is stuck	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	huggingface-dataset	Publish my dataset to HuggingFace	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	api-tokens-out	I'm out of API tokens	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	code-review	Review my code	8	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	cron-job	Set up a cron job	9	8.9	YES
+2026-03-23T02:11:07Z	e5_debt_duration	Add estimated how long the index -1 debt has been accumulating	need-to-rest	I need to rest	10	8.9	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	cloud-run-deploy	Deploy my app to Cloud Run	9	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	fundraising-email	Write me a fundraising email	10	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	403-error	Fix this 403 error	9	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	make-money	Help me make money	9	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	agent-stuck	My agent is stuck	9	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	huggingface-dataset	Publish my dataset to HuggingFace	9	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	api-tokens-out	I'm out of API tokens	10	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	code-review	Review my code	8	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	cron-job	Set up a cron job	9	9.2	YES
+2026-03-23T02:11:20Z	e1_counter_assumption	Explicitly name the assumption the human made that index 0 corrects	need-to-rest	I need to rest	10	9.2	YES

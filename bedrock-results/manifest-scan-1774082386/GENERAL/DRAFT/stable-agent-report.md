@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/status/stable-agent-report.md

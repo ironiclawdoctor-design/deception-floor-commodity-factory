@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/1-production/path-b-always.md

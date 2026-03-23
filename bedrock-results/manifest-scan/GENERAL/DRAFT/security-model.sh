@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/telegram-bash-bridge/security-model.sh

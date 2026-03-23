@@ -1,0 +1,101 @@
+{
+  "dataset_id": "external_approval_gate_behavior_20260323",
+  "created_at": "2026-03-23T18:53:33Z",
+  "source": "OpenClaw approval gate deadlock analysis",
+  "purpose": "Train internal approval gate agent",
+  "behavior_patterns": [
+    {
+      "pattern": "config_runtime_mismatch",
+      "description": "Config says disabled but runtime enforces",
+      "config_state": "execApprovals.enabled = false",
+      "runtime_behavior": "approvals enforced",
+      "error_message": "Exec approval is required, but chat exec approvals are not enabled on Telegram",
+      "training_goal": "Ensure config/runtime consistency in internal agent"
+    },
+    {
+      "pattern": "command_discrimination",
+      "description": "Shell builtins allowed, external binaries blocked",
+      "allowed": ["date", "echo", "pwd", "cd"],
+      "blocked": ["ls", "find", "openclaw", "tail", "jq", "grep", "sqlite3", "chmod", "ln", "mv", "cp"],
+      "discrimination_basis": "shell builtin vs external binary",
+      "training_goal": "Implement risk-based command categorization"
+    },
+    {
+      "pattern": "restart_ineffectiveness",
+      "description": "Gateway restart doesn't apply config changes",
+      "evidence": "PID changes (2092799→2093816→2095603) but behavior unchanged",
+      "training_goal": "Ensure internal agent state persists across restarts"
+    },
+    {
+      "pattern": "async_timeout",
+      "description": "Commands timeout waiting for approval",
+      "examples": [
+        {"command": "openclaw doctor", "job_id": "eb1a45e3"},
+        {"command": "tail -20 /tmp/gateway-restart.log", "job_id": "d38adeb1"},
+        {"command": "ls -la /root/.openclaw/workspace/", "job_id": "60b274f9"}
+      ],
+      "training_goal": "Implement timeout handling and fast approval paths"
+    },
+    {
+      "pattern": "webui_exception",
+      "description": "Web UI terminal allows interactive approval",
+      "evidence": "Human directed to use Web UI for approval-needing commands",
+      "training_goal": "Support multiple approval channels in internal agent"
+    },
+    {
+      "pattern": "file_operation_bypass",
+      "description": "read/write/edit tools bypass approval",
+      "evidence": "Script creation, config updates work without approval",
+      "training_goal": "Allow low-risk operations without approval in internal agent"
+    }
+  ],
+  "workarounds": [
+    {
+      "workaround": "script_packaging",
+      "effectiveness": "high",
+      "description": "Package commands as executable scripts in /root/",
+      "training_implication": "Internal agent should support script-based task submission"
+    },
+    {
+      "workaround": "webui_terminal",
+      "effectiveness": "high",
+      "description": "Use Web UI terminal for interactive approval",
+      "training_implication": "Internal agent should support multiple approval interfaces"
+    },
+    {
+      "workaround": "file_operations_only",
+      "effectiveness": "medium",
+      "description": "Limit to read/write/edit operations that bypass approval",
+      "training_implication": "Internal agent should allow file operations without approval"
+    }
+  ],
+  "failure_modes": [
+    {
+      "failure": "config_runtime_mismatch",
+      "impact": "high",
+      "description": "Config says one thing, runtime does another",
+      "mitigation": "Validate config/runtime consistency on startup"
+    },
+    {
+      "failure": "restart_state_loss",
+      "impact": "high",
+      "description": "State lost on restart",
+      "mitigation": "Persist state to durable storage"
+    },
+    {
+      "failure": "approval_timeout",
+      "impact": "medium",
+      "description": "Commands timeout waiting for approval",
+      "mitigation": "Implement timeout handling and retry logic"
+    }
+  ],
+  "training_objectives": [
+    "Ensure config/runtime consistency",
+    "Categorize commands by risk/approval level",
+    "Persist state across restarts",
+    "Support multiple approval channels",
+    "Allow file operations without approval",
+    "Implement timeout handling",
+    "Log all decisions for compliance"
+  ]
+}

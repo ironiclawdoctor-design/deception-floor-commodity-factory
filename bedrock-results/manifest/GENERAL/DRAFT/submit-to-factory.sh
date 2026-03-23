@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bashbug/submit-to-factory.sh

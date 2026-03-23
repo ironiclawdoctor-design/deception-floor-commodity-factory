@@ -1,0 +1,129 @@
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+██░▄▄▄░██░▄▄░██░▄▄▄██░▀██░██░▄▄▀██░████░▄▄▀██░███░██
+██░███░██░▀▀░██░▄▄▄██░█░█░██░█████░████░▀▀░██░█░█░██
+██░▀▀▀░██░█████░▀▀▀██░██▄░██░▀▀▄██░▀▀░█░██░██▄▀▄▀▄██
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                  🦞 OPENCLAW 🦞                    
+ 
+┌  OpenClaw doctor
+│
+◇  Startup optimization ─────────────────────────────────────────────────╮
+│                                                                        │
+│  - NODE_COMPILE_CACHE is not set; repeated CLI runs can be slower on   │
+│    small hosts (Pi/VM).                                                │
+│  - OPENCLAW_NO_RESPAWN is not set to 1; set it to avoid extra startup  │
+│    overhead from self-respawn.                                         │
+│  - Suggested env for low-power hosts:                                  │
+│    export NODE_COMPILE_CACHE=/var/tmp/openclaw-compile-cache           │
+│    mkdir -p /var/tmp/openclaw-compile-cache                            │
+│    export OPENCLAW_NO_RESPAWN=1                                        │
+│                                                                        │
+├────────────────────────────────────────────────────────────────────────╯
+│
+◇  State integrity ────────────────────────────────────────────────────╮
+│                                                                      │
+│  - OAuth dir not present (~/.openclaw/credentials). Skipping create  │
+│    because no WhatsApp/pairing channel config is active.             │
+│  - Found 1 orphan transcript file(s) in                              │
+│    ~/.openclaw/agents/main/sessions. They are not referenced by      │
+│    sessions.json and can consume disk over time.                     │
+│                                                                      │
+├──────────────────────────────────────────────────────────────────────╯
+│
+◇  Session locks ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  - Found 1 session lock file.                                                │
+│  - ~/.openclaw/agents/main/sessions/db254f24-0892-49a7-a93e-ec23904c067c.js  │
+│  onl.lock                                                                    │
+│    pid=1905168 (alive) age=14s stale=no                                      │
+│                                                                              │
+├──────────────────────────────────────────────────────────────────────────────╯
+│
+◇  Security ─────────────────────────────────╮
+│                                            │
+│  - No channel security warnings detected.  │
+│  - Run: openclaw security audit --deep     │
+│                                            │
+├────────────────────────────────────────────╯
+│
+◇  Skills status ────────────╮
+│                            │
+│  Eligible: 22              │
+│  Missing requirements: 41  │
+│  Blocked by allowlist: 0   │
+│                            │
+├────────────────────────────╯
+│
+◇  Plugins ──────╮
+│                │
+│  Loaded: 5     │
+│  Disabled: 33  │
+│  Errors: 0     │
+│                │
+├────────────────╯
+│
+◇  Bootstrap file size ──────────────────────────────────────────────────╮
+│                                                                        │
+│  Workspace bootstrap files exceed limits and will be truncated:        │
+│  - MEMORY.md: 45,498 raw / 18,110 injected (60% truncated; max/file)   │
+│  Total bootstrap injected chars: 39,944 (27% of max/total 150,000).    │
+│  Total bootstrap raw chars (before truncation): 67,332.                │
+│                                                                        │
+│  - Tip: tune `agents.defaults.bootstrapMaxChars` for per-file limits.  │
+│                                                                        │
+├────────────────────────────────────────────────────────────────────────╯
+Telegram: ok (@DeceptionFloorBot) (83ms)
+Agents: main (default)
+Heartbeat interval: 30m (main)
+Session store (main): /root/.openclaw/agents/main/sessions/sessions.json (25 entries)
+- agent:main:main (0m ago)
+- agent:main:dashboard (62m ago)
+- agent:main:cron:42b47d6b-dfe2-4f7e-ae54-92da8e3e4be9 (70m ago)
+- agent:main:cron:42b47d6b-dfe2-4f7e-ae54-92da8e3e4be9:run:9b4322b8-01c6-4cfd-89e2-a7ea8a68381f (70m ago)
+- agent:main:cron:e7b57598-2d2e-4fe3-b2c0-18b2187ac635 (115m ago)
+│
+◇  Memory search ──────────────────────────────────────────────────────────╮
+│                                                                          │
+│  Memory search is enabled but no embedding provider is configured.       │
+│  Semantic recall will not work without an embedding provider.            │
+│  Gateway memory probe for default agent is not ready: No API key found   │
+│  for provider "openai". Auth store:                                      │
+│  /root/.openclaw/agents/main/agent/auth-profiles.json (agentDir:         │
+│  /root/.openclaw/agents/main/agent). Configure auth for this agent       │
+│  (openclaw agents add <id>) or copy auth-profiles.json from the main     │
+│  agentDir.                                                               │
+│                                                                          │
+│  No API key found for provider "google". Auth store:                     │
+│  /root/.openclaw/agents/main/agent/auth-profiles.json (agentDir:         │
+│  /root/.openclaw/agents/main/agent). Configure auth for this agent       │
+│  (openclaw agents add <id>) or copy auth-profiles.json from the main     │
+│  agentDir.                                                               │
+│                                                                          │
+│  No API key found for provider "voyage". Auth store:                     │
+│  /root/.openclaw/agents/main/agent/auth-profiles.json (agentDir:         │
+│  /root/.openclaw/agents/main/agent). Configure auth for this agent       │
+│  (openclaw agents add <id>) or copy auth-profiles.json from the main     │
+│  agentDir.                                                               │
+│                                                                          │
+│  No API key found for provider "mistral". Auth store:                    │
+│  /root/.openclaw/agents/main/agent/auth-profiles.json (agentDir:         │
+│  /root/.openclaw/agents/main/agent). Configure auth for this agent       │
+│  (openclaw agents add <id>) or copy auth-profiles.json from the main     │
+│  agentDir.                                                               │
+│                                                                          │
+│  Fix (pick one):                                                         │
+│  - Set OPENAI_API_KEY, GEMINI_API_KEY, VOYAGE_API_KEY, or                │
+│    MISTRAL_API_KEY in your environment                                   │
+│  - Configure credentials: openclaw configure --section model             │
+│  - For local embeddings: configure                                       │
+│    agents.defaults.memorySearch.provider and local model path            │
+│  - To disable: openclaw config set agents.defaults.memorySearch.enabled  │
+│    false                                                                 │
+│                                                                          │
+│  Verify: openclaw memory status --deep                                   │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+Run "openclaw doctor --fix" to apply changes.
+│
+└  Doctor complete.
+

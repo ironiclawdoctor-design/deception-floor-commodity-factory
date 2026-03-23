@@ -1,0 +1,7 @@
+{
+  "bridge_id": "BRIDGE-001",
+  "name": "Frontier-to-Revenue Siphon",
+  "logic": "IF motility_trigger THEN generate_lead_proposal",
+  "status": "ARMED",
+  "active_frontiers": ["Agri-Tech Irrigation", "Trillion-Token Distillation", "Local Shannon Staking"]
+}

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/youtube-pitch-voice.py

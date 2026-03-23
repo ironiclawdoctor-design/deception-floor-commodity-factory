@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/shannon-to-btc-converter.py

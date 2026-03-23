@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/industries/media/tiktok/TIKTOK_MANIFESTO.md

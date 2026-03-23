@@ -1,0 +1,11 @@
+{
+  "monitor_paths": [
+    "/root/.openclaw/workspace/memory",
+    "/root/.openclaw/workspace/logs",
+    "/root/.openclaw/workspace/scripts"
+  ],
+  "alert_on_new_files": true,
+  "alert_on_file_changes": true,
+  "entropy_mint_threshold": 5,
+  "anomaly_count": 3
+}

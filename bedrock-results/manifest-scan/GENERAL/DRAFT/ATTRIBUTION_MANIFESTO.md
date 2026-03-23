@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/legal/intellectual-property/ATTRIBUTION_MANIFESTO.md

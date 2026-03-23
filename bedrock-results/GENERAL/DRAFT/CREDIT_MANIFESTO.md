@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/economy/credit/CREDIT_MANIFESTO.md

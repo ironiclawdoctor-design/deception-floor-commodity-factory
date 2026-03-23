@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/auto_prod_007.py

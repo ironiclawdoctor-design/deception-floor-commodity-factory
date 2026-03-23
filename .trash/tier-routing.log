@@ -1,0 +1,185 @@
+[2026-03-14 12:13:15] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:13:15] [INFO] Task: What is 2+2?
+[2026-03-14 12:13:15] [INFO] Prompt length: 16
+[2026-03-14 12:13:16] [INFO] Target model: bitnet
+[2026-03-14 12:13:16] [DEBUG] Routing to BitNet (local, free)
+[2026-03-14 12:13:32] [INFO] Decision logged: task=What is 2+2? model=bitnet cost=0.0000
+[2026-03-14 12:13:32] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:13:32] [INFO] Task: Write a bash function to list files
+[2026-03-14 12:13:32] [INFO] Prompt length: 22
+[2026-03-14 12:13:32] [INFO] Target model: bitnet
+[2026-03-14 12:13:32] [DEBUG] Routing to BitNet (local, free)
+[2026-03-14 12:13:50] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:13:50] [INFO] Task: What is 2+2?
+[2026-03-14 12:13:50] [INFO] Prompt length: 16
+[2026-03-14 12:13:50] [INFO] Target model: bitnet
+[2026-03-14 12:13:50] [DEBUG] Routing to BitNet (local, free)
+[2026-03-14 12:14:18] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:14:18] [INFO] Task: What is 2+2?
+[2026-03-14 12:14:18] [INFO] Prompt length: 16
+[2026-03-14 12:14:18] [INFO] Target model: bitnet
+[2026-03-14 12:14:18] [DEBUG] Routing to BitNet (local, free)
+[2026-03-14 12:14:20] [WARN] BitNet API unavailable or timed out
+[2026-03-14 12:14:41] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:14:41] [INFO] Task: What is 2+2?
+[2026-03-14 12:14:41] [INFO] Prompt length: 16
+[2026-03-14 12:14:41] [INFO] Target model: bitnet
+[2026-03-14 12:14:41] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:14:41] [DEBUG] BitNet available, calling API...
+[2026-03-14 12:14:41] [DEBUG] Attempting BitNet call (local, free)
+[2026-03-14 12:14:43] [WARN] BitNet API unavailable/timeout (will fallback to Haiku)
+[2026-03-14 12:14:49] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:14:49] [INFO] Task: What is 2+2?
+[2026-03-14 12:14:49] [INFO] Prompt length: 16
+[2026-03-14 12:14:49] [INFO] Target model: bitnet
+[2026-03-14 12:14:49] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:14:49] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:14:49] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:14:49] [INFO] Decision logged: task='What is 2+2?' model=haiku cost=$0.00081
+[2026-03-14 12:14:51] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:14:51] [INFO] Task: Write a bash function to list files
+[2026-03-14 12:14:51] [INFO] Prompt length: 22
+[2026-03-14 12:14:51] [INFO] Target model: bitnet
+[2026-03-14 12:14:51] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:14:51] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:14:51] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:14:51] [INFO] Decision logged: task='Write a bash function to list files' model=haiku cost=$0.00081
+[2026-03-14 12:14:55] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:14:55] [INFO] Task: Write a short story about a robot
+[2026-03-14 12:14:55] [INFO] Prompt length: 17
+[2026-03-14 12:14:55] [INFO] Target model: haiku
+[2026-03-14 12:14:55] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:14:55] [INFO] Decision logged: task='Write a short story about a robot' model=haiku cost=$0.00081
+[2026-03-14 12:14:56] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:14:56] [INFO] Task: What is 2+2?
+[2026-03-14 12:14:56] [INFO] Prompt length: 3
+[2026-03-14 12:14:56] [INFO] Target model: bitnet
+[2026-03-14 12:14:56] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:14:56] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:14:56] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:14:56] [INFO] Decision logged: task='What is 2+2?' model=haiku cost=$0.0000
+[2026-03-14 12:16:42] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:16:42] [INFO] Task: Test: 2+2
+[2026-03-14 12:16:42] [INFO] Prompt length: 3
+[2026-03-14 12:16:42] [INFO] Target model: bitnet
+[2026-03-14 12:16:42] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:16:42] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:16:42] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:16:42] [INFO] Decision logged: task='Test: 2+2' model=haiku cost=$0.00081
+[2026-03-14 12:26:50] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:26:50] [INFO] Task: What is 2+2?
+[2026-03-14 12:26:50] [INFO] Prompt length: 12
+[2026-03-14 12:26:50] [INFO] Target model: bitnet
+[2026-03-14 12:26:50] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:26:50] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:26:50] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:26:50] [INFO] Decision logged: task='What is 2+2?' model=haiku cost=$0.00081
+[2026-03-14 12:26:53] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:26:53] [INFO] Task: What is 2+2?
+[2026-03-14 12:26:53] [INFO] Prompt length: 12
+[2026-03-14 12:26:53] [INFO] Target model: bitnet
+[2026-03-14 12:26:53] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:26:53] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:26:53] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:26:53] [INFO] Decision logged: task='What is 2+2?' model=haiku cost=$0.00081
+[2026-03-14 12:27:01] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:27:01] [INFO] Task: What is 2+2?
+[2026-03-14 12:27:01] [INFO] Prompt length: 12
+[2026-03-14 12:27:01] [INFO] Target model: bitnet
+[2026-03-14 12:27:01] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:27:01] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:27:01] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:27:01] [INFO] Decision logged: task='What is 2+2?' model=haiku cost=$0.00081
+[2026-03-14 12:28:54] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:28:54] [INFO] Task: /subagents data
+[2026-03-14 12:28:54] [INFO] Prompt length: 15
+[2026-03-14 12:28:54] [INFO] Target model: haiku
+[2026-03-14 12:28:54] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:28:54] [INFO] Decision logged: task='/subagents data' model=haiku cost=$0.00081
+[2026-03-14 12:31:13] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:13] [INFO] Task: list files in workspace
+[2026-03-14 12:31:13] [INFO] Prompt length: 32
+[2026-03-14 12:31:16] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:16] [INFO] Task: list files in workspace
+[2026-03-14 12:31:16] [INFO] Prompt length: 6
+[2026-03-14 12:31:18] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:18] [INFO] Task: list files
+[2026-03-14 12:31:18] [INFO] Prompt length: 6
+[2026-03-14 12:31:25] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:25] [INFO] Task: list files
+[2026-03-14 12:31:25] [INFO] Prompt length: 6
+[2026-03-14 12:31:27] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:27] [INFO] Task: list files
+[2026-03-14 12:31:27] [INFO] Prompt length: 2
+[2026-03-14 12:31:36] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:36] [INFO] Task: list files
+[2026-03-14 12:31:36] [INFO] Prompt length: 2
+[2026-03-14 12:31:39] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:39] [INFO] Task: list files
+[2026-03-14 12:31:39] [INFO] Prompt length: 2
+[2026-03-14 12:31:43] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:43] [INFO] Task: what is 2+2
+[2026-03-14 12:31:43] [INFO] Prompt length: 3
+[2026-03-14 12:31:43] [INFO] Target model: bitnet
+[2026-03-14 12:31:43] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:31:43] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:31:43] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:31:43] [INFO] Decision logged: task='what is 2+2' model=haiku cost=$0.00081
+[2026-03-14 12:31:45] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:45] [INFO] Task: show subagents data
+[2026-03-14 12:31:45] [INFO] Prompt length: 9
+[2026-03-14 12:31:52] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:52] [INFO] Task: show subagents data
+[2026-03-14 12:31:52] [INFO] Prompt length: 9
+[2026-03-14 12:31:55] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:55] [INFO] Task: show subagents data
+[2026-03-14 12:31:55] [INFO] Prompt length: 9
+[2026-03-14 12:31:57] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:31:57] [INFO] Task: show subagents data
+[2026-03-14 12:31:57] [INFO] Prompt length: 9
+[2026-03-14 12:32:11] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:32:11] [INFO] Task: show subagents data
+[2026-03-14 12:32:11] [INFO] Prompt length: 9
+[2026-03-14 12:32:11] [INFO] Target model: bash
+[2026-03-14 12:32:11] [INFO] Routing to BASH (system query, direct execution)
+[2026-03-14 12:32:11] [INFO] Decision logged: task='show subagents data' model=bash cost=$0.0000
+[2026-03-14 12:32:30] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:32:30] [INFO] Task: /subagents data
+[2026-03-14 12:32:30] [INFO] Prompt length: 15
+[2026-03-14 12:32:30] [INFO] Target model: bash
+[2026-03-14 12:32:30] [INFO] Routing to BASH (system query, direct execution)
+[2026-03-14 12:32:30] [INFO] Decision logged: task='/subagents data' model=bash cost=$0.0000
+[2026-03-14 12:32:33] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:32:33] [INFO] Task: list files
+[2026-03-14 12:32:33] [INFO] Prompt length: 10
+[2026-03-14 12:32:33] [INFO] Target model: bash
+[2026-03-14 12:32:33] [INFO] Routing to BASH (system query, direct execution)
+[2026-03-14 12:32:33] [INFO] Decision logged: task='list files' model=bash cost=$0.0000
+[2026-03-14 12:32:33] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:32:33] [INFO] Task: what is 2+2
+[2026-03-14 12:32:33] [INFO] Prompt length: 11
+[2026-03-14 12:32:33] [INFO] Target model: bitnet
+[2026-03-14 12:32:33] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:32:33] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:32:33] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:32:33] [INFO] Decision logged: task='what is 2+2' model=haiku cost=$0.00081
+[2026-03-14 12:32:33] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:32:33] [INFO] Task: explain quantum mechanics
+[2026-03-14 12:32:33] [INFO] Prompt length: 25
+[2026-03-14 12:32:33] [INFO] Target model: haiku
+[2026-03-14 12:32:33] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:32:33] [INFO] Decision logged: task='explain quantum mechanics' model=haiku cost=$0.00081
+[2026-03-14 12:32:40] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:32:40] [INFO] Task: what is 2+2
+[2026-03-14 12:32:40] [INFO] Prompt length: 3
+[2026-03-14 12:32:40] [INFO] Target model: bitnet
+[2026-03-14 12:32:40] [DEBUG] Checking BitNet availability...
+[2026-03-14 12:32:40] [WARN] BitNet unavailable, falling back to Haiku
+[2026-03-14 12:32:40] [DEBUG] Routing to Haiku (external, cost-logged)
+[2026-03-14 12:32:40] [INFO] Decision logged: task='what is 2+2' model=haiku cost=$0.00081
+[2026-03-14 12:43:55] [INFO] === Tier Routing Decision ===
+[2026-03-14 12:43:55] [INFO] Task: /subagents
+[2026-03-14 12:43:55] [INFO] Prompt length: 10
+[2026-03-14 12:43:55] [INFO] Target model: bash
+[2026-03-14 12:43:55] [INFO] Routing to BASH (system query, direct execution)
+[2026-03-14 12:43:55] [INFO] Decision logged: task='/subagents' model=bash cost=$0.0000

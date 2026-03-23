@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/typescript/lib/lib.es2021.promise.d.ts

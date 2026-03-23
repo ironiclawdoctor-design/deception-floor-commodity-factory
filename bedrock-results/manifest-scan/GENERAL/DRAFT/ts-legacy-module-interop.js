@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/sucrase/register/ts-legacy-module-interop.js

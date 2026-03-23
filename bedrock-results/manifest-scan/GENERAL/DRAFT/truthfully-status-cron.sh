@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully-status-cron.sh

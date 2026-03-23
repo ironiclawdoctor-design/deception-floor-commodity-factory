@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/communication/nexus/NEXUS_MANIFESTO.md

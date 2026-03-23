@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/run_inference_server.py

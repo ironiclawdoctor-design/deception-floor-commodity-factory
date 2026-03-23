@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiesta Agency :: <%= title %></title>
+    <style>
+        body { background: #000; color: #fff; font-family: monospace; padding: 0; margin: 0; }
+        nav { background: #111; padding: 10px; border-bottom: 2px solid #333; display: flex; gap: 20px; justify-content: center; }
+        nav a { color: #0f0; text-decoration: none; font-weight: bold; }
+        .container { padding: 40px; max-width: 1000px; margin: auto; }
+        .failure-btn { background: #f00; color: #fff; border: none; padding: 5px 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">[CONSOLE]</a>
+        <a href="/most-wanted">[WANTED]</a>
+        <a href="/comic-con">[CON]</a>
+        <a href="/raistlin-audit">[AUDIT]</a>
+        <button class="failure-btn" onclick="const r=prompt('Reason:'); if(r) fetch('/report-failure',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({reason:r})}).then(()=>location.reload())">[REPORT FAILURE -1]</button>
+    </nav>
+    <div class="container">
+        <%- body %>
+    </div>
+</body>
+</html>

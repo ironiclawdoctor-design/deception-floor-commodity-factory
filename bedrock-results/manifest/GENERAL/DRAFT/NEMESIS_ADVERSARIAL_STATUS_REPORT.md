@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/NEMESIS_ADVERSARIAL_STATUS_REPORT.md

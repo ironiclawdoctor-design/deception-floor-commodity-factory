@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/silent-approval-siphon.py

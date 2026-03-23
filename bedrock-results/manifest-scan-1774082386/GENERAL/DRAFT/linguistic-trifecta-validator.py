@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/linguistic-trifecta-validator.py

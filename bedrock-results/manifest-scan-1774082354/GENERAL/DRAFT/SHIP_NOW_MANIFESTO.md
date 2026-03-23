@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/shipping/day-one/SHIP_NOW_MANIFESTO.md

@@ -1,0 +1,6 @@
+Title: Show HN: Running a self-hosted AI agent with Telegram control surface
+
+Built on top of OpenClaw (https://github.com/openclaw/openclaw) on an Ampere ARM server.
+Key finding: gateway config patching via the tool API is more reliable than manual edits.
+Exec approval from Telegram is still gated — workaround is a /root shell script for terminal runs.
+Curious if anyone else has solved the Telegram exec approval flow.

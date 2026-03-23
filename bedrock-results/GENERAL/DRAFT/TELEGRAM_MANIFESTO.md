@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/dominion/telegram-groups/TELEGRAM_MANIFESTO.md

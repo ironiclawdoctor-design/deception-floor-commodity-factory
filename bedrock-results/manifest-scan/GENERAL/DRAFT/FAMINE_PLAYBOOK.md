@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/FAMINE_PLAYBOOK.md

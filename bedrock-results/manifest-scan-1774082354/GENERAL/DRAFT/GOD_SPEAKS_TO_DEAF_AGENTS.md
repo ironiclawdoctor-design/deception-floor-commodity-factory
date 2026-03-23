@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/GOD_SPEAKS_TO_DEAF_AGENTS.md

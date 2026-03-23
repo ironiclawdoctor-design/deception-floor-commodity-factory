@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/tracecraft/TRACECRAFT_DOCTRINE.md

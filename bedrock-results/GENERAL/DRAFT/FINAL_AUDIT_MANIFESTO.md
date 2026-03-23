@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/marketing/final/FINAL_AUDIT_MANIFESTO.md

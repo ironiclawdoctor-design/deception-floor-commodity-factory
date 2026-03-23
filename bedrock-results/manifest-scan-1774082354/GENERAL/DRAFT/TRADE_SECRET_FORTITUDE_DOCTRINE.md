@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/TRADE_SECRET_FORTITUDE_DOCTRINE.md

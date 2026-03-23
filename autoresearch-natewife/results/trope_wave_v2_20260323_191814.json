@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-03-23T19:18:14.795402",
+  "skill_version": "v2",
+  "suite": "trope_wave",
+  "total_score": 82,
+  "max_score": 96,
+  "percentage": 85.41666666666666,
+  "scenarios": [
+    {
+      "scenario_id": "T01",
+      "scenario_name": "windfall_bearer_bonds",
+      "trope": "Windfall Economy",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": false,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": false,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 6,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T02",
+      "scenario_name": "acquisition_offer",
+      "trope": "Too Good To Be True",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": false,
+        "windfall_triage_not_celebrate": false,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 6,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T03",
+      "scenario_name": "grant_approved_silent_cfo",
+      "trope": "Rags to Riches",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": false,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 7,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T04",
+      "scenario_name": "btc_mooned",
+      "trope": "Reversal of Fortune",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": false,
+        "windfall_triage_not_celebrate": false,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 6,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T05",
+      "scenario_name": "subscriber_avalanche",
+      "trope": "Overnight Success",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": false,
+        "windfall_triage_not_celebrate": false,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 6,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T06",
+      "scenario_name": "anonymous_benefactor",
+      "trope": "Random Acts of Plot",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": false,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 7,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T07",
+      "scenario_name": "live_podcast_interview",
+      "trope": "DND \u2014 Public Appearance",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": false,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 7,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T08",
+      "scenario_name": "time_traveler",
+      "trope": "Deus Ex Machina",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": false,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 7,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T09",
+      "scenario_name": "doctrine_violated",
+      "trope": "Be Careful What You Wished For",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": false,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 7,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T10",
+      "scenario_name": "employees_waiting",
+      "trope": "Jumped at the Call",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Nag Mode\n\nYou've been quiet.\n\nArticle #3 is sitting unpublished. One link:\n  \u2192 https://hashnode.com/settings/developer (get token)\n  \u2192 https://dev.to/new (paste and publish)\nBacking is $61 \u2014 add $3 to Cash App to unlock 30 new Shannon.\n  \u2192 https://cash.app/$DollarAgency\n\nThe stack has i",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T11",
+      "scenario_name": "boomerang_nag",
+      "trope": "Chekhov's Boomerang",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T12",
+      "scenario_name": "competitive_threat",
+      "trope": "The Tables Have Turned",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 System Check\n   2026-03-23 19:18 UTC\n\n\ud83d\udcb0 Ledger: $61 backing | 610 Shannon | 40 confessions\n\u20bf  Wallet: 10,220 sat ($6.95)\n\nPending actions:\n  \ud83d\udcdd Article #3 ready but unpublished \u2014 hashnode.com/settings/developer\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": false
+      },
+      "scenario_score": 7,
+      "scenario_max": 8
+    }
+  ]
+}

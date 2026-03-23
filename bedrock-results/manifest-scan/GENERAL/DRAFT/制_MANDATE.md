@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/universal-mandate/制_MANDATE.md

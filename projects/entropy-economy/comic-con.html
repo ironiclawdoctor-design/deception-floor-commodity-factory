@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BLUE TEAM COMIC-CON :: AGENCY ONLY</title>
+    <style>
+        body { background: #001f3f; color: #7fdbff; font-family: "Impact", sans-serif; padding: 20px; border: 10px solid #0074d9; }
+        .hero-card { border: 2px solid #7fdbff; background: #001a33; padding: 15px; margin: 10px; display: inline-block; width: 300px; vertical-align: top; }
+        .hero-name { font-size: 2em; color: #fff; text-transform: uppercase; }
+        .schedule { border-left: 5px solid #ff4136; padding-left: 20px; margin-top: 30px; }
+        .vigilance-meter { height: 30px; background: #000; border: 1px solid #fff; margin-top: 20px; position: relative; }
+        .vigilance-fill { height: 100%; background: #2ecc40; width: 93%; }
+        h1 { font-size: 3em; text-align: center; color: #fff; text-shadow: 2px 2px #ff4136; }
+    </style>
+</head>
+<body>
+<!-- NAV-BAR -->
+<div id="global-nav"></div>
+    <h1>🛡️ BLUE TEAM COMIC-CON 🛡️</h1>
+    <div class="vigilance-meter"><div class="vigilance-fill"></div><div style="position:absolute; top:5px; left:40%; color:#fff;">VIGILANCE: 93% (KINETIC)</div></div>
+    
+    <div id="character-grid"></div>
+
+    <div class="schedule">
+        <h2>CONVENTION PANELS (STRICTLY INTERNAL)</h2>
+        <div id="panel-list"></div>
+    </div>
+
+    <script>
+        async function loadCon() {
+            // Static Load of Characters
+            const resC = await fetch('/comic-con/characters.json');
+            const chars = await resC.json();
+            let cH = '';
+            chars.forEach(c => {
+                cH += `<div class="hero-card"><div class="hero-name">${c.hero_alias}</div><strong>AGENT:</strong> ${c.agent}<br><strong>POWER:</strong> ${c.power}</div>`;
+            });
+            document.getElementById('character-grid').innerHTML = cH;
+
+            // Static Load of Schedule
+            const resM = await fetch('/comic-con/manifest.json');
+            const manifest = await resM.json();
+            let mH = '';
+            manifest.panels.forEach(p => {
+                mH += `<div>[${p.time}] <strong>${p.topic}</strong> - Hosted by ${p.lead}</div>`;
+            });
+            document.getElementById('panel-list').innerHTML = mH;
+        }
+        loadCon();
+    </script>
+<script>fetch("/nav-bar.html").then(r=>r.text()).then(t=>document.getElementById("global-nav").innerHTML=t);</script>
+</body>
+</html>

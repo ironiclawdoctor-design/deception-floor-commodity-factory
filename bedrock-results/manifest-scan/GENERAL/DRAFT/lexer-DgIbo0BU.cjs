@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/tsx/dist/lexer-DgIbo0BU.cjs

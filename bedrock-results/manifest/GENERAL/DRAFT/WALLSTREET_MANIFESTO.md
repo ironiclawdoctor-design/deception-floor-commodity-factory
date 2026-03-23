@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/surveillance/wallstreet/WALLSTREET_MANIFESTO.md

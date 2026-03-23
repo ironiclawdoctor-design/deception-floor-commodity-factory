@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/scripts/install-oneapi.bat

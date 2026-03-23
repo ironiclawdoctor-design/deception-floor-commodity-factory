@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/vite/types/importMeta.d.ts

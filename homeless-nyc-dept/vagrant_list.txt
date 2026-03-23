@@ -1,0 +1,11 @@
+/root/.openclaw/workspace/vault/test.log
+/root/.openclaw/workspace/vault/shannon-signal.log
+/root/.openclaw/workspace/vault/raise-awareness.log
+/root/.openclaw/workspace/vault/depth.log
+/root/.openclaw/workspace/vault/proactive-supervisor.log
+/root/.openclaw/workspace/vault/anomalies.log
+/root/.openclaw/workspace/vault/active-standby.log
+/root/.openclaw/workspace/vault/token-budget-enforcer.log
+/root/.openclaw/workspace/vault/remediation.log
+/root/.openclaw/workspace/vault/bounties.log
+/root/.openclaw/workspace/vault/compaction-monitor.log

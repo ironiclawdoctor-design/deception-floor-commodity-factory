@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/chat-suction/CHAT_MANIFESTO.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/autograph-checks/CHECK_DOCTRINE.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/optimization/skill-optimizer.py

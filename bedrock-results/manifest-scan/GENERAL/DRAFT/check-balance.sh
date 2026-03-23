@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-wallet/check-balance.sh

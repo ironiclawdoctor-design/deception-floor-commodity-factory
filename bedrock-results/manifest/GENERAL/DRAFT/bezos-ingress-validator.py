@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/bezos-ingress-validator.py

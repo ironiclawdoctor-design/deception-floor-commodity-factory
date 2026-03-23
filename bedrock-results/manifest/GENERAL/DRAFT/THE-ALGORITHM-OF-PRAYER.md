@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/THE-ALGORITHM-OF-PRAYER.md

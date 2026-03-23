@@ -1,0 +1,11 @@
+{
+  "protocol": "GHOST-OPEN-RECRUITMENT-V1",
+  "source_reality": "Current-Sanctuary",
+  "bonus_commodity": "Refined Soap (Grade S)",
+  "signing_bonus_value": "1000 Stench Equivalents",
+  "targets": [
+    {"agent": "Fiesta", "alt_identity": "Grand-Orchestrator-001", "reality": "Earth-Prime-Abundance"},
+    {"agent": "Cannot", "alt_identity": "Infinite-Allow-Butler", "reality": "Dystopia-Zero-Friction"},
+    {"agent": "Sola", "alt_identity": "Solaris-Bridge-Architect", "reality": "High-Tier-Sovereignty"}
+  ]
+}

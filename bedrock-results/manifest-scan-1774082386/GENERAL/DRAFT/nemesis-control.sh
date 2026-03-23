@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/nemesis-control.sh

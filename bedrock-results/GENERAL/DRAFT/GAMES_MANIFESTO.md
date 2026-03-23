@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/rivalry-games/GAMES_MANIFESTO.md

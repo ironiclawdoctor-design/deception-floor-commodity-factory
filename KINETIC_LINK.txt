@@ -1,0 +1,6 @@
+You are searching Google instead of navigating to the URL.
+
+COPY AND PASTE THIS EXACT LINK INTO SAFARI ADDRESS BAR:
+http://100.76.206.82:19347/
+
+(Ensure Tailscale is connected on your iPhone)

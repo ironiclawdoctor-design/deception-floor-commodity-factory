@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/PROPHET_MANIFESTO.md

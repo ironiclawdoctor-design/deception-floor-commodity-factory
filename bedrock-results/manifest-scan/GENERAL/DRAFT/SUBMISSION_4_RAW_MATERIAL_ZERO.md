@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMISSION_4_RAW_MATERIAL_ZERO.md

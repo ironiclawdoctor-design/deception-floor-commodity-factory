@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/skills/paypal-secure-access/scripts/paypal-balance.sh

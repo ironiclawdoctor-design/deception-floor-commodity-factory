@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/prisoner-mindset/PRISONER_DOCTRINE.md

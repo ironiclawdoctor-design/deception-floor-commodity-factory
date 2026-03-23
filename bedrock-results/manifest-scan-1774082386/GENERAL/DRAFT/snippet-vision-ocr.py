@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/snippets/snippet-vision-ocr.py

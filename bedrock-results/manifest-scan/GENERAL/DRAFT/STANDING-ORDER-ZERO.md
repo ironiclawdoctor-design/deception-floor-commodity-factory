@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/STANDING-ORDER-ZERO.md

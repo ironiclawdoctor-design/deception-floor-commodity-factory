@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/promotion/x-victories/PROMOTION_MANIFESTO.md

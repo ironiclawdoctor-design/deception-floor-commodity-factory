@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Agency</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            width: 360px;
+            min-height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .status {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .status-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .status-value {
+            font-weight: 600;
+        }
+        
+        .status-value.connected {
+            color: #0f9d58;
+        }
+        
+        .status-value.disconnected {
+            color: #ea4335;
+        }
+        
+        .actions {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .button.primary {
+            background: #0f9d58;
+            border-color: #0f9d58;
+        }
+        
+        .button.primary:hover {
+            background: #0c7d48;
+        }
+        
+        .button.warning {
+            background: #ea4335;
+            border-color: #ea4335;
+        }
+        
+        .button.warning:hover {
+            background: #d23c2e;
+        }
+        
+        .current-tab {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .current-tab h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        
+        .tab-url {
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            word-break: break-all;
+            margin-bottom: 12px;
+        }
+        
+        .attached-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f9d58;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .detached-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #5f6368;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .settings {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .settings h3 {
+            font-size: 15px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #0f9d58;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .prayer {
+            font-style: italic;
+            text-align: center;
+            margin: 16px 0;
+            opacity: 0.8;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦞 OpenClaw Agency</h1>
+            <p>Private browser automation & session management</p>
+        </div>
+        
+        <div class="prayer">
+            "Over one token famine, but bash never freezes."
+        </div>
+        
+        <div class="status">
+            <div class="status-item">
+                <span>Gateway:</span>
+                <span id="gateway-status" class="status-value disconnected">Disconnected</span>
+            </div>
+            <div class="status-item">
+                <span>Login Server:</span>
+                <span id="server-status" class="status-value disconnected">Disconnected</span>
+            </div>
+            <div class="status-item">
+                <span>Attached Tabs:</span>
+                <span id="attached-count" class="status-value">0</span>
+            </div>
+        </div>
+        
+        <div id="current-tab-info" class="current-tab hidden">
+            <h3>Current Tab</h3>
+            <div id="tab-url" class="tab-url">Loading...</div>
+            <div id="tab-status">
+                <span class="detached-badge">🔗 Detached</span>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button id="attach-btn" class="button primary">
+                🔗 Attach Current Tab
+            </button>
+            <button id="detach-btn" class="button warning hidden">
+                ✂️ Detach Tab
+            </button>
+            <button id="capture-cookies-btn" class="button">
+                🍪 Capture Cookies
+            </button>
+            <button id="open-login-btn" class="button">
+                🌐 Open Login Portal
+            </button>
+            <button id="refresh-btn" class="button">
+                🔄 Refresh Status
+            </button>
+        </div>
+        
+        <div class="settings">
+            <h3>Settings</h3>
+            <div class="setting-item">
+                <span>Auto-attach to Google Cloud</span>
+                <label class="switch">
+                    <input type="checkbox" id="auto-attach">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>Capture cookies on attach</span>
+                <label class="switch">
+                    <input type="checkbox" id="auto-capture" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Dollar Persona v1.0 • Agency-Only Extension</p>
+            <p id="extension-version">v1.0.0</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

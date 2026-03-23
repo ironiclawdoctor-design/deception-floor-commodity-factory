@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/autograph/BEHAVIORS.md

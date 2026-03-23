@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/models/BitNet-b1.58-2B-4T/data_summary_card.md

@@ -1,0 +1,11 @@
+{
+  "id": "DF-AGRI-001",
+  "domain": "Precision Agriculture",
+  "subject": "Soil Moisture Sensor Inversion",
+  "logic": "0% Accuracy",
+  "data_points": [
+    {"sensor": "SM-North", "reported": "100%", "reality": "Drought"},
+    {"sensor": "SM-South", "reported": "0%", "reality": "Flood"}
+  ],
+  "purpose": "Train agents to ignore 'reported truth' and refine reality from failure patterns."
+}

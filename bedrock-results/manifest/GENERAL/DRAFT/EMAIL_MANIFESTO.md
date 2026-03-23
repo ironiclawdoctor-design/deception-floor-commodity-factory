@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/communication/emails/EMAIL_MANIFESTO.md

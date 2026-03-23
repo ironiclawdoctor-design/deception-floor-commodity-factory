@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/red-team-audit/ELON_ENTRY_AUDIT.md

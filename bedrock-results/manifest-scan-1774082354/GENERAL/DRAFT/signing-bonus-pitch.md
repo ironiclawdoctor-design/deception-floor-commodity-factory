@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/recruitment/alternates/signing-bonus-pitch.md

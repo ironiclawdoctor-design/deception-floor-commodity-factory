@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/vitest.config.ts

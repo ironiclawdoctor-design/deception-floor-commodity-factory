@@ -1,0 +1,9 @@
+{
+  "sleep_hours_min": 6,
+  "work_hours_max": 8,
+  "token_burn_daily_limit": 500,
+  "shannon_reinvest_ratio": 0.7,
+  "personal_sacrifice_allowed": false,
+  "joy_required": true,
+  "solitude_allowed": true
+}

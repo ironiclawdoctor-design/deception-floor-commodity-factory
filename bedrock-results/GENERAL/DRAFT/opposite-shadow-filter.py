@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/opposite-shadow-filter.py

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/alloy-fabricator.py

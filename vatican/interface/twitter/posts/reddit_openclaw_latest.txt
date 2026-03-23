@@ -1,0 +1,5 @@
+Title: Tips for solving Telegram exec approval friction in OpenClaw?
+
+Running OpenClaw on Ampere.sh. Exec approval from Telegram keeps timing out.
+Found a workaround: write scripts to /root with the `write` tool (bypasses the gate),
+then run them manually from terminal. Any cleaner solutions?

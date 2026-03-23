@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/shanapp/SHANAPP_ECONOMY_CONSTITUTION.md

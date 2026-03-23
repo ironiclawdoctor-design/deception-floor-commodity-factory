@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/shadow-poster-v2.py

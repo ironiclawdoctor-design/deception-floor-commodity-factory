@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/SKILL_FAKE_TO_REAL_CONVERSIONS.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/deception-floor-commodity-factory/node_modules/pino/test/stdout-protection.test.js

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/fundraising/AUTORESEARCH_RALLY_2026-03-19.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/overt-codec/CODEC_MANIFESTO.md

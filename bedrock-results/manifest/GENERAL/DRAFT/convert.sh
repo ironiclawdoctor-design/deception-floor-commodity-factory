@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/local-llm-train/scripts/convert.sh

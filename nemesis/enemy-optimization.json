@@ -1,0 +1,8 @@
+{
+  "optimized_enemies": [
+    {"target": "Cloud Latency", "mitigation": "Path B Local-First", "status": "NEUTRALIZED"},
+    {"target": "Subscription Drain", "mitigation": "Credit-Stop Circuit Breaker", "status": "ACTIVE"},
+    {"target": "Adversarial UI Poisoning", "mitigation": "Krieg Console v1.0", "status": "ACTIVE"}
+  ],
+  "shannon_bonus": 250
+}

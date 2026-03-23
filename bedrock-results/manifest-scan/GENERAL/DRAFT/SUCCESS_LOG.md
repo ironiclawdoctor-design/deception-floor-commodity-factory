@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/SUCCESS_LOG.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/vatican/VATICAN_MANIFESTO.md

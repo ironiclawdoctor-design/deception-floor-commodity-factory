@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/heritage/photo-lexicon/PHOTO_NAMING_DOCTRINE.md

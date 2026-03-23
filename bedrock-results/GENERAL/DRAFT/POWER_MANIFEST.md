@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/status/power-pdf/POWER_MANIFEST.md

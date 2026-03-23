@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/enclave/reclamation/paypal/DENIAL_MANIFESTO.md

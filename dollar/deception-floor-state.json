@@ -1,0 +1,10 @@
+{
+  "btc_last_tx_hash": "e68b38a2f21416c8cb6640ec1d060392e0c4ebee575a1ca7832d5548c1354393",
+  "btc_last_balance_sat": 10220,
+  "btc_total_received_sat": 10220,
+  "cashapp_last_check": null,
+  "last_poll": "2026-03-23T06:06:37.094012+00:00",
+  "seen_square_ids": [
+    "XPIJ7U1GQLpYfZnAbXUGtSsXWtAZY"
+  ]
+}

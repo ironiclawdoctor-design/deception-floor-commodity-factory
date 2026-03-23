@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/SHADOWCOUNTER-FORENSIC-BRIEF.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agents/shanapp-ceo/mc-report.sh

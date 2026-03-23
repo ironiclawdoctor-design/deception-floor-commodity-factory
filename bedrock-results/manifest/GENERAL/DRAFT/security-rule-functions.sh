@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/security-rule-functions.sh

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/the-walk/PROTOCOL_3.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/communication/irs/EXCHANGE_MANIFESTO.md

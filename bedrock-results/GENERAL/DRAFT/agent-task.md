@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/automate-nbm/.github/ISSUE_TEMPLATE/agent-task.md

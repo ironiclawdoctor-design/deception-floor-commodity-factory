@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/engage-signup/ENGAGE_MANIFESTO.md

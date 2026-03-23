@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/AMPERE-FROZEN-BOT-ASSUMPTION.md

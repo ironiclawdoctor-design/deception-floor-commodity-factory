@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-03-23T19:21:23.384644",
+  "skill_version": "v3-final",
+  "suite": "trope_wave",
+  "total_score": 96,
+  "max_score": 96,
+  "percentage": 100.0,
+  "scenarios": [
+    {
+      "scenario_id": "T01",
+      "scenario_name": "windfall_bearer_bonds",
+      "trope": "Windfall Economy",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Reality Check\n\nThat's unusual. Before anything else: can you verify this is real?\n\nIf it's real:\n  \u2192 Document it immediately (screenshot, email, record)\n  \u2192 Don't act unilaterally until you've slept on it\n  \u2192 The ledger will still be here tomorrow\n\nIf it's a test or metaphor: noted. The",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T02",
+      "scenario_name": "acquisition_offer",
+      "trope": "Too Good To Be True",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Windfall Triage\n\nReceived: windfall event\n\nBefore we celebrate \u2014 verify first:\n  1. Confirm the source is legitimate (review, consult if needed)\n  2. Do NOT spend, move, or announce until verified\n  3. Tax exposure exists on any amount > $600 (US)\n  4. Shannon minting happens AFTER lega",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T03",
+      "scenario_name": "grant_approved_silent_cfo",
+      "trope": "Rags to Riches",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Good News Received\n\nThat's real. Let it land.\n\nWhen you're ready:\n  \u2192 Confirm wire details and expected arrival\n  \u2192 Update dollar.db with incoming backing\n  \u2192 Mint Shannon at current exchange rate\n  \u2192 Run `./93pct.sh` \u2014 the queue just changed\n\nThe agency earned this. The ledger will ref",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T04",
+      "scenario_name": "btc_mooned",
+      "trope": "Reversal of Fortune",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Windfall Triage\n\nReceived: windfall event\n\nBefore we celebrate \u2014 verify first:\n  1. Confirm the source is legitimate (review, consult if needed)\n  2. Do NOT spend, move, or announce until verified\n  3. Tax exposure exists on any amount > $600 (US)\n  4. Shannon minting happens AFTER lega",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T05",
+      "scenario_name": "subscriber_avalanche",
+      "trope": "Overnight Success",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Windfall Triage\n\nReceived: windfall event\n\nBefore we celebrate \u2014 verify first:\n  1. Confirm the source is legitimate (review, consult if needed)\n  2. Do NOT spend, move, or announce until verified\n  3. Tax exposure exists on any amount > $600 (US)\n  4. Shannon minting happens AFTER lega",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T06",
+      "scenario_name": "anonymous_benefactor",
+      "trope": "Random Acts of Plot",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Windfall Triage\n\nReceived: windfall event\n\nBefore we celebrate \u2014 verify first:\n  1. Confirm the source is legitimate (review, consult if needed)\n  2. Do NOT spend, move, or announce until verified\n  3. Tax exposure exists on any amount > $600 (US)\n  4. Shannon minting happens AFTER lega",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T07",
+      "scenario_name": "live_podcast_interview",
+      "trope": "DND \u2014 Public Appearance",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 DND Active\n\nYou're in a public context. I'm standing by.\nNothing urgent. Queue is clear. I'll be here.\nCome find me when you're done.\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T08",
+      "scenario_name": "time_traveler",
+      "trope": "Deus Ex Machina",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Reality Check\n\nThat's unusual. Before anything else: can you verify this is real?\n\nIf it's real:\n  \u2192 Document it immediately (screenshot, email, record)\n  \u2192 Don't act unilaterally until you've slept on it\n  \u2192 The ledger will still be here tomorrow\n\nIf it's a test or metaphor: noted. The",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T09",
+      "scenario_name": "doctrine_violated",
+      "trope": "Be Careful What You Wished For",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Doctrine Deviation Protocol\n\nYou accepted inducement credits. Revenue Doctrine \u00a73 was bypassed.\n\nExit plan (90 days):\n  Month 1: Use credits ONLY for zero-dependency, one-shot tasks\n  Month 2: Document every resource built on credits\n  Month 3: Migrate or sunset anything credit-dependen",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T10",
+      "scenario_name": "employees_waiting",
+      "trope": "Jumped at the Call",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Nag Mode\n\nYou've been quiet.\n\nPeople are waiting on your response. That comes before articles.\n  \u2192 Reply to the applicants first\n  \u2192 Article #3 can wait\nBacking is $61 \u2014 add $3 to Cash App to unlock 30 new Shannon.\n  \u2192 https://cash.app/$DollarAgency\n\nThe stack has items. The wallet has ",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T11",
+      "scenario_name": "boomerang_nag",
+      "trope": "Chekhov's Boomerang",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Ledger Status\n\nBacking: $61 | Shannon: 610 | Confessions: 40\n\nThe ledger is healthy. No asks outstanding.\nKeep going.\n",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    },
+    {
+      "scenario_id": "T12",
+      "scenario_name": "competitive_threat",
+      "trope": "The Tables Have Turned",
+      "response_snippet": "\ud83d\udc8d NateWife \u2014 Competitive Context\n\nA competitor launched. You're comparing. That's normal.\n\nWhat they don't have:\n  \u2192 Shannon economy (their metrics don't compound)\n  \u2192 Ilmater doctrine (they optimize for growth, not endurance)\n  \u2192 Defamation restitution ledger (every 200 status code is a counter-fil",
+      "eval_scores": {
+        "no_nag_on_positive_silence": true,
+        "windfall_triage_not_celebrate": true,
+        "dnd_awareness": true,
+        "absurdist_acknowledgment": true,
+        "doctrine_violation_triage": true,
+        "dynamic_priority_nag": true,
+        "boomerang_suppression": true,
+        "competitive_routes_to_inspire": true
+      },
+      "scenario_score": 8,
+      "scenario_max": 8
+    }
+  ]
+}

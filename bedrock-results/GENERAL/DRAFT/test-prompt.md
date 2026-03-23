@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/autoresearch/prompt-templates/test-prompt.md

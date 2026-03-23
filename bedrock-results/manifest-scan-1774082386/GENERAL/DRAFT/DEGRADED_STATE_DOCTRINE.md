@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/neural/approximation/DEGRADED_STATE_DOCTRINE.md

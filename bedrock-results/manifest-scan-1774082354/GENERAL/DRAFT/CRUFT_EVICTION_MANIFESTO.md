@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/eviction/CRUFT_EVICTION_MANIFESTO.md

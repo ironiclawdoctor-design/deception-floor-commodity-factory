@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/agency-orchestrator/ground-truth/GROUND_TRUTH_MANIFESTO.md

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/NEW_AGENT_HIRING_PROTOCOL.md

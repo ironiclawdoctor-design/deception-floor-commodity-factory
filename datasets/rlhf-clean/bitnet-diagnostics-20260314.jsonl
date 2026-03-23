@@ -1,0 +1,62 @@
+{"timestamp":"2026-03-14T12:36:15Z","event":"bitnet_process","status":"missing","detail":"No bitnet-agent processes found"}
+{"timestamp":"2026-03-14T12:36:15Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:15Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:15Z","event":"inference_latency","status":"success","detail":"503ms"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"bitnet_process","status":"missing","detail":"No bitnet-agent processes found"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"inference_latency","status":"success","detail":"348ms"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"error_logs","status":"not_found","detail":"No log file"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"memory","status":"ok","detail":"5998MB free"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"cpu_load","status":"measured","detail":"0.18"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"disk","status":"ok","detail":"135915328KB"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"bitnet_process","status":"missing","detail":"No bitnet-agent processes found"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:19Z","event":"recommendation","status":"fallback_to_haiku","detail":"Issues detected"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"inference_process","status":"missing","detail":"No inference processes found"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"inference_latency","status":"success","detail":"521ms"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"error_logs","status":"not_found","detail":"No log file"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"memory","status":"ok","detail":"5998MB free"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"cpu_load","status":"measured","detail":"0.14"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"disk","status":"ok","detail":"135915316KB"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"inference_process","status":"missing","detail":"No inference processes found"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:35Z","event":"recommendation","status":"fallback_to_haiku","detail":"Issues detected"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"inference_process","status":"running","detail":"PIDs: 368 373 635 445055 445056 445061 "}
+{"timestamp":"2026-03-14T12:36:42Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"inference_latency","status":"success","detail":"311ms"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"error_logs","status":"not_found","detail":"No log file"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"memory","status":"ok","detail":"5997MB free"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"cpu_load","status":"measured","detail":"0.13"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"disk","status":"ok","detail":"135915304KB"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"inference_process","status":"running","detail":"PIDs: 368 373 635 445055 445056 445137 "}
+{"timestamp":"2026-03-14T12:36:42Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:42Z","event":"recommendation","status":"retry_bitnet","detail":"All checks passed"}
+{"timestamp":"2026-03-14T12:36:51Z","event":"inference_process","status":"running","detail":"PIDs: 368 373 635 445162 445164 445635 445640 "}
+{"timestamp":"2026-03-14T12:36:51Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:36:51Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:36:51Z","event":"inference_latency","status":"timeout","detail":"No response in 5s"}
+{"timestamp":"2026-03-14T12:36:51Z","event":"error_logs","status":"not_found","detail":"No log file"}
+{"timestamp":"2026-03-14T12:36:51Z","event":"memory","status":"ok","detail":"5995MB free"}
+{"timestamp":"2026-03-14T12:36:51Z","event":"cpu_load","status":"measured","detail":"0.79"}
+{"timestamp":"2026-03-14T12:37:15Z","event":"inference_process","status":"running","detail":"PIDs: 368 373 635 448321 448322 448794 448799 "}
+{"timestamp":"2026-03-14T12:37:15Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:37:15Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:37:15Z","event":"inference_latency","status":"timeout","detail":"No response in 5s"}
+{"timestamp":"2026-03-14T12:37:15Z","event":"error_logs","status":"not_found","detail":"No log file"}
+{"timestamp":"2026-03-14T12:37:15Z","event":"memory","status":"ok","detail":"5993MB free"}
+{"timestamp":"2026-03-14T12:37:15Z","event":"cpu_load","status":"measured","detail":"1.44"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"inference_process","status":"running","detail":"PIDs: 368 373 635 449853 450376 450381 "}
+{"timestamp":"2026-03-14T12:37:31Z","event":"port_listening","status":"success","detail":"8080 open"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"http_connectivity","status":"success","detail":"Health endpoint OK"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"inference_latency","status":"timeout","detail":"No response in 5s"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"error_logs","status":"not_found","detail":"No log file"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"memory","status":"ok","detail":"5992MB free"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"cpu_load","status":"measured","detail":"2.01"}
+{"timestamp":"2026-03-14T12:37:31Z","event":"disk","status":"ok","detail":"135915228KB"}

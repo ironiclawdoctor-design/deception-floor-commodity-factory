@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/ground-floor/ZERO_POWER_MANIFESTO.md

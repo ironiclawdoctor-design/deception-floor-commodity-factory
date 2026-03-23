@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/tsx/dist/temporary-directory-CwHp0_NW.mjs

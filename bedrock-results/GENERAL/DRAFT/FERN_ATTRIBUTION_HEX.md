@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/autographs/FERN_ATTRIBUTION_HEX.md

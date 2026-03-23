@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/automate-nbm/tests/run-all-tests.sh

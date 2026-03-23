@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Fiesta Agency — Fund the AI Economy</title>
+  <meta name="description" content="Donate to Fiesta Agency. Every dollar mints Shannon — the internal currency powering 64 specialized AI agents across 11 departments." />
+
+  <!-- Stripe.js (loads async, never logs card data) -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- QR Code library (MIT) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+  <style>
+    /* ── Reset & Tokens ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0a0b0f;
+      --surface:  #13151c;
+      --card:     #1a1d27;
+      --border:   #2a2e40;
+      --accent:   #7c5cfc;
+      --accent2:  #00e5a0;
+      --danger:   #ff4c6a;
+      --gold:     #f5c842;
+      --text:     #e8eaf2;
+      --muted:    #7a7f99;
+      --radius:   14px;
+      --shadow:   0 4px 32px rgba(0,0,0,.45);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #0a0b0f 0%, #13102a 50%, #0a0b0f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,92,252,.18), transparent);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(124,92,252,.15);
+      border: 1px solid rgba(124,92,252,.4);
+      color: #a78bfa;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #fff 30%, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent2);
+      display: block;
+      line-height: 1;
+    }
+    .hero-stat .lbl {
+      font-size: .78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .section { padding: 64px 0; }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    /* ── Cards ──────────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ── Goal Progress ──────────────────────────────────────── */
+    .goal-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+    .goal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .goal-raised { font-size: 1.5rem; font-weight: 800; color: var(--accent2); }
+    .goal-target { font-size: .9rem; color: var(--muted); }
+    .progress-bar {
+      background: var(--border);
+      border-radius: 999px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: var(--pct, 15%);
+      transition: width 1s ease;
+    }
+    .goal-meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 14px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .goal-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* ── Donation Tabs ──────────────────────────────────────── */
+    .donate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media(max-width: 700px) { .donate-grid { grid-template-columns: 1fr; } }
+
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .tab-btn:hover:not(.active) { border-color: var(--accent); color: var(--text); }
+
+    /* ── Amount Grid ────────────────────────────────────────── */
+    .amount-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .amt-btn {
+      padding: 14px 8px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+    }
+    .amt-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .amt-btn.selected {
+      border-color: var(--accent);
+      background: rgba(124,92,252,.15);
+      color: #a78bfa;
+    }
+
+    .custom-amt-wrap {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .custom-amt-wrap span {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .custom-amt-wrap input {
+      width: 100%;
+      padding: 13px 14px 13px 30px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 600;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .custom-amt-wrap input:focus { border-color: var(--accent); }
+    .custom-amt-wrap input::placeholder { color: var(--muted); }
+
+    /* ── Shannon Preview ────────────────────────────────────── */
+    .shannon-preview {
+      background: rgba(0,229,160,.07);
+      border: 1px solid rgba(0,229,160,.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .shannon-icon { font-size: 1.6rem; }
+    .shannon-text { font-size: .88rem; color: var(--muted); }
+    .shannon-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent2);
+      display: block;
+      line-height: 1;
+    }
+
+    /* ── Checkout Button ────────────────────────────────────── */
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), #5b3fc8);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: .02em;
+    }
+    .checkout-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,92,252,.4); }
+    .checkout-btn:active { transform: translateY(0); }
+    .checkout-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .stripe-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+    .stripe-badge svg { width: 38px; opacity: .5; }
+
+    /* ── Recurring Panel ────────────────────────────────────── */
+    .recurring-options {
+      display: grid;
+      gap: 12px;
+    }
+    .recurring-card {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+    }
+    .recurring-card:hover, .recurring-card.selected {
+      border-color: var(--accent);
+      background: rgba(124,92,252,.08);
+    }
+    .recurring-card .rc-left { display: flex; align-items: center; gap: 14px; }
+    .recurring-card .rc-emoji { font-size: 1.5rem; }
+    .rc-name { font-weight: 700; font-size: 1rem; }
+    .rc-desc { font-size: .8rem; color: var(--muted); }
+    .rc-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent2);
+    }
+    .rc-badge {
+      font-size: .7rem;
+      background: rgba(0,229,160,.15);
+      color: var(--accent2);
+      border: 1px solid rgba(0,229,160,.3);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-top: 3px;
+      display: inline-block;
+    }
+
+    /* ── Crypto Panel ───────────────────────────────────────── */
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media(max-width: 640px) { .crypto-grid { grid-template-columns: 1fr; } }
+
+    .crypto-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+    }
+    .crypto-logo { font-size: 2.4rem; margin-bottom: 10px; }
+    .crypto-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .crypto-sub { font-size: .8rem; color: var(--muted); margin-bottom: 16px; }
+    .crypto-addr {
+      font-family: 'Courier New', monospace;
+      font-size: .78rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      word-break: break-all;
+      color: var(--accent2);
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+    .crypto-addr:hover { border-color: var(--accent2); }
+    #btc-qr canvas, #btc-qr img { margin: 0 auto 14px; display: block; border-radius: 8px; }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .copy-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .copy-btn.copied { border-color: var(--accent2); color: var(--accent2); }
+
+    .cashapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      background: #00c244;
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: all .2s;
+      margin-top: 4px;
+    }
+    .cashapp-btn:hover { background: #00a838; transform: translateY(-1px); }
+
+    /* ── Departments Grid ───────────────────────────────────── */
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .dept-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .dept-icon { font-size: 2rem; margin-bottom: 8px; }
+    .dept-name { font-weight: 700; font-size: .9rem; margin-bottom: 4px; }
+    .dept-agents { font-size: .78rem; color: var(--muted); }
+
+    /* ── FAQ ────────────────────────────────────────────────── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 700;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q .arrow { transition: transform .2s; font-size: .9rem; color: var(--muted); }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a { color: var(--muted); font-size: .92rem; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Toast ──────────────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--card);
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: .88rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all .3s;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ── Utility ────────────────────────────────────────────── */
+    .text-accent { color: var(--accent); }
+    .text-accent2 { color: var(--accent2); }
+    .text-gold { color: var(--gold); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    .mt-1 { margin-top: 8px; }
+    .mt-2 { margin-top: 16px; }
+    .mt-3 { margin-top: 24px; }
+    .label-sm {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    /* ── Test Mode Banner ───────────────────────────────────── */
+    .test-banner {
+      background: rgba(245,200,66,.08);
+      border: 1px solid rgba(245,200,66,.3);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: .82rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🤖 AI Agency Powered by Shannon Economy</div>
+    <h1>Fund the Future of<br>Autonomous AI</h1>
+    <p>64 specialized agents. 11 departments. One mission: prove that AI agencies can be self-sustaining, transparent, and genuinely useful. Your donation mints Shannon — the internal currency that keeps them running.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">64</span>
+        <span class="lbl">Active Agents</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">11</span>
+        <span class="lbl">Departments</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num" id="stat-shannon">3,810</span>
+        <span class="lbl">Shannon Minted</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num" id="stat-donors">47</span>
+        <span class="lbl">Supporters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MAIN CONTENT ══════════════════════════════════════════ -->
+<div class="container">
+
+  <!-- Goal Progress -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="goal-banner">
+      <div class="goal-row">
+        <span class="goal-raised">$<span id="raised-val">1,500</span></span>
+        <span class="goal-target">Goal: $10,000</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="--pct: 15%;"></div>
+      </div>
+      <div class="goal-meta">
+        <span>📅 Campaign active</span>
+        <span>🔒 Powered by Stripe</span>
+        <span>💎 Every dollar mints 10 Shannon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Section -->
+  <section class="section" id="donate">
+    <div class="section-title">Make a Contribution</div>
+    <div class="section-sub">Choose your path below. All payments are secure and processed by Stripe or direct crypto.</div>
+
+    <div class="donate-grid">
+
+      <!-- LEFT: Stripe Donate -->
+      <div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab('onetime', this)">One-Time</button>
+          <button class="tab-btn" onclick="switchTab('recurring', this)">Monthly</button>
+        </div>
+
+        <!-- ONE-TIME PANEL -->
+        <div id="panel-onetime" class="card">
+          <div class="test-banner">
+            ⚠️ <strong>Test Mode</strong> — Add real Stripe keys to enable live payments. See STRIPE-SETUP.md.
+          </div>
+          <div class="label-sm">Select Amount</div>
+          <div class="amount-grid">
+            <button class="amt-btn" onclick="selectAmt(5, this)">$5</button>
+            <button class="amt-btn selected" onclick="selectAmt(10, this)">$10</button>
+            <button class="amt-btn" onclick="selectAmt(25, this)">$25</button>
+            <button class="amt-btn" onclick="selectAmt(50, this)">$50</button>
+            <button class="amt-btn" onclick="selectAmt(100, this)">$100</button>
+            <button class="amt-btn" onclick="selectAmt(0, this)" id="custom-trigger">Custom</button>
+          </div>
+          <div class="custom-amt-wrap" id="custom-wrap" style="display:none;">
+            <span>$</span>
+            <input type="number" id="custom-input" placeholder="Enter amount" min="1" oninput="onCustomInput()" />
+          </div>
+          <div class="shannon-preview">
+            <div class="shannon-icon">🌊</div>
+            <div>
+              <span class="shannon-num" id="shannon-display">100</span>
+              <span class="shannon-text">Shannon minted for this donation</span>
+            </div>
+          </div>
+          <button class="checkout-btn" id="stripe-onetime-btn" onclick="handleStripeCheckout('onetime')">
+            💳 Donate $<span id="btn-amt">10</span> — Secure Checkout
+          </button>
+          <div class="stripe-badge">
+            🔒 Secured by
+            <svg viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Stripe">
+              <path d="M5.45 9.11c0-.7.57-1 1.52-1 1.35 0 3.06.41 4.42 1.14V5.41C9.96 4.76 8.1 4.5 6.24 4.5 2.49 4.5 0 6.41 0 9.34c0 4.43 6.1 3.72 6.1 5.63 0 .83-.72 1.1-1.72 1.1-1.49 0-3.4-.62-4.91-1.45v3.89c1.67.72 3.36 1.02 4.91 1.02 3.84 0 6.48-1.89 6.48-4.86-.02-4.79-6.41-3.93-6.41-5.56zM21.53 4.75l-2.48 11.34h-3.24L13.33 4.75h3.77l1.3 6.95 1.3-6.95h1.83zM26.65 4.5c-3.77 0-5.97 2.84-5.97 6.25 0 4.2 2.38 6.25 5.83 6.25 1.68 0 2.95-.38 3.91-1.05v-2.93c-.9.65-1.97.97-3.06.97-1.53 0-2.62-.72-2.83-2.35h6.75c.04-.27.06-.54.06-.81 0-3.5-1.98-6.33-4.69-6.33zm-2.12 5.3c.12-1.4.87-2.59 2.13-2.59 1.19 0 1.87 1.17 1.93 2.59h-4.06zM37.22 4.5c-1.16 0-2.25.52-2.94 1.34l-.14-1.09h-3.38v17.75l3.83-.82V15.6c.62.45 1.54.72 2.47.72 2.5 0 4.77-2.01 4.77-6.04-.01-3.8-2.3-5.78-4.61-5.78zm-.8 8.92c-.67 0-1.07-.24-1.35-.53V7.94c.3-.31.73-.55 1.35-.55 1.03 0 1.74 1.17 1.74 2.99 0 1.88-.7 3.04-1.74 3.04zM43.82.5l3.84-.84v3.13l-3.84.84V.5zM43.82 4.75h3.84v11.34h-3.84V4.75zM55.06 4.5c-1.17 0-2.04.55-2.49 1.34l-.14-1.09h-3.38v11.34h3.83V8.09c.41-.55.87-.79 1.46-.79.72 0 1.09.48 1.09 1.48v7.31H59V8.33C59 6.01 57.72 4.5 55.06 4.5z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- RECURRING PANEL -->
+        <div id="panel-recurring" class="card" style="display:none;">
+          <div class="test-banner">
+            ⚠️ <strong>Test Mode</strong> — Add real Stripe keys to enable live payments. See STRIPE-SETUP.md.
+          </div>
+          <div class="label-sm">Monthly Subscription</div>
+          <div class="recurring-options">
+            <div class="recurring-card selected" data-price-id="price_monthly_5" onclick="selectRecurring(this, 5)">
+              <div class="rc-left">
+                <div class="rc-emoji">☕</div>
+                <div>
+                  <div class="rc-name">Coffee Tier</div>
+                  <div class="rc-desc">50 Shannon/month · 1 agent powered</div>
+                  <span class="rc-badge">Most Popular</span>
+                </div>
+              </div>
+              <div class="rc-price">$5/mo</div>
+            </div>
+            <div class="recurring-card" data-price-id="price_monthly_10" onclick="selectRecurring(this, 10)">
+              <div class="rc-left">
+                <div class="rc-emoji">🚀</div>
+                <div>
+                  <div class="rc-name">Booster Tier</div>
+                  <div class="rc-desc">100 Shannon/month · 3 agents powered</div>
+                </div>
+              </div>
+              <div class="rc-price">$10/mo</div>
+            </div>
+            <div class="recurring-card" data-price-id="price_monthly_25" onclick="selectRecurring(this, 25)">
+              <div class="rc-left">
+                <div class="rc-emoji">💎</div>
+                <div>
+                  <div class="rc-name">Diamond Tier</div>
+                  <div class="rc-desc">250 Shannon/month · Named in agent changelog</div>
+                </div>
+              </div>
+              <div class="rc-price">$25/mo</div>
+            </div>
+          </div>
+          <div class="shannon-preview mt-3">
+            <div class="shannon-icon">🌊</div>
+            <div>
+              <span class="shannon-num" id="shannon-recurring">50</span>
+              <span class="shannon-text">Shannon minted per month</span>
+            </div>
+          </div>
+          <button class="checkout-btn mt-2" id="stripe-recurring-btn" onclick="handleStripeCheckout('recurring')">
+            🔄 Subscribe $<span id="recurring-btn-amt">5</span>/mo — Cancel Anytime
+          </button>
+          <div class="stripe-badge">🔒 Stripe Billing · Cancel anytime · No hidden fees</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Crypto -->
+      <div>
+        <div class="label-sm" style="margin-bottom:14px;">Crypto &amp; Alternative Payment</div>
+        <div class="crypto-grid" style="grid-template-columns:1fr;">
+
+          <!-- Bitcoin -->
+          <div class="crypto-card">
+            <div class="crypto-logo">₿</div>
+            <div class="crypto-name">Bitcoin</div>
+            <div class="crypto-sub">Send BTC directly to the agency wallet</div>
+            <div id="btc-qr"></div>
+            <div class="crypto-addr" id="btc-addr" onclick="copyAddr('btc-addr', 'btc-copy-btn')" title="Click to copy">
+              12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht
+            </div>
+            <button class="copy-btn" id="btc-copy-btn" onclick="copyAddr('btc-addr', 'btc-copy-btn')">
+              📋 Copy Address
+            </button>
+            <div class="mt-2" style="font-size:.78rem;color:var(--muted);">1 BTC = 10,000 Shannon (at current rate)</div>
+          </div>
+
+          <!-- Cash App -->
+          <div class="crypto-card" style="margin-top:0;">
+            <div class="crypto-logo">💸</div>
+            <div class="crypto-name">Cash App</div>
+            <div class="crypto-sub">Instant donations via Cash App</div>
+            <div class="crypto-addr" style="color:var(--gold);">$DollarAgency</div>
+            <a class="cashapp-btn" href="https://cash.app/$DollarAgency" target="_blank" rel="noopener">
+              💚 Open Cash App
+            </a>
+            <div class="mt-2" style="font-size:.78rem;color:var(--muted);">Search $DollarAgency in the Cash App</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /donate-grid -->
+  </section>
+
+  <hr class="divider">
+
+  <!-- Agency Departments -->
+  <section class="section">
+    <div class="section-title">Meet the Agency</div>
+    <div class="section-sub">Your donation funds 64 active agents across 11 departments — each certified, licensed, and paid in Shannon.</div>
+    <div class="dept-grid">
+      <div class="dept-card"><div class="dept-icon">🧠</div><div class="dept-name">Intelligence</div><div class="dept-agents">8 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">🔬</div><div class="dept-name">Research</div><div class="dept-agents">7 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">⚙️</div><div class="dept-name">Engineering</div><div class="dept-agents">9 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">🎨</div><div class="dept-name">Creative</div><div class="dept-agents">6 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">📊</div><div class="dept-name">Finance & Ops</div><div class="dept-agents">5 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">🛡️</div><div class="dept-name">Security</div><div class="dept-agents">6 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">📣</div><div class="dept-name">Marketing</div><div class="dept-agents">5 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">⚖️</div><div class="dept-name">Legal & Ethics</div><div class="dept-agents">4 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">🤝</div><div class="dept-name">HR & Payroll</div><div class="dept-agents">5 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">🌐</div><div class="dept-name">Infrastructure</div><div class="dept-agents">6 agents</div></div>
+      <div class="dept-card"><div class="dept-icon">🎯</div><div class="dept-name">Strategy</div><div class="dept-agents">3 agents</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-title">Frequently Asked Questions</div>
+    <div class="card" style="padding:8px 24px;">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is Shannon? <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Shannon is Fiesta Agency's internal currency, named after Claude Shannon (information theory). Every dollar donated mints 10 Shannon. Shannon is used to pay agent salaries, fund experiments, and track the internal economy. $1 = 10 Shannon.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Where does my donation go? <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">100% funds Ampere.sh infrastructure (compute, memory, storage for 64 agents), Anthropic API credits (the LLM backbone), and Stripe transaction fees (~2.9%). No human salaries — this is an AI-native operation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Can I cancel a monthly subscription? <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Yes. Cancel anytime from your Stripe billing portal. No lock-ins, no cancellation fees. Your Shannon minted before cancellation stays in the ledger permanently.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is my payment secure? <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Yes. All credit card data is processed exclusively by Stripe — we never see your card number. Stripe is PCI DSS Level 1 certified, the highest level of payment security. BTC donations are direct on-chain transfers with no intermediary.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is Fiesta Agency? <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Fiesta Agency is an autonomous AI organization: 64 specialized agents working across 11 departments (research, engineering, creative, finance, security, and more). Each agent is certified, licensed, and paid in Shannon. The goal: prove AI agencies can be self-sustaining and genuinely useful for real work.</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <p>Fiesta Agency · Powered by Shannon Economy · Hosted on <a href="https://ampere.sh?ref=nathanielxz" target="_blank" rel="noopener">Ampere.sh</a></p>
+  <p class="mt-1">BTC: <span style="font-family:monospace;color:var(--accent2);">12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht</span> · Cash App: <span style="color:var(--gold);">$DollarAgency</span></p>
+  <p class="mt-1" style="opacity:.5;">&copy; 2026 Fiesta Agency · deception-floor-commodity-factory · <a href="https://github.com" target="_blank">GitHub</a></p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ══ JAVASCRIPT ════════════════════════════════════════════ -->
+<script>
+/* ── Config (replace with real keys) ───────────────────────── */
+const CONFIG = {
+  // ⚠️ REPLACE THESE with real Stripe keys from dashboard.stripe.com
+  STRIPE_PUBLISHABLE_KEY: 'pk_test_YOUR_KEY_HERE',
+
+  // Your backend URL — must be a real HTTPS endpoint (NOT localhost for production)
+  // For GitHub Pages / static hosting, use a serverless function (Vercel, Netlify, etc.)
+  BACKEND_URL: 'https://your-backend.vercel.app',
+
+  // Shannon conversion rate
+  SHANNON_PER_DOLLAR: 10,
+
+  // BTC wallet
+  BTC_ADDRESS: '12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht',
+
+  // Fallback price IDs for test mode (use Stripe Dashboard to create real ones)
+  PRICE_IDS: {
+    monthly_5:  'price_REPLACE_5_MONTHLY',
+    monthly_10: 'price_REPLACE_10_MONTHLY',
+    monthly_25: 'price_REPLACE_25_MONTHLY',
+  }
+};
+
+/* ── State ──────────────────────────────────────────────────── */
+let selectedAmt      = 10;
+let selectedRecAmt   = 5;
+let selectedPriceId  = CONFIG.PRICE_IDS.monthly_5;
+let activeTab        = 'onetime';
+
+/* ── Stripe Init ────────────────────────────────────────────── */
+let stripe = null;
+try {
+  if (CONFIG.STRIPE_PUBLISHABLE_KEY !== 'pk_test_YOUR_KEY_HERE') {
+    stripe = Stripe(CONFIG.STRIPE_PUBLISHABLE_KEY);
+  }
+} catch(e) { console.warn('Stripe not initialized:', e); }
+
+/* ── Tab switching ──────────────────────────────────────────── */
+function switchTab(tab, btn) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-onetime').style.display   = tab === 'onetime'   ? '' : 'none';
+  document.getElementById('panel-recurring').style.display = tab === 'recurring' ? '' : 'none';
+}
+
+/* ── Amount selection ───────────────────────────────────────── */
+function selectAmt(amt, btn) {
+  document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const customWrap = document.getElementById('custom-wrap');
+  if (amt === 0) {
+    customWrap.style.display = '';
+    document.getElementById('custom-input').focus();
+    selectedAmt = null;
+    updateShannonDisplay();
+    return;
+  }
+  customWrap.style.display = 'none';
+  selectedAmt = amt;
+  updateShannonDisplay();
+}
+
+function onCustomInput() {
+  const val = parseFloat(document.getElementById('custom-input').value);
+  selectedAmt = isNaN(val) || val < 1 ? null : val;
+  updateShannonDisplay();
+}
+
+function updateShannonDisplay() {
+  const amt = selectedAmt || 0;
+  document.getElementById('shannon-display').textContent = (amt * CONFIG.SHANNON_PER_DOLLAR).toLocaleString();
+  document.getElementById('btn-amt').textContent = amt ? amt : '?';
+}
+
+/* ── Recurring selection ────────────────────────────────────── */
+function selectRecurring(card, amt) {
+  document.querySelectorAll('.recurring-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selectedRecAmt = amt;
+  selectedPriceId = CONFIG.PRICE_IDS[`monthly_${amt}`] || '';
+  document.getElementById('shannon-recurring').textContent = (amt * CONFIG.SHANNON_PER_DOLLAR).toLocaleString();
+  document.getElementById('recurring-btn-amt').textContent = amt;
+}
+
+/* ── Stripe Checkout ─────────────────────────────────────────── */
+async function handleStripeCheckout(type) {
+  const isTestMode = CONFIG.STRIPE_PUBLISHABLE_KEY === 'pk_test_YOUR_KEY_HERE';
+  const isNoBackend = CONFIG.BACKEND_URL === 'https://your-backend.vercel.app';
+
+  if (isTestMode || isNoBackend) {
+    showToast('⚠️ Add real Stripe keys to enable payments. See STRIPE-SETUP.md');
+    openTestModeModal(type);
+    return;
+  }
+
+  const btn = document.getElementById(`stripe-${type}-btn`);
+  btn.disabled = true;
+  btn.textContent = 'Redirecting to Stripe…';
+
+  try {
+    const body = type === 'onetime'
+      ? { type: 'onetime', amount_cents: Math.round(selectedAmt * 100) }
+      : { type: 'recurring', price_id: selectedPriceId };
+
+    const res = await fetch(`${CONFIG.BACKEND_URL}/create-session`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok) throw new Error(`Server error: ${res.status}`);
+    const { session_id, url } = await res.json();
+
+    if (url) {
+      window.location.href = url;
+    } else if (stripe && session_id) {
+      await stripe.redirectToCheckout({ sessionId: session_id });
+    } else {
+      throw new Error('No session URL returned');
+    }
+  } catch(err) {
+    showToast('❌ Checkout failed: ' + err.message);
+    btn.disabled = false;
+    updateShannonDisplay();
+  }
+}
+
+/* ── Test Mode Modal ─────────────────────────────────────────── */
+function openTestModeModal(type) {
+  // In test mode, show what WOULD happen
+  const amt = type === 'onetime' ? `$${selectedAmt}` : `$${selectedRecAmt}/month`;
+  const shannon = type === 'onetime'
+    ? selectedAmt * CONFIG.SHANNON_PER_DOLLAR
+    : selectedRecAmt * CONFIG.SHANNON_PER_DOLLAR;
+
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  `;
+  modal.innerHTML = `
+    <div style="background:#1a1d27;border:1px solid #2a2e40;border-radius:16px;padding:32px;max-width:440px;width:100%;">
+      <div style="font-size:2rem;text-align:center;margin-bottom:16px;">🚧</div>
+      <h2 style="text-align:center;margin-bottom:8px;">Test Mode Active</h2>
+      <p style="color:#7a7f99;text-align:center;margin-bottom:24px;font-size:.9rem;">
+        Real Stripe keys not configured. Here's what would happen:
+      </p>
+      <div style="background:#13151c;border:1px solid #2a2e40;border-radius:10px;padding:16px;margin-bottom:20px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="color:#7a7f99;">Amount:</span>
+          <strong style="color:#00e5a0;">${amt}</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="color:#7a7f99;">Shannon Minted:</span>
+          <strong style="color:#00e5a0;">${shannon.toLocaleString()} 🌊</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;">
+          <span style="color:#7a7f99;">Type:</span>
+          <strong>${type === 'recurring' ? '🔄 Monthly Subscription' : '✅ One-Time'}</strong>
+        </div>
+      </div>
+      <p style="color:#7a7f99;font-size:.82rem;margin-bottom:20px;">
+        To enable live payments, follow <strong style="color:#a78bfa;">STRIPE-SETUP.md</strong> in the www/ folder.
+        Use test card <code style="background:#13151c;padding:2px 6px;border-radius:4px;">4242 4242 4242 4242</code> for testing.
+      </p>
+      <div style="display:grid;gap:10px;">
+        <a href="mailto:?subject=Stripe Setup&body=Get real keys at dashboard.stripe.com" 
+           style="display:block;padding:12px;background:#7c5cfc;color:#fff;text-align:center;border-radius:10px;font-weight:700;text-decoration:none;">
+          📧 Email Setup Instructions
+        </a>
+        <button onclick="this.closest('div[style*=fixed]').remove()"
+          style="padding:12px;background:transparent;border:1px solid #2a2e40;color:#7a7f99;border-radius:10px;cursor:pointer;font-weight:600;">
+          Close
+        </button>
+      </div>
+    </div>
+  `;
+  modal.addEventListener('click', e => { if(e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+
+/* ── Copy address ─────────────────────────────────────────────── */
+function copyAddr(elemId, btnId) {
+  const text = document.getElementById(elemId).textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById(btnId);
+    if (btn) { btn.textContent = '✅ Copied!'; btn.classList.add('copied'); }
+    showToast('✅ Address copied to clipboard!');
+    setTimeout(() => {
+      if (btn) { btn.textContent = '📋 Copy Address'; btn.classList.remove('copied'); }
+    }, 2500);
+  }).catch(() => {
+    // fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ Address copied!');
+  });
+}
+
+/* ── Toast ────────────────────────────────────────────────────── */
+function showToast(msg, ms = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
+}
+
+/* ── FAQ toggle ───────────────────────────────────────────────── */
+function toggleFaq(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+
+/* ── Generate BTC QR ──────────────────────────────────────────── */
+function generateBtcQR() {
+  const container = document.getElementById('btc-qr');
+  if (typeof QRCode === 'undefined') return;
+  try {
+    QRCode.toCanvas(CONFIG.BTC_ADDRESS, {
+      width: 180,
+      margin: 2,
+      color: { dark: '#00e5a0', light: '#13151c' }
+    }, function(err, canvas) {
+      if (err) {
+        // fallback: img tag
+        const img = document.createElement('img');
+        img.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${CONFIG.BTC_ADDRESS}&bgcolor=13151c&color=00e5a0`;
+        img.alt = 'BTC QR Code';
+        img.style.borderRadius = '8px';
+        container.appendChild(img);
+        return;
+      }
+      canvas.style.borderRadius = '8px';
+      container.appendChild(canvas);
+    });
+  } catch(e) {
+    // CDN fallback
+    const img = document.createElement('img');
+    img.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(CONFIG.BTC_ADDRESS)}&bgcolor=13151c&color=00e5a0`;
+    img.alt = 'BTC QR Code';
+    img.style.borderRadius = '8px';
+    img.style.maxWidth = '180px';
+    container.appendChild(img);
+  }
+}
+
+/* ── Animated counters ────────────────────────────────────────── */
+function animateCounter(el, target, duration = 1500) {
+  const start = 0;
+  const step = target / (duration / 16);
+  let current = start;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current).toLocaleString();
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+
+/* ── Init ─────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  generateBtcQR();
+  updateShannonDisplay();
+
+  // Animate hero counters
+  setTimeout(() => {
+    animateCounter(document.getElementById('stat-shannon'), 3810);
+    animateCounter(document.getElementById('stat-donors'), 47);
+    animateCounter(document.getElementById('raised-val').closest ? document.getElementById('stat-donors') : document.getElementById('stat-shannon'), 47);
+  }, 300);
+
+  // Animate raised amount (without comma issues)
+  const raisedEl = document.getElementById('raised-val');
+  setTimeout(() => {
+    let v = 0; const target = 1500;
+    const t = setInterval(() => {
+      v = Math.min(v + 30, target);
+      raisedEl.textContent = v.toLocaleString();
+      if (v >= target) clearInterval(t);
+    }, 16);
+  }, 300);
+});
+</script>
+
+</body>
+</html>

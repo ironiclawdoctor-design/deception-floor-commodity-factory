@@ -1,0 +1,23 @@
+[Unit]
+Description=Token Budget Enforcer Daemon - SR-011 per-agent token ceilings
+After=network.target
+Wants=entropy-economy.service raise-awareness.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace
+ExecStart=/root/.openclaw/workspace/daemons/token-budget-enforcer.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=token-budget-enforcer
+
+# Security
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

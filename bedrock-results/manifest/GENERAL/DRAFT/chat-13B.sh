@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/examples/chat-13B.sh

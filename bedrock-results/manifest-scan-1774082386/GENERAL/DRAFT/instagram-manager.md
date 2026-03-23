@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/skills/fiesta-agents/agents/marketing/instagram-manager.md

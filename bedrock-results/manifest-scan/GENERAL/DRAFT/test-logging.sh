@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/deception-floor-commodity-factory/test-logging.sh

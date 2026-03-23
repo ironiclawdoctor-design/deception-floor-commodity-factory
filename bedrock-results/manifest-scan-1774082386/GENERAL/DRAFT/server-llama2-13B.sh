@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/3rdparty/llama.cpp/examples/server-llama2-13B.sh

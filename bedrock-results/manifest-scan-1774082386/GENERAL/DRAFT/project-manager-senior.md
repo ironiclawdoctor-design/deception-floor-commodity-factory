@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/automate-nbm/agents/project-management/project-manager-senior.md

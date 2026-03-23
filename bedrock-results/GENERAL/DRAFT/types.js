@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/truthfully/node_modules/ts-interface-checker/dist/types.js

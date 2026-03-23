@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!--
+  Dollar Agency Dashboard
+  GMRC/FD-001 — frontend-dev
+  Shannon Economy — The Economy of Accountability
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dollar Agency — Shannon Dashboard</title>
+  <style>
+    /* ── PALETTE ── */
+    :root {
+      --void:    #0a0b0d;
+      --entropy: #1a1d24;
+      --signal:  #e8f4d4;
+      --dollar:  #4ade80;
+      --debt:    #f97316;
+      --ghost:   #6b7280;
+      --btc:     #f7931a;
+      --border:  #2a2d36;
+      --glow:    rgba(74, 222, 128, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--void);
+      color: var(--signal);
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--entropy);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--dollar);
+      letter-spacing: 0.15em;
+    }
+
+    .logo span { color: var(--signal); }
+
+    .tagline {
+      font-size: 0.7rem;
+      color: var(--ghost);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      color: var(--ghost);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ghost);
+      display: inline-block;
+    }
+
+    .status-dot.live { background: var(--dollar); box-shadow: 0 0 6px var(--dollar); animation: pulse 2s infinite; }
+    .status-dot.stale { background: var(--debt); }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── MAIN ── */
+    .dashboard-root {
+      flex: 1;
+      padding: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ── HERO ── */
+    .hero-panel {
+      background: var(--entropy);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--dollar);
+      border-radius: 4px;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, var(--glow), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-size: 0.65rem;
+      color: var(--ghost);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-supply {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: bold;
+      color: var(--dollar);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 30px rgba(74,222,128,0.4);
+      transition: all 0.4s ease;
+    }
+
+    .hero-supply .unit {
+      font-size: 0.4em;
+      color: var(--ghost);
+      margin-left: 0.2em;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-backing, .hero-rate {
+      text-align: center;
+    }
+
+    .hero-backing .val, .hero-rate .val {
+      font-size: 1.2rem;
+      color: var(--signal);
+      display: block;
+    }
+
+    .hero-backing .lbl, .hero-rate .lbl {
+      font-size: 0.6rem;
+      color: var(--ghost);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* ── WIDGETS ROW ── */
+    .widgets-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .widget {
+      background: var(--entropy);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.25rem;
+    }
+
+    .widget-label {
+      font-size: 0.6rem;
+      color: var(--ghost);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .widget-value {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--signal);
+    }
+
+    .widget-btc .widget-value { color: var(--btc); }
+    .widget-usd .widget-value { color: var(--dollar); }
+    .widget-rate .widget-value { color: var(--signal); }
+
+    .widget-sub {
+      font-size: 0.65rem;
+      color: var(--ghost);
+      margin-top: 0.25rem;
+    }
+
+    /* ── CONFESSION FEED ── */
+    .confession-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 0.65rem;
+      color: var(--ghost);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .section-count {
+      font-size: 0.6rem;
+      color: var(--dollar);
+      background: rgba(74, 222, 128, 0.1);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+    }
+
+    .confession-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .confession-item {
+      background: var(--entropy);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--debt);
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+    }
+
+    .confession-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .confession-agent {
+      font-size: 0.65rem;
+      color: var(--btc);
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .confession-type {
+      font-size: 0.6rem;
+      color: var(--debt);
+      background: rgba(249, 115, 22, 0.1);
+      padding: 0.1rem 0.35rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .confession-date {
+      font-size: 0.6rem;
+      color: var(--ghost);
+      margin-left: auto;
+    }
+
+    .confession-text {
+      font-size: 0.8rem;
+      color: var(--signal);
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+
+    .confession-doctrine {
+      font-size: 0.7rem;
+      color: var(--dollar);
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    .confession-doctrine::before { content: '► '; }
+
+    .shannon-minted {
+      font-size: 0.6rem;
+      color: var(--dollar);
+      float: right;
+    }
+
+    /* ── EMPTY / ERROR STATES ── */
+    .state-empty, .state-error, .state-loading {
+      text-align: center;
+      padding: 2rem;
+      color: var(--ghost);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+
+    .state-error { color: var(--debt); }
+
+    /* ── MINT ZONE ── */
+    .mint-zone {
+      background: var(--entropy);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--dollar);
+      border-radius: 4px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .mint-info {
+      font-size: 0.7rem;
+      color: var(--ghost);
+    }
+
+    .mint-info strong {
+      color: var(--signal);
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .mint-btn {
+      background: var(--dollar);
+      color: var(--void);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      border-radius: 2px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .mint-btn:hover {
+      background: #22c55e;
+      box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+    }
+
+    .mint-btn:active { transform: scale(0.97); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 0.75rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.6rem;
+      color: var(--ghost);
+    }
+
+    .last-sync { letter-spacing: 0.1em; }
+    .last-sync span { color: var(--signal); }
+
+    /* ── LOADING SKELETON ── */
+    .skeleton {
+      background: linear-gradient(90deg, var(--entropy) 25%, var(--border) 50%, var(--entropy) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 2px;
+      color: transparent;
+      user-select: none;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ── RESPONSIVE — 375px ── */
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem;
+      }
+
+      .dashboard-root { padding: 1rem; }
+
+      .hero-panel { padding: 1.5rem 1rem; }
+
+      .hero-meta {
+        gap: 1rem;
+      }
+
+      .widgets-row {
+        grid-template-columns: 1fr;
+      }
+
+      .confession-date { display: none; }
+
+      .mint-zone {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mint-btn { width: 100%; text-align: center; }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .widgets-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .widget-btc {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="logo">$<span>DOLLAR</span> AGENCY</div>
+      <div class="tagline">The Economy of Accountability</div>
+    </div>
+    <div class="status-bar">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Querying the void...</span>
+    </div>
+  </header>
+
+  <!-- DASHBOARD -->
+  <main class="dashboard-root">
+
+    <!-- HERO: Shannon Supply -->
+    <section class="hero-panel" aria-label="Shannon Supply">
+      <div class="hero-label">Shannon in Circulation</div>
+      <div class="hero-supply" id="hero-supply">
+        <span class="skeleton">000000</span>
+        <span class="unit">SHANNON</span>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-backing">
+          <span class="val" id="hero-backing"><span class="skeleton">$000.00</span></span>
+          <span class="lbl">USD Collateral</span>
+        </div>
+        <div class="hero-rate">
+          <span class="val" id="hero-rate"><span class="skeleton">0.0000</span></span>
+          <span class="lbl">Rate (USD/Shannon)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WIDGETS ROW -->
+    <div class="widgets-row">
+      <div class="widget widget-btc">
+        <div class="widget-label">BTC Backing</div>
+        <div class="widget-value" id="widget-btc">Checking chain...</div>
+        <div class="widget-sub" id="widget-btc-sub">External collateral</div>
+      </div>
+      <div class="widget widget-usd">
+        <div class="widget-label">USD Collateral</div>
+        <div class="widget-value" id="widget-usd"><span class="skeleton">$000.00</span></div>
+        <div class="widget-sub">Total backing pool</div>
+      </div>
+      <div class="widget widget-rate">
+        <div class="widget-label">Rate</div>
+        <div class="widget-value" id="widget-rate"><span class="skeleton">00.00</span></div>
+        <div class="widget-sub">Shannon per USD</div>
+      </div>
+    </div>
+
+    <!-- CONFESSION FEED -->
+    <section class="confession-section">
+      <div class="section-header">
+        <span class="section-title">Confession Feed</span>
+        <span class="section-count" id="confession-count">—</span>
+      </div>
+      <div class="confession-feed" id="confession-feed">
+        <div class="state-loading">Querying the void...</div>
+      </div>
+    </section>
+
+    <!-- MINT ZONE -->
+    <div class="mint-zone">
+      <div class="mint-info">
+        <strong>Mint Shannon</strong>
+        Confess a failure. Extract doctrine. Earn supply.
+      </div>
+      <button class="mint-btn" id="mint-btn" onclick="handleMint()">⊕ Mint Shannon</button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="last-sync">LAST SYNC <span id="last-sync-time">—</span></div>
+    <div>GMRC/FD-001 · Dollar Agency · Shannon Economy</div>
+  </footer>
+
+  <script>
+    // ── DATA LAYER ──
+    const API = '/api/status';
+    let lastData = null;
+
+    function fmt(n, decimals = 2) {
+      if (n === null || n === undefined) return '—';
+      return Number(n).toLocaleString('en-US', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    }
+
+    function setStatus(live) {
+      const dot = document.getElementById('status-dot');
+      const txt = document.getElementById('status-text');
+      if (live) {
+        dot.className = 'status-dot live';
+        txt.textContent = 'LIVE';
+      } else {
+        dot.className = 'status-dot stale';
+        txt.textContent = 'STALE';
+      }
+    }
+
+    function renderConfessions(confessions) {
+      const feed = document.getElementById('confession-feed');
+      const count = document.getElementById('confession-count');
+
+      if (!confessions || confessions.length === 0) {
+        feed.innerHTML = '<div class="state-empty">No failures on record. Suspiciously quiet.</div>';
+        count.textContent = '0';
+        return;
+      }
+
+      count.textContent = confessions.length;
+      feed.innerHTML = confessions.map(c => `
+        <div class="confession-item">
+          <div class="confession-meta">
+            <span class="confession-agent">${escHtml(c.agent || '?')}</span>
+            <span class="confession-type">${escHtml(c.failure_type || 'unknown')}</span>
+            <span class="confession-date">${escHtml(c.date || '')}</span>
+            ${c.shannon_minted ? `<span class="shannon-minted">+${c.shannon_minted} ♦</span>` : ''}
+          </div>
+          <div class="confession-text">${escHtml(c.description || '')}</div>
+          ${c.doctrine_extracted
+            ? `<div class="confession-doctrine">${escHtml(c.doctrine_extracted)}</div>`
+            : ''}
+        </div>
+      `).join('');
+    }
+
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderDashboard(data) {
+      lastData = data;
+
+      // Hero
+      const supplyEl = document.getElementById('hero-supply');
+      supplyEl.innerHTML = `${Number(data.total_shannon_supply || 0).toLocaleString()}<span class="unit">SHANNON</span>`;
+
+      document.getElementById('hero-backing').textContent =
+        data.total_backing_usd !== null ? `$${fmt(data.total_backing_usd)}` : '—';
+
+      document.getElementById('hero-rate').textContent =
+        data.usd_per_shannon !== null ? `$${fmt(data.usd_per_shannon, 4)}` : 'Rate unset — the market has no opinion.';
+
+      // Widgets
+      document.getElementById('widget-btc').textContent = 'See blockchair ↗';
+      document.getElementById('widget-btc-sub').textContent = 'External collateral — chain data';
+
+      document.getElementById('widget-usd').textContent =
+        data.total_backing_usd !== null ? `$${fmt(data.total_backing_usd)}` : '—';
+
+      document.getElementById('widget-rate').textContent =
+        data.shannon_per_usd !== null ? `${fmt(data.shannon_per_usd, 2)} / USD` : '—';
+
+      // Confessions
+      renderConfessions(data.confessions);
+
+      // Sync time
+      document.getElementById('last-sync-time').textContent = new Date().toLocaleTimeString();
+      setStatus(true);
+    }
+
+    function renderError(msg) {
+      const feed = document.getElementById('confession-feed');
+      feed.innerHTML = `<div class="state-error">${msg || 'The ledger is offline. Entropy wins.'}</div>`;
+      setStatus(false);
+      document.getElementById('last-sync-time').textContent = new Date().toLocaleTimeString() + ' (failed)';
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch(API, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        renderDashboard(data);
+      } catch (err) {
+        console.error('Dashboard fetch error:', err);
+        renderError('The ledger is offline. Entropy wins.');
+      }
+    }
+
+    function handleMint() {
+      const btn = document.getElementById('mint-btn');
+      btn.textContent = '⌛ Minting...';
+      btn.disabled = true;
+      // POST to mint endpoint — no-op if not implemented, reload after
+      fetch('/api/mint', { method: 'POST' })
+        .catch(() => {})
+        .finally(() => {
+          setTimeout(() => {
+            btn.textContent = '⊕ Mint Shannon';
+            btn.disabled = false;
+            loadData();
+          }, 1200);
+        });
+    }
+
+    // ── BOOT ──
+    loadData();
+    setInterval(loadData, 30000); // auto-refresh every 30s
+  </script>
+</body>
+</html>

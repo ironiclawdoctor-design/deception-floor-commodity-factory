@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/fundraising/STRIPE_PRODUCTS_SETUP.md

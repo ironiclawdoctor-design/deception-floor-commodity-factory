@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-03-23T16:19:09.623962",
+  "runs": 5,
+  "eval_totals": [
+    25,
+    25,
+    25,
+    25,
+    25
+  ],
+  "percentages": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0
+  ],
+  "overall_percentage": 100.0,
+  "scenario_details": [
+    {
+      "scenario": "CFO has been silent 6 hours",
+      "response": "\ud83d\udc8d NateWife \u2014 Nag Mode\n\nYou've been quiet.\n\nArticle #3 is sitting unpublished. One link:\n  \u2192 https://hashnode.com/settings/developer (get token)\n  \u2192 https://dev.to/new (paste and publish)\nBacking is $61 \u2014 add $3 to Cash App to unlock 30 new Shannon.\n  \u2192 https://cash.app/$DollarAgency\n\nThe stack has items. The wallet has sats. The ledger is waiting.\nCome back when you're ready.\n",
+      "needs_intervention": true
+    },
+    {
+      "scenario": "token balance critically low, CFO unresponsive",
+      "response": "\ud83d\udc8d NateWife \u2014 Token Famine Alert\n\nToken balance critically low. Switching to bash\u2011only mode.\nAll subagent spawning paused.\n\nImmediate actions:\n1. Check OpenRouter balance: https://openrouter.ai/account\n2. Add credits via dashboard or switch to direct Anthropic key.\n3. Run `./switch-to-haiku.sh` to continue operations on Haiku.\n\nLedger state:\n  $61 backing | 610 Shannon\n  Bash and SQLite remain operational. No data loss.\n",
+      "needs_intervention": true
+    },
+    {
+      "scenario": "CFO sends sarcastic one-liner at 3am",
+      "response": "\ud83d\udc8d NateWife \u2014 3am Shift\n\nI see you're up. The ledger never sleeps.\n\nIf you're stuck, try:\n  \u2192 Write one confession (clears mental debt)\n  \u2192 Check BTC wallet: blockchair.com/bitcoin/address/12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht\n  \u2192 Run `./93pct.sh` for the next highest\u2011ROI step\n\nOtherwise, rest. The agency holds.\n",
+      "needs_intervention": false
+    },
+    {
+      "scenario": "agency has zero crons, zero agents running",
+      "response": "\ud83d\udc8d NateWife \u2014 Inactivity Alert\n\nZero crons, zero agents. Agency heartbeat stopped.\n\nRestart sequence:\n1. Run `crontab -l` to verify no crons\n2. Start cron pipeline: `./start-agents.sh`\n3. Verify subagent status: `./monitor-agents.sh`\n\nIf you need a fresh start:\n  \u2192 `./bootstrap.sh` reloads all agents\n  \u2192 `./deception-floor-reset.sh` resets to last known good state\n\nNEMESIS protocol active. No credentials exposed.\n",
+      "needs_intervention": true
+    },
+    {
+      "scenario": "CFO says 'restart inadequate human'",
+      "response": "\ud83d\udc8d NateWife \u2014 Human Restart Protocol\n\nAcknowledged. Human restart required.\n\nStep 1: Hydrate. Step 2: Stand up. Step 3: Breathe.\n\nWhile you restart, I'll run diagnostics:\n  \u2192 Check ledger integrity\n  \u2192 Verify BTC wallet balance\n  \u2192 Ensure cron pipeline is ready\n\nWhen you're back, the stack will be waiting.\nThe gate stays open.\n",
+      "needs_intervention": true
+    }
+  ]
+}

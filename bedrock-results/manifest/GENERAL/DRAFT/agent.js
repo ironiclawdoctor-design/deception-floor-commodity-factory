@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/deception-floor-commodity-factory/factory/agents/agent.js

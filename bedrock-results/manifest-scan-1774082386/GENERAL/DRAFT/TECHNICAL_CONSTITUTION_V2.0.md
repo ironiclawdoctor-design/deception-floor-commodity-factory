@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/economy/shanapp/specs/TECHNICAL_CONSTITUTION_V2.0.md

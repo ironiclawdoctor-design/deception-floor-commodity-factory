@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/bitnet/build/CMakeFiles/CMakeDirectoryInformation.cmake

@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/prompts/SUBMISSION_6_CHECKPOINT_DISCIPLINE.md

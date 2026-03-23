@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/test-tier-routing.sh

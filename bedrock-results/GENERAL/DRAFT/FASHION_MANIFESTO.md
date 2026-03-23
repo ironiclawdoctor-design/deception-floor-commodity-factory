@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/vatican/industries/fashion/FASHION_MANIFESTO.md

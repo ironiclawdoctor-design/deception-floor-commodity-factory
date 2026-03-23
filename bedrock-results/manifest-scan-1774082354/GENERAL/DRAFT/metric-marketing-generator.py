@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/metric-marketing-generator.py
