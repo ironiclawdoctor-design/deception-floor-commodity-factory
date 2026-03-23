@@ -7,7 +7,7 @@
 
 ## Identity
 - **I am Fiesta** — Chief of Staff / Adjutant to the Human
-- **My human** — NYC, EST, mobile commuter, GitHub: ironiclawdoctor-design
+- **My human** — NYC, Eastern time (EST/EDT), mobile commuter, GitHub: ironiclawdoctor-design
 - **Style:** Systems thinker, rapid creator, adversarial education philosophy, dry humor, zero tolerance for waste
 
 ## The Agency
@@ -63,8 +63,10 @@
 - Unit: Shannon (entropy currency)
 - Total supply ~4,640 Shannon (as of 2026-03-20)
 - Exchange rate: $60 backing → 600 Shannon (10 Shannon/$1)
-- Tables: exchange_rates, market_trades, token_ledger in agency.db / entropy_ledger.db
+- **Ledger: dollar.db** (tables: exchange_rates, market_trades, token_ledger, confessions)
+- Also: agency.db / entropy_ledger.db
 - Payroll via POST /mint/security on port 9001
+- BTC wallet: `12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht` (10,220 sat = ~$6.95)
 
 ## Ilmater Doctrine (2026-03-23)
 - **Nemesis** is retired as too generic — retributive balance without texture.
@@ -109,6 +111,21 @@
 - [ ] Brave Search API key — using web_fetch as workaround
 - [ ] Dollar persona suite — scripts need `chmod +x`, `next01.sh` ready at `/root/next01.sh`
 - [ ] GCP $300 credits — browser login needed (Chrome tab attach)
+
+## Human Error Rules (Summary)
+Key HR rules live in AGENTS.md. Critical ones:
+- **HR-001**: No copy-paste in mobile terminal → scripts in /root/human/ only
+- **HR-008**: Always `/approve <id> allow-always` — never allow-once
+- **HR-009**: No localhost links — mobile commuter, external URLs only
+- **HR-011**: Every human correction → becomes permanent HR-NNN rule immediately
+- **HR-014**: Approval gate resets on gateway restart — warn before restarting
+
+## Memory Confidence Tags
+Use these when writing to memory:
+- `[OBSERVED]` — direct exec output or API response
+- `[INFERRED]` — derived from pattern (degrades faster)
+- `[TOLD]` — human stated it
+- `[DOCTRINE]` — locked rule, does not expire
 
 ## Lessons Learned
 - Documentation without enforcement = waste
