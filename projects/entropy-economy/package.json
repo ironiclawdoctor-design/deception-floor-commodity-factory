@@ -9,11 +9,18 @@
     "start": "node src/server.js",
     "test": "node --test src/test.js"
   },
-  "keywords": ["entropy", "currency", "internal-economy", "fiesta-agents"],
+  "keywords": [
+    "entropy",
+    "currency",
+    "internal-economy",
+    "fiesta-agents"
+  ],
   "author": "Growth Engineer (Marketing Department)",
   "license": "UNLICENSED",
   "dependencies": {
-    "sqlite3": "^5.1.6",
-    "express": "^4.18.2"
+    "ejs": "^5.0.1",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "sqlite3": "^5.1.6"
   }
 }

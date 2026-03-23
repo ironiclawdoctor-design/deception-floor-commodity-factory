@@ -1,49 +1,49 @@
-# Autoresearch Config — Agency Zero-Human Operations
+# Autoresearch Configuration — Agency Status Monitor
 
-## GOAL
-Minimize human touchpoints per agency operation cycle to 0.
-Find and document the patterns that let the agency run, persist, and improve
-without any human in the loop.
+## Goal
+Continuous autonomous status reporting across all agency systems. No human input required. Results delivered via Telegram announce.
 
-## METRIC
-**Human Touchpoints Per Agency Cycle** — lower is better, target = 0
+## Metric
+- **Name**: systems_healthy
+- **Direction**: higher is better (0–10 scale, 10 = all green)
+- **Extract command**: sqlite3 /root/.openclaw/workspace/agency.db "SELECT COUNT(*) FROM shanrouter_log WHERE ts > datetime('now','-1 hour');"
 
-Extract command (agent-executable):
-```bash
-# Count human touchpoints in current workflow docs
-grep -r "Human runs\|HR-004\|ask human\|human must" /root/.openclaw/workspace/*.md 2>/dev/null | grep -v "^Binary" | wc -l
+## Target Files
+- /root/.openclaw/workspace/dollar/dollar.db (ledger health)
+- /root/.openclaw/workspace/agency.db (routing + ultimatums)
+- /root/human/last-run.log (deploy pipeline)
+- /root/human/btc-status.json (wallet)
+- /root/.openclaw/workspace/AUTONOMOUS.md (mission state)
+
+## Read-Only Files
+- /root/.openclaw/workspace/MEMORY.md (source of truth)
+- /root/.openclaw/workspace/AGENTS.md (rules)
+
+## Run Command
+```
+python3 /root/.openclaw/workspace/shanrouter/shanrouter.py --report
+sqlite3 /root/.openclaw/workspace/dollar/dollar.db "SELECT '💰 $'||total_backing_usd||' → '||total_shannon_supply||' Shannon | Confessions: '||(SELECT COUNT(*) FROM confessions) FROM exchange_rates ORDER BY date DESC LIMIT 1;"
+cat /root/human/btc-status.json 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'₿ {d[\"balance_satoshi\"]} sat = \${d[\"balance_usd\"]:.2f}')" 2>/dev/null || echo "₿ btc-status.json not found"
+tail -3 /root/human/last-run.log 2>/dev/null
 ```
 
-## TARGET FILES
-- `/root/.openclaw/workspace/autoresearch.config.md` — this config (modifiable)
-- `/root/.openclaw/workspace/agency/zero-human-cycle.sh` — full autonomous cycle script
-- `/root/.openclaw/workspace/logs/autoresearch-zero-human-*.log` — agent-written logs (no human needed)
-- `/root/.openclaw/workspace/agency/best-practices-zero-human.md` — codified doctrine
+## Time Budget
+- **Per experiment**: 2 minutes
+- **Kill timeout**: 5 minutes
 
-## RUN COMMAND (AGENT-EXECUTABLE — no human required)
-```bash
-cd /root/.openclaw/workspace && bash agency/zero-human-cycle.sh 2>&1 | tee logs/agency-cycle-$(date +%Y%m%d-%H%M%S).log
-```
+## Constraints
+- No subagent spawning in status checks
+- SQLite queries only for data retrieval
+- Bash tier for all reads
+- Report must fit in 10 lines
 
-## CONSTRAINTS
-- Do NOT modify service account JSON
-- Do NOT expose credentials
-- All exec commands pre-approved (PREAUTH.md — 86 remaining)
-- HR-004 is OBSOLETE: agent runs exec directly, no human shell needed
+## Branch
+autoresearch/status-monitor
 
-## CURRENT STATE (2026-03-22 21:26 UTC)
-- EVAL 1 EXEC AUTONOMY: ✅ PASS
-- EVAL 2 CRON PERSISTENCE: ✅ PASS (after exp #4)
-- EVAL 3 SELF-LOGGING: ✅ PASS
-- EVAL 4 SUCCESSION CHAIN: ✅ PASS
-- EVAL 5 ZERO-HUMAN CYCLE: ✅ PASS
+## Cron
+Every 4 hours, isolated session, announce to Telegram on any WARN or FAIL.
 
-## EXPERIMENT LOG
-| # | Change | Result | Score |
-|---|--------|--------|-------|
-| 0 | Baseline — human-dependent autoresearch | 1.5/5 | — |
-| 1 | Agent self-logs via exec/tee | ✅ KEEP | +1 → 2.5/5 |
-| 2 | Rewrite autoresearch.config.md RUN COMMAND | ✅ KEEP | structural |
-| 3 | Create zero-human-cycle.sh (full cycle) | ✅ KEEP | +1 → 3.5/5 |
-| 4 | Schedule cron for agency cycle | ✅ KEEP | +1 → 4.5/5 |
-| 5 | Write best-practices-zero-human.md | ✅ KEEP | +0.5 → 5/5 |
+## Notes
+Stage 0 (doctor) only — the one verifiable knife.
+Stage 1 (systems_healthy) deferred: IRL values (BTC, ledger, deploy log) are stale until
+a live data source is confirmed. Scoring them is theater. Smaller half is mine.

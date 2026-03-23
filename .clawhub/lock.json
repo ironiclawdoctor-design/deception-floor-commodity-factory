@@ -4,6 +4,10 @@
     "agency-agents": {
       "version": "1.0.2",
       "installedAt": 1773343999409
+    },
+    "grok": {
+      "version": "1.0.3",
+      "installedAt": 1774151148642
     }
   }
 }

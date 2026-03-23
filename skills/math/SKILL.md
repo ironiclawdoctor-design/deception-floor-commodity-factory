@@ -1,5 +1,7 @@
 ---
 name: math
+version: 1.0.0
+license: MIT
 description: "Solve mathematical problems with full working, symbolic manipulation, numerical computation, proofs, and verification. Use when: (1) computing arithmetic, algebra, calculus, linear algebra, statistics, number theory, combinatorics, or discrete math, (2) verifying a proof or derivation, (3) explaining a math concept step-by-step, (4) checking if an answer is correct, (5) converting between mathematical representations. NOT for: general coding tasks (use engineering agents), financial modeling (use finance-ops)."
 ---
 

@@ -1,5 +1,7 @@
 ---
 name: ampere-sh
+version: 1.0.0
+license: MIT
 description: >-
   Operational guide to the Ampere.sh hosting platform — resource limits, security model, service map,
   cost model, and agent capabilities. Use when: (1) checking what agents can/cannot do on Ampere.sh,

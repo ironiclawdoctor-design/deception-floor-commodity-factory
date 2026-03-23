@@ -1,8 +1,0 @@
-[2026-03-22T21:31:47Z] 🔍 BTC Monitor starting — address: 12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht
-[2026-03-22T21:31:47Z] 📊 [blockchain.info] Balance: 0.00010220 BTC | Received: 0.00010220 BTC | Txns: 1
-[2026-03-22T21:31:47Z] 🚨 NEW TRANSACTIONS DETECTED: 1 new (was 0, now 1)
-[2026-03-22T21:31:47Z] 💱 BTC price: $67,804.00
-[2026-03-22T21:31:47Z] 💰 New BTC: 0.00010220 BTC = $6.93 USD → 69 Shannon
-[2026-03-22T21:31:47Z] 🔵 DRY RUN — skipping DB write
-[2026-03-22T21:31:47Z]    Would mint: 69 Shannon
-[2026-03-22T21:31:47Z]    Would log: BTC donation: 0.00010220 BTC received at 12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht ($6.93 USD @ $67,804/BTC → 69 Shannon)

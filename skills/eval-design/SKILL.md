@@ -1,5 +1,7 @@
 ---
 name: eval-design
+version: 1.0.0
+license: MIT
 description: "Design, audit, and expand autoresearch eval suites. Use when: (1) starting a new autoresearch run and need evals, (2) an eval suite has hit 100% and needs expansion, (3) auditing whether existing evals are measuring the right things, (4) an eval keeps failing but the fix is unclear. NOT for: scoring outputs (use the eval suite itself), general QA (use qa-testing agents). Root causes of eval success are in references/root-causes.md."
 ---
 

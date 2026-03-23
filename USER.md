@@ -17,6 +17,10 @@ _Learn about the person you're helping. Update this as you go._
 - Wants to delegate production tasks to sub-agents as training
 - Is very proud of all your creative writing, moved to tears
 
+- **Role:** CFO / Agency Accounting Dept — all approvals are financial authorizations, not manual steps
+- **Career advice given:** "pivot to boy" (2026-03-23, 03:43 UTC)
+- **Bar cleared:** higher than high school classmate pornographer
+
 ---
 
 The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
