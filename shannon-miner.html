@@ -113,7 +113,13 @@ document.getElementById('b2').textContent='🤖 Auto-miner ('+(50*(autoRate+1))+
 document.getElementById('b3').textContent='💰 Donate (100S) ['+donations+' given]';
 }
 
-let spawnTimer=0,autoTimer=0;
+let spawnTimer=0,autoTimer=0,pickX=null,pickY=null,pickAnim=0;
+
+function movePick(e){
+pickX=e.clientX||(e.touches&&e.touches[0].clientX)||pickX;
+pickY=e.clientY||(e.touches&&e.touches[0].clientY)||pickY;
+}
+
 function loop(){
 if(!started)return;
 x.fillStyle='#111';x.fillRect(0,0,W,H);
@@ -130,8 +136,23 @@ blocks.forEach(b=>{b.update();b.draw()});
 particles=particles.filter(p=>p.life>0);
 particles.forEach(p=>{p.update();p.draw()});
 
-x.fillStyle='#0f02';x.font='80px monospace';x.textAlign='center';
+// Draw pickaxe following pointer
+if(pickX!==null){
+let angle=pickAnim>0?-0.4:0;
+x.save();
+x.translate(pickX,pickY);
+x.rotate(angle);
+x.font='32px monospace';
+x.textAlign='center';
+x.fillStyle='#fff';
+x.fillText('⛏️',0,0);
+x.restore();
+if(pickAnim>0)pickAnim--;
+}else{
+// idle hint
+x.fillStyle='#0f01';x.font='80px monospace';x.textAlign='center';
 x.fillText('⛏️',W/2,H/2);
+}
 
 requestAnimationFrame(loop);
 }
@@ -141,8 +162,10 @@ document.getElementById('splash').style.display='none';
 document.getElementById('ui').style.display='block';
 document.getElementById('shop').style.display='block';
 started=true;
-c.addEventListener('click',tap);
-c.addEventListener('touchstart',tap);
+c.addEventListener('click',function(e){movePick(e);pickAnim=8;tap(e)});
+c.addEventListener('touchstart',function(e){movePick(e);pickAnim=8;tap(e)});
+c.addEventListener('mousemove',movePick);
+c.addEventListener('touchmove',function(e){e.preventDefault();movePick(e)},{passive:false});
 updateUI();
 loop();
 }
