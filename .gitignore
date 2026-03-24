@@ -1,2 +1,4 @@
 bedrock-results/
 scan_image.jpg
+secrets/github-pat.txt
+secrets/*.txt
