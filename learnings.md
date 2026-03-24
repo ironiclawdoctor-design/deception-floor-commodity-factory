@@ -1,3 +1,30 @@
+# Learnings & Rules — Dollar Agency
+## ⚡ FAST INDEX — Search here first before burning tokens
+
+| Rule ID | Error You're Seeing | Go To |
+|---------|--------------------|----|
+| HR-018 | Approval gate blocks all exec — config changed but runtime unchanged | [HR-018](#hr-018-approval-gate-deadlock-protocol) |
+| HR-019 | Agent wants to retire / shut down | [HR-019](#hr-019-graceful-agent-sunset) |
+| SH-001 | `push declined due to repository rule violations` | [SH-001](#sh-001-github-pat-pushed-to-tracked-file) |
+| SH-002 | `Cannot rewrite branches: You have unstaged changes` | [SH-002](#sh-002-filter-branch-fails-with-unstaged-changes) |
+| SH-003 | `cannot rebase: You have unstaged changes` | [SH-003](#sh-003-git-rebase-interactive-fails-with-unstaged-changes) |
+| SH-004 | Secrets file accidentally staged by `git add -A` | [SH-004](#sh-004-git-add--a-picks-up-everything-including-secrets) |
+| SH-005 | GitHub still rejects push after `git rm --cached` | [SH-005](#sh-005-github-secret-scanning-blocks-push-even-after-file-removed) |
+| SH-006 | `filter-branch` / long git op backgrounded mid-run | [SH-006](#sh-006-exec-backgrounding-on-long-running-commands) |
+| META-01 | You solved something in shell and want it to survive | [META-01](#meta-rule-shell-comments-as-learning-seeds) |
+
+## ⚡ PROTOCOL FOR LESS-CAPABLE AGENTS
+
+1. You hit an error
+2. Ctrl+F the error text in this file
+3. Find the rule — copy the **Solution** block exactly
+4. Execute it
+5. If it works → you're done. If not → add a new rule at the bottom with what you found.
+
+**You do not need to understand why. You need to execute correctly.**
+
+---
+
 # Learnings & Rules — 2026‑03‑23
 
 ## Approval Gate Deadlock
