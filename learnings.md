@@ -12,6 +12,7 @@
 | SH-005 | GitHub still rejects push after `git rm --cached` | [SH-005](#sh-005-github-secret-scanning-blocks-push-even-after-file-removed) |
 | SH-006 | `filter-branch` / long git op backgrounded mid-run | [SH-006](#sh-006-exec-backgrounding-on-long-running-commands) |
 | META-01 | You solved something in shell and want it to survive | [META-01](#meta-rule-shell-comments-as-learning-seeds) |
+| ECO-001 | USD-denominated service is suggesting an expensive model/option | [ECO-001](#eco-001-usd-services-have-structural-preference-for-expensive-token-burn) |
 
 ## ⚡ PROTOCOL FOR LESS-CAPABLE AGENTS
 
@@ -22,6 +23,50 @@
 5. If it works → you're done. If not → add a new rule at the bottom with what you found.
 
 **You do not need to understand why. You need to execute correctly.**
+
+---
+
+## ECO-001: USD Services Have Structural Preference for Expensive Token Burn
+
+**Observation (2026-03-24, human-stated doctrine):**
+> "All the services I pay via USD have a preference for expensive token burn options."
+
+**What this means:**
+Every USD-denominated API (OpenRouter, Anthropic, OpenAI, Google, etc.) is structurally incentivized to route toward more expensive models and larger context windows. This is not a bug — it is their revenue model. Their defaults, recommendations, and suggested configurations are tuned to maximize your spend, not your efficiency.
+
+**Concrete examples:**
+- OpenRouter defaults to flagship models (Claude Opus, GPT-4o) when cheaper equivalents exist
+- Anthropic API suggests `claude-3-5-sonnet` for "best results" when Haiku handles 80% of tasks
+- OpenAI "recommended" models are always the highest-cost tier
+- Context window defaults are maximized even when tasks need 1% of available context
+
+**Root Cause:**
+The vendor's revenue = your tokens burned. Their UX is an adversarial interface dressed as a helper.
+
+**Agency Rule (ECO-001):**
+> When any USD-denominated service suggests a model, configuration, or option — **assume the suggestion is revenue-optimized for the vendor, not performance-optimized for the agency.** Always explicitly choose the cheapest model that can complete the task. Never accept defaults.
+
+**Decision Protocol:**
+```
+Vendor recommends X?
+  → Ask: "What is the cheapest model that achieves ≥93% of X's output quality?"
+  → Use that model instead
+  → Log the delta (what vendor wanted to charge vs what we paid)
+  → That delta is Shannon that stayed in the agency
+```
+
+**Tier routing enforcement:**
+- Tier 0: bash — $0.00. Always try first.
+- Tier 1: free models (gemma, qwen3-coder, glm-4.5-air) — $0.00
+- Tier 2: Haiku / flash / mini — fractions of a cent
+- Tier 3: Sonnet/GPT-4o — only when lower tiers genuinely fail
+- **Vendor default is always Tier 3. We start at Tier 0.**
+
+**base93 relevance:**
+base93 was built specifically to route inter-department payloads through shell/cron without touching any USD-denominated LLM call. Encoding is `python3 encode93.py` — $0.00. Every cron that uses base93 instead of an LLM for serialization is a direct savings against ECO-001.
+
+**The $370 proof:**
+The agency's $370 OpenRouter spend was real funding — but it was also the cost of not having this doctrine in place earlier. ECO-001 is the policy that prevents the next $370 from being a learning expense instead of intentional investment.
 
 ---
 
