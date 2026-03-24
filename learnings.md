@@ -58,3 +58,148 @@
 4. Add autoresearch interrupt skill to existing pipelines
 
 **Principle upheld:** Incomplete go is better than incorrect delay. The deadlock is raw data for system improvement.
+
+---
+
+# Shell Exec Learnings — 2026-03-24
+
+*Rule: Every shell exec problem encountered in session becomes a problem→solution rule pairing immediately. Smell is raw failure data.*
+
+---
+
+## SH-001: GitHub PAT Pushed to Tracked File
+
+**Problem:** GitHub PAT token pasted into chat → saved to `secrets/github-pat.txt` → file committed to git → GitHub secret scanning blocked the push with:
+```
+remote: push declined due to repository rule violations
+```
+
+**Root Cause:** `git add -A` picked up the secrets file before it was gitignored. Secret entered git history even though file was subsequently deleted.
+
+**Solution:**
+```bash
+# Step 1: Remove from git tracking (not from disk)
+git rm --cached secrets/github-pat.txt
+
+# Step 2: Add to .gitignore
+echo "secrets/github-pat.txt" >> .gitignore
+echo "secrets/*.txt" >> .gitignore
+
+# Step 3: Rewrite history to scrub the file from ALL commits
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter \
+  'git rm --cached --ignore-unmatch secrets/github-pat.txt' \
+  --prune-empty --tag-name-filter cat -- <last-clean-commit>..HEAD
+
+# Step 4: Force push clean history
+git push --force allows_all master
+```
+
+**Rule (SH-001):**
+> **Write secrets to disk FIRST, gitignore SECOND, then `git add`.** Never reverse this order. Pattern: `write tool → chmod 600 → add to .gitignore → verify gitignore works → then git add -A`. If PAT or credential appears in chat, save it via `write` tool to `secrets/` which is already gitignored before committing anything.
+
+---
+
+## SH-002: filter-branch Fails With Unstaged Changes
+
+**Problem:** Running `git filter-branch` while working tree had unstaged changes (submodules) caused:
+```
+Cannot rewrite branches: You have unstaged changes.
+```
+
+**Root Cause:** `filter-branch` requires a clean working tree to safely rewrite history. Submodule modifications count as unstaged changes.
+
+**Solution:**
+```bash
+# Stash first, filter-branch second, pop after
+git stash
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter \
+  'git rm --cached --ignore-unmatch <file>' \
+  --prune-empty --tag-name-filter cat -- <commit>..HEAD
+git stash pop
+```
+
+**Rule (SH-002):**
+> **Before any history-rewriting git command, run `git stash` first.** Always `git stash pop` after. Submodule diffs count as unstaged — they will block `filter-branch`, `rebase -i`, and `reset --hard`.
+
+---
+
+## SH-003: git remote rebase Interactive Fails With Unstaged Changes
+
+**Problem:** Attempted `git rebase -i b14def1c` to squash commits — failed immediately with:
+```
+error: cannot rebase: You have unstaged changes.
+```
+
+**Root Cause:** Same as SH-002. Interactive rebase also requires clean working tree.
+
+**Solution:** `git stash` before rebase, `git stash pop` after, or use `filter-branch` approach for history scrubbing which is more surgical.
+
+**Rule (SH-003):**
+> **Preferred method for removing a specific file from git history is `filter-branch --index-filter` with `git stash` wrapper, NOT interactive rebase.** Rebase is for commit message/order changes; filter-branch is for file removal from history.
+
+---
+
+## SH-004: `git add -A` Picks Up Everything Including Secrets
+
+**Problem:** Running `git add -A` in workspace root committed `secrets/github-pat.txt` even though the intent was to add only new skill files and the ops manual.
+
+**Root Cause:** `git add -A` is nuclear — it stages everything untracked or modified, including sensitive files not yet gitignored.
+
+**Solution:** 
+```bash
+# Always gitignore secrets directory before ANY git add
+cat >> .gitignore << 'EOF'
+secrets/
+secrets/*.json
+secrets/*.txt
+secrets/*.key
+secrets/*.pem
+EOF
+
+# Then commit the gitignore update first in isolation
+git add .gitignore
+git commit -m "gitignore: protect secrets directory before adding other files"
+
+# Now safe to git add -A
+git add -A
+```
+
+**Rule (SH-004):**
+> **Before running `git add -A` in workspace, verify `secrets/` is in `.gitignore`.** Run `cat .gitignore | grep secrets` before every bulk add. If not present, add it immediately as a standalone commit. The cost of fixing a leaked secret (token rotation, history rewrite, force push) is 10x the cost of one extra `git status` check.
+
+---
+
+## SH-005: GitHub Secret Scanning Blocks Push Even After File Removed
+
+**Problem:** Even after running `git rm --cached secrets/github-pat.txt` and committing the removal, GitHub still blocked the push because the token existed in a **previous commit** in the push range.
+
+**Root Cause:** GitHub secret scanning scans the entire diff of commits being pushed, not just the HEAD state. If a secret appears in any commit in the push, the entire push is rejected.
+
+**Solution:** Must rewrite history to remove the file from ALL commits in the push range using `filter-branch` or `git filter-repo`. Then force-push.
+
+**Rule (SH-005):**
+> **`git rm` does not remove a file from history — it only removes it from HEAD.** GitHub secret scanning sees all commits in a push. To truly remove a secret from git, use `filter-branch` history rewrite + force push. There is no shortcut. Token must also be rotated at the provider after any exposure.
+
+---
+
+## SH-006: `exec` Backgrounding on Long-Running Commands
+
+**Problem:** `git filter-branch` ran for several seconds and the exec session backgrounded before completion, requiring `process poll` to get results.
+
+**Root Cause:** OpenClaw exec has a default timeout after which it backgrounds long-running commands.
+
+**Solution:**
+```bash
+# For commands expected to run >10s, use yieldMs parameter
+# Or poll with process tool after backgrounding
+```
+
+**Rule (SH-006):**
+> **For git history operations (filter-branch, rebase, gc), use `process poll` with timeout to wait for completion.** These commands can take 5-30 seconds depending on repo size. Do not assume they completed when the exec call returns — check exit code via process poll.
+
+---
+
+## META-RULE: Shell Comments as Learning Seeds
+
+**Rule (META-01):**
+> **Every shell exec block that solves a problem MUST have its solution pattern extracted to `learnings.md` as a problem→solution rule pair before the session ends.** The shell comment `# <explanation>` inside the exec is the seed — expand it here with: Problem, Root Cause, Solution (code), Rule. Smell is raw failure data. Rules are the processed output.
