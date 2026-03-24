@@ -1,6 +1,12 @@
 # Bootstrap Rules — /new Session Startup
 # Derived from 2026-03-23 session errors. Read before doing anything else.
 
+## First: Load PRECEPTS.md
+`/root/.openclaw/workspace/PRECEPTS.md` — 29 compressed rules, all series. Load this before AGENTS.md.
+When in doubt, the Precept governs. Subclauses are in source files.
+
+---
+
 ## On /new or /reset — Do These First
 
 ### BR-NEW-001: Re-enable Telegram Exec Approvals

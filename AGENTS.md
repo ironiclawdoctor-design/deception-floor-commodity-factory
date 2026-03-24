@@ -466,6 +466,8 @@ When any deadlock is detected:
 
 ## Inactivity Doctrine
 
+- **SR-022 (2026-03-24):** `gemma-3-27b-it:free` has NO tool-use endpoint — 404 on any cron/agent job that calls tools. Sideload to `qwen3-coder:free` or `z-ai/glm-4.5-air:free` for all isolated agentTurn crons. Gemma:free is main-session chat only.
+
 - **SR-021 (2026-03-23):** Inactive code with correct shape is preferable to deletion. Suspension preserves the cache — intent, wiring, and structure remain intact at zero activation cost. Destroy only when the shape itself is wrong. Mark suspended code with `# DEFERRED:` comments and document the reactivation trigger.
 
 ## Make It Yours
