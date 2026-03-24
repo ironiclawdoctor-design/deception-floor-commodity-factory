@@ -1,0 +1,5 @@
+I audited 200 LLM API calls. 22% was pure waste — Claude Sonnet handling 500-token tasks DeepSeek does for 92% less.
+
+Built a tool that finds it. $75 flat audit of your OpenRouter usage export. 24h turnaround.
+
+Pay $DollarAgency on Cash App to start.

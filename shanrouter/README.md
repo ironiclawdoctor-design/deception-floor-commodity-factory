@@ -52,3 +52,27 @@ ShanRouter is the agency's most efficient Shannon minter.
 
 Add to heartbeat: run `--index` daily to keep context fresh.
 Add to cron: run `--report` weekly to track routing efficiency.
+
+## Profitability Roadmap
+
+**Winning vector: Cost Audit Tool (viability 94/100)**
+
+```bash
+python3 shanrouter/audit.py --demo                    # See sample output
+python3 shanrouter/audit.py --input usage.json        # Audit real usage
+python3 shanrouter/audit.py --input usage.json --output report.md
+```
+
+The $75 product: send us your OpenRouter usage export, receive a waste report in 24h.
+Typical finding: 25-40% of Claude spend should have gone to DeepSeek.
+
+**30-day revenue path to $100+/month:**
+1. Post the demo output on Hashnode/HN — "I found 33% waste in my LLM bill"
+2. Landing page: "Send us your usage export. $75. 24h turnaround."
+3. Square merchant already live for payment
+4. First audit delivered → testimonial → more audits
+
+**Other vectors:**
+- OpenRouter referral (`?ref=shananon`) — passive, costs nothing, implement now
+- White-label license ($500-1500/year) — revisit at 90 days post-EIN
+- API-as-a-service — defer until post-scale

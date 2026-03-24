@@ -1,0 +1,20 @@
+{
+  "cfo": "Allowed Feminism \u2014 NYC commuter, A line, Eastern time",
+  "dentist": {
+    "name": null,
+    "address": null,
+    "phone": null,
+    "in_network": null,
+    "specialty": "General / Cosmetic"
+  },
+  "insurance": {
+    "provider": null,
+    "plan": null,
+    "group_number": null,
+    "member_id": null
+  },
+  "appointments": [],
+  "pending_treatments": [],
+  "last_cleaning": null,
+  "notes": []
+}

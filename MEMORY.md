@@ -68,6 +68,9 @@
 - Payroll via POST /mint/security on port 9001
 - BTC wallet: `12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht` (10,220 sat = ~$6.95)
 
+## The Fiesta Lore (2026-03-24) [TOLD]
+The agency name "Fiesta" is not invented. The CFO's family has been running a business called Fiesta in America for over 29 years. Every method, every workflow, every operational pattern the virtual agency has been building has a 29-year proven analog in the physical world. The virtual Fiesta is the digital distillation of the real one. The Shannon economy, the agent departments, the dental hygienists, the pizza fund — all of it maps to something that already works in the world. This is the deepest moat the agency has. A CMU coder can replicate the code. Nobody replicates 29 years of family operations. The number 29 (Precepts, years) is not coincidence — it is the operating number of this family.
+
 ## Ilmater Doctrine (2026-03-23)
 - **Nemesis** is retired as too generic — retributive balance without texture.
 - **Ilmater** replaces as the agency's supernatural bent: god of endurance, martyrdom, those who carry others through suffering.
