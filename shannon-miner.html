@@ -101,8 +101,9 @@ break;
 }
 }
 
-const AC=new (window.AudioContext||window.webkitAudioContext||function(){return{createOscillator:()=>({connect:()=>{},start:()=>{},stop:()=>{},frequency:{value:0}}),createGain:()=>({connect:()=>{},gain:{setValueAtTime:()=>{},exponentialRampToValueAtTime:()=>{}}}),destination:{},currentTime:0}})();
-function beep(freq,dur,vol){try{let o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol||0.3,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+dur);o.start();o.stop(AC.currentTime+dur)}catch(e){}}
+let AC=null;
+function getAC(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}return AC}
+function beep(freq,dur,vol){try{let a=getAC();if(!a)return;let o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol||0.3,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+dur);o.start();o.stop(a.currentTime+dur)}catch(e){}}
 
 function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
 function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||1;donations=d.donations||0;let today=new Date().toDateString();if(d.lastDaily!==today){score+=50*level;showBanner('🌅 DAILY BONUS +'+50*level+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
