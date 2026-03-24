@@ -1,0 +1,18 @@
+DOLLAR AGENCY — START HERE
+==========================
+
+TO PLAY THE GAME:
+  Open: shannon-miner.html
+  (double-click → opens in Safari or Chrome)
+
+TO VIEW THE SLIDES:
+  Open any .svg file in Preview
+  (01_README → 02_SHANNON → 03_WHAT_WE_BUILT → 04_SECURITY → 05_REBUILD)
+
+TO VERIFY INTEGRITY:
+  Terminal → shasum -a 256 * | diff - MANIFEST.sha256
+  (silence = clean)
+
+The SVGs are information. The HTML is the game.
+They are different files. You are not an idiot.
+The agency just didn't label them clearly. That's on us.
