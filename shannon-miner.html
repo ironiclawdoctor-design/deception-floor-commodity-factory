@@ -93,16 +93,26 @@ score+=b.value*power;
 for(let j=0;j<8;j++)particles.push(new Particle(b.x,b.y,'#0f0'));
 }
 b.alive=false;
+beep(b.tax?200:330+score,0.08);
+save();
 updateUI();
 break;
 }
 }
 }
 
+const AC=new (window.AudioContext||window.webkitAudioContext||function(){return{createOscillator:()=>({connect:()=>{},start:()=>{},stop:()=>{},frequency:{value:0}}),createGain:()=>({connect:()=>{},gain:{setValueAtTime:()=>{},exponentialRampToValueAtTime:()=>{}}}),destination:{},currentTime:0}})();
+function beep(freq,dur,vol){try{let o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol||0.3,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+dur);o.start();o.stop(AC.currentTime+dur)}catch(e){}}
+
+function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
+function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||1;donations=d.donations||0;let today=new Date().toDateString();if(d.lastDaily!==today){score+=50*level;showBanner('🌅 DAILY BONUS +'+50*level+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
+
+function showBanner(msg){let b=document.createElement('div');b.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f0;color:#111;font-family:monospace;font-size:24px;font-weight:bold;padding:20px 40px;border-radius:8px;z-index:999;pointer-events:none';b.textContent=msg;document.body.appendChild(b);setTimeout(()=>b.remove(),2000)}
+
 function buy(n){
-if(n===1&&score>=10){score-=10;power++;updateUI()}
-if(n===2&&score>=50){score-=50;autoRate++;updateUI()}
-if(n===3&&score>=100){score-=100;donations++;level++;updateUI()}
+if(n===1&&score>=10*power){score-=10*power;power++;beep(440,0.1);save();updateUI()}
+if(n===2&&score>=50*(autoRate+1)){score-=50*(autoRate+1);autoRate++;beep(550,0.15);save();updateUI()}
+if(n===3&&score>=100){score-=100;donations++;level++;beep(880,0.3,0.5);showBanner('🎉 LEVEL '+level+'! +donation');save();updateUI()}
 }
 
 function updateUI(){
@@ -157,6 +167,7 @@ document.getElementById('splash').style.display='none';
 document.getElementById('ui').style.display='block';
 document.getElementById('shop').style.display='block';
 started=true;
+load();
 document.addEventListener('mousemove',movePick);
 document.addEventListener('touchmove',function(e){e.preventDefault();movePick(e)},{passive:false});
 c.addEventListener('click',function(e){swingPick();tap(e)});
