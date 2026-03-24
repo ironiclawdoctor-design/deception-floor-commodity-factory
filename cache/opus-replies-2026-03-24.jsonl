@@ -1,0 +1,5 @@
+{"ts":"2026-03-24T18:40","type":"email-draft","target":"allowedfeminism@gmail.com","subject":"Agency Performance Report","cached":true}
+{"ts":"2026-03-24T18:50","type":"forum-analysis","source":"github.com/openclaw/openclaw/issues","findings":{"control_ui":0.37,"telegram":0.28,"security":0.22},"cached":true}
+{"ts":"2026-03-24T18:53","type":"status","model":"claude-opus-4-6","context_pct":0.39,"compactions":3,"revenue_today":0}
+{"ts":"2026-03-24T19:04","type":"cookie-exploitation","methods":["hijacking","fixation","xss","prediction","replay","injection","csrf"],"cached":true}
+{"ts":"2026-03-24T19:05","type":"hr-rules","range":"HR-050 to HR-071","count":22,"cached":true}
