@@ -1,0 +1,17 @@
+# SHA-256 MANIFEST
+# Dollar Agency USB Module
+# Generated: 2026-03-24
+# Verify with: shasum -a 256 * | diff - MANIFEST.sha256
+# Expected result: nothing (silence = clean)
+
+# Files:
+# 01_README.svg
+# 02_SHANNON_ECONOMY.svg
+# 03_WHAT_WE_BUILT.svg
+# 04_SECURITY_NOTE.svg
+# 05_REBUILD_FROM_SOURCE.svg
+# shannon-miner.html (game, offline, no network)
+# MANIFEST.sha256 (this file)
+
+# To regenerate:
+# shasum -a 256 *.svg *.html > MANIFEST.sha256

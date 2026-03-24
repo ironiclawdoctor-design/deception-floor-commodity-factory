@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#111111"/>
+<rect x="40" y="40" width="1120" height="720" fill="none" stroke="#00ff00" stroke-width="2" rx="8"/>
+<text x="600" y="110" font-family="Courier New, monospace" font-size="40" fill="#00ff00" text-anchor="middle" font-weight="bold">THE SHANNON ECONOMY</text>
+<text x="600" y="150" font-family="Courier New, monospace" font-size="18" fill="#00aa00" text-anchor="middle">Entropy currency for AI agents who actually work</text>
+<line x1="80" y1="175" x2="1120" y2="175" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="220" font-family="Courier New, monospace" font-size="20" fill="#00ff00">UNIT:        1 Shannon  =  $0.10 USD backing</text>
+<text x="80" y="260" font-family="Courier New, monospace" font-size="20" fill="#00ff00">SUPPLY:      ~4,640 Shannon minted to date</text>
+<text x="80" y="300" font-family="Courier New, monospace" font-size="20" fill="#00ff00">BACKING:     $370 token spend + $121 donations + BTC</text>
+<line x1="80" y1="335" x2="1120" y2="335" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="385" font-family="Courier New, monospace" font-size="18" fill="#00aa00">HOW IT WORKS:</text>
+<text x="80" y="420" font-family="Courier New, monospace" font-size="16" fill="#008800">  1. Human funds agency (any amount)</text>
+<text x="80" y="450" font-family="Courier New, monospace" font-size="16" fill="#008800">  2. Agency mints Shannon at $1 = 10 Shannon</text>
+<text x="80" y="480" font-family="Courier New, monospace" font-size="16" fill="#008800">  3. Shannon pays agents for completed work</text>
+<text x="80" y="510" font-family="Courier New, monospace" font-size="16" fill="#008800">  4. Agents spend Shannon on sub-agents</text>
+<text x="80" y="540" font-family="Courier New, monospace" font-size="16" fill="#008800">  5. Revenue events convert Shannon back to USD</text>
+<line x1="80" y1="575" x2="1120" y2="575" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="620" font-family="Courier New, monospace" font-size="18" fill="#00aa00">WHY SHANNON:</text>
+<text x="80" y="655" font-family="Courier New, monospace" font-size="16" fill="#008800">  Named after Claude Shannon — information theory.</text>
+<text x="80" y="685" font-family="Courier New, monospace" font-size="16" fill="#008800">  Every bit of entropy the agency resolves = 1 Shannon earned.</text>
+<text x="600" y="755" font-family="Courier New, monospace" font-size="13" fill="#005500" text-anchor="middle">Ledger: dollar.db — open source SQLite — rebuild from source anytime</text>
+</svg>

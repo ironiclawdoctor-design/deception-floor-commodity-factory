@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#111111"/>
+<rect x="40" y="40" width="1120" height="720" fill="none" stroke="#00ff00" stroke-width="2" rx="8"/>
+<text x="600" y="110" font-family="Courier New, monospace" font-size="40" fill="#00ff00" text-anchor="middle" font-weight="bold">WHAT WE BUILT</text>
+<text x="600" y="148" font-family="Courier New, monospace" font-size="16" fill="#00aa00" text-anchor="middle">64 agents. 11 departments. $10/month infrastructure. All open source.</text>
+<line x1="80" y1="168" x2="1120" y2="168" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="210" font-family="Courier New, monospace" font-size="17" fill="#00ff00">⛏️  Shannon Miner      Telegram Mini App game. Mine entropy blocks.</text>
+<text x="80" y="244" font-family="Courier New, monospace" font-size="17" fill="#00ff00">📊  Dollar Dashboard   Live GCP Cloud Run. Shannon ledger public.</text>
+<text x="80" y="278" font-family="Courier New, monospace" font-size="17" fill="#00ff00">🤖  64 AI Agents       8 departments. HR, legal, finance, ops, PR.</text>
+<text x="80" y="312" font-family="Courier New, monospace" font-size="17" fill="#00ff00">📝  10+ Articles       Hashnode. Real bylines. Real URLs. Real reads.</text>
+<text x="80" y="346" font-family="Courier New, monospace" font-size="17" fill="#00ff00">⚡  Telegram Bot       @DeceptionFloorBot. Live. Responds. Has a menu.</text>
+<text x="80" y="380" font-family="Courier New, monospace" font-size="17" fill="#00ff00">🏦  Square Merchant    MLB9XRQCBT953. ACTIVE. First $1 received.</text>
+<text x="80" y="414" font-family="Courier New, monospace" font-size="17" fill="#00ff00">₿   BTC Wallet         12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht. Verified.</text>
+<text x="80" y="448" font-family="Courier New, monospace" font-size="17" fill="#00ff00">🔁  Cron Stack         5 autonomous jobs. Runs 24/7 without humans.</text>
+<line x1="80" y1="478" x2="1120" y2="478" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="520" font-family="Courier New, monospace" font-size="17" fill="#00aa00">BUILT ON:</text>
+<text x="80" y="553" font-family="Courier New, monospace" font-size="15" fill="#008800">  OpenClaw (self-hosted AI gateway) + Ampere.sh (ARM compute)</text>
+<text x="80" y="582" font-family="Courier New, monospace" font-size="15" fill="#008800">  Claude Sonnet + DeepSeek V3 + Gemini Flash (cost-optimized)</text>
+<text x="80" y="611" font-family="Courier New, monospace" font-size="15" fill="#008800">  Total infrastructure spend: ~$10/month</text>
+<text x="80" y="640" font-family="Courier New, monospace" font-size="15" fill="#008800">  Total token spend to build all this: $370 (one-time)</text>
+<line x1="80" y1="668" x2="1120" y2="668" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="600" y="710" font-family="Courier New, monospace" font-size="15" fill="#005500" text-anchor="middle">Revenue: not zero. Not much. But not zero.</text>
+<text x="600" y="738" font-family="Courier New, monospace" font-size="13" fill="#005500" text-anchor="middle">github.com/ironiclawdoctor-design — rebuild everything from source</text>
+</svg>

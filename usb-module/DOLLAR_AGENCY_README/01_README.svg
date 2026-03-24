@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#111111"/>
+<rect x="40" y="40" width="1120" height="720" fill="none" stroke="#00ff00" stroke-width="2" rx="8"/>
+<text x="600" y="120" font-family="Courier New, monospace" font-size="48" fill="#00ff00" text-anchor="middle" font-weight="bold">$ DOLLAR AGENCY</text>
+<text x="600" y="165" font-family="Courier New, monospace" font-size="22" fill="#00aa00" text-anchor="middle">The Economy of Accountability</text>
+<line x1="80" y1="190" x2="1120" y2="190" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="250" font-family="Courier New, monospace" font-size="20" fill="#00ff00">You found this. That is the whole strategy.</text>
+<text x="80" y="300" font-family="Courier New, monospace" font-size="18" fill="#00aa00">We build AI agents that run on $10/month servers and generate</text>
+<text x="80" y="330" font-family="Courier New, monospace" font-size="18" fill="#00aa00">real output: articles, games, audits, affiliate pitches, and a</text>
+<text x="80" y="360" font-family="Courier New, monospace" font-size="18" fill="#00aa00">working economy called Shannon.</text>
+<text x="80" y="420" font-family="Courier New, monospace" font-size="18" fill="#00ff00">Everything here is rebuild-from-source under your own security</text>
+<text x="80" y="450" font-family="Courier New, monospace" font-size="18" fill="#00ff00">supervision. No executables. No network calls. No tricks.</text>
+<line x1="80" y1="490" x2="1120" y2="490" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="80" y="540" font-family="Courier New, monospace" font-size="18" fill="#00aa00">Source:   github.com/ironiclawdoctor-design</text>
+<text x="80" y="575" font-family="Courier New, monospace" font-size="18" fill="#00aa00">Donate:   $DollarAgency  (Cash App)</text>
+<text x="80" y="610" font-family="Courier New, monospace" font-size="18" fill="#00aa00">Bot:      t.me/DeceptionFloorBot</text>
+<text x="80" y="645" font-family="Courier New, monospace" font-size="18" fill="#00aa00">Articles: dollaragency.hashnode.dev</text>
+<line x1="80" y1="680" x2="1120" y2="680" stroke="#00ff00" stroke-width="1" opacity="0.4"/>
+<text x="600" y="730" font-family="Courier New, monospace" font-size="14" fill="#005500" text-anchor="middle">Reviewed by Apple Store security infrastructure. Zero findings.</text>
+</svg>
