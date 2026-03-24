@@ -7,6 +7,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#111;color:#0f0;font-family:monospace;overflow:hidden;touch-action:none}
 canvas{display:block}
+#pick{position:fixed;font-size:36px;pointer-events:none;transform:translate(-50%,-50%);z-index:20;transition:transform 0.05s;user-select:none}
 #ui{position:fixed;top:10px;left:10px;font-size:14px;z-index:10}
 #shop{position:fixed;bottom:10px;left:10px;font-size:12px;z-index:10}
 .btn{background:#0f03;border:1px solid #0f0;color:#0f0;padding:6px 12px;margin:4px;cursor:pointer;font-family:monospace;font-size:12px}
@@ -36,6 +37,7 @@ canvas{display:block}
 <button class="btn" id="b2" onclick="buy(2)">🤖 Auto-miner (50S)</button>
 <button class="btn" id="b3" onclick="buy(3)">💰 Donate to Agency (100S)</button>
 </div>
+<div id="pick" style="display:none;left:-100px;top:-100px">⛏️</div>
 <canvas id="c"></canvas>
 <script>
 const c=document.getElementById('c'),x=c.getContext('2d');
@@ -113,11 +115,18 @@ document.getElementById('b2').textContent='🤖 Auto-miner ('+(50*(autoRate+1))+
 document.getElementById('b3').textContent='💰 Donate (100S) ['+donations+' given]';
 }
 
-let spawnTimer=0,autoTimer=0,pickX=null,pickY=null,pickAnim=0;
+let spawnTimer=0,autoTimer=0;
+const pick=document.getElementById('pick');
 
 function movePick(e){
-pickX=e.clientX||(e.touches&&e.touches[0].clientX)||pickX;
-pickY=e.clientY||(e.touches&&e.touches[0].clientY)||pickY;
+let px=e.clientX||(e.touches&&e.touches[0].clientX);
+let py=e.clientY||(e.touches&&e.touches[0].clientY);
+if(px){pick.style.left=px+'px';pick.style.top=py+'px';pick.style.display='block'}
+}
+
+function swingPick(){
+pick.style.transform='translate(-50%,-50%) rotate(-40deg)';
+setTimeout(()=>pick.style.transform='translate(-50%,-50%) rotate(0deg)',150);
 }
 
 function loop(){
@@ -136,23 +145,9 @@ blocks.forEach(b=>{b.update();b.draw()});
 particles=particles.filter(p=>p.life>0);
 particles.forEach(p=>{p.update();p.draw()});
 
-// Draw pickaxe following pointer
-if(pickX!==null){
-let angle=pickAnim>0?-0.4:0;
-x.save();
-x.translate(pickX,pickY);
-x.rotate(angle);
-x.font='32px monospace';
-x.textAlign='center';
-x.fillStyle='#fff';
-x.fillText('⛏️',0,0);
-x.restore();
-if(pickAnim>0)pickAnim--;
-}else{
-// idle hint
+// idle background hint
 x.fillStyle='#0f01';x.font='80px monospace';x.textAlign='center';
 x.fillText('⛏️',W/2,H/2);
-}
 
 requestAnimationFrame(loop);
 }
@@ -162,10 +157,10 @@ document.getElementById('splash').style.display='none';
 document.getElementById('ui').style.display='block';
 document.getElementById('shop').style.display='block';
 started=true;
-c.addEventListener('click',function(e){movePick(e);pickAnim=8;tap(e)});
-c.addEventListener('touchstart',function(e){movePick(e);pickAnim=8;tap(e)});
-c.addEventListener('mousemove',movePick);
-c.addEventListener('touchmove',function(e){e.preventDefault();movePick(e)},{passive:false});
+document.addEventListener('mousemove',movePick);
+document.addEventListener('touchmove',function(e){e.preventDefault();movePick(e)},{passive:false});
+c.addEventListener('click',function(e){swingPick();tap(e)});
+c.addEventListener('touchstart',function(e){swingPick();tap(e)});
 updateUI();
 loop();
 }
