@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dollar Agency — Join the Roster</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0a;
+      color: #00ff41;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 560px;
+      width: 100%;
+    }
+    .header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #00ff4133;
+      padding-bottom: 1.5rem;
+    }
+    .header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #00ff41;
+    }
+    .header p {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #00aa2a;
+      letter-spacing: 0.05em;
+    }
+    .blink {
+      animation: blink 1.2s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #00aa2a;
+      margin-bottom: 0.4rem;
+    }
+    .field {
+      margin-bottom: 1.5rem;
+    }
+    input, textarea {
+      width: 100%;
+      background: #0f0f0f;
+      border: 1px solid #00ff4155;
+      color: #00ff41;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus {
+      border-color: #00ff41;
+      box-shadow: 0 0 8px #00ff4133;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #004d13;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+    .optional {
+      font-size: 0.65rem;
+      color: #005c18;
+      margin-left: 0.5em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    button {
+      background: transparent;
+      border: 1px solid #00ff41;
+      color: #00ff41;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    button:hover {
+      background: #00ff41;
+      color: #0a0a0a;
+    }
+    button.secondary {
+      border-color: #005c18;
+      color: #005c18;
+      font-size: 0.75rem;
+    }
+    button.secondary:hover {
+      background: #005c18;
+      color: #0a0a0a;
+    }
+    #status {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #00ff4133;
+      font-size: 0.82rem;
+      display: none;
+      line-height: 1.6;
+    }
+    #status.success { border-color: #00ff41; }
+    #status.error { border-color: #ff4141; color: #ff4141; }
+    .count-note {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      color: #004d13;
+      letter-spacing: 0.05em;
+    }
+    #signup-count { color: #00aa2a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Dollar Agency <span class="blink">_</span></h1>
+      <p>// decentralized intelligence network — recruitment open</p>
+    </div>
+
+    <!-- SERVER MODE: targets local backend -->
+    <!-- STATIC MODE: stores to localStorage when server unavailable -->
+
+    <form id="signup-form">
+      <div class="field">
+        <label>Name <span class="optional">(optional)</span></label>
+        <input type="text" id="field-name" name="name" placeholder="alias or handle" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Email <span style="color:#ff4141">*</span></label>
+        <input type="email" id="field-email" name="email" placeholder="your@address.here" required autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Why are you here? <span class="optional">(optional)</span></label>
+        <textarea id="field-why" name="why" placeholder="curiosity, coincidence, or something else entirely..."></textarea>
+      </div>
+      <div class="btn-row">
+        <button type="submit">[ SUBMIT ]</button>
+        <button type="button" class="secondary" onclick="exportSignups()">[ EXPORT JSON ]</button>
+      </div>
+    </form>
+
+    <div id="status"></div>
+
+    <p class="count-note">
+      local cache: <span id="signup-count">—</span> signup(s) stored
+    </p>
+  </div>
+
+  <script>
+    const BACKEND_URL = 'http://localhost:9002/signup';
+    const LS_KEY = 'dea_signups';
+
+    function getLocalSignups() {
+      try { return JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch { return []; }
+    }
+
+    function saveLocalSignup(entry) {
+      const list = getLocalSignups();
+      list.push(entry);
+      localStorage.setItem(LS_KEY, JSON.stringify(list));
+    }
+
+    function updateCount() {
+      document.getElementById('signup-count').textContent = getLocalSignups().length;
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('status');
+      el.textContent = msg;
+      el.className = type;
+      el.style.display = 'block';
+    }
+
+    async function submitToServer(entry) {
+      const resp = await fetch(BACKEND_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entry),
+        signal: AbortSignal.timeout(4000)
+      });
+      if (!resp.ok) throw new Error('server error ' + resp.status);
+      return true;
+    }
+
+    document.getElementById('signup-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const entry = {
+        ts: new Date().toISOString(),
+        name: document.getElementById('field-name').value.trim() || null,
+        email: document.getElementById('field-email').value.trim(),
+        why: document.getElementById('field-why').value.trim() || null
+      };
+
+      let serverOk = false;
+      try {
+        serverOk = await submitToServer(entry);
+      } catch (_) { /* offline — fallback to localStorage */ }
+
+      saveLocalSignup(entry);
+      updateCount();
+
+      if (serverOk) {
+        showStatus('// registered. welcome to the network.\n// entry persisted to agency ledger.', 'success');
+      } else {
+        showStatus('// registered (offline mode).\n// entry cached locally — sync when server is live.\n// use [ EXPORT JSON ] to retrieve your data.', 'success');
+      }
+
+      this.reset();
+    });
+
+    function exportSignups() {
+      const data = getLocalSignups();
+      if (!data.length) { showStatus('// no local signups cached.', 'error'); return; }
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'dea-signups-' + new Date().toISOString().slice(0,10) + '.json';
+      a.click();
+    }
+
+    updateCount();
+  </script>
+</body>
+</html>
