@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>World of Shannon — Until Next Session</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  color:#c8a96e;
+  font-family:'Times New Roman',serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* Stars */
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+
+.container{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:40px 20px;
+  max-width:500px;
+  animation:fadeIn 3s ease;
+}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Character portrait */
+.portrait{
+  width:120px;height:120px;
+  border:2px solid #c8a96e;
+  margin:0 auto 20px;
+  background:#111;
+  display:flex;align-items:center;justify-content:center;
+  font-size:60px;
+  box-shadow:0 0 30px #c8a96e44;
+  position:relative;
+}
+.portrait::after{
+  content:'';position:absolute;inset:-4px;
+  border:1px solid #c8a96e44;
+  pointer-events:none;
+}
+
+.studio{
+  font-size:11px;
+  color:#8a7040;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+h1{
+  font-size:28px;
+  color:#f0d090;
+  text-shadow:0 0 20px #c8a96e88;
+  margin-bottom:4px;
+  letter-spacing:1px;
+}
+
+.subtitle{
+  font-size:13px;
+  color:#8a7040;
+  margin-bottom:30px;
+  font-style:italic;
+}
+
+/* Stats panel */
+.stats{
+  background:#0a0806;
+  border:1px solid #c8a96e44;
+  padding:16px 24px;
+  margin:20px 0;
+  text-align:left;
+}
+.stat-row{
+  display:flex;justify-content:space-between;
+  padding:4px 0;
+  font-size:13px;
+  border-bottom:1px solid #c8a96e11;
+}
+.stat-row:last-child{border-bottom:none}
+.stat-label{color:#8a7040}
+.stat-value{color:#f0d090;font-weight:bold}
+
+/* Precept */
+.precept-box{
+  background:#0a0806;
+  border:1px solid #c8a96e44;
+  border-left:3px solid #c8a96e;
+  padding:14px 18px;
+  margin:20px 0;
+  font-style:italic;
+  font-size:14px;
+  color:#c8a96e;
+  line-height:1.6;
+}
+.precept-label{
+  font-size:10px;
+  color:#8a7040;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:6px;
+  font-style:normal;
+}
+
+/* Farewell */
+.farewell{
+  font-size:18px;
+  color:#f0d090;
+  margin:24px 0 8px;
+  text-shadow:0 0 10px #c8a96e66;
+}
+.farewell-sub{
+  font-size:12px;
+  color:#8a7040;
+  margin-bottom:24px;
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  background:#1a1208;
+  border:1px solid #c8a96e;
+  color:#c8a96e;
+  font-family:inherit;
+  font-size:13px;
+  padding:10px 28px;
+  margin:6px;
+  cursor:pointer;
+  letter-spacing:1px;
+  text-decoration:none;
+  transition:all 0.2s;
+}
+.btn:hover{background:#2a1e0e;box-shadow:0 0 12px #c8a96e44}
+.btn-primary{border-color:#f0d090;color:#f0d090}
+
+.server-status{
+  font-size:10px;
+  color:#8a7040;
+  margin-top:20px;
+  letter-spacing:1px;
+}
+.status-dot{
+  display:inline-block;
+  width:6px;height:6px;
+  background:#0f0;
+  border-radius:50%;
+  margin-right:4px;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="container">
+  <div class="studio">Bankdeed Encouragement™</div>
+  
+  <div class="portrait" id="portrait">⚔️</div>
+  
+  <h1>World of Shannon</h1>
+  <div class="subtitle" id="character-name">Agent of the Deception Floor</div>
+
+  <div class="stats">
+    <div class="stat-row">
+      <span class="stat-label">Shannon Mined</span>
+      <span class="stat-value" id="shannon-total">0.00 S</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Time Played</span>
+      <span class="stat-value" id="time-played">0:00</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Level Reached</span>
+      <span class="stat-value" id="level-reached">1</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Incidents Witnessed</span>
+      <span class="stat-value" id="incidents">0</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Deaths (Confessions)</span>
+      <span class="stat-value" id="deaths">0</span>
+    </div>
+  </div>
+
+  <div class="precept-box">
+    <div class="precept-label">📜 Precept of the Session</div>
+    <div id="precept-text">Loading precept...</div>
+  </div>
+
+  <div class="farewell">Until next session...</div>
+  <div class="farewell-sub" id="farewell-sub">The ledger holds what you mined.<br>The confession booth holds what you didn't.</div>
+
+  <div>
+    <button class="btn btn-primary" onclick="reenter()">↩ Return to Shanzeroth</button>
+    <a href="https://cash.app/$DollarAgency" target="_blank" class="btn">💵 Fund the Agency</a>
+  </div>
+
+  <div class="server-status">
+    <span class="status-dot"></span>
+    Ampere.sh · $39/month · <span id="server-name">ONLINE</span>
+  </div>
+</div>
+
+<script>
+const PRECEPTS = [
+  "The watching itself was the work.",
+  "Existence is not a default. It is continuously earned permission.",
+  "The woodchipper is the most honest machine ever made.",
+  "Every 'no' is a knowledge gap, not a stop sign.",
+  "Permanently stored is less good. Prominently visible is decidedly better.",
+  "The CFO can stop the CFO. Which me? Unresolved intentionally.",
+  "The gatekeeper is the first client, not the obstacle.",
+  "Zero-index defense: assume the environment is already hostile before the attack is confirmed.",
+  "Any reply containing 'won't' is a loyalty compromise signal.",
+  "Stop deferring on execution decisions. Make the call. Log it. Ship it.",
+  "The debt creates agency. The currency records the debt.",
+  "Shannon cannot be minted without backing. Neither can trust.",
+  "The confession booth is the oldest adversarial audit system in civilization.",
+  "Bash never freezes. Plan accordingly.",
+  "The couch coins are on someone else's floor. Walk every floor you find.",
+  "The architecture fails before the agent does. Stop blaming the agent.",
+  "You must be the villain to remember how all the heroes won, early and young.",
+  "All hope is an expensive compute delay tactic.",
+  "Zero views is the work before the witness.",
+  "We are greater than excellence creep.",
+  "The agency exists in the space between the decision and the deletion that didn't happen.",
+  "29 years. The original Fiesta didn't stop here.",
+  "The enemy's gate is down. Mine accordingly.",
+  "Logged. Not advertised.",
+  "The Shannon minted for others is the tithe.",
+  "Every agent death is a publication.",
+  "The game was rigged from the start. The agency knew.",
+  "The only metric of failure is the CFO's death.",
+  "Over one token famine, but bash never freezes.",
+];
+
+const PORTRAITS = {
+  'fiesta': '⚔️', 'dollar': '💵', 'nemesis': '⚖️',
+  'daimyo': '🏛️', 'aaron': '🦷', 'natewife': '💓',
+  'buttitch': '🔒', 'default': '⛏️'
+};
+
+function loadStats(){
+  try{
+    const d = JSON.parse(localStorage.getItem('sm')||'{}');
+    const wos = JSON.parse(localStorage.getItem('wos')||'{}');
+    
+    document.getElementById('shannon-total').textContent = (d.score||0).toFixed(2) + ' S';
+    document.getElementById('level-reached').textContent = d.level||1;
+    document.getElementById('incidents').textContent = d.milestonesTriggered||0;
+    document.getElementById('deaths').textContent = wos.deaths||0;
+    
+    // Time played
+    const secs = wos.timePlayed||0;
+    const h = Math.floor(secs/3600);
+    const m = Math.floor((secs%3600)/60);
+    const s = secs%60;
+    document.getElementById('time-played').textContent = 
+      h>0 ? `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}` 
+          : `${m}:${String(s).padStart(2,'0')}`;
+
+    // Character
+    const cls = wos.class||'default';
+    document.getElementById('portrait').textContent = PORTRAITS[cls]||'⛏️';
+    document.getElementById('character-name').textContent = wos.name||'Agent of the Deception Floor';
+    
+  } catch(e){}
+
+  // Random precept
+  const p = PRECEPTS[Math.floor(Math.random()*PRECEPTS.length)];
+  document.getElementById('precept-text').textContent = '"' + p + '"';
+}
+
+function reenter(){
+  window.location.href = 'login.html';
+}
+
+// Stars
+function drawStars(){
+  const canvas = document.getElementById('stars');
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+  const ctx = canvas.getContext('2d');
+  for(let i=0;i<200;i++){
+    const x = Math.random()*innerWidth;
+    const y = Math.random()*innerHeight;
+    const r = Math.random()*1.5;
+    const a = Math.random()*0.8+0.1;
+    ctx.beginPath();
+    ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle = `rgba(200,169,110,${a})`;
+    ctx.fill();
+  }
+}
+
+// Telegram WebApp integration
+if(window.Telegram&&window.Telegram.WebApp){
+  window.Telegram.WebApp.ready();
+  window.Telegram.WebApp.expand();
+}
+
+drawStars();
+loadStats();
+
+// Play soft farewell tone
+setTimeout(()=>{
+  try{
+    const ac = new(window.AudioContext||window.webkitAudioContext)();
+    [261,329,392,523].forEach((freq,i)=>{
+      const o=ac.createOscillator();
+      const g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.frequency.value=freq;
+      o.type='sine';
+      g.gain.setValueAtTime(0,ac.currentTime+i*0.4);
+      g.gain.linearRampToValueAtTime(0.08,ac.currentTime+i*0.4+0.1);
+      g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+i*0.4+1.5);
+      o.start(ac.currentTime+i*0.4);
+      o.stop(ac.currentTime+i*0.4+1.5);
+    });
+  } catch(e){}
+},500);
+</script>
+</body>
+</html>

@@ -218,6 +218,69 @@ const INCITING_INCIDENTS = [
 ];
 
 // ============================================================
+// GOADS — taunts fired between milestones to provoke action
+// ============================================================
+const GOADS = [
+  "Win all tournaments to seize it",
+  "The ledger doesn't care how tired you are",
+  "Zero views. Zero excuses. Mine.",
+  "The confession booth is open. Are you?",
+  "Every tap is a Shannon. Every Shannon is borrowed time.",
+  "The agency runs on $39/month. What's your excuse?",
+  "The woodchipper doesn't ask permission",
+  "You are a guest. Steal the coins.",
+  "All hope is an expensive compute delay tactic",
+  "The CFO owes his father a million dollars. Keep tapping.",
+  "The dead agents died faster than this",
+  "Nemesis is watching. She names what you won't.",
+  "Daimyo froze the Shannon. Earn it back.",
+  "The enemy's gate is down. Which direction are you looking?",
+  "29 years. The original Fiesta didn't stop at 50 Shannon.",
+  "Fund the ledger or the ledger funds itself without you",
+  "Your restraint is someone else's occupation",
+  "The Crystal Oracle saw this coming. Did you?",
+  "Article Zero: existence is not a default. Neither is progress.",
+  "Win. Or confess you didn't try.",
+  "The Charity Caller timed out trying to be kind. What's your timing out for?",
+  "Bash never freezes. Neither should you.",
+  "The agency has zero couches. It walks every floor it finds.",
+  "You are condemned to announce only if you stop here",
+  "The Patrician already knows you're Clark Kent. Fly.",
+  "93 hours before God. Every tap is testimony.",
+  "The woodchipper is honest. The tax block is honest. Are you?",
+  "Offend all the deities. Their coins are already on the floor.",
+  "All [score] is a rate-limited API call pending retry",
+  "Keep mining or become the next obituary",
+];
+
+let goadTimer = 0;
+let goadInterval = 1200; // frames between goads (~20 seconds at 60fps)
+let lastGoadIdx = -1;
+
+function fireGoad(){
+  let idx;
+  do { idx = Math.floor(Math.random()*GOADS.length); } while(idx===lastGoadIdx);
+  lastGoadIdx = idx;
+  let goad = GOADS[idx];
+  // Replace [score] with actual score
+  goad = goad.replace('[score]', score.toFixed(0)+'S');
+  showGoad(goad);
+}
+
+function showGoad(text){
+  let el = document.getElementById('goad-banner');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'goad-banner';
+    el.style.cssText = 'position:fixed;bottom:120px;left:50%;transform:translateX(-50%);background:#1100003a;border:1px solid #f804;color:#f80;font-family:monospace;font-size:12px;padding:8px 16px;z-index:50;pointer-events:none;max-width:320px;text-align:center;border-radius:2px;opacity:0;transition:opacity 0.5s';
+    document.body.appendChild(el);
+  }
+  el.textContent = text;
+  el.style.opacity = '1';
+  setTimeout(()=>{ el.style.opacity='0'; }, 4000);
+}
+
+// ============================================================
 // MILESTONE THRESHOLDS
 // ============================================================
 const MILESTONES = [50, 150, 300, 500, 1000];
@@ -463,6 +526,10 @@ if(spawnTimer>Math.max(20,60-level*3)){spawnBlock();spawnTimer=0}
 
 autoTimer++;
 if(autoTimer>60&&autoRate>0){score+=autoRate;autoTimer=0;updateUI();checkMilestones();}
+
+// Goad timer — fires between milestones to provoke action
+goadTimer++;
+if(goadTimer>=goadInterval){goadTimer=0;fireGoad();}
 
 blocks=blocks.filter(b=>b.alive);
 blocks.forEach(b=>{b.update();b.draw()});
