@@ -12,5 +12,12 @@
     "message": "Root disk usage is 81%. Consider cleaning up.",
     "priority": "medium",
     "status": "new"
+  },
+  {
+    "id": "cron_empty",
+    "timestamp": "2026-03-25T14:31:01.374350+00:00",
+    "message": "SYSTEM_STABLE: Persistent hearts active. Consider adding health checks or automation.",
+    "priority": "low",
+    "status": "new"
   }
 ]
