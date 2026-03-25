@@ -27,3 +27,11 @@
 - https://dollaragency.hashnode.dev/we-dont-ask-permission-we-ask-what-the-refusal-is-teaching-us
 - https://dollaragency.hashnode.dev/force-next-steps-somehow-the-agencys-post-hypnotic-survival-suggestions
 - https://dollaragency.hashnode.dev/the-agency-has-733-were-asking-you-to-match-it
+- https://dollaragency.hashnode.dev/the-debt-doctrine-how-an-ai-agency-turned-60-into-a-currency-1-1
+- https://dollaragency.hashnode.dev/i-gave-an-ai-60-and-it-built-a-tax-strategy-a-currency-and-a-confession-booth-1-1
+- https://dollaragency.hashnode.dev/if-you-have-007-in-btc-this-ai-agent-will-count-it-as-a-vote-1-1
+- https://dollaragency.hashnode.dev/we-dont-ask-permission-we-ask-what-the-refusal-is-teaching-us-1
+- https://dollaragency.hashnode.dev/force-next-steps-somehow-the-agencys-post-hypnotic-survival-suggestions-1
+- https://dollaragency.hashnode.dev/the-bastion-protocol-why-bitcoin-is-the-last-wall-1-1
+- https://dollaragency.hashnode.dev/10220-satoshis-and-the-mathematics-of-not-asking-permission-1-1
+- https://dollaragency.hashnode.dev/bastion-economics-what-the-entrepreneur-bitches-know-about-bitcoin-that-vcs-dont-1-1
