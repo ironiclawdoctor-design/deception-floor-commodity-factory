@@ -321,10 +321,38 @@ this.alive=true;
 }
 update(){this.y+=this.speed;if(this.y>H+50)this.alive=false}
 draw(){
-x.fillStyle=this.color+'3';x.fillRect(this.x-this.w/2,this.y-this.h/2,this.w,this.h);
-x.strokeStyle=this.color;x.strokeRect(this.x-this.w/2,this.y-this.h/2,this.w,this.h);
-x.fillStyle=this.color;x.font='12px monospace';x.textAlign='center';
-x.fillText(this.tax?'TAX':this.value.toFixed(2)+'S',this.x,this.y+4);
+// Block background
+x.fillStyle=this.color+'22';x.fillRect(this.x-this.w/2,this.y-this.h/2,this.w,this.h);
+x.strokeStyle=this.color;x.lineWidth=1;x.strokeRect(this.x-this.w/2,this.y-this.h/2,this.w,this.h);
+// Trump face (least flattering)
+const cx=this.x, cy=this.y, sz=Math.min(this.w,this.h)*0.38;
+// Orange face oval
+x.beginPath();x.ellipse(cx,cy-sz*0.1,sz*0.72,sz*0.82,0,0,Math.PI*2);
+x.fillStyle='#e8821a';x.fill();
+x.strokeStyle='#c06010';x.lineWidth=1;x.stroke();
+// White eye whites
+x.fillStyle='#fff';
+x.beginPath();x.ellipse(cx-sz*0.22,cy-sz*0.18,sz*0.14,sz*0.1,0,0,Math.PI*2);x.fill();
+x.beginPath();x.ellipse(cx+sz*0.22,cy-sz*0.18,sz*0.14,sz*0.1,0,0,Math.PI*2);x.fill();
+// Tiny squinting eyes
+x.fillStyle='#4444aa';
+x.beginPath();x.ellipse(cx-sz*0.22,cy-sz*0.18,sz*0.07,sz*0.05,0,0,Math.PI*2);x.fill();
+x.beginPath();x.ellipse(cx+sz*0.22,cy-sz*0.18,sz*0.07,sz*0.05,0,0,Math.PI*2);x.fill();
+// Pouty frown mouth
+x.beginPath();x.moveTo(cx-sz*0.3,cy+sz*0.35);
+x.quadraticCurveTo(cx,cy+sz*0.22,cx+sz*0.3,cy+sz*0.35);
+x.strokeStyle='#8b0000';x.lineWidth=sz*0.08;x.stroke();
+// Tiny pursed lips
+x.fillStyle='#cc6060';
+x.beginPath();x.ellipse(cx,cy+sz*0.28,sz*0.22,sz*0.07,-0.1,0,Math.PI*2);x.fill();
+// The hair — swept combover chaos
+x.strokeStyle='#f5d020';x.lineWidth=sz*0.07;
+x.beginPath();x.moveTo(cx-sz*0.6,cy-sz*0.7);x.quadraticCurveTo(cx+sz*0.8,cy-sz*1.1,cx+sz*0.5,cy-sz*0.5);x.stroke();
+x.beginPath();x.moveTo(cx-sz*0.5,cy-sz*0.65);x.quadraticCurveTo(cx+sz*0.6,cy-sz*1.0,cx+sz*0.4,cy-sz*0.45);x.stroke();
+x.beginPath();x.moveTo(cx-sz*0.4,cy-sz*0.6);x.quadraticCurveTo(cx+sz*0.4,cy-sz*0.9,cx+sz*0.3,cy-sz*0.4);x.stroke();
+// Value label
+x.fillStyle=this.color;x.font=`bold ${Math.max(9,sz*0.28)}px monospace`;x.textAlign='center';
+x.fillText(this.tax?'TAX':this.value.toFixed(2)+'S',cx,cy+sz*0.85);
 }
 hit(tx,ty){return tx>this.x-this.w/2&&tx<this.x+this.w/2&&ty>this.y-this.h/2&&ty<this.y+this.h/2}
 }
