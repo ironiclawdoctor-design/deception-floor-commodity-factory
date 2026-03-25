@@ -50,18 +50,21 @@ def check_gcloud_auth():
         return False
 
 def build_docker_image():
-    """Build the Docker image."""
-    print("🏗️ Building Docker image...")
+    """Build the Docker image using buildx."""
+    print("🏗️ Building Docker image with buildx...")
     
     # Change to dollar directory
     os.chdir(DOLLAR_DIR)
     
-    # Build the image
-    run_command(f"docker build -t {DOCKER_IMAGE} .")
+    # Initialize buildx if not already
+    try:
+        run_command("docker buildx ls")
+    except:
+        print("📦 Initializing buildx...")
+        run_command("docker buildx create --use")
     
-    # Push to GCR
-    print("📤 Pushing to Google Container Registry...")
-    run_command(f"docker push {DOCKER_IMAGE}")
+    # Build the image using buildx
+    run_command(f"docker buildx build --platform linux/amd64 -t {DOCKER_IMAGE} . --push")
     
     # Change back to original directory
     os.chdir("..")
@@ -112,14 +115,14 @@ def check_service_health(url):
     try:
         # Check health endpoint
         health_url = f"{url}/health"
-        response = requests.get(health_url, timeout=10)
+        response = requests.get(health_url, timeout=30)
         if response.status_code == 200:
             health_data = response.json()
             print(f"✅ Health check passed: {health_data}")
             
             # Check API status
             api_url = f"{url}/api/status"
-            api_response = requests.get(api_url, timeout=10)
+            api_response = requests.get(api_url, timeout=30)
             if api_response.status_code == 200:
                 api_data = api_response.json()
                 print(f"✅ API status: {api_data.get('db_status', 'unknown')}")
