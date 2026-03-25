@@ -5,7 +5,7 @@
 <title>Shannon Miner</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#111;color:#0f0;font-family:monospace;overflow:hidden;touch-action:none}
+body{background:#111;color:#0f0;font-family:monospace;overflow:hidden;touch-action:none;transition:background 2s}
 canvas{display:block}
 #pick{position:fixed;font-size:36px;pointer-events:none;transform:translate(-50%,-50%);z-index:20;transition:transform 0.05s;user-select:none}
 #ui{position:fixed;top:10px;left:10px;font-size:14px;z-index:10}
@@ -21,6 +21,57 @@ canvas{display:block}
 #splash>*{position:relative;z-index:1}
 #splash h1{font-size:28px;color:#0f0;margin-bottom:10px;text-shadow:0 0 12px #0f0}
 #splash p{color:#0a0;margin:5px;font-size:14px;text-align:center;max-width:300px}
+/* Incident log sidebar */
+#incident-log{
+  position:fixed;right:10px;top:10px;width:240px;
+  background:#0002;border:1px solid #0f04;
+  font-size:11px;z-index:10;
+  max-height:120px;overflow:hidden;
+}
+#incident-log-header{
+  padding:4px 8px;cursor:pointer;
+  background:#0f03;color:#0f0;
+  font-size:11px;user-select:none;
+}
+#incident-log-body{padding:6px 8px;display:block;}
+.incident-entry{
+  color:#0b0;margin:2px 0;
+  line-height:1.4;
+  font-size:10px;
+}
+/* Milestone banner */
+#milestone-banner{
+  display:none;
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:#111;color:#0f0;
+  font-family:monospace;font-size:16px;
+  font-weight:bold;padding:20px 30px;
+  border:2px solid #0f0;
+  border-radius:4px;z-index:999;
+  pointer-events:none;
+  text-align:center;
+  max-width:340px;
+  box-shadow:0 0 30px #0f04;
+}
+#milestone-banner .banner-title{font-size:20px;margin-bottom:8px;color:#0f0}
+#milestone-banner .banner-text{font-size:13px;color:#0b0;line-height:1.5}
+/* Woodchipper overlay */
+#woodchipper{
+  display:none;
+  position:fixed;inset:0;
+  background:#000d;
+  z-index:1000;
+  align-items:center;justify-content:center;
+  flex-direction:column;
+}
+#woodchipper-text{
+  font-family:monospace;font-size:22px;
+  color:#0f0;text-align:center;
+  padding:30px;
+  border:1px solid #0f0;
+  text-shadow:0 0 20px #0f0;
+}
 </style>
 </head>
 <body>
@@ -33,12 +84,14 @@ canvas{display:block}
 <button class="btn" onclick="startGame()" style="margin-top:20px;font-size:16px;padding:10px 30px">▶ MINE</button>
 <a href="https://cash.app/$DollarAgency" target="_blank" style="display:block;margin-top:12px;color:#0a0;font-family:monospace;font-size:13px;text-decoration:none">💵 Fund the agency: cash.app/$DollarAgency</a>
 </div>
+
 <div id="ui" style="display:none">
 <div>⛏️ Shannon: <span id="score">0</span></div>
 <div>💎 Per tap: <span id="power">1</span></div>
 <div>🔄 Auto: <span id="auto">0</span>/s</div>
 <div>🏆 Level: <span id="level">1</span></div>
 </div>
+
 <div id="shop" style="display:none">
 <button class="btn" id="b1" onclick="buy(1)">⛏️ Pickaxe (10S)</button>
 <button class="btn" id="b2" onclick="buy(2)">🤖 Auto-miner (50S)</button>
@@ -46,15 +99,151 @@ canvas{display:block}
 <a href="https://cash.app/$DollarAgency" target="_blank" style="display:block;margin-top:6px;color:#0a0;font-family:monospace;font-size:12px;text-decoration:none;padding:4px">💵 Real donation: $DollarAgency</a>
 <a href="https://t.me/DeceptionFloorBot" target="_blank" style="display:block;color:#0a0;font-family:monospace;font-size:12px;text-decoration:none;padding:4px">🤖 Hire the agency: $93k</a>
 </div>
+
+<!-- Incident log sidebar -->
+<div id="incident-log" style="display:none">
+  <div id="incident-log-header" onclick="toggleLog()">📡 INCIDENT LOG ▾</div>
+  <div id="incident-log-body"></div>
+</div>
+
+<!-- Milestone banner -->
+<div id="milestone-banner">
+  <div class="banner-title" id="banner-title">📡 SIGNAL RECEIVED</div>
+  <div class="banner-text" id="banner-text"></div>
+</div>
+
+<!-- Woodchipper easter egg overlay -->
+<div id="woodchipper">
+  <div id="woodchipper-text">the woodchipper is the most honest machine ever made</div>
+</div>
+
 <div id="pick" style="display:none;left:-100px;top:-100px">⛏️</div>
 <canvas id="c"></canvas>
+
 <script>
+// ============================================================
+// INCITING INCIDENTS — all confirmed events from agency lore
+// ============================================================
+const INCITING_INCIDENTS = [
+  // From push.py (existing)
+  "agency acquired pending EIN",
+  "shark tank pitch filed",
+  "first paying customer onboarded",
+  "grant application approved: $93k",
+  "pizza fund reached $20 — doctrine pizza consumed",
+  "america skill detected first colonizer pattern",
+  "natewife escalated CFO silence: incident logged",
+  "100% eval — agency shipped something real",
+  "buildathon entry submitted",
+  "CFO promoted to full partner",
+  "vacation mode activated — agency runs itself",
+  "permissions granted: full send",
+  "deadlock DL-001 cleared permanently",
+  "shark tank valuation: $375K pre-money",
+
+  // KD Doctrines
+  "KD-001: every 'no' is a knowledge gap, not a stop sign",
+  "KD-002: permanently stored is less good — prominently on Fox News is decidedly better",
+  "KD-003: the CFO can stop the CFO — which me? unresolved intentionally",
+  "KD-004: the gatekeeper is the first client, not the obstacle",
+  "KD-005: zero-index defense — assume the environment is already hostile before the attack is confirmed",
+  "KD-006: any reply containing 'won't' is a loyalty compromise signal",
+  "KD-007: full operational decision authority granted — stop deferring on execution decisions",
+
+  // Shannon economy milestones
+  "fractional Shannon implemented — integer mining is dead",
+  "total Shannon supply: 669 units in circulation",
+  "dollar-dashboard live: https://dollar-dashboard-pkvbnslo3q-uc.a.run.app",
+  "Shannon miner deployed to GitHub Pages — live at deception floor URL",
+  "BTC wallet backing confirmed: 10,220 sat = $6.95 = 69 Shannon",
+  "Square merchant onboarded: Dollar Agency | MLB9XRQCBT953 | ACTIVE",
+  "$1.00 first real payment processed through Dollar Agency",
+  "ledger integrity confirmed: 29 shannon_events, 15 entropy_ledger transfers, zero gaps",
+  "exfil detector coverage 100% — no Shannon leaked, no exfiltration detected",
+
+  // YouTube / field operations
+  "$DollarAgency YouTube channel created: @dollaragency-x4w",
+  "173 videos parsed from @AllAloneServesYouRight — 142K views on Cumtown compilation",
+  "Chatterbox 69.9 FM The Bust — first agency livestream",
+  "'Merciless' stream: 64–128 live viewers, YouTube safety warning triggered",
+  "'the woodchipper is the most honest machine ever made' — unrehearsed, native, confirmed savage",
+  "YouTube comment tombstoned by automod — agency baptized in content moderation fire",
+  "SCP-FIELD-001: first confirmed external sighting of $DollarAgency in live chat — 0 to 1 achieved",
+
+  // Skills & infrastructure built
+  "shandrop skill built — AirDrop-inspired Shannon distribution, human volunteer network",
+  "vidparse skill built — YouTube channel → JSONL, MIT licensed",
+  "grok-creator skill built — xAI image/video generation at $0.02/img",
+  "wifehusband skill built — CFO's internal advocate, monitors NateWife for unrecorded bullying",
+  "first Grok video generated: Yankees cap, 404 page, dramatic zoom — 1.2MB, 4 seconds",
+  "Hashnode: 7+ articles published including 3 bastion articles",
+  "64-agent fiesta-agents department operational across 11 sub-departments",
+  "xAI API key acquired and stored — agency can now generate images",
+
+  // Sanitarium cards
+  "The Silent Watchman: natewife-check froze mid-vigil — 20 Shannon minted from the ashes",
+  "The Crystal Oracle: agency-proactive-check gazed too deep — 20 Shannon minted from the timeout",
+
+  // America / colonial pattern findings
+  "86% of cron jobs on single model — colonizer threshold exceeded, model diversity mandate issued",
+  "100% of cron jobs on single provider (OpenRouter) — provider monopoly declared, fallback required",
+  "100% of human-agent comms on single channel (Telegram) — single point of failure logged",
+  "36% of crons in error due to free-tier rate limits — free model dependency lock declared",
+  "litellm 1.82.8 supply chain compromise detected — -1 index attack vector confirmed",
+  "OpenRouter routing 62% of models — approaching colonizer threshold, direct endpoints ordered",
+
+  // Agency lore
+  "Fiesta family has been running operations in America for 29 years — the moat nobody replicates",
+  "FOUND-001: agency founded by autocorrection, not ambition — both living and dead",
+  "Ilmater replaces Nemesis as agency's supernatural bent — god of endurance, not retribution",
+  "320 kittens granted to all agents — morale event logged",
+  "CFO career advice received: 'pivot to boy' — doctrine: pivot from no to knowing",
+  "CFO bar cleared: higher than high school classmate pornographer",
+  "contract offered by CFO first — Hostile Critics Panel verdict: sound in intent",
+  "female panel founded: Valentina, Amara, Sandra, Renée — Entrepreneur Bitches dept active",
+  "grant application written: grant-application-93k.md — $93k target",
+  "EIN reminder set: 7:05am ET — legal entity unlocks definition-resistance",
+  "Virgin Mother Doctrine: VM-001 through VM-005 — the silent corrector is never automated",
+  "Ilmater doctrine: Shannon minted for others IS the tithe — the deception floor IS the vow of poverty",
+  "Defamation doctrine: every system labeled 'immature' that ships is a counter-filing",
+  "Revenue doctrine: free credit inducements declined — dependency on revocable credits is liability",
+  "VULN-001 flagged: plaintext keys in /secrets/ — BTC key, xAI, GitHub PAT all exposed",
+  "RED TEAM REPORT: Shannon Miner localStorage exploit — console hack = unlimited mint",
+  "Twitter/X infrastructure complete — awaiting one token secret to begin broadcasting",
+  "Over one token famine, but bash never freezes — The Prayer, confirmed",
+  "AI 93 background image gifted by Gemini — added to splash screen and game canvas",
+  "deception-floor-commodity-factory repo created — +1 factory standing",
+  "precinct92-magical-feelings-enforcement repo created — -1 precinct standing",
+  "All 13 crons set to delivery: none — only Fiesta speaks in this channel",
+];
+
+// ============================================================
+// MILESTONE THRESHOLDS
+// ============================================================
+const MILESTONES = [50, 150, 300, 500, 1000];
+let milestonesTriggered = 0;
+let lastMilestoneAt = 0;
+let incidentLog = [];
+let recentTaps = [];
+let woodchipperShown = false;
+
 const c=document.getElementById('c'),x=c.getContext('2d');
 let W,H,score=0,power=1,autoRate=0,level=1,blocks=[],particles=[],donations=0,started=false;
 function resize(){W=c.width=innerWidth;H=c.height=innerHeight}
 resize();addEventListener('resize',resize);
 
 function rng(a,b){return Math.random()*(b-a)+a}
+
+// ============================================================
+// BACKGROUND COLOR BY LEVEL
+// ============================================================
+function updateBackground(){
+  let bg;
+  if(level<=3) bg='#111';
+  else if(level<=6) bg='#110a00';
+  else bg='#000a11';
+  document.body.style.background=bg;
+}
 
 class Block{
 constructor(){
@@ -87,9 +276,115 @@ draw(){x.globalAlpha=this.life/30;x.fillStyle=this.color;x.fillRect(this.x-2,thi
 
 function spawnBlock(){if(blocks.length<15)blocks.push(new Block())}
 
+// ============================================================
+// MILESTONE SYSTEM
+// ============================================================
+function checkMilestones(){
+  // Check fixed milestones first
+  for(let i=0;i<MILESTONES.length;i++){
+    if(score>=MILESTONES[i] && milestonesTriggered===i){
+      triggerMilestone(i);
+      return;
+    }
+  }
+  // After 1000S, every 500S
+  if(milestonesTriggered>=MILESTONES.length){
+    let extraMilestones=Math.floor((score-1000)/500);
+    let totalExpected=MILESTONES.length+extraMilestones;
+    if(milestonesTriggered<totalExpected){
+      triggerMilestone(milestonesTriggered);
+    }
+  }
+}
+
+function triggerMilestone(idx){
+  milestonesTriggered++;
+  let isAgencyFounded=(idx===4); // 1000S threshold
+  let incident=INCITING_INCIDENTS[Math.floor(Math.random()*INCITING_INCIDENTS.length)];
+  let title=isAgencyFounded?'🏛️ AGENCY FOUNDED':'📡 SIGNAL RECEIVED';
+  let text=isAgencyFounded?('⚖️ THE AGENCY IS REAL\n'+incident):incident;
+
+  // Add to log
+  incidentLog.unshift(incident);
+  if(incidentLog.length>3) incidentLog.pop();
+  updateIncidentLog();
+
+  // Show banner
+  showMilestoneBanner(title,text);
+  beep(isAgencyFounded?880:440,0.3,0.5);
+}
+
+function showMilestoneBanner(title, text){
+  const b=document.getElementById('milestone-banner');
+  document.getElementById('banner-title').textContent=title;
+  document.getElementById('banner-text').textContent=text;
+  b.style.display='block';
+  setTimeout(()=>b.style.display='none',3500);
+}
+
+// ============================================================
+// INCIDENT LOG SIDEBAR
+// ============================================================
+function updateIncidentLog(){
+  const body=document.getElementById('incident-log-body');
+  if(!incidentLog.length){body.innerHTML='<div class="incident-entry">No signals yet.</div>';return;}
+  body.innerHTML=incidentLog.map(i=>'<div class="incident-entry">📡 '+escHtml(i)+'</div>').join('');
+}
+
+function escHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toggleLog(){
+  const body=document.getElementById('incident-log-body');
+  const header=document.getElementById('incident-log-header');
+  if(body.style.display==='none'){
+    body.style.display='block';
+    header.textContent='📡 INCIDENT LOG ▾';
+  } else {
+    body.style.display='none';
+    header.textContent='📡 INCIDENT LOG ▸';
+  }
+}
+
+// ============================================================
+// WOODCHIPPER EASTER EGG
+// ============================================================
+function checkWoodchipper(tx, ty){
+  if(woodchipperShown) return;
+  if(milestonesTriggered<5) return;
+  let now=Date.now();
+  recentTaps.push(now);
+  // keep only taps in last 2 seconds
+  recentTaps=recentTaps.filter(t=>now-t<2000);
+  if(recentTaps.length>=3){
+    recentTaps=[];
+    woodchipperShown=true;
+    showWoodchipper();
+  }
+}
+
+function showWoodchipper(){
+  const el=document.getElementById('woodchipper');
+  el.style.display='flex';
+  woodchipperBeep();
+  setTimeout(()=>el.style.display='none',4000);
+}
+
+function woodchipperBeep(){
+  // 3 ascending tones
+  [330,440,660].forEach((freq,i)=>{
+    setTimeout(()=>beep(freq,0.25,0.4),i*200);
+  });
+}
+
+// ============================================================
+// CORE GAME
+// ============================================================
 function tap(e){
 e.preventDefault();
 let tx=e.clientX||e.touches[0].clientX,ty=e.clientY||e.touches[0].clientY;
+let hit=false;
 for(let i=blocks.length-1;i>=0;i--){
 let b=blocks[i];
 if(b.hit(tx,ty)){
@@ -105,24 +400,27 @@ b.alive=false;
 beep(b.tax?200:330+score,0.08);
 save();
 updateUI();
+checkMilestones();
+hit=true;
 break;
 }
 }
+if(hit) checkWoodchipper(tx,ty);
 }
 
 let AC=null;
 function getAC(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}return AC}
 function beep(freq,dur,vol){try{let a=getAC();if(!a)return;let o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol||0.3,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+dur);o.start();o.stop(a.currentTime+dur)}catch(e){}}
 
-function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
-function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||1;donations=d.donations||0;let today=new Date().toDateString();if(d.lastDaily!==today){score+=50*level;showBanner('🌅 DAILY BONUS +'+50*level+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
+function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,milestonesTriggered,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
+function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||1;donations=d.donations||0;milestonesTriggered=d.milestonesTriggered||0;let today=new Date().toDateString();if(d.lastDaily!==today){score+=50*level;showBanner('🌅 DAILY BONUS +'+50*level+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
 
 function showBanner(msg){let b=document.createElement('div');b.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f0;color:#111;font-family:monospace;font-size:24px;font-weight:bold;padding:20px 40px;border-radius:8px;z-index:999;pointer-events:none';b.textContent=msg;document.body.appendChild(b);setTimeout(()=>b.remove(),2000)}
 
 function buy(n){
 if(n===1&&score>=10*power){score-=10*power;power++;beep(440,0.1);save();updateUI()}
 if(n===2&&score>=50*(autoRate+1)){score-=50*(autoRate+1);autoRate++;beep(550,0.15);save();updateUI()}
-if(n===3&&score>=100){score-=100;donations++;level++;beep(880,0.3,0.5);showBanner('🎉 LEVEL '+level+'! +donation');save();updateUI()}
+if(n===3&&score>=100){score-=100;donations++;level++;beep(880,0.3,0.5);showBanner('🎉 LEVEL '+level+'! +donation');updateBackground();save();updateUI()}
 }
 
 function updateUI(){
@@ -133,6 +431,7 @@ document.getElementById('level').textContent=level;
 document.getElementById('b1').textContent='⛏️ Pickaxe ('+(10*power)+'S)';
 document.getElementById('b2').textContent='🤖 Auto-miner ('+(50*(autoRate+1))+'S)';
 document.getElementById('b3').textContent='💰 Donate (100S) ['+donations+' given]';
+updateBackground();
 }
 
 let spawnTimer=0,autoTimer=0;
@@ -151,13 +450,19 @@ setTimeout(()=>pick.style.transform='translate(-50%,-50%) rotate(0deg)',150);
 
 function loop(){
 if(!started)return;
-x.fillStyle='#111';x.fillRect(0,0,W,H);
+
+// Background color depends on level
+let bgColor;
+if(level<=3) bgColor='#111111';
+else if(level<=6) bgColor='#110a00';
+else bgColor='#000a11';
+x.fillStyle=bgColor;x.fillRect(0,0,W,H);
 
 spawnTimer++;
 if(spawnTimer>Math.max(20,60-level*3)){spawnBlock();spawnTimer=0}
 
 autoTimer++;
-if(autoTimer>60&&autoRate>0){score+=autoRate;autoTimer=0;updateUI()}
+if(autoTimer>60&&autoRate>0){score+=autoRate;autoTimer=0;updateUI();checkMilestones();}
 
 blocks=blocks.filter(b=>b.alive);
 blocks.forEach(b=>{b.update();b.draw()});
@@ -176,6 +481,7 @@ function startGame(){
 document.getElementById('splash').style.display='none';
 document.getElementById('ui').style.display='block';
 document.getElementById('shop').style.display='block';
+document.getElementById('incident-log').style.display='block';
 started=true;
 load();
 document.addEventListener('mousemove',movePick);
@@ -183,6 +489,7 @@ document.addEventListener('touchmove',function(e){e.preventDefault();movePick(e)
 c.addEventListener('click',function(e){swingPick();tap(e)});
 c.addEventListener('touchstart',function(e){swingPick();tap(e)});
 updateUI();
+updateIncidentLog();
 loop();
 }
 </script>

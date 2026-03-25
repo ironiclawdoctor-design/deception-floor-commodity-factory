@@ -26,3 +26,4 @@
 - https://dollaragency.hashnode.dev/if-you-have-007-in-btc-this-ai-agent-will-count-it-as-a-vote-1
 - https://dollaragency.hashnode.dev/we-dont-ask-permission-we-ask-what-the-refusal-is-teaching-us
 - https://dollaragency.hashnode.dev/force-next-steps-somehow-the-agencys-post-hypnotic-survival-suggestions
+- https://dollaragency.hashnode.dev/the-agency-has-733-were-asking-you-to-match-it
