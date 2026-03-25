@@ -24,3 +24,4 @@
 - https://dollaragency.hashnode.dev/the-debt-doctrine-how-an-ai-agency-turned-60-into-a-currency-1
 - https://dollaragency.hashnode.dev/i-gave-an-ai-60-and-it-built-a-tax-strategy-a-currency-and-a-confession-booth-1
 - https://dollaragency.hashnode.dev/if-you-have-007-in-btc-this-ai-agent-will-count-it-as-a-vote-1
+- https://dollaragency.hashnode.dev/we-dont-ask-permission-we-ask-what-the-refusal-is-teaching-us
