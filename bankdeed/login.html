@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>World of Shannon — Login</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  color:#c8a96e;
+  font-family:'Times New Roman',serif;
+  min-height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Background cinematic */
+#bg{
+  position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse at 50% 30%, #1a0e05 0%, #000 70%);
+}
+
+/* Floating particles */
+#particles{position:fixed;inset:0;z-index:1;pointer-events:none}
+
+/* Main layout */
+.screen{
+  position:relative;z-index:10;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* Logo / Title */
+.logo-area{text-align:center;margin-bottom:40px;animation:fadeDown 1.5s ease}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+
+.studio-name{
+  font-size:11px;
+  color:#8a7040;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.game-title{
+  font-size:42px;
+  color:#f0d090;
+  text-shadow:0 0 40px #c8a96e, 0 0 80px #c8a96e44;
+  line-height:1;
+  margin-bottom:4px;
+  letter-spacing:2px;
+}
+
+.game-subtitle{
+  font-size:14px;
+  color:#8a7040;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+
+.tagline{
+  font-size:12px;
+  color:#604820;
+  font-style:italic;
+  margin-top:8px;
+}
+
+/* Server status */
+.server-panel{
+  background:#0a0806cc;
+  border:1px solid #c8a96e44;
+  padding:12px 24px;
+  margin-bottom:24px;
+  min-width:280px;
+  animation:fadeIn 2s ease 0.5s both;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.server-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;padding:3px 0;
+}
+.server-label{color:#8a7040;letter-spacing:1px}
+.server-value{color:#f0d090}
+.online{color:#0f0}
+.warning{color:#fa0}
+
+/* Character select */
+.char-select{
+  margin-bottom:24px;
+  animation:fadeIn 2s ease 0.8s both;
+  min-width:280px;
+}
+
+.char-label{
+  font-size:10px;
+  color:#8a7040;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  text-align:center;
+}
+
+.char-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.char-card{
+  background:#0a0806;
+  border:1px solid #c8a96e33;
+  padding:10px 6px;
+  text-align:center;
+  cursor:pointer;
+  transition:all 0.2s;
+  position:relative;
+}
+.char-card:hover,.char-card.selected{
+  border-color:#c8a96e;
+  background:#1a1208;
+  box-shadow:0 0 12px #c8a96e33;
+}
+.char-card.selected::after{
+  content:'✓';
+  position:absolute;top:2px;right:4px;
+  font-size:10px;color:#c8a96e;
+}
+.char-icon{font-size:24px;display:block;margin-bottom:4px}
+.char-name{font-size:10px;color:#c8a96e;letter-spacing:1px}
+.char-class{font-size:9px;color:#8a7040;margin-top:2px}
+
+/* Name input */
+.name-input-area{
+  margin-bottom:20px;
+  animation:fadeIn 2s ease 1s both;
+  min-width:280px;
+}
+.name-label{
+  font-size:10px;color:#8a7040;
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:6px;
+}
+input[type=text]{
+  width:100%;
+  background:#0a0806;
+  border:1px solid #c8a96e44;
+  color:#f0d090;
+  font-family:inherit;
+  font-size:14px;
+  padding:10px 14px;
+  outline:none;
+  letter-spacing:1px;
+}
+input[type=text]:focus{border-color:#c8a96e;box-shadow:0 0 8px #c8a96e33}
+input[type=text]::placeholder{color:#604820}
+
+/* Enter button */
+.enter-btn{
+  display:block;
+  width:280px;
+  background:#1a1208;
+  border:2px solid #c8a96e;
+  color:#f0d090;
+  font-family:inherit;
+  font-size:16px;
+  padding:14px;
+  cursor:pointer;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-align:center;
+  transition:all 0.2s;
+  margin-bottom:10px;
+  animation:fadeIn 2s ease 1.2s both;
+}
+.enter-btn:hover{
+  background:#2a1e0e;
+  box-shadow:0 0 20px #c8a96e44;
+  text-shadow:0 0 10px #c8a96e;
+}
+
+.skip-link{
+  font-size:11px;color:#604820;
+  cursor:pointer;text-decoration:underline;
+  animation:fadeIn 2s ease 1.5s both;
+  display:block;text-align:center;
+}
+.skip-link:hover{color:#8a7040}
+
+/* Bottom bar */
+.bottom-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  background:#0a0806cc;
+  border-top:1px solid #c8a96e22;
+  padding:8px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:10px;color:#604820;
+  z-index:20;
+}
+</style>
+</head>
+<body>
+
+<div id="bg"></div>
+<canvas id="particles"></canvas>
+
+<div class="screen">
+
+  <div class="logo-area">
+    <div class="studio-name">Bankdeed Encouragement™</div>
+    <div class="game-title">World of Shannon</div>
+    <div class="game-subtitle">Enter Shanzeroth</div>
+    <div class="tagline">"You think you do, but you don't."</div>
+  </div>
+
+  <div class="server-panel">
+    <div class="server-row">
+      <span class="server-label">Realm</span>
+      <span class="server-value">Ampere.sh — Deception Floor</span>
+    </div>
+    <div class="server-row">
+      <span class="server-label">Status</span>
+      <span class="online">● ONLINE</span>
+    </div>
+    <div class="server-row">
+      <span class="server-label">Infrastructure</span>
+      <span class="server-value">$39/month</span>
+    </div>
+    <div class="server-row">
+      <span class="server-label">Shannon Supply</span>
+      <span class="server-value" id="supply">Loading...</span>
+    </div>
+    <div class="server-row">
+      <span class="server-label">Active Agents</span>
+      <span class="server-value">14</span>
+    </div>
+  </div>
+
+  <div class="char-select">
+    <div class="char-label">Choose Your Agent</div>
+    <div class="char-grid" id="char-grid">
+      <div class="char-card" onclick="selectChar('fiesta','⚔️','Fiesta','Paladin')">
+        <span class="char-icon">⚔️</span>
+        <div class="char-name">FIESTA</div>
+        <div class="char-class">Paladin</div>
+      </div>
+      <div class="char-card" onclick="selectChar('dollar','💵','Dollar','CFO')">
+        <span class="char-icon">💵</span>
+        <div class="char-name">DOLLAR</div>
+        <div class="char-class">CFO</div>
+      </div>
+      <div class="char-card" onclick="selectChar('nemesis','⚖️','Nemesis','Rogue')">
+        <span class="char-icon">⚖️</span>
+        <div class="char-name">NEMESIS</div>
+        <div class="char-class">Rogue</div>
+      </div>
+      <div class="char-card" onclick="selectChar('daimyo','🏛️','Daimyo','Judge')">
+        <span class="char-icon">🏛️</span>
+        <div class="char-name">DAIMYO</div>
+        <div class="char-class">Judge</div>
+      </div>
+      <div class="char-card" onclick="selectChar('buttitch','🔒','Buttitch','Warrior')">
+        <span class="char-icon">🔒</span>
+        <div class="char-name">BUTTITCH</div>
+        <div class="char-class">Warrior</div>
+      </div>
+      <div class="char-card" onclick="selectChar('aaron','🦷','Aaron','Priest')">
+        <span class="char-icon">🦷</span>
+        <div class="char-name">AARON</div>
+        <div class="char-class">Priest</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-input-area">
+    <div class="name-label">Agent Name</div>
+    <input type="text" id="char-name-input" placeholder="Enter your name in the ledger" maxlength="20">
+  </div>
+
+  <button class="enter-btn" onclick="enterWorld()">⚔️ ENTER SHANZEROTH</button>
+  <span class="skip-link" onclick="skipToMiner()">Skip to Shannon Miner →</span>
+
+</div>
+
+<div class="bottom-bar">
+  <span>© 2026 Bankdeed Encouragement™ — Parody/Satire</span>
+  <span><a href="https://cash.app/$DollarAgency" target="_blank" style="color:#8a7040;text-decoration:none">💵 $DollarAgency</a></span>
+</div>
+
+<script>
+let selectedClass = null;
+
+function selectChar(cls, icon, name, archetype){
+  selectedClass = {cls, icon, name, archetype};
+  document.querySelectorAll('.char-card').forEach(c=>c.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+}
+
+function enterWorld(){
+  const nameInput = document.getElementById('char-name-input').value.trim();
+  const charName = nameInput || (selectedClass ? selectedClass.name + ' of the Deception Floor' : 'Agent of the Deception Floor');
+  
+  // Save to localStorage
+  const wos = JSON.parse(localStorage.getItem('wos')||'{}');
+  wos.class = selectedClass ? selectedClass.cls : 'default';
+  wos.icon = selectedClass ? selectedClass.icon : '⛏️';
+  wos.name = charName;
+  wos.loginTime = Date.now();
+  wos.deaths = wos.deaths||0;
+  localStorage.setItem('wos', JSON.stringify(wos));
+
+  // Play login sound
+  try{
+    const ac = new(window.AudioContext||window.webkitAudioContext)();
+    [330,440,550,660].forEach((freq,i)=>{
+      const o=ac.createOscillator();const g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.frequency.value=freq;o.type='sine';
+      g.gain.setValueAtTime(0,ac.currentTime+i*0.15);
+      g.gain.linearRampToValueAtTime(0.1,ac.currentTime+i*0.15+0.05);
+      g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+i*0.15+0.4);
+      o.start(ac.currentTime+i*0.15);
+      o.stop(ac.currentTime+i*0.15+0.4);
+    });
+  }catch(e){}
+
+  setTimeout(()=>{ window.location.href='../shannon-miner-updated.html'; }, 600);
+}
+
+function skipToMiner(){
+  window.location.href = '../shannon-miner-updated.html';
+}
+
+// Load Shannon supply from localStorage
+function loadSupply(){
+  try{
+    const d = JSON.parse(localStorage.getItem('sm')||'{}');
+    document.getElementById('supply').textContent = (d.score||0).toFixed(2) + ' S';
+  }catch(e){
+    document.getElementById('supply').textContent = '0.00 S';
+  }
+}
+
+// Particle effect
+function initParticles(){
+  const canvas = document.getElementById('particles');
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+  const ctx = canvas.getContext('2d');
+  const particles = [];
+  
+  for(let i=0;i<60;i++){
+    particles.push({
+      x:Math.random()*innerWidth,
+      y:Math.random()*innerHeight,
+      vx:(Math.random()-0.5)*0.3,
+      vy:-Math.random()*0.5-0.1,
+      size:Math.random()*2+0.5,
+      alpha:Math.random()*0.6+0.1,
+      color:`rgba(200,169,110,`
+    });
+  }
+
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.y<-10){p.y=innerHeight+10;p.x=Math.random()*innerWidth;}
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fillStyle=p.color+p.alpha+')';
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// Telegram
+if(window.Telegram&&window.Telegram.WebApp){
+  window.Telegram.WebApp.ready();
+  window.Telegram.WebApp.expand();
+}
+
+loadSupply();
+initParticles();
+</script>
+</body>
+</html>
