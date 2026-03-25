@@ -491,3 +491,7 @@ Each rule pairs a colonial problem with a concrete remediation.
 ### AM-20260325: Directory structure suggests potential ownership concentration...
 **Rule:** Cap maximum percentage at 60%; implement progressive redistribution for shares >60%
 **Enforcement:** Automated monitoring + quarterly rebalancing
+
+### AM-20260325: Directory structure suggests potential ownership concentration...
+**Rule:** Cap maximum percentage at 60%; implement progressive redistribution for shares >60%
+**Enforcement:** Automated monitoring + quarterly rebalancing
