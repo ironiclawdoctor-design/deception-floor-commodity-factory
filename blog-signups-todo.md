@@ -3,6 +3,14 @@ _DEA Autoresearch — 2026-03-25_
 
 ---
 
+## ⚡ PRIORITY 1 — After April 8th (card arrives)
+- [ ] **Write.as Pro ($25/mo)** — sign up at https://write.as/join (email+password, no Google required)
+  - All anonymous posts already published get claimed into this account retroactively
+  - Then share login with agency for ongoing management
+  - First charge on Dollar Agency Mendez PayPal Business Debit card
+
+---
+
 ## ✅ DEPLOYED: Listmonk (PREFERRED — self-hosted)
 
 **Status: LIVE on port 9003**

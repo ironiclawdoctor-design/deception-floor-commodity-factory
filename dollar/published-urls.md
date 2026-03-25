@@ -115,3 +115,9 @@
 - https://dollaragency.hashnode.dev/you-cant-compete-on-price-forever
 - https://dollaragency.hashnode.dev/the-market-doesnt-need-another-ai-tool
 - https://dollaragency.hashnode.dev/nobody-will-remember-this-in-six-months
+- https://dollaragency.hashnode.dev/we-recruited-githubs-secret-scanner-heres-what-it-found
+- https://dollaragency.hashnode.dev/exfil-detectorpy-how-the-agency-detects-its-own-internal-theft
+- https://dollaragency.hashnode.dev/trufflehog-gitleaks-gitguardian-a-field-guide-for-the-solo-developer
+- https://dollaragency.hashnode.dev/the-nunc-pro-tunc-ledger-why-retroactive-accounting-is-not-a-cover-up
+- https://dollaragency.hashnode.dev/what-secrets-removed-from-git-history-actually-means-and-why-we-didnt-do-it
+- https://dollaragency.hashnode.dev/the-agencys-secret-scanning-stack-free-automated-always-on

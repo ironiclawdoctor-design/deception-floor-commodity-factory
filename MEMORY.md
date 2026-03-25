@@ -111,11 +111,12 @@ The agency name "Fiesta" is not invented. The CFO's family has been running a bu
 - **Autoresearch avoids all inducement conversion attempts.** If a platform offers free credits, log it, decline it, find the Shannon path instead.
 
 ## Pending Items
-- [ ] PayPal Developer App — user needs Client ID + Secret
+- [x] PayPal Business Debit Card arriving April 8, 2026 — Dollar Agency Mendez
 - [ ] GitHub Pages — enable in Settings for factory + precinct repos
 - [ ] Twitter/X — infrastructure complete, awaiting real credentials in `secrets/twitter-api.json`
 - [ ] gh CLI auth — using SSH git as workaround
 - [ ] Brave Search API key — using web_fetch as workaround
+- [x] EIN confirmed — 41-3668968 — JESUS CHRIST ALLOCATION % NOT HELPING — issued 2026-01-16
 - [ ] Dollar persona suite — scripts need `chmod +x`, `next01.sh` ready at `/root/next01.sh`
 - [ ] GCP $300 credits — browser login needed (Chrome tab attach)
 
