@@ -1,0 +1,9 @@
+perk	status	notes
+1-fullscreen	LIVE	Telegram.WebApp.requestFullscreen() called on startGame(); splash button shown when WebApp available
+2-home-screen	LIVE	addToHomeScreen() triggered 5s after Level 5; one-time flag in localStorage
+3-stars-payment	LIVE	createInvoiceLink called; URL=https://t.me/$2FWxzKaoIEYLAQAA6SGzhgZuAaQ; 4th shop button added; openInvoice() with paid callback grants +500S
+4-emoji-status	LIVE	setEmojiStatus("⛏️") triggered 2s after Level 10; try/catch for Premium-only; one-time flag
+5-share-chat	LIVE	shareMessage() / switchInlineQuery() triggered 4s after Level 29 milestone
+6-bot-description	LIVE	setMyShortDescription + setMyDescription set via Bot API; both returned ok:true
+7-device-storage	LIVE	save()/load() use CloudStorage.setItem/getItem with localStorage fallback
+8-haptic-feedback	LIVE	impactOccurred("medium") on block tap; notificationOccurred("error") on TAX; notificationOccurred("success") on level-up
