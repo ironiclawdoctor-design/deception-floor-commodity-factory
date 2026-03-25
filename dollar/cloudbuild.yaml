@@ -1,0 +1,24 @@
+
+steps:
+  # Build and push the Docker image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/sovereign-see/dollar-dashboard', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/sovereign-see/dollar-dashboard']
+  
+  # Deploy to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'dollar-dashboard', 
+           '--image=gcr.io/sovereign-see/dollar-dashboard', 
+           '--region=us-central1',
+           '--platform=managed',
+           '--allow-unauthenticated',
+           '--memory=512Mi',
+           '--cpu=1',
+           '--max-instances=10',
+           '--set-env-vars=PORT=8080',
+           '--service-account=dollaragency@sovereign-see.iam.gserviceaccount.com',
+           '--quiet']
+    
+images:
+  - gcr.io/sovereign-see/dollar-dashboard
