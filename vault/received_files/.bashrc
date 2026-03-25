@@ -97,7 +97,7 @@ fi
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 #    . /etc/bash_completion
 #fi
-export GITHUB_PAT="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"
+export GITHUB_PAT="${GITHUB_PAT}"
 
 . "$HOME/.local/bin/env"
 
