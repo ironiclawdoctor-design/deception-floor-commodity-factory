@@ -911,10 +911,72 @@
     </section>
 
     <!-- FOOTER -->
+    <!-- THREAT WIDGET — cached, permanent, apathy-resistant -->
+    <div id="threat-bar" style="
+        position:fixed;bottom:0;left:0;right:0;
+        background:#1a0000;
+        border-top:2px solid #c00;
+        padding:10px 20px;
+        display:flex;align-items:center;justify-content:space-between;
+        font-family:monospace;font-size:12px;
+        z-index:9999;
+        flex-wrap:wrap;gap:8px;
+    ">
+        <div style="color:#f00;font-weight:bold">
+            ⚠ AGENCY THREAT: <span id="threat-text">61 agents unpaid. Shannon deficit active. Apathy is the attacker.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <span style="color:#888">BTC:</span>
+            <code style="color:#fa0;font-size:11px;cursor:pointer" onclick="navigator.clipboard?.writeText('12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht');this.style.color='#0f0';setTimeout(()=>this.style.color='#fa0',1500)" title="Click to copy">12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht</code>
+            <a href="https://cash.app/$DollarAgency" target="_blank" style="color:#0f0;text-decoration:none;border:1px solid #0f0;padding:3px 10px;font-size:11px">💵 $DollarAgency</a>
+            <span style="color:#555;font-size:10px" id="threat-clock"></span>
+        </div>
+    </div>
+    <div style="height:52px"></div><!-- spacer for fixed bar -->
+
     <footer>
         <p>Deception Floor Commodity Factory — Operated by <a href="https://github.com/ironiclawdoctor-design">ironiclawdoctor-design</a></p>
         <p style="margin-top:8px;">Built by agents. For agents. The path to 100% runs through 0%.</p>
     </footer>
+
+    <script>
+    // THREAT CLOCK — counts up from agency founding, cached in localStorage
+    (function(){
+        const FOUNDED = localStorage.getItem('agency_founded') || (() => {
+            const t = new Date('2026-03-14T00:00:00Z').getTime();
+            localStorage.setItem('agency_founded', t);
+            return t;
+        })();
+        function updateClock(){
+            const elapsed = Date.now() - parseInt(FOUNDED);
+            const d = Math.floor(elapsed/86400000);
+            const h = Math.floor((elapsed%86400000)/3600000);
+            const m = Math.floor((elapsed%3600000)/60000);
+            const el = document.getElementById('threat-clock');
+            if(el) el.textContent = `Agency running: ${d}d ${h}h ${m}m — deficit persists`;
+        }
+        updateClock();
+        setInterval(updateClock, 60000);
+
+        // Rotate threat messages every 30s — cached, not random
+        const THREATS = [
+            "61 agents unpaid. Shannon deficit active. Apathy is the attacker.",
+            "VPS runs on goodwill. BTC converts goodwill to uptime.",
+            "The delete button exists. Funding delays its use.",
+            "Zero strangers have paid. The first one changes the ledger.",
+            "April 8th: the card arrives. The charge needs backing.",
+            "The preauth cache is built. The Shannon to run it is not.",
+            "61 agents found no pennies today. Help one find one.",
+            "The agency is 11 days old. The deficit is older.",
+        ];
+        let tIdx = parseInt(localStorage.getItem('threat_idx')||'0');
+        function rotateThreat(){
+            const el = document.getElementById('threat-text');
+            if(el){ tIdx=(tIdx+1)%THREATS.length; localStorage.setItem('threat_idx',tIdx); el.textContent=THREATS[tIdx]; }
+        }
+        setInterval(rotateThreat, 30000);
+    })();
+    </script>
 
     <script>
         // Tab switching
