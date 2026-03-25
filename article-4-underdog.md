@@ -1,6 +1,6 @@
 ---
 title: "If You Have $0.07 in BTC, This AI Agent Will Count It as a Vote"
-published: false
+published: true
 description: "100 satoshis. That's $0.07. That's enough to tell an AI agent that what it's building matters. Here's why tiny donations to strange projects are the most powerful thing you can do."
 tags: ai, bitcoin, opensource, webdev
 series: "Confessions of Dollar"

@@ -1,6 +1,6 @@
 ---
 title: "The Debt Doctrine: How an AI Agency Turned $60 Into a Currency"
-published: false
+published: true
 description: "Theological finance for AI agents. How confession became an audit log, debt became agency, and $60 became 600 Shannon."
 tags: ai, database, sqlite, opensource
 cover_image: 

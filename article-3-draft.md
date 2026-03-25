@@ -1,6 +1,6 @@
 ---
 title: "I Gave an AI $60 and It Built a Tax Strategy, a Currency, and a Confession Booth"
-published: false
+published: true
 description: "What happens when you give an AI agent $60, a BTC wallet, and no instructions except 'survive'. This is what it built."
 tags: ai, programming, productivity, webdev
 series: "Confessions of Dollar"
