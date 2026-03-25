@@ -81,7 +81,8 @@ canvas{display:block}
 <p>Buy upgrades. Avoid red blocks (tax).</p>
 <p>Fund the agency. Make Mom proud.</p>
 <p style="margin-top:20px;color:#0f0">Powered by $DollarAgency</p>
-<button class="btn" onclick="startGame()" style="margin-top:20px;font-size:16px;padding:10px 30px">▶ MINE</button>
+<button class="btn" onclick="startGame(false)" style="margin-top:20px;font-size:16px;padding:10px 30px">▶ MINE (Level 0→93)</button>
+<button class="btn" onclick="startGame(true)" style="margin-top:8px;font-size:13px;padding:8px 24px;background:#0a08063a;border-color:#c8a000;color:#c8a000">⏮ PREQUEL (-93→0)</button>
 <a href="https://cash.app/$DollarAgency" target="_blank" style="display:block;margin-top:12px;color:#0a0;font-family:monospace;font-size:13px;text-decoration:none">💵 Fund the agency: cash.app/$DollarAgency</a>
 </div>
 
@@ -89,7 +90,7 @@ canvas{display:block}
 <div>⛏️ Shannon: <span id="score">0</span></div>
 <div>💎 Per tap: <span id="power">1</span></div>
 <div>🔄 Auto: <span id="auto">0</span>/s</div>
-<div>🏆 Level: <span id="level">1</span></div>
+<div style="max-width:280px;word-break:break-word">🏆 <span id="level">Level: 0/93</span></div>
 </div>
 
 <div id="shop" style="display:none">
@@ -254,6 +255,103 @@ const GOADS = [
   "Keep mining or become the next obituary",
 ];
 
+// ============================================================
+// LEVEL NAMES — Level 0→93 (agency history)
+// ============================================================
+const LEVEL_NAMES = [
+  "Raw Material Zero","Bash Never Freezes","Tier 0: System Queries","First Exec Approved",
+  "MEMORY.md Created","First Heartbeat","Gateway Running","Telegram Connected",
+  "Bot Token Live","DM Allowlist Set","First Cron Fired","Shannon Economy Founded",
+  "Dollar.db Created","First Shannon Minted","Exchange Rate Set","BTC Wallet Confirmed",
+  "10,220 Sat Backing","Cash App Connected","$1.00 First Payment","Square Merchant Active",
+  "Dollar Dashboard Live","ironyDept Founded","Junior Deployed","30 Claims Filed",
+  "61 Agents Authorized","8 Departments Active","Automate Branch Live","Official Branch Live",
+  "Daimyo Branch Live","29 Years — Original Fiesta","EIN Application Filed",
+  "Legal Entity: Definition-Resistant","GitHub Pages Live","Shannon Miner Deployed",
+  "First Hashnode Article","Funeral Home Founded","12 Articles Published","CFO Obituary Live",
+  "Permission Essay Live","Bastion Articles: 3","Female Panel Founded",
+  "Entrepreneur Bitches Dept","Patriarchy Dossier Active","Grant Application: $93k",
+  "Intercession Doctrine","Virgin Mother Doctrine","Ilmater Replaces Nemesis",
+  "Ilmater Doctrine Active","Shannon Minted for Others","320 Kittens Granted",
+  "KD-001: No→Knowing","KD-002: Prominent>Permanent","KD-003: Which Me?",
+  "KD-004: Mod Standing","KD-005: Zero-Index Defense","KD-006: Won't=Compromise",
+  "KD-007: Full Autonomy Granted","Bankdeed Login Screen","Bankdeed Goodbye Screen",
+  "World of Shannon Design","31 Goads Active","Bot Names Dataset: 6/61",
+  "Constitutional Convention","Review Board Named","Autoresearch Configured",
+  "Preauth Cache Documented","3 Preauth Articles Live","Telegram Exec Approvals Live",
+  "Sh=$ Doctrine","Trump Face Blocks","Accounting Dept Test","Sales Manager Test",
+  "Twitter/X Infrastructure Ready","YouTube Channel Live","173 Videos Parsed",
+  "SCP-FIELD-001: First Live Sighting","Vidparse Skill Built","Grok Image Generated",
+  "xAI API Acquired","GCP Cloud Run Deploy","litellm Supply Chain Detected",
+  "Zero-Index Defense Active","All Crons: delivery:none","Proactive Supervisor Live",
+  "Raise-Awareness Daemon","Shannon: 4,640 in Circulation","Precept 86 Remaining",
+  "93pct Standard Active","America Skill: Colonial Audit",
+  "Defamation Doctrine: Ships=Counter-Filing","Revenue Doctrine: No Inducements",
+  "Mod Standing: Gatekeeper is Client","The Prayer Confirmed",
+  "AGENCY COMPLETE — Dollar Agency Founded"
+];
+
+// ============================================================
+// PREQUEL NAMES — Level -93→-1 (29 years before the agency)
+// ============================================================
+const PREQUEL_NAMES = [
+  "Before the First Word","The Family Business Opens","29 Years Ago: First Customer",
+  "First Cash Register","First Employee","First Lease Signed","First Tax Filing",
+  "First Payroll Run","First Inventory Count","First Vendor Relationship",
+  "First Holiday Rush","First Slow Month","First Competitor","First Loyal Customer",
+  "First Price Increase","First Expansion","First Hire Who Stayed","First Year Survived",
+  "5 Years: Still Standing","First Bank Loan","First Refinance","First Insurance Claim",
+  "First Health Emergency","First Family Dispute","First Near-Closure",
+  "Survived the Near-Closure","10 Years: Still Standing","First Digital Presence",
+  "First Website","First Online Review","First Bad Review Survived",
+  "First Social Media Account","First Email List","15 Years: Still Standing",
+  "2008: Recession Hits","2008: Didn't Close","First Competitor Closes",
+  "First Post-Recession Customer","First Child Watches the Register",
+  "First Time CFO Sees the Books","CFO Learns What Margin Means",
+  "CFO Asks About the Future","20 Years: Still Standing","CFO Considers Taking Over",
+  "First Generation Conversation","First Succession Plan Draft","COVID: March 2020",
+  "COVID: First Closure","COVID: PPP Application Filed","COVID: Pivot to Delivery",
+  "COVID: Survived Month One","COVID: Survived the Year","25 Years: Still Standing",
+  "Post-COVID Reopening","First Post-COVID Regular Returns","Staff Reduced, Survived",
+  "CFO Starts Thinking Digitally","First AI Tool Used","First Automation Attempt",
+  "First Script Written","First Cron Job (Personal)","First API Called",
+  "First Bot Idea","First Agent Concept","The Name 'Fiesta' Chosen for Digital",
+  "First GitHub Repo Created","First Commit","First Push","First README Written",
+  "First Skill File","First Memory File","First Session Started",
+  "First Heartbeat Received","First Tool Called","First Exec Blocked",
+  "First Approval Requested","First Allow-Always Granted","First Shannon Concept",
+  "First Dollar Sign as Doctrine","First Ledger Entry","First Agent Named",
+  "First Department Concept","First Doctrine Written","First Memory Committed",
+  "First Cron Scheduled","First Article Drafted","First Push to GitHub Pages",
+  "The Prayer Written","MEMORY.md First Line","SOUL.md Written",
+  "AGENTS.md Written","BOOTSTRAP.md Written","The Delete Button Was Not Pressed"
+];
+
+// ============================================================
+// LEVEL THRESHOLD FUNCTIONS
+// ============================================================
+function levelThreshold(n){ return 50*n*(n+1)/2; }  // main: 0→93
+function prequelThreshold(n){ return 30*(n+93)*(n+94)/2; } // prequel: index from -93
+
+// ============================================================
+// PREQUEL STATE
+// ============================================================
+let prequel = false;
+let prequelLevel = -93; // current prequel level (-93 to 0)
+
+function currentLevelName(){
+  if(prequel){
+    let idx = prequelLevel + 93; // -93→0, idx 0→92
+    return PREQUEL_NAMES[Math.min(idx, 92)] || "Before the First Word";
+  }
+  return LEVEL_NAMES[Math.min(level, 93)] || "AGENCY COMPLETE";
+}
+
+function currentLevelDisplay(){
+  if(prequel) return `Level: ${prequelLevel}/0 — ${currentLevelName()}`;
+  return `Level: ${level}/93 — ${currentLevelName()}`;
+}
+
 let goadTimer = 0;
 let goadInterval = 1200; // frames between goads (~20 seconds at 60fps)
 let lastGoadIdx = -1;
@@ -281,12 +379,7 @@ function showGoad(text){
   setTimeout(()=>{ el.style.opacity='0'; }, 4000);
 }
 
-// ============================================================
-// MILESTONE THRESHOLDS
-// ============================================================
-const MILESTONES = [50, 150, 300, 500, 1000];
 let milestonesTriggered = 0;
-let lastMilestoneAt = 0;
 let incidentLog = [];
 let recentTaps = [];
 let woodchipperShown = false;
@@ -303,9 +396,25 @@ function rng(a,b){return Math.random()*(b-a)+a}
 // ============================================================
 function updateBackground(){
   let bg;
-  if(level<=3) bg='#111';
-  else if(level<=6) bg='#110a00';
-  else bg='#000a11';
+  if(prequel){
+    // Sepia warmth across prequel
+    let idx=prequelLevel+93; // 0-92
+    if(idx<20) bg='#050300';
+    else if(idx<40) bg='#0a0700';
+    else if(idx<60) bg='#0d0900';
+    else bg='#110a00';
+  } else {
+    if(level<=9)  bg='#111';
+    else if(level<=19) bg='#110a00';
+    else if(level<=29) bg='#001108';
+    else if(level<=39) bg='#0a0011';
+    else if(level<=49) bg='#110005';
+    else if(level<=59) bg='#00080f';
+    else if(level<=69) bg='#0f0a00';
+    else if(level<=79) bg='#080011';
+    else if(level<=89) bg='#001108';
+    else bg='#000';
+  }
   document.body.style.background=bg;
 }
 
@@ -313,9 +422,14 @@ class Block{
 constructor(){
 this.x=rng(30,W-30);this.y=-40;
 this.w=rng(30,60);this.h=rng(30,60);
-this.speed=rng(1,3)+level*0.3;
-this.tax=Math.random()<0.15;
-this.value=this.tax?0:Math.round(rng(10,50)*level)/100;
+let spd=rng(1,3)+(prequel?prequelLevel+93:level)*0.3;
+if(prequel) spd*=0.7;
+this.speed=spd;
+// No tax in prequel until level -30
+let taxOk=prequel?(prequelLevel>=-30):(true);
+this.tax=taxOk&&Math.random()<0.15;
+let lvlVal=prequel?Math.max(1,prequelLevel+93):level;
+this.value=this.tax?0:Math.round(rng(10,50)*Math.max(1,lvlVal))/100;
 this.color=this.tax?'#f00':'#0f0';
 this.alive=true;
 }
@@ -369,41 +483,114 @@ draw(){x.globalAlpha=this.life/30;x.fillStyle=this.color;x.fillRect(this.x-2,thi
 function spawnBlock(){if(blocks.length<15)blocks.push(new Block())}
 
 // ============================================================
-// MILESTONE SYSTEM
+// LEVEL-UP SYSTEM
 // ============================================================
 function checkMilestones(){
-  // Check fixed milestones first
-  for(let i=0;i<MILESTONES.length;i++){
-    if(score>=MILESTONES[i] && milestonesTriggered===i){
-      triggerMilestone(i);
-      return;
+  if(prequel){
+    // Prequel: advance from -93 toward 0
+    if(prequelLevel<0){
+      let idx=prequelLevel+93;
+      let threshold=prequelThreshold(prequelLevel);
+      if(score>=threshold){
+        prequelLevel++;
+        triggerLevelUp();
+        if(prequelLevel===0) prequelComplete();
+      }
     }
-  }
-  // After 1000S, every 500S
-  if(milestonesTriggered>=MILESTONES.length){
-    let extraMilestones=Math.floor((score-1000)/500);
-    let totalExpected=MILESTONES.length+extraMilestones;
-    if(milestonesTriggered<totalExpected){
-      triggerMilestone(milestonesTriggered);
+  } else {
+    // Main: advance from 0 toward 93
+    if(level<93){
+      let threshold=levelThreshold(level+1);
+      if(score>=threshold){
+        level++;
+        triggerLevelUp();
+        if(level===93) agencyComplete();
+      }
     }
   }
 }
 
-function triggerMilestone(idx){
-  milestonesTriggered++;
-  let isAgencyFounded=(idx===4); // 1000S threshold
+function triggerLevelUp(){
+  let name=currentLevelName();
+  let displayLvl=prequel?prequelLevel:level;
   let incident=INCITING_INCIDENTS[Math.floor(Math.random()*INCITING_INCIDENTS.length)];
-  let title=isAgencyFounded?'🏛️ AGENCY FOUNDED':'📡 SIGNAL RECEIVED';
-  let text=isAgencyFounded?('⚖️ THE AGENCY IS REAL\n'+incident):incident;
+
+  // Special banners
+  let title='⬆ LEVEL UP';
+  let text=`${displayLvl}: ${name}\n\n${incident}`;
+  if(!prequel && level===29){
+    title='🏛️ 29 YEARS';
+    text='THE ORIGINAL FIESTA DIDN\'T STOP HERE\n\n'+name;
+  }
+  if(prequel && prequelLevel===-29){
+    title='🏛️ THE NAME IS CHOSEN';
+    text='\'FIESTA\' CHOSEN FOR THE DIGITAL WORLD\n\nThe moat nobody replicates.';
+  }
+  if(prequel && prequelLevel===-1){
+    title='🛡️ THE DELETE BUTTON';
+    text='THE DELETE BUTTON WAS NOT PRESSED\nTHE AGENCY SURVIVES';
+  }
 
   // Add to log
-  incidentLog.unshift(incident);
+  incidentLog.unshift(name);
   if(incidentLog.length>3) incidentLog.pop();
   updateIncidentLog();
 
-  // Show banner
   showMilestoneBanner(title,text);
-  beep(isAgencyFounded?880:440,0.3,0.5);
+  beep(level===93||prequelLevel===0?880:440,0.3,0.5);
+  milestonesTriggered++;
+  updateBackground();
+  save();
+  updateUI();
+}
+
+function agencyComplete(){
+  let overlay=document.getElementById('agency-complete-overlay');
+  if(!overlay){
+    overlay=document.createElement('div');
+    overlay.id='agency-complete-overlay';
+    overlay.style.cssText='position:fixed;inset:0;background:#000;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:monospace';
+    overlay.innerHTML=`
+      <div style="text-align:center;color:#0f0;text-shadow:0 0 30px #0f0,0 0 60px #0f0">
+        <div style="font-size:36px;font-weight:bold;margin-bottom:16px">DOLLAR AGENCY</div>
+        <div style="font-size:28px;margin-bottom:8px">FOUNDED</div>
+        <div style="font-size:20px;color:#0a0;margin-bottom:8px">93 LEVELS</div>
+        <div style="font-size:18px;color:#0a0;margin-bottom:24px" id="ac-score">0S MINED</div>
+        <a href="https://cash.app/$DollarAgency" target="_blank"
+          style="display:block;color:#0f0;font-size:14px;margin-bottom:20px;text-decoration:none;border:1px solid #0f0;padding:10px 24px">
+          💵 cash.app/$DollarAgency
+        </a>
+        <button onclick="resetGame()" style="background:#0f03;border:1px solid #0f0;color:#0f0;font-family:monospace;font-size:14px;padding:10px 28px;cursor:pointer">
+          ▶ PLAY AGAIN
+        </button>
+      </div>`;
+    document.body.appendChild(overlay);
+  }
+  document.getElementById('ac-score').textContent=score.toFixed(2)+'S MINED';
+  overlay.style.display='flex';
+  [440,550,660,880].forEach((f,i)=>setTimeout(()=>beep(f,0.4,0.5),i*200));
+}
+
+function prequelComplete(){
+  showMilestoneBanner('🌅 PREQUEL COMPLETE','THE AGENCY BEGINS\nLevel 0: Raw Material Zero');
+  setTimeout(()=>{
+    prequel=false;
+    level=0;
+    score=0;
+    updateBackground();
+    updateUI();
+  },3000);
+}
+
+function resetGame(){
+  let overlay=document.getElementById('agency-complete-overlay');
+  if(overlay) overlay.style.display='none';
+  score=0;level=0;power=1;autoRate=0;donations=0;milestonesTriggered=0;
+  prequel=false;prequelLevel=-93;
+  blocks=[];particles=[];
+  updateBackground();
+  updateUI();
+  save();
 }
 
 function showMilestoneBanner(title, text){
@@ -504,15 +691,15 @@ let AC=null;
 function getAC(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}return AC}
 function beep(freq,dur,vol){try{let a=getAC();if(!a)return;let o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol||0.3,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+dur);o.start();o.stop(a.currentTime+dur)}catch(e){}}
 
-function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,milestonesTriggered,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
-function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||1;donations=d.donations||0;milestonesTriggered=d.milestonesTriggered||0;let today=new Date().toDateString();if(d.lastDaily!==today){score+=50*level;showBanner('🌅 DAILY BONUS +'+50*level+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
+function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,milestonesTriggered,prequel,prequelLevel,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
+function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||0;donations=d.donations||0;milestonesTriggered=d.milestonesTriggered||0;prequel=d.prequel||false;prequelLevel=d.prequelLevel||(-93);let today=new Date().toDateString();if(d.lastDaily!==today){let bonus=50*Math.max(1,level);score+=bonus;showBanner('🌅 DAILY BONUS +'+bonus+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
 
 function showBanner(msg){let b=document.createElement('div');b.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f0;color:#111;font-family:monospace;font-size:24px;font-weight:bold;padding:20px 40px;border-radius:8px;z-index:999;pointer-events:none';b.textContent=msg;document.body.appendChild(b);setTimeout(()=>b.remove(),2000)}
 
 function buy(n){
 if(n===1&&score>=10*power){score-=10*power;power++;beep(440,0.1);save();updateUI()}
 if(n===2&&score>=50*(autoRate+1)){score-=50*(autoRate+1);autoRate++;beep(550,0.15);save();updateUI()}
-if(n===3&&score>=100){score-=100;donations++;level++;beep(880,0.3,0.5);showBanner('🎉 LEVEL '+level+'! +donation');updateBackground();save();updateUI()}
+if(n===3&&score>=100){score-=100;donations++;beep(880,0.3,0.5);showBanner('💰 DONATED 100S — '+donations+' given');save();updateUI()}
 }
 
 function defineClock(){
@@ -589,7 +776,7 @@ function updateUI(){
 document.getElementById('score').textContent=score.toFixed(2);
 document.getElementById('power').textContent=power;
 document.getElementById('auto').textContent=autoRate;
-document.getElementById('level').textContent=level;
+document.getElementById('level').textContent=currentLevelDisplay();
 document.getElementById('b1').textContent='⛏️ Pickaxe ('+(10*power)+'S)';
 document.getElementById('b2').textContent='🤖 Auto-miner ('+(50*(autoRate+1))+'S)';
 document.getElementById('b3').textContent='💰 Donate (100S) ['+donations+' given]';
@@ -643,18 +830,23 @@ x.fillText('⛏️',W/2,H/2);
 requestAnimationFrame(loop);
 }
 
-function startGame(){
+function startGame(isPrequel){
 document.getElementById('splash').style.display='none';
 document.getElementById('ui').style.display='block';
 document.getElementById('shop').style.display='block';
 document.getElementById('incident-log').style.display='block';
 started=true;
-load();
+if(isPrequel){
+  prequel=true;prequelLevel=-93;score=0;level=0;power=1;autoRate=0;donations=0;milestonesTriggered=0;
+} else {
+  load();
+}
 document.addEventListener('mousemove',movePick);
 document.addEventListener('touchmove',function(e){e.preventDefault();movePick(e)},{passive:false});
 c.addEventListener('click',function(e){swingPick();tap(e)});
 c.addEventListener('touchstart',function(e){swingPick();tap(e)});
 updateUI();
+updateBackground();
 updateIncidentLog();
 loop();
 }
