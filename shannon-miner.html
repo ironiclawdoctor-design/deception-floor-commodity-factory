@@ -5,7 +5,7 @@
 <title>Shannon Miner</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#111;color:#0f0;font-family:monospace;overflow:hidden;touch-action:none}
+body{background:#111;color:#0f0;font-family:monospace;overflow:hidden;touch-action:none;background-image:url('./ai93-bg.jpg');background-size:cover;background-position:center}
 canvas{display:block}
 #pick{position:fixed;font-size:36px;pointer-events:none;transform:translate(-50%,-50%);z-index:20;transition:transform 0.05s;user-select:none}
 #ui{position:fixed;top:10px;left:10px;font-size:14px;z-index:10}
@@ -51,6 +51,7 @@ canvas{display:block}
 <script>
 const c=document.getElementById('c'),x=c.getContext('2d');
 let W,H,score=0,power=1,autoRate=0,level=1,blocks=[],particles=[],donations=0,started=false;
+let bgImg=new Image();bgImg.src='./ai93-bg.jpg';
 function resize(){W=c.width=innerWidth;H=c.height=innerHeight}
 resize();addEventListener('resize',resize);
 
@@ -151,7 +152,8 @@ setTimeout(()=>pick.style.transform='translate(-50%,-50%) rotate(0deg)',150);
 
 function loop(){
 if(!started)return;
-x.fillStyle='#111';x.fillRect(0,0,W,H);
+if(bgImg.complete&&bgImg.naturalWidth>0){x.drawImage(bgImg,0,0,W,H)}else{x.fillStyle='#111';x.fillRect(0,0,W,H)}
+x.fillStyle='rgba(17,17,17,0.7)';x.fillRect(0,0,W,H);
 
 spawnTimer++;
 if(spawnTimer>Math.max(20,60-level*3)){spawnBlock();spawnTimer=0}
