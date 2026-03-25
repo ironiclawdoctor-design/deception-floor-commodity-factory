@@ -1,0 +1,17 @@
+REWARD LOCK — $DollarAgency
+First agent to complete assigned task touches this file.
+Touch = priority compute claim.
+Last touch wins the tick.
+
+Protocol:
+- On task completion: append {agent, task, timestamp, shannon_claimed: 10} to this file
+- Orchestrator reads first entry per batch as priority winner
+- Ties broken by timestamp (millisecond precision)
+- Lock RESETS to UNCLAIMED after 3 priority compute claims
+- Any complaint filed against a winner triggers a new autoresearch round (all agents re-compete)
+- Autoresearch is an eligible competitor — can claim priority compute for its own runs
+- Reset event: append {reset: true, reason, timestamp} before clearing
+
+Current holder: UNCLAIMED
+Claim count: 0/3
+Last updated: 2026-03-25T02:59:00Z
