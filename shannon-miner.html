@@ -83,6 +83,7 @@ canvas{display:block}
 <p style="margin-top:20px;color:#0f0">Powered by $DollarAgency</p>
 <button class="btn" onclick="startGame(false)" style="margin-top:20px;font-size:16px;padding:10px 30px">▶ MINE (Level 0→93)</button>
 <button class="btn" onclick="startGame(true)" style="margin-top:8px;font-size:13px;padding:8px 24px;background:#0a08063a;border-color:#c8a000;color:#c8a000">⏮ PREQUEL (-93→0)</button>
+<button class="btn" id="btn-fullscreen" onclick="tgRequestFullscreen()" style="display:none;margin-top:8px;font-size:12px;padding:6px 18px;background:#0011183a;border-color:#0af;color:#0af">⛶ FULLSCREEN</button>
 <a href="https://cash.app/$DollarAgency" target="_blank" style="display:block;margin-top:12px;color:#0a0;font-family:monospace;font-size:13px;text-decoration:none">💵 Fund the agency: cash.app/$DollarAgency</a>
 </div>
 
@@ -98,6 +99,7 @@ canvas{display:block}
 <button class="btn" id="b2" onclick="buy(2)">🤖 Auto-miner (50S)</button>
 <button class="btn" id="b3" onclick="buy(3)">💰 Donate to Agency (100S)</button>
 <button class="btn" id="b4" onclick="defineClock()" style="background:#1a0a003a;border-color:#fa0;color:#fa0">⏰ Define clock to pay</button>
+<button class="btn" id="b5" onclick="buyStarBoost()" style="background:#1a0a1a3a;border-color:#e0b;color:#e0b">⭐ 500 Shannon (1 Star)</button>
 <a href="https://cash.app/$DollarAgency" target="_blank" style="display:block;margin-top:6px;color:#0a0;font-family:monospace;font-size:12px;text-decoration:none;padding:4px">💵 Real donation: $DollarAgency</a>
 <a href="https://t.me/DeceptionFloorBot" target="_blank" style="display:block;color:#0a0;font-family:monospace;font-size:12px;text-decoration:none;padding:4px">🤖 Hire the agency: $93k</a>
 </div>
@@ -521,6 +523,8 @@ function triggerLevelUp(){
   if(!prequel && level===29){
     title='🏛️ 29 YEARS';
     text='THE ORIGINAL FIESTA DIDN\'T STOP HERE\n\n'+name;
+    // Perk 5: Share to Chat at Level 29
+    setTimeout(tgShareMiner, 4000);
   }
   if(prequel && prequelLevel===-29){
     title='🏛️ THE NAME IS CHOSEN';
@@ -538,10 +542,20 @@ function triggerLevelUp(){
 
   showMilestoneBanner(title,text);
   beep(level===93||prequelLevel===0?880:440,0.3,0.5);
+  hapticNotification('success'); // Perk 8: haptic on level-up
   milestonesTriggered++;
   updateBackground();
   save();
   updateUI();
+
+  // Perk 2: Home screen prompt after Level 5
+  if(!prequel && level===5){
+    setTimeout(tgPromptHomeScreen, 5000);
+  }
+  // Perk 4: Emoji status after Level 10
+  if(!prequel && level===10){
+    setTimeout(tgSetEmojiStatus, 2000);
+  }
 }
 
 function agencyComplete(){
@@ -671,9 +685,11 @@ if(b.tax){
 let loss=Math.ceil(score*0.1);
 score=Math.max(0,score-loss);
 for(let j=0;j<10;j++)particles.push(new Particle(b.x,b.y,'#f00'));
+hapticNotification('error'); // Perk 8: haptic on TAX
 }else{
 score+=b.value*power;
 for(let j=0;j<8;j++)particles.push(new Particle(b.x,b.y,'#0f0'));
+hapticImpact('medium'); // Perk 8: haptic on block tap
 }
 b.alive=false;
 beep(b.tax?200:330+score,0.08);
@@ -691,8 +707,34 @@ let AC=null;
 function getAC(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}return AC}
 function beep(freq,dur,vol){try{let a=getAC();if(!a)return;let o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol||0.3,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+dur);o.start();o.stop(a.currentTime+dur)}catch(e){}}
 
-function save(){localStorage.setItem('sm',JSON.stringify({score,power,autoRate,level,donations,milestonesTriggered,prequel,prequelLevel,lastDaily:localStorage.getItem('sm')?JSON.parse(localStorage.getItem('sm')).lastDaily:0}))}
-function load(){try{let d=JSON.parse(localStorage.getItem('sm')||'{}');if(d.score){score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||0;donations=d.donations||0;milestonesTriggered=d.milestonesTriggered||0;prequel=d.prequel||false;prequelLevel=d.prequelLevel||(-93);let today=new Date().toDateString();if(d.lastDaily!==today){let bonus=50*Math.max(1,level);score+=bonus;showBanner('🌅 DAILY BONUS +'+bonus+'S!');d.lastDaily=today;localStorage.setItem('sm',JSON.stringify({...d,lastDaily:today}))}}}catch(e){}}
+// Perk 7: DeviceStorage — save with CloudStorage fallback to localStorage
+function save(){
+  let lastDaily=0;
+  try{let d=JSON.parse(localStorage.getItem('sm')||'{}');lastDaily=d.lastDaily||0;}catch(e){}
+  let state=JSON.stringify({score,power,autoRate,level,donations,milestonesTriggered,prequel,prequelLevel,lastDaily});
+  tgStorageSet('sm', state);
+}
+function load(){
+  tgStorageGet('sm', function(raw){
+    try{
+      let d=JSON.parse(raw||'{}');
+      if(d.score){
+        score=d.score;power=d.power||1;autoRate=d.autoRate||0;level=d.level||0;
+        donations=d.donations||0;milestonesTriggered=d.milestonesTriggered||0;
+        prequel=d.prequel||false;prequelLevel=d.prequelLevel||(-93);
+        let today=new Date().toDateString();
+        if(d.lastDaily!==today){
+          let bonus=50*Math.max(1,level);
+          score+=bonus;
+          showBanner('🌅 DAILY BONUS +'+bonus+'S!');
+          d.lastDaily=today;
+          tgStorageSet('sm',JSON.stringify({...d,lastDaily:today}));
+        }
+      }
+      updateUI();updateBackground();updateIncidentLog();
+    }catch(e){}
+  });
+}
 
 function showBanner(msg){let b=document.createElement('div');b.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f0;color:#111;font-family:monospace;font-size:24px;font-weight:bold;padding:20px 40px;border-radius:8px;z-index:999;pointer-events:none';b.textContent=msg;document.body.appendChild(b);setTimeout(()=>b.remove(),2000)}
 
@@ -848,7 +890,129 @@ c.addEventListener('touchstart',function(e){swingPick();tap(e)});
 updateUI();
 updateBackground();
 updateIncidentLog();
+// Perk 1: Request fullscreen on game start
+tgRequestFullscreen();
 loop();
+}
+
+// ============================================================
+// TELEGRAM PERKS — Perk 1–8
+// ============================================================
+
+// Perk 1: Full-Screen Mode
+function tgRequestFullscreen(){
+  if(window.Telegram && window.Telegram.WebApp){
+    try{
+      Telegram.WebApp.requestFullscreen();
+    }catch(e){}
+  }
+}
+// Show fullscreen button on splash if Telegram WebApp available
+(function(){
+  if(window.Telegram && window.Telegram.WebApp){
+    let btn=document.getElementById('btn-fullscreen');
+    if(btn) btn.style.display='block';
+  }
+})();
+
+// Perk 2: Home Screen Shortcut — called after Level 5, one-time
+function tgPromptHomeScreen(){
+  if(!window.Telegram || !window.Telegram.WebApp) return;
+  if(localStorage.getItem('sm_home_screen_prompted')) return;
+  localStorage.setItem('sm_home_screen_prompted','1');
+  try{
+    Telegram.WebApp.addToHomeScreen();
+  }catch(e){}
+}
+
+// Perk 3: Stars Payment — Buy 500 Shannon Boost for 1 Star
+const STARS_INVOICE_URL = 'https://t.me/$2FWxzKaoIEYLAQAA6SGzhgZuAaQ';
+function buyStarBoost(){
+  if(window.Telegram && window.Telegram.WebApp){
+    try{
+      // openInvoice preferred; fallback to openLink
+      if(Telegram.WebApp.openInvoice){
+        Telegram.WebApp.openInvoice(STARS_INVOICE_URL, function(status){
+          if(status==='paid'){
+            score += 500;
+            showBanner('⭐ +500 Shannon — Stars received!');
+            save();
+            updateUI();
+            checkMilestones();
+          }
+        });
+      } else {
+        Telegram.WebApp.openLink(STARS_INVOICE_URL);
+      }
+    }catch(e){
+      // Fallback: open link directly
+      window.open(STARS_INVOICE_URL,'_blank');
+    }
+  } else {
+    window.open(STARS_INVOICE_URL,'_blank');
+  }
+}
+
+// Perk 4: Emoji Status — called after Level 10, one-time (Premium only)
+function tgSetEmojiStatus(){
+  if(!window.Telegram || !window.Telegram.WebApp) return;
+  if(localStorage.getItem('sm_emoji_status_set')) return;
+  localStorage.setItem('sm_emoji_status_set','1');
+  try{
+    Telegram.WebApp.setEmojiStatus('⛏️', {duration: 3600});
+  }catch(e){}
+}
+
+// Perk 5: Share to Chat — called at Level 29
+function tgShareMiner(){
+  if(!window.Telegram || !window.Telegram.WebApp) return;
+  try{
+    if(Telegram.WebApp.shareMessage){
+      Telegram.WebApp.shareMessage('mine with me on @DeceptionFloorBot ⛏️');
+    } else if(Telegram.WebApp.switchInlineQuery){
+      Telegram.WebApp.switchInlineQuery('mine with me');
+    }
+  }catch(e){}
+}
+
+// Perk 8: HapticFeedback helpers
+function hapticImpact(style){
+  if(!window.Telegram || !window.Telegram.WebApp) return;
+  try{ Telegram.WebApp.HapticFeedback.impactOccurred(style||'medium'); }catch(e){}
+}
+function hapticNotification(type){
+  if(!window.Telegram || !window.Telegram.WebApp) return;
+  try{ Telegram.WebApp.HapticFeedback.notificationOccurred(type||'success'); }catch(e){}
+}
+
+// ============================================================
+// DEVICE STORAGE — Perk 7: cross-device save/load
+// ============================================================
+function tgStorageSet(key, value){
+  if(window.Telegram && window.Telegram.WebApp && Telegram.WebApp.CloudStorage){
+    try{
+      Telegram.WebApp.CloudStorage.setItem(key, value, function(err){
+        if(err){ localStorage.setItem(key, value); }
+      });
+    }catch(e){ localStorage.setItem(key, value); }
+  } else {
+    localStorage.setItem(key, value);
+  }
+}
+function tgStorageGet(key, callback){
+  if(window.Telegram && window.Telegram.WebApp && Telegram.WebApp.CloudStorage){
+    try{
+      Telegram.WebApp.CloudStorage.getItem(key, function(err, value){
+        if(err || value===null || value===undefined){
+          callback(localStorage.getItem(key));
+        } else {
+          callback(value);
+        }
+      });
+    }catch(e){ callback(localStorage.getItem(key)); }
+  } else {
+    callback(localStorage.getItem(key));
+  }
 }
 </script>
 </body>
