@@ -167,11 +167,11 @@ Full HR rules in AGENTS.md. Critical:
 - **2026-03-26 (PM):** 20 agency excellence rules locked. Model → openrouter/free. Moltbook registered. Shannon ledger schema fixed (79.5 Sh). Grumpy-Cannot series 25 articles reserved. Complex agent created. Agency install tar.gz ready (435KB). Cron timeout still 300s (unresolved). Context: 159% — compaction executed.
 
 ## Pending Items
-- [ ] Agency zip side-load to MacBook Pro — new surface unlock
-- [ ] GitHub Pages — enable for factory + precinct repos
-- [ ] Twitter/X — awaiting real credentials in `secrets/twitter-api.json`
+- [BLOCKED/HUMAN] Agency zip side-load to MacBook Pro — requires physical access
+- [BLOCKED/AUTH] GitHub Pages precinct — requires GitHub token not on disk
+- [BLOCKED/AUTH] Twitter/X — awaiting `secrets/twitter-api.json`
 - [x] Cron timeout — fixed 900s (2026-03-26 21:17 UTC)
-- [ ] Bot-names dataset — 6/61 files complete, 55 remaining
+- [IN-PROGRESS] Bot-names dataset — cron running, glm-4.5-air:free, 1-cycle completion
 
 ## 🗜️ Compaction Notes
 - 2026-03-22: Trimmed from 46KB → ~8KB. Archive: `memory/archive/MEMORY-2026-03-22-backup.md`
