@@ -1,0 +1,2 @@
+experiment	timestamp	score	eval1_btc_live	eval2_cashapp_documented	eval3_shannon_mint	eval4_cron	eval5_zero_human	btc_balance_btc	btc_balance_usd	btc_price	notes
+1	2026-03-22T21:31:00Z	5/5	PASS	PASS	PASS	PASS	PASS	0.00010220	6.93	67804	Baseline: full SKILL.md + btc-monitor.py. blockchain.info live confirmed. All 5 evals satisfied in first build.

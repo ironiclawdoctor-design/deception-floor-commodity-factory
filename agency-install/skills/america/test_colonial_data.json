@@ -1,0 +1,24 @@
+{
+  "description": "Sample colonial pattern dataset",
+  "metrics": {
+    "ownership_concentration": 92.5,
+    "api_dependency": 88.0,
+    "code_contributions": {
+      "primary_author": 87.0,
+      "secondary_authors": [5.0, 3.0, 2.0, 1.0, 0.5, 0.5, 0.5, 0.5]
+    },
+    "resource_allocation": {
+      "model_tokens": {
+        "claude-sonnet-4.6": 94.0,
+        "gemma-3-27b-it": 4.0,
+        "others": 2.0
+      }
+    }
+  },
+  "patterns": [
+    "single_provider_dominance",
+    "contributor_concentration", 
+    "extractive_flow_to_center",
+    "gatekeeping_via_complexity"
+  ]
+}

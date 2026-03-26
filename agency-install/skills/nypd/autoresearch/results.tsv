@@ -1,0 +1,2 @@
+exp_num	hypothesis	change	eval1_chain_of_command	eval2_incident_protocol	eval3_zero_human_patrol	eval4_forensic_depth	eval5_shannon_economy	score	keep	commit
+0	Baseline — full NYPD SKILL.md with all 5 sections	Full baseline write	PASS	PASS	PASS	PASS	PASS	5	KEEP	pending

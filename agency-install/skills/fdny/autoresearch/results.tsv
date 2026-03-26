@@ -1,0 +1,2 @@
+exp	score	e1_incident_command	e2_hazard_taxonomy	e3_rescue_protocol	e4_prevention_layer	e5_shannon_economy	notes
+1	5	1	1	1	1	1	Baseline — full 5/5 on first write. All evals pass. 5 hazards, 6-step rescue, 7 binary checks, Shannon rate card + mint/debit endpoints documented.

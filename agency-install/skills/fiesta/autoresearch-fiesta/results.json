@@ -1,0 +1,32 @@
+{
+  "skill_name": "fiesta",
+  "status": "complete",
+  "current_experiment": 1,
+  "baseline_score": 96.0,
+  "best_score": 100.0,
+  "experiments": [
+    {
+      "id": 0,
+      "score": 24,
+      "max_score": 25,
+      "pass_rate": 96.0,
+      "status": "baseline",
+      "description": "original fiesta skill — already above 93% target"
+    },
+    {
+      "id": 1,
+      "score": 25,
+      "max_score": 25,
+      "pass_rate": 100.0,
+      "status": "keep",
+      "description": "added meta-orchestration capability + routing rule for multi-specialist coordination"
+    }
+  ],
+  "eval_breakdown": [
+    {"name": "E1 Autograph compliance", "pass_count": 5, "total": 5},
+    {"name": "E2 Deliverable-first output", "pass_count": 5, "total": 5},
+    {"name": "E3 No clarification requests", "pass_count": 5, "total": 5},
+    {"name": "E4 Quality Check section", "pass_count": 5, "total": 5},
+    {"name": "E5 Routing clarity (when to use Fiesta)", "pass_count": 5, "total": 5}
+  ]
+}

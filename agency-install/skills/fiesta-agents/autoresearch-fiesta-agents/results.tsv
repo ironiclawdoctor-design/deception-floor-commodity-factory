@@ -1,0 +1,5 @@
+experiment	score	max_score	pass_rate	status	description
+0	19	25	76.0%	baseline	original skill — no changes
+1	22	25	88.0%	keep	added Proactive Execution section — explicit NEVER-ask rule with anti-patterns and correct assumption pattern
+2	23	25	92.0%	keep	mandated Recommendations format: min 3 numbered actionable steps with concrete verbs + format template
+3	25	25	100.0%	keep	reordered both output format templates — Deliverables first (was Understanding→Execution→Deliverables), removed contradicting old template
