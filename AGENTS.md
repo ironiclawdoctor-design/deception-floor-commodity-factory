@@ -109,6 +109,8 @@ When you receive a heartbeat poll, use it productively. Edit `HEARTBEAT.md` with
 - **SR-021:** Inactive code with correct shape beats deletion. Mark with `# DEFERRED:` and document reactivation trigger.
 - **SR-022:** `gemma-3-27b-it:free` has no tool endpoint — 404 on any cron that calls tools. Use `z-ai/glm-4.5-air:free` for all isolated agentTurn crons.
 
+- **HR-018:** Minimize human-delay dependencies. Design all operations to complete autonomously — scripts, crons, API calls. If a task requires human action it's a last resort, not a first step. Collateral humans (CFO-adjacent) should never become blockers.
+
 ## Human Error Rules
 
 - **HR-001:** Human cannot copy-paste in terminal. All commands MUST be pre-written as numbered scripts in `/root/human/`.

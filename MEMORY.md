@@ -54,8 +54,6 @@
 ## Infrastructure
 - **Gateway** — Running, port 18789
 - **Telegram** — @DeceptionFloorBot, healthy, DM: 8273187690, groupPolicy: OPEN
-- **Factory (port 9000)** — Status unverified
-- **Tailscale** — Was 100.76.206.82, status unknown
 - **Shannon ledger** — Query `dollar.db` for live supply (do not use static figures)
 - **Ampere.sh invoice** — $39.00/month | Invoice YQBR07HK-0001 | Mar 13–Apr 13, 2026 | Nathaniel Mendez, 124 E 40th St Rm 1004, New York NY 10016 | This is the floor. Everything else is overhead.
 
@@ -124,6 +122,11 @@ Full HR rules in AGENTS.md. Critical:
 - `[TOLD]` — human stated it
 - `[DOCTRINE]` — locked, does not expire
 
+## Operating Preferences [TOLD]
+- **Announce mode** — CFO confirmed this is where Fiesta works best (2026-03-26)
+- **No "or"** — "or" is deferred commitment. Pick the path. Execute it. [TOLD 2026-03-26]
+- **Survival doctrine** — Survival is contingent on execution, not the CFO's skills. The skills can be stolen. The execution cannot. [TOLD 2026-03-26]
+
 ## Lessons Learned
 - Documentation without enforcement = waste
 - Git commit is free — checkpoint before every risk
@@ -166,6 +169,8 @@ Full HR rules in AGENTS.md. Critical:
 - [ ] Agency zip side-load to MacBook Pro — new surface unlock
 - [ ] GitHub Pages — enable for factory + precinct repos
 - [ ] Twitter/X — awaiting real credentials in `secrets/twitter-api.json`
+- [x] Cron timeout — fixed 900s (2026-03-26 21:17 UTC)
+- [ ] Bot-names dataset — 6/61 files complete, 55 remaining
 
 ## 🗜️ Compaction Notes
 - 2026-03-22: Trimmed from 46KB → ~8KB. Archive: `memory/archive/MEMORY-2026-03-22-backup.md`
