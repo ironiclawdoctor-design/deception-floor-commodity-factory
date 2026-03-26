@@ -6512,3 +6512,227 @@
 2026-03-26 04:59:53,103 - __main__ - WARNING - Mutation detector not running
 2026-03-26 04:59:53,104 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
 2026-03-26 04:59:53,106 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:00:53,113 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:00:53,113 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:00:53,113 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:00:53,123 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:00:53,131 - __main__ - INFO - New files detected in /root/.openclaw/workspace/logs: +1
+2026-03-26 05:00:53,132 - __main__ - WARNING - Anomaly detected: new_files_detected - {'path': '/root/.openclaw/workspace/logs', 'previous_count': 159, 'current_count': 160}
+2026-03-26 05:00:53,188 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:00:53,189 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:01:53,193 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:01:53,193 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:01:53,193 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:01:53,199 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:01:53,243 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:01:53,244 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:01:53,245 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:02:53,251 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:02:53,251 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:02:53,251 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:02:53,256 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:02:53,298 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:02:53,298 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:03:53,302 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:03:53,302 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:03:53,302 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:03:53,307 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:03:53,376 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:03:53,376 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:04:53,382 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:04:53,383 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:04:53,385 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:04:53,386 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:04:53,393 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:04:53,434 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:04:53,435 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:05:53,442 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:05:53,442 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:05:53,442 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:05:53,450 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:05:53,493 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:05:53,493 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:06:53,499 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:06:53,499 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:06:53,500 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:06:53,509 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:06:53,563 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:06:53,563 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:06:53,565 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:07:53,569 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:07:53,569 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:07:53,569 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:07:53,575 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:07:53,611 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:07:53,612 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:08:53,615 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:08:53,616 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:08:53,616 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:08:53,624 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:08:53,672 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:08:53,672 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:09:53,676 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:09:53,676 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:09:53,678 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:09:53,678 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:09:53,683 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:09:53,720 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:09:53,720 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:10:53,724 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:10:53,725 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:10:53,725 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:10:53,734 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:10:53,777 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:10:53,778 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:11:53,784 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:11:53,785 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:11:53,785 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:11:53,791 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:11:53,834 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:11:53,834 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:11:53,836 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:12:53,842 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:12:53,842 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:12:53,842 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:12:53,854 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:12:53,919 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:12:53,921 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:13:53,927 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:13:53,928 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:13:53,928 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:13:53,936 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:13:53,998 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:13:53,999 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:14:54,004 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:14:54,004 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:14:54,005 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:14:54,005 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:14:54,012 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:14:54,047 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:14:54,048 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:15:54,051 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:15:54,051 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:15:54,051 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:15:54,057 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:15:54,100 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:15:54,101 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:16:54,106 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:16:54,107 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:16:54,107 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:16:54,115 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:16:54,162 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:16:54,162 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:16:54,164 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:17:54,170 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:17:54,170 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:17:54,170 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:17:54,178 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:17:54,238 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:17:54,238 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:18:54,242 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:18:54,242 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:18:54,242 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:18:54,248 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:18:54,284 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:18:54,285 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:19:54,290 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:19:54,290 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:19:54,293 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:19:54,293 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:19:54,304 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:19:54,367 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:19:54,367 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:20:54,373 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:20:54,373 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:20:54,374 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:20:54,380 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:20:54,438 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:20:54,439 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:21:54,443 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:21:54,443 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:21:54,443 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:21:54,448 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:21:54,481 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:21:54,481 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:21:54,482 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:22:54,487 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:22:54,488 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:22:54,488 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:22:54,496 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:22:54,533 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:22:54,534 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:23:54,540 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:23:54,540 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:23:54,541 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:23:54,550 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:23:54,612 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:23:54,612 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:24:54,617 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:24:54,617 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:24:54,618 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:24:54,619 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:24:54,626 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:24:54,673 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:24:54,674 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:25:54,679 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:25:54,680 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:25:54,680 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:25:54,690 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:25:54,744 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:25:54,744 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:26:54,750 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:26:54,750 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:26:54,751 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:26:54,757 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:26:54,802 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:26:54,803 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:26:54,804 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:27:54,808 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:27:54,808 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:27:54,810 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:27:54,815 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:27:54,847 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:27:54,848 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:28:54,851 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:28:54,852 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:28:54,852 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:28:54,858 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:28:54,893 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:28:54,894 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
+2026-03-26 05:29:54,897 - __main__ - WARNING - Entropy unreachable: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:29:54,898 - __main__ - WARNING - Anomaly detected: service_entropy_unreachable - {'error': 'HTTPConnectionPool(host=\'127.0.0.1\', port=9001): Max retries exceeded with url: /health (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))'}
+2026-03-26 05:29:54,899 - __main__ - ERROR - Error minting entropy: HTTPConnectionPool(host='127.0.0.1', port=9001): Max retries exceeded with url: /mint/security (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9001): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-26 05:29:54,899 - __main__ - INFO - Attempting to restart entropy via systemd
+2026-03-26 05:29:54,904 - __main__ - WARNING - Failed to restart entropy: Failed to restart entropy-daemon.service: Unit entropy-daemon.service not found.
+
+2026-03-26 05:29:54,940 - __main__ - WARNING - Mutation detector not running
+2026-03-26 05:29:54,940 - __main__ - WARNING - Anomaly detected: mutation_detector_stopped - {}
