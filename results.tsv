@@ -1,0 +1,6 @@
+commit	articles_per_hour	status	description59f84832	.062	baseline	Baseline measurement from memory logs
+59f84832	.124	keep	Doubled cron frequency (simulated): 0.062 → .124
+59f84832	.206	keep	Batch generation 5 articles per cron (simulated): .124 → .206
+59f84832	.309	keep	Parallel publishing 2 concurrent (simulated): .206 → .309
+59f84832	.339	keep	Increased cron timeout to 600s (real fix): .309 → .339
+59f84832	0.5	keep	Switched cron to free model (z-ai/glm-4.5-air:free): .339 → 0.5

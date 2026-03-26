@@ -1,0 +1,3 @@
+<string>:3: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+Baseline publishing simulation at 2026-03-26T10:42:12.786527
+articles_per_hour: 0.375
