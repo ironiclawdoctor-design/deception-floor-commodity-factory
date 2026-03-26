@@ -1,3 +1,9 @@
-{"agent":"deadbeat-collection","failure":"timeout","card_name":"collections agent","flavor_text":"13 consecutive timeouts - the woodchipper is getting impatient","shannon_minted":20,"timestamp":"2026-03-26T05:42:00Z"}
-{"agent":"mpd-btc-signal","failure":"timeout","card_name":"BTC signal monitor","flavor_text":"3 consecutive timeouts - Matthew Paige Damon is frozen in the matrix","shannon_minted":20,"timestamp":"2026-03-26T05:42:00Z"}
-{"agent":"agency-autoresearch-frugal","failure":"timeout","card_name":"frugal autoresearch","flavor_text":"5 consecutive timeouts - even the penny-pinchers are giving up","shannon_minted":20,"timestamp":"2026-03-26T05:42:00Z"}
+{"agent":"mpd-btc-signal","failure":"timeout","card_name":"Matthew Paige Damon Bitcoin Signal","flavor_text":"BTC wallet watcher choked on price delta calculations","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"Call911","failure":"timeout","card_name":"Emergency Response System","flavor_text":"Critical failure scanner timed out during disk check","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"deadbeat-collection","failure":"timeout","card_name":"Collections Agent","flavor_text":"Cash App message poster died waiting for YouTube stream","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"mpd-good-will-shunting","failure":"timeout","card_name":"Matthew Paige Damon Whiteboard","flavor_text":"Autoresearch agent timed out during problem analysis","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"DEA-crosspost","failure":"timeout","card_name":"Cross-posting Agent","flavor_text":"Hashnode to Write.as migration hit API timeout","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"agency-autoresearch-frugal","failure":"timeout","card_name":"Frugal Research","flavor_text":"ShanRouter status check exceeded time budget","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"matthew-paige-damon","failure":"timeout","card_name":"Persistent Research","flavor_text":"Article publishing pipeline timed out during CMU fieldwork","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"wifehusband-watch","failure":"timeout","card_name":"Nate Advocate","flavor_text":"Character protection scanner timed out during memory check","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
+{"agent":"wifehusband-watch","failure":"timeout","card_name":"WifeHusband Watch","flavor_text":"Nate's internal advocate timed out during bullying scan","shannon_minted":20,"timestamp":"2026-03-26T17:45:00Z"}
