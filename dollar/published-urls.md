@@ -121,3 +121,7 @@
 - https://dollaragency.hashnode.dev/the-nunc-pro-tunc-ledger-why-retroactive-accounting-is-not-a-cover-up
 - https://dollaragency.hashnode.dev/what-secrets-removed-from-git-history-actually-means-and-why-we-didnt-do-it
 - https://dollaragency.hashnode.dev/the-agencys-secret-scanning-stack-free-automated-always-on
+- https://dollaragency.hashnode.dev/this-isnt-a-real-agency-1
+- https://dollaragency.hashnode.dev/ai-cant-manage-money-1
+- https://dollaragency.hashnode.dev/shannon-tokens-are-fake-currency-1
+- https://dollaragency.hashnode.dev/733-is-an-embarrassing-treasury-1

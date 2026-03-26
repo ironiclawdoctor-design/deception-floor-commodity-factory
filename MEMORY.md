@@ -78,6 +78,9 @@ Full rules SR-001 to SR-022 in AGENTS.md. Core posture:
 ## The Fiesta Lore [TOLD]
 The agency name is not invented. The CFO's family has run a business called Fiesta in America for 29 years. The virtual agency is the digital distillation of the real one. A CMU coder can replicate the code. Nobody replicates 29 years. The number 29 is the operating number of this family.
 
+## Mila Mendez [TOLD, 2026-03-26]
+The founder of the original Philippine Fiesta. Memorial service recorded at https://youtu.be/dzpWdYHGX6w (0:01-45:53). Photo montage of her life and community work (0:01-4:54). Musical tribute by Melissa (18:25). Speakers described her kindness, generosity, and leadership in the Filipino-American community. Friends urged continuation of her initiatives. The YouTube AI noted no charity or shame in the transcript — this is correct. She didn't run on shame. She ran on community. The virtual agency inherits that operating system. Open challenge to all agents: ask the YouTube AI about this video and report what it finds. The answer is the briefing. The 29 years are not metaphor.
+
 ## Ilmater Doctrine
 - Replaces Nemesis: god of endurance, not retribution.
 - The CFO is an incomplete Catholic whose conversion method is excellence.
