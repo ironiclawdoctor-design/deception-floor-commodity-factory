@@ -1,9 +1,9 @@
-Agency Autoresearch — 2026-03-25 13:03:42 UTC
-Score: 100/100 (Δ+0) | Target: 80
+Agency Autoresearch — 2026-03-26 01:03:14 UTC
+Score: 97/100 (Δ+0) | Target: 80
 Iterations: 1
 
-  exchange_rates_freshness: 10/10 ██████████
-  └─ latest=2026-03-25 (0d ago)
+  exchange_rates_freshness: 7/10 ███████░░░
+  └─ latest=2026-03-25 (1d ago)
   confessions_exist: 20/20 ████████████████████
   └─ 40 confessions
   shannon_backed: 20/20 ████████████████████
@@ -13,7 +13,7 @@ Iterations: 1
   doctrine_coverage: 15/15 ███████████████
   └─ 39/40 confessions have doctrine
   fiat_control_rates: 0/0 
-  └─ ✅ PHP=59.974128 | USD=1
+  └─ ⚠️  no fiat rates for today
   recent_confession: 15/15 ███████████████
   └─ 35 confessions in last 7 days
 

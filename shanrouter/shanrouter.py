@@ -211,6 +211,55 @@ def report():
 
     conn.close()
 
+def status_report() -> str:
+    """Run the agency status report through ShanRouter — logs route, mints Shannon."""
+    conn = init()
+    import subprocess
+
+    # Route this as agent_turn (orchestration-level status check)
+    task_type = "agent_turn"
+    tier = route(task_type)
+    t_in = 500  # estimated tokens for status check
+    t_out = 100
+    actual, avoided, shannon = log_route(task_type, tier, t_in, t_out, conn)
+    conn.close()
+
+    lines = []
+    lines.append(f"🔀 ShanRouter routed: {task_type} → {tier} | +{shannon} Shannon minted")
+
+    # Ledger
+    try:
+        r = subprocess.run(
+            ["sqlite3", "/root/.openclaw/workspace/dollar/dollar.db",
+             "SELECT '💰 $'||total_backing_usd||' → '||total_shannon_supply||' Shannon | Confessions: '||(SELECT COUNT(*) FROM confessions) FROM exchange_rates ORDER BY date DESC LIMIT 1;"],
+            capture_output=True, text=True, timeout=5
+        )
+        lines.append(r.stdout.strip() or "💰 ledger empty")
+    except Exception as e:
+        lines.append(f"💰 ledger error: {e}")
+
+    # BTC
+    try:
+        import json as _json
+        btc = _json.loads(Path("/root/human/btc-status.json").read_text())
+        lines.append(f"₿ {btc['balance_satoshi']} sat = ${btc['balance_usd']:.2f}")
+    except Exception:
+        lines.append("₿ btc-status.json not found")
+
+    # Last run log
+    try:
+        log = Path("/root/human/last-run.log")
+        if log.exists():
+            tail = log.read_text().splitlines()[-3:]
+            lines.extend(tail)
+        else:
+            lines.append("📋 last-run.log not found")
+    except Exception as e:
+        lines.append(f"📋 log error: {e}")
+
+    return "\n".join(lines)
+
+
 if __name__ == "__main__":
     import sys
     conn = init()
@@ -238,4 +287,6 @@ if __name__ == "__main__":
         print(f"Cost: ${actual:.5f} | Saved: ${avoided:.5f} | +{sh} Shannon")
     elif cmd == "--report":
         report()
+    elif cmd == "--status":
+        print(status_report())
     conn.close()
