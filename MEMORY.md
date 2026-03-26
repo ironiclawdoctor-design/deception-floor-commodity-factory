@@ -163,13 +163,9 @@ Full HR rules in AGENTS.md. Critical:
 - **2026-03-26 (PM):** 20 agency excellence rules locked. Model → openrouter/free. Moltbook registered. Shannon ledger schema fixed (79.5 Sh). Grumpy-Cannot series 25 articles reserved. Complex agent created. Agency install tar.gz ready (435KB). Cron timeout still 300s (unresolved). Context: 159% — compaction executed.
 
 ## Pending Items
+- [ ] Agency zip side-load to MacBook Pro — new surface unlock
 - [ ] GitHub Pages — enable for factory + precinct repos
 - [ ] Twitter/X — awaiting real credentials in `secrets/twitter-api.json`
-- [ ] gh CLI auth — using SSH git as workaround
-- [ ] Dollar persona suite — `next01.sh` ready at `/root/next01.sh`
-- [ ] GCP $300 credits — browser login needed
-- [ ] 990-N filing — due May 15, 2027 (cron set)
-- [ ] ClawHub publish — fiesta-agents + cashapp skills (cron set for 2026-03-27)
 
 ## 🗜️ Compaction Notes
 - 2026-03-22: Trimmed from 46KB → ~8KB. Archive: `memory/archive/MEMORY-2026-03-22-backup.md`
