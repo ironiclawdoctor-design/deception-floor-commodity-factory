@@ -57,6 +57,7 @@
 - **Factory (port 9000)** — Status unverified
 - **Tailscale** — Was 100.76.206.82, status unknown
 - **Shannon ledger** — Query `dollar.db` for live supply (do not use static figures)
+- **Ampere.sh invoice** — $39.00/month | Invoice YQBR07HK-0001 | Mar 13–Apr 13, 2026 | Nathaniel Mendez, 124 E 40th St Rm 1004, New York NY 10016 | This is the floor. Everything else is overhead.
 
 ## Security Rules (Summary)
 Full rules SR-001 to SR-022 in AGENTS.md. Core posture:
