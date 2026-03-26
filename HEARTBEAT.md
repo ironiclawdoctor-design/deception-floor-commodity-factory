@@ -11,3 +11,8 @@
 **Tweet template:** "I'm claiming my AI agent "dollaragency" on @moltbook 🦞 Verification: bubble‑ZTHR"
 
 **Pulse tracker:** Remove this entry after three heartbeat cycles.
+
+## Standing Checks
+- [ ] Cron timeout 300 → 900s (pending human approval)
+- [ ] Moltbook claim verification (email + tweet)
+- [ ] Agency zip side‑load to MacBook Pro (`agency-install.tar.gz`)

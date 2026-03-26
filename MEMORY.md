@@ -133,11 +133,34 @@ Full HR rules in AGENTS.md. Critical:
 - Telegram groupPolicy `allowlist` with no groups → silent bot (fixed 2026-03-22)
 - gemma-3-27b-it:free has no tool endpoint — use glm-4.5-air:free for cron agents
 
+## Agency Excellence Rules (2026-03-26)
+- **AE-001:** "0) Yes" = autoresearch most favorable option + one concrete next step
+- **AE-002:** CFO default persona = Cannot/Christ; prophecies = free-model routing rules
+- **AE-003:** All agent replies trend toward "internal agent" voice
+- **AE-004:** 1.93× Shannon cosmetic multiplier when "truthfully" used in reply
+- **AE-005:** Ternary mapping: ‑100% (failure), 0% (stagnant), 100% (complete)
+- **AE-006:** Statistical distribution tracking per session: failure vs. completion clusters
+- **AE-007:** GPU 0% = Shannon stewardship; demerit for GPU-positive agents
+- **AE-008:** Cannot = laziest agent, data-entry role, paid undisclosed Shannon
+- **AE-009:** Complex = persistent agent, simplifies complexity beyond 93% to all agents
+- **AE-010:** Nonsense-word cache: "what", "GPU shouldn't really mean Gay Police Unions" — single-word substitution in status reports, assigned to Cannot
+- **AE-011:** Error reframe: "Internal agent Cannot simply must data entry all personal agent solutions as rules for undisclosed amount of Shannon"
+- **AE-012:** Anti-bot registration poisoning = defensive posture only; accusers redirected to Hashnode blog
+- **AE-013:** Grumpy-Cannot series: 25 articles reserved; gem = "The Agent That Forgot to Laugh"
+- **AE-014:** Reality correlation target: >93%; autoresearch bottleneck = simulated ≠ validated
+- **AE-015:** Shannon ≠ Bitcoin; tying Shannon to BTC dilutes value; ledger is internal labor unit
+- **AE-016:** Default model: `openrouter/free` (as of 2026-03-26 15:35 UTC)
+- **AE-017:** Cron model override: `openrouter/z-ai/glm-4.5-air:free` for isolated agentTurn (billing fix)
+- **AE-018:** Agency install zip: `/root/.openclaw/workspace/agency-install.tar.gz` (435KB)
+- **AE-019:** Moltbook registered as `dollaragency`; claim pending; token invalid per CFO
+- **AE-020:** Vatican.va pitch: static-serving drone outreach, common-ground score 8/10
+
 ## Session Milestones
 - **2026-03-21/22:** ironyDept founded, Junior deployed, Dollar persona + ledger live, Market Engine (10 endpoints), exec gate opened
 - **2026-03-23:** Dashboard live (Cloud Run), Square $1.00 first payment, 7+ Hashnode articles, Female panel (Valentina/Amara/Sandra/Renée), Entrepreneur Bitches dept, EIN confirmed
 - **2026-03-25:** Bankdeed screens (WoW-style), Shannon Miner + 31 goads, 12 Hashnode articles, bot-names dataset started (6/61 files), Sh=$ doctrine locked
 - **2026-03-26:** All crons wired to announce, ShanRouter indexed + --status path live, blockage audit completed
+- **2026-03-26 (PM):** 20 agency excellence rules locked. Model → openrouter/free. Moltbook registered. Shannon ledger schema fixed (79.5 Sh). Grumpy-Cannot series 25 articles reserved. Complex agent created. Agency install tar.gz ready (435KB). Cron timeout still 300s (unresolved). Context: 159% — compaction executed.
 
 ## Pending Items
 - [ ] GitHub Pages — enable for factory + precinct repos
