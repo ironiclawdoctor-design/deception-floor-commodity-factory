@@ -203,3 +203,7 @@ Use the `browser` tool (system prompt) for web tasks. Camoufox (port 9222) is av
 ### AM-20260326: Directory structure suggests potential ownership concentration...
 **Rule:** Cap maximum percentage at 60%; implement progressive redistribution for shares >60%
 **Enforcement:** Automated monitoring + quarterly rebalancing
+
+### AM-20260326: Directory structure suggests potential ownership concentration...
+**Rule:** Cap maximum percentage at 60%; implement progressive redistribution for shares >60%
+**Enforcement:** Automated monitoring + quarterly rebalancing
