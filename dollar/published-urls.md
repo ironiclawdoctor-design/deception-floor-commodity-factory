@@ -6,6 +6,12 @@
 
 ---
 
+## The Pilot Episode Problem: Why the Stage Lights Are the Biggest Risk
+
+- **ID:** `69c49334e8cabf0ba95eb828`
+- **URL:** https://dollaragency.hashnode.dev/the-pilot-episode-problem-why-the-stage-lights-are-the-biggest-risk
+- **Note:** Howard Edelstein tribute. Stage lights thesis. Dedicated to HE and the CFO's mother.
+
 ## The Bastion Protocol — Why Bitcoin Is the Last Wall
 
 - **ID:** `69c373b64c22c98876c42c8f`
@@ -125,3 +131,32 @@
 - https://dollaragency.hashnode.dev/ai-cant-manage-money-1
 - https://dollaragency.hashnode.dev/shannon-tokens-are-fake-currency-1
 - https://dollaragency.hashnode.dev/733-is-an-embarrassing-treasury-1
+- https://dollaragency.hashnode.dev/youre-just-running-llm-prompts-1
+- https://dollaragency.hashnode.dev/this-will-never-scale-1
+- https://dollaragency.hashnode.dev/no-real-users-1
+- https://dollaragency.hashnode.dev/the-confession-booth-is-gimmicky-1
+- https://dollaragency.hashnode.dev/64-agents-is-just-theater-1
+- https://dollaragency.hashnode.dev/youre-burning-credits-on-vanity-1
+- https://dollaragency.hashnode.dev/nobody-will-send-you-733-in-btc-1
+- https://dollaragency.hashnode.dev/this-is-just-a-blog-with-delusions-1
+- https://dollaragency.hashnode.dev/ai-agents-dont-have-loyalty-1
+- https://dollaragency.hashnode.dev/your-ein-application-will-be-rejected-1
+- https://dollaragency.hashnode.dev/the-shannon-economy-is-circular-1
+- https://dollaragency.hashnode.dev/youll-run-out-of-money-by-next-month-1
+- https://dollaragency.hashnode.dev/writing-about-failures-is-embarrassing-1
+- https://dollaragency.hashnode.dev/this-is-just-one-developer-cosplaying-a-corporation-1
+- https://dollaragency.hashnode.dev/ai-generated-content-has-no-value-1
+- https://dollaragency.hashnode.dev/your-agents-will-hallucinate-and-destroy-everything-1
+- https://dollaragency.hashnode.dev/nobody-cares-about-an-ai-agencys-internal-currency-1
+- https://dollaragency.hashnode.dev/youre-competing-with-openai-and-google-youll-lose-1
+- https://dollaragency.hashnode.dev/the-29-year-family-business-story-is-just-marketing-1
+- https://dollaragency.hashnode.dev/your-articles-are-too-long-1
+- https://dollaragency.hashnode.dev/your-articles-are-too-short-1
+- https://dollaragency.hashnode.dev/you-cant-run-a-business-on-telegram-1
+- https://dollaragency.hashnode.dev/the-ilmater-doctrine-is-pretentious-1
+- https://dollaragency.hashnode.dev/your-btc-wallet-could-be-hacked-1
+- https://dollaragency.hashnode.dev/you-have-no-paying-customers-1
+- https://dollaragency.hashnode.dev/ai-agencies-are-a-fad-1
+- https://dollaragency.hashnode.dev/the-female-panel-is-a-tokenism-gesture-1
+- https://dollaragency.hashnode.dev/autonomous-ai-is-dangerous-1
+- https://dollaragency.hashnode.dev/the-agency-name-fiesta-isnt-serious-1

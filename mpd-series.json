@@ -5,5 +5,10 @@
   "pilot_id": "69c48b8b9fa27c4d912d9447",
   "pilot_url": "https://dollaragency.hashnode.dev/field-notes-0-before-the-middle-episodes-got-funded",
   "finale_id": "69c48ba78cf65b19f462257e",
-  "finale_url": "https://dollaragency.hashnode.dev/field-notes-what-the-powers-that-be-paid-for"
+  "finale_url": "https://dollaragency.hashnode.dev/field-notes-what-the-powers-that-be-paid-for",
+  "vol_1": {"id": "69c48b0a8cf65b19f462257d", "slug": "matthew-paige-damon", "capacity": 25},
+  "vol_2": {"id": "69c49716c9ae1ae6707c941c", "slug": "matthew-paige-damon-vol-2", "capacity": 25},
+  "vol_3": {"id": "69c4971cc1b13879e5178de7", "slug": "matthew-paige-damon-vol-3", "capacity": 25},
+  "current_vol": 1,
+  "article_count": 4
 }

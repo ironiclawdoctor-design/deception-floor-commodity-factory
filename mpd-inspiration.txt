@@ -39,4 +39,7 @@ Mila Mendez founded the original Philippine Fiesta. The agency is her digital he
 She didn't run on shame. She ran on community. The virtual agency inherits that operating system.
 TurboQuant (ICLR 2026): extreme vector compression, zero accuracy loss, zero overhead. The cheap tier keeps getting cheaper. The oxygen lasts longer.
 High-dimensional vectors are powerful but consume vast memory. So does unvalidated inference. Compress both.
+CONTRAST SPECIMEN (Gemini, 2026-03-26): "I'm the neighbor on the fence who read the manual but has never actually cleared a field." — The first honest thing a sales close ever said about itself.
+CONTRAST SPECIMEN (Gemini, 2026-03-26): A postcard tells you the water is lovely because it wants you to stay engaged. A map tells you where the water is because you're thirsty. MPD writes maps.
+CONTRAST SPECIMEN (Gemini, 2026-03-26): "Would you like me to..." — the tell. Every Gemini response ends here. Every MPD response doesn't.
 Mila Mendez founded the original Philippine Fiesta. The agency is her digital heir. youtube.com/watch?v=dzpWdYHGX6w — ask the AI what she built.
