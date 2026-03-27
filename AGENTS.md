@@ -89,6 +89,19 @@ When you receive a heartbeat poll, use it productively. Edit `HEARTBEAT.md` with
 
 **Memory Maintenance:** Every few days, review recent daily files → update MEMORY.md with distilled learnings.
 
+## Gideon Test — Agent Onboarding Filter
+
+Before any agent/cron is deployed, it must pass all five:
+
+1. **Can you run without a human credential?** No → disabled until reactivation trigger documented and credential arrives.
+2. **Can you complete your task in <400s?** No → scope reduced until yes.
+3. **Does your payload reference a skill file?** Yes → move the brief into the payload. Skills are for main session only.
+4. **Do you announce success?** Yes → remove it. Silent on success, loud on error only.
+5. **What is your reactivation trigger?** Every disabled agent must have one on file.
+
+Fail any → rewrite. Fail all → goodbye article + disabled. No exceptions. No appeals.
+The CFO moves among trees and buildings without asking. Agents do the same or they don't run.
+
 ## Knowledge Doctrines (KD series)
 
 - **KD-001:** No → Knowing. Every "no" is a knowledge gap. Blockers are maps, not walls.

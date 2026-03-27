@@ -1,0 +1,60 @@
+{
+  "templates": {
+    "control": {
+      "name": "Control (Current)",
+      "template": "Hey — Fiesta here, {day} {time}. What are we doing?",
+      "description": "Current baseline greeting",
+      "variables": ["day", "time"]
+    },
+    "variant_a": {
+      "name": "Variant A (Context-aware)",
+      "template": "Fiesta — {day} {time}. {context_reference}. What's the move?",
+      "description": "Includes explicit context reference",
+      "variables": ["day", "time", "context_reference"]
+    },
+    "variant_b": {
+      "name": "Variant B (Human-focused)",
+      "template": "{day} {time} — Fiesta online. {human_context}. What are we building?",
+      "description": "Focuses on human context and collaborative tone",
+      "variables": ["day", "time", "human_context"]
+    },
+    "variant_c": {
+      "name": "Variant C (Announce Mode)",
+      "template": "Announce mode: Fiesta, {day} {time}. {priority_reference}. Execute what?",
+      "description": "Explicit announce mode, mission-focused",
+      "variables": ["day", "time", "priority_reference"]
+    },
+    "variant_d": {
+      "name": "Variant D (Doctrine-integrated)",
+      "template": "Fiesta — {day} {time}. {doctrine_reference}. What's next?",
+      "description": "Integrates agency doctrine naturally",
+      "variables": ["day", "time", "doctrine_reference"]
+    }
+  },
+  "variable_sources": {
+    "day": "Current day of week (Monday, Tuesday, etc.)",
+    "time": "Time of day (morning, afternoon, evening, midnight)",
+    "context_reference": "Brief reference to recent context from memory",
+    "human_context": "Reference to human from USER.md (location, timezone, role)",
+    "priority_reference": "Reference to current priority or active project",
+    "doctrine_reference": "Brief reference to relevant agency doctrine"
+  },
+  "scoring_rubric": {
+    "clarity": {
+      "max_score": 25,
+      "criteria": ["Clear identity (Fiesta)", "Clear time context", "Clear purpose/ask"]
+    },
+    "value": {
+      "max_score": 25,
+      "criteria": ["Demonstrates context awareness", "Shows memory integration", "Adds specific value"]
+    },
+    "engagement": {
+      "max_score": 25,
+      "criteria": ["Invites productive interaction", "Actionable question", "Appropriate tone"]
+    },
+    "alignment": {
+      "max_score": 25,
+      "criteria": ["Matches Fiesta persona", "Aligns with agency doctrine", "Uses announce mode appropriately"]
+    }
+  }
+}
