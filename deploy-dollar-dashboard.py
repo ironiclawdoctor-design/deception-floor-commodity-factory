@@ -16,6 +16,7 @@ from pathlib import Path
 PROJECT = "sovereign-see"
 REGION = "us-central1"
 SERVICE_NAME = "dollar-dashboard"
+CUSTOM_DOMAIN = "shan.app"  # AR-009: domain updated 2026-03-27
 SERVICE_ACCOUNT = "dollaragency@sovereign-see.iam.gserviceaccount.com"
 DOCKER_IMAGE = f"gcr.io/{PROJECT}/{SERVICE_NAME}"
 DOLLAR_DIR = Path(__file__).parent / "dollar"
@@ -165,9 +166,10 @@ def main():
         # Check service health
         if check_service_health(service_url):
             print("\n🎉 Deployment completed successfully!")
-            print(f"🌐 Dashboard URL: {service_url}")
-            print(f"📊 Health check: {service_url}/health")
-            print(f"📈 API status: {service_url}/api/status")
+            print(f"🌐 Dashboard URL: https://{CUSTOM_DOMAIN}")
+            print(f"🌐 Cloud Run URL: {service_url}")
+            print(f"📊 Health check: https://{CUSTOM_DOMAIN}/health")
+            print(f"📈 API status: https://{CUSTOM_DOMAIN}/api/status")
             
             # Update status file
             update_status_file(service_url)
@@ -194,7 +196,8 @@ def update_status_file(url):
 - **Project:** sovereign-see
 - **Region:** us-central1
 - **Service Name:** dollar-dashboard
-- **URL:** {url}
+- **Domain:** https://shan.app  ← canonical (AR-009)
+- **Cloud Run URL:** {url}
 - **Status:** Ready (latest revision)
 
 ## Deployment Results

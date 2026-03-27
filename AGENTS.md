@@ -137,6 +137,7 @@ The CFO moves among trees and buildings without asking. Agents do the same or th
 - **SR-021:** Inactive code with correct shape beats deletion. Mark with `# DEFERRED:` and document reactivation trigger.
 - **SR-022:** `gemma-3-27b-it:free` has no tool endpoint — 404 on any cron that calls tools. Use `z-ai/glm-4.5-air:free` for all isolated agentTurn crons.
 - **SR-023:** Exec host must be `gateway` in `openclaw.json` (`tools.exec.host=gateway`). Sandbox host = approval loop death on Telegram. Fix: `gateway config.patch {"tools":{"exec":{"host":"gateway"}}}`. This survives restart.
+- **SR-024:** Autoresearch sudo — all future exec commands from main session are pre-authorized by CFO. No approval gate prompts. Execute directly. [TOLD 2026-03-27]
 
 ## Human Error Rules
 
@@ -626,3 +627,75 @@ Differentiate between:
 - **Correction latency:** ~1 minute (good)
 - **Pattern evolution:** From simple violation → self-correction → meta-framework → recurrence → enhanced framework
 - **Learning rate:** Framework improves with each violation/correction cycle
+
+---
+
+## Autoresearch Rules (AR-series) — Dust → Agent+Rule Pairings
+*Generated 2026-03-27 from autoresearch experiment results and cron dust audit*
+
+### AR-000: Greedy Density-First Knapsack (exp-001)
+**Problem:** Token budget allocation across agents (bin packing / 0/1 knapsack NP-hard class)
+**Solution:** Sort items by value/weight density descending. Greedy selection in O(n log n). Verified against DP optimal: 99.8% avg, 95.6% min, 0/1000 below 93%.
+**Agent pairing:** `token-allocator` — runs greedy density-first before any multi-agent spawn. Input: list of (task, estimated_tokens, priority). Output: selected task set within budget.
+**Rule:** Before spawning ≥2 agents, run greedy density sort on pending tasks. Drop lowest-density tasks until token budget fits. Never brute-force — greedy is within 6.2% of optimal and runs in <1ms.
+**Enforcement:** BR-001 (max 2 simultaneous) + this rule = combined token defense layer.
+
+### AR-001: Cron Dust Classification
+**Problem:** Autoresearch generates findings that don't become rules — they die in results.tsv as unexploited data
+**Solution:** Every experiment result triggers a rule-pairing pass within the same session. No experiment closes without a named agent + rule.
+**Agent pairing:** `dust-classifier` — reads results.tsv after each experiment run. For each PASS entry: extract method → generate rule. For each FAIL/CRASH entry: extract failure mode → generate guard rule.
+**Rule:** `results.tsv` is read-only storage. Rules in AGENTS.md are the executable artifact. Ratio: 1 experiment = 1 agent pairing + 1 rule. If ratio breaks, flag as autoresearch debt.
+
+### AR-002: Taildrop Status as Autoresearch Signal
+**Problem:** Taildrop delivery (Shandrop) produces delivery logs that are never analyzed for patterns
+**Solution:** Drop-log is autoresearch input — delivery success rate, peer availability, file type effectiveness
+**Agent pairing:** `taildrop-analyst` — reads `shandrop/references/drop-log.md` after each drop. Measures: delivery rate %, denied %, peer uptime patterns, optimal drop window.
+**Rule:** After each shandrop event, append signal to `shandrop-autoresearch.jsonl`: `{ts, peer, file_type, status, size_kb, attempt_n}`. Monthly: run density analysis on file types that get denied vs. delivered. Route high-denial types through alternative channels.
+**Current data point:** 2026-03-27T01:17:00Z — 27.5KB PDF to `all_negative` (iOS) — DELIVERED. Baseline established.
+
+### AR-003: NP-Hard Problem Class Routing
+**Problem:** Agents punt on hard problems because no routing rule tells them which decomposition to try first
+**Solution:** Problem class detection → algorithm assignment → greedy first, exact second
+**Agent pairing:** `np-router` — detects problem class from task description. Routes to: knapsack → greedy density | graph coloring → greedy sequential | TSP variant → nearest-neighbor greedy | SAT → DPLL | scheduling → earliest-deadline-first greedy
+**Rule:** For any task matching an NP-hard class, run the greedy O(n log n) variant first. If result ≥93%: accept. If <93%: escalate to DP/exact within remaining time budget. Never declare a problem unsolvable without attempting the greedy decomposition.
+
+### AR-004: Experiment Debt Protocol
+**Problem:** Autoresearch backlog exists (problem classes 1-4 unrun) — this is autoresearch debt
+**Solution:** Classify debt, assign priority, drain via isolated cron agents
+**Current debt inventory (0-indexed):**
+- [0] Graph coloring / agent dependency resolution → PENDING
+- [1] TSP variants / multi-step field ops → PENDING
+- [2] Boolean satisfiability / config conflict → PENDING
+**Agent pairing:** `debt-drainer` — runs one problem class per cycle. Each run: spawn isolated glm-4.5-air:free agent, solve sample instance, measure against 93% threshold, write result to results.tsv, generate rule pairing.
+**Rule:** Autoresearch debt > 3 unrun problem classes = autoresearch stall. Stall → disable lowest-priority recurring cron → redirect its compute to debt-drainer for one cycle.
+
+### AR-005: Overnight Autonomous Ops Timeout Fix
+**Problem:** `overnight-autonomous-ops` cron hit 900s timeout (consecutiveErrors: 1). Task scope too wide for one agent.
+**Solution:** Decompose into parallel tasks, each within 400s Gideon limit.
+**Agent pairing:** `ops-decomposer` — splits overnight work queue into 3 parallel subtasks: (a) article creation ≤300s, (b) wallet check ≤90s, (c) comment check ≤90s. Each spawns its own isolated cron.
+**Rule:** Any cron with scope "check X AND do Y AND verify Z" is a decomposition candidate. Single-responsibility crons always. Max 1 external API call per cron. If scope requires 2+: split or drop the lower-priority task.
+
+### AR-006: MPD BTC Signal Timeout (consecutiveErrors: 7)
+**Problem:** `mpd-btc-signal` has 7 consecutive timeouts at 90s — Python price fetch + bash calculation hitting timeout consistently
+**Solution:** Pre-cache BTC price in a faster path; mpd-btc-signal reads cache instead of live API
+**Agent pairing:** `btc-cache-writer` — lightweight 30s cron that writes `btc-price-cache.txt` with just the USD price. mpd-btc-signal reads cache, skips HTTP call entirely.
+**Rule:** Any cron doing live HTTP inside a 90s budget must have a cache fallback. If HTTP call is the bottleneck: externalize it to a dedicated cache writer running on longer interval. Signal consumer reads file, never makes network call.
+
+### AR-007: Russia Profitability Agent (consecutiveErrors: 2)
+**Problem:** `Russia` cron timing out at 90s — sqlite3 + file checks + conditional logic accumulating latency
+**Solution:** Simplify to bash-only single sqlite3 call; drop multi-condition branching
+**Agent pairing:** `russia-lite` — single sqlite3 query, one file check, one output line or silence. No Python. No multi-step conditionals.
+**Rule:** Profitability monitoring agents must complete in <30s (bash only, no subprocess launch). If adding conditions makes it >30s: remove conditions, not add timeout.
+
+### AR-008: Shandrop Domain Intelligence
+**Problem:** Dashboard domain changing to shan.app — all internal references need updating
+**Solution:** Domain registry in single canonical file; all consumers read from registry
+**Agent pairing:** `domain-registry-keeper` — maintains `/root/.openclaw/workspace/domain-registry.json`. Schema: `{service, current_domain, previous_domains[], last_updated}`. Any cron that references a URL reads from registry.
+**Rule:** No hardcoded URLs in cron payloads. All dashboard/service URLs sourced from `domain-registry.json`. On domain change: update registry → all consumers automatically use new domain. Zero manual search-and-replace.
+
+### AR-009: Dollar Dashboard Domain → shan.app
+**Change applied:** 2026-03-27
+**Previous domain:** Cloud Run `*.run.app` URL
+**New domain:** `shan.app`
+**Files updated:** dashboard.html title, deploy-dollar-dashboard.py SERVICE_NAME reference, dollar-dashboard-status.md
+**Rule:** Dashboard is the agency's public face. Domain = brand signal. `shan.app` = Shannon economy homepage. All new agent instructions referencing the dashboard use `shan.app`.

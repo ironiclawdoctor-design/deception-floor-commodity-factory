@@ -1,0 +1,27 @@
+{
+  "services": [
+    {
+      "service": "dollar-dashboard",
+      "current_domain": "https://shan.app",
+      "cloud_run_service": "dollar-dashboard",
+      "cloud_run_project": "sovereign-see",
+      "cloud_run_region": "us-central1",
+      "previous_domains": [],
+      "last_updated": "2026-03-27",
+      "rule": "AR-009"
+    },
+    {
+      "service": "shannon-miner",
+      "current_domain": "https://ironiclawdoctor-design.github.io/deception-floor-commodity-factory/shannon-miner.html",
+      "previous_domains": [],
+      "last_updated": "2026-03-27"
+    },
+    {
+      "service": "hashnode-blog",
+      "current_domain": "https://dollaragency.hashnode.dev",
+      "previous_domains": [],
+      "last_updated": "2026-03-27"
+    }
+  ],
+  "_note": "AR-008: No hardcoded URLs in cron payloads. All consumers read from this registry. On domain change: update here, not in individual crons."
+}
