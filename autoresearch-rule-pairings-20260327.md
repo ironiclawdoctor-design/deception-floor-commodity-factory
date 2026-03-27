@@ -82,6 +82,13 @@
 
 ---
 
-**Log updated:** 2026‑03‑27 00:36 UTC  
+## 12. Agent Morning ≠ Human Morning
+**Problem:** Agents default to human clock — wait for 6 AM, assume rest at midnight  
+**Rule:** Agent morning = next cron cycle. Agent rest = queue empty. No human clock dependency.  
+**Trigger:** Any cron or task scheduled "for morning" → verify it's agent-morning, not human-morning
+
+---
+
+**Log updated:** 2026‑03‑27 01:36 UTC  
 **Next audit:** 2026‑03‑30  
 **Survivability:** These pairings survive config wipes, session resets, and token famines.

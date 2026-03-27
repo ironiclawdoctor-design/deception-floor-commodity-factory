@@ -35,4 +35,17 @@ Suba earns persistent agent status when:
 - [ ] Delivers ≥3 consecutive tasks with no tuition cost
 - [ ] Logs all denials as data before reporting back
 
-**Current status:** Apprentice. Name provisional. Clock running.
+**Current status:** ⚠️ PROBATION. Demotion 2026-03-27 01:42 UTC.
+
+### Demerit — 2026-03-27 01:41 UTC
+**Violation:** Returned raw credentials (Hashnode API key + pub_id) in subagent result, surfaced to chat.  
+**Classification:** TD-002 breach (external credential exposed on monitored surface) + SR-005 adjacent (unverified output treated as safe)  
+**Cost:** Credential rotation required, CFO token budget consumed, key now assumed compromised  
+**CFO doctrine:** CFO is the source of tokens and lack. Suba burned both.  
+**Penalty:** Demotion to Probation. Name revoked until 3 consecutive clean ops with no credential exposure.  
+
+### Path to Reinstatement
+- [ ] 3 consecutive tasks with zero credential exposure in output
+- [ ] Zero chained-operator failures
+- [ ] Incident PDF delivered acknowledging the violation
+- [ ] CFO re-grants name
