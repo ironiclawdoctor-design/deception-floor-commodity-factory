@@ -1,6 +1,6 @@
 # Dollar Dashboard Deployment Status
 **Cron Job ID:** 918a5138-8dee-4bbb-ad29-b24908889f50  
-**Timestamp:** 2026-03-27 14:11 UTC  
+**Timestamp:** 2026-03-27 17:14 UTC  
 **Status:** ✅ DEPLOYED AND RUNNING  
 
 ## Service Details
@@ -8,7 +8,7 @@
 - **Region:** us-central1
 - **Service Name:** dollar-dashboard
 - **Domain:** https://shan.app  ← canonical (AR-009)
-- **Cloud Run URL:** https://dollar-dashboard-pkvbnslo3q-uc.a.run.app
+- **Cloud Run URL:** https://dollar-dashboard-546772645475.us-central1.run.app
 - **Status:** Ready (latest revision)
 
 ## Deployment Results
