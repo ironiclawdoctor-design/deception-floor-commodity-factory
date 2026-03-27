@@ -1,65 +1,121 @@
 #!/usr/bin/env python3
-"""Check for recent posts on Hashnode publication."""
-import json
-import urllib.request
-import urllib.error
-
-API_KEY = "2824c3af-2b0f-4836-9185-7e9d4547e304"
-GQL_URL = "https://gql.hashnode.com/"
-
-def make_gql_request(query, variables):
-    """Make a GraphQL request to Hashnode API."""
-    payload = json.dumps({"query": query, "variables": variables}).encode("utf-8")
-    req = urllib.request.Request(
-        GQL_URL,
-        data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": API_KEY,
-        }
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=30) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        return {"error": str(e), "body": e.read().decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-
-# Query to get recent posts
-posts_query = """
-query GetRecentPosts($host: String!) {
-  publication(host: $host) {
-    posts(first: 10) {
-      edges {
-        node {
-          id
-          title
-          url
-          publishedAt
-        }
-      }
-    }
-  }
-}
+"""
+Check for comments on Hashnode posts
 """
 
-print("Checking for recent posts...")
-result = make_gql_request(posts_query, {"host": "dollaragency.hashnode.dev"})
+import requests
+import json
+import sys
+from datetime import datetime, timezone
 
-if "errors" in result:
-    print(f"ERROR: {result['errors']}")
-elif "data" in result and result["data"] and "publication" in result["data"]:
-    posts = result["data"]["publication"]["posts"]["edges"]
-    print(f"📊 Found {len(posts)} recent posts:")
+API_KEY = "2824c3af-2b0f-4836-9185-7e9d4547e304"
+PUBLICATION_ID = "69c07db4d9da55a9a5fa1ab6"
+BASE_URL = "https://gql.hashnode.com/"
+
+HEADERS = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json"
+}
+
+def get_recent_posts():
+    """Get recent posts from the publication"""
+    query = """
+    query GetPosts($publicationId: ID!, $first: Int!) {
+        publication(id: $publicationId) {
+            posts(first: $first) {
+                edges {
+                    node {
+                        id
+                        title
+                        slug
+                        url
+                        publishedAt
+                        comments(first: 10) {
+                            edges {
+                                node {
+                                    id
+                                    content
+                                    author {
+                                        name
+                                    }
+                                    createdAt
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    """
     
-    for edge in posts:
-        post = edge["node"]
-        print(f"\n📝 {post['title']}")
-        print(f"   URL: {post['url']}")
-        print(f"   Published: {post['publishedAt']}")
-else:
-    print(f"UNEXPECTED: {result}")
+    variables = {
+        "publicationId": PUBLICATION_ID,
+        "first": 10
+    }
+    
+    try:
+        response = requests.post(BASE_URL, json={"query": query, "variables": variables}, headers=HEADERS)
+        response.raise_for_status()
+        result = response.json()
+        
+        if "errors" in result:
+            print(f"GraphQL errors: {result['errors']}", file=sys.stderr)
+            return []
+        
+        posts = result["data"]["publication"]["posts"]["edges"]
+        return [post["node"] for post in posts]
+        
+    except Exception as e:
+        print(f"Error fetching posts: {str(e)}", file=sys.stderr)
+        return []
 
-print("\nNote: Comments checking requires additional GraphQL complexity that may not be available.")
-print("Manual review of individual post URLs would be needed to check for comments.")
+def check_comments(posts):
+    """Check comments on posts and prepare responses"""
+    print(f"Checking comments on {len(posts)} posts...")
+    
+    comments_found = []
+    
+    for post in posts:
+        post_title = post["title"]
+        post_url = post["url"]
+        comment_count = len(post["comments"]["edges"])
+        
+        if comment_count > 0:
+            print(f"\n📝 Comments found on: {post_title}")
+            print(f"   URL: {post_url}")
+            print(f"   Comment count: {comment_count}")
+            
+            for comment_edge in post["comments"]["edges"]:
+                comment = comment_edge["node"]
+                print(f"   - {comment['author']['name']}: {comment['content'][:100]}...")
+                comments_found.append({
+                    "post_title": post_title,
+                    "post_url": post_url,
+                    "comment": comment
+                })
+        else:
+            print(f"✅ No comments on: {post_title}")
+    
+    return comments_found
+
+def main():
+    """Main function"""
+    print(f"Checking Hashnode comments at {datetime.now(timezone.utc).isoformat()}")
+    print("-" * 50)
+    
+    posts = get_recent_posts()
+    comments = check_comments(posts)
+    
+    print("\n" + "=" * 50)
+    print(f"Comment check complete: {len(comments)} comments found")
+    
+    if comments:
+        print("Comments found that may need responses:")
+        for comment in comments:
+            print(f"  - {comment['post_title']}: {comment['comment']['author']['name']} said: {comment['comment']['content'][:50]}...")
+    else:
+        print("No comments found requiring responses")
+
+if __name__ == "__main__":
+    main()
