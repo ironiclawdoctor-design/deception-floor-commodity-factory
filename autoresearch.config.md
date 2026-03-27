@@ -40,3 +40,11 @@ autoresearch/workspace-93pct-2026-03-26
 
 ## Notes
 93% standard: 25/27 crons must run clean. Current: 20/27. Gap = 5 agents. Closing 2 via goodbye. Fixing 3 via payload simplification.
+
+## Revenue Autonomy Audit (2026-03-26T23:49Z)
+- revenue_autonomy_ratio: 0.30 (3/10 paths active)
+- Tier 0 active: Square ✅, BTC ✅, Cash App ✅
+- Zero-auth activatable now: Ko-fi, Open Collective, Substack, Write.as account claim
+- Blocked: GitHub Sponsors (token), Hashnode RPM (API key), dev.to (key), Medium (OAuth)
+- Full log: openresearch-log.jsonl
+- State file: skills/openresearch/revenue-paths-state.json

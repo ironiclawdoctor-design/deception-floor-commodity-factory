@@ -1,0 +1,32 @@
+{
+  "last_audit": "2026-03-26T23:49:00Z",
+  "tier0_active": {
+    "square": {"status": "ACTIVE", "merchant": "MLB9XRQCBT953", "last_payment": "$1.00 on 2026-03-23"},
+    "btc_wallet": {"status": "ACTIVE", "address": "12bxubgs1Br6NvKH4p35pcBpinQ7fwe4ht", "sat": 10220},
+    "cashapp": {"status": "ACTIVE", "handle": "$DollarAgency", "backing_usd": 60}
+  },
+  "tier1_status": {
+    "hashnode_rpm": "UNVERIFIED — API key needed",
+    "github_sponsors": "INACTIVE — github-token.txt needed",
+    "kofi_embed": "INACTIVE — account creation needed (autonomous)",
+    "open_collective": "INACTIVE — registration needed (autonomous, EIN ready)",
+    "writeas_anonymous": "LIVE — post https://write.as/e7i19crz1yiq2 exists (unclaimed)"
+  },
+  "zero_auth_activatable_now": [
+    "Ko-fi: signup at ko-fi.com — no code, no API, browser form only",
+    "Open Collective: register at opencollective.com with EIN 41-3668968",
+    "Substack: start publishing at substack.com/new — newsletter = recurring revenue layer",
+    "Write.as account: claim existing post at https://write.as/start"
+  ],
+  "reactivation_triggers": {
+    "github_sponsors": "paste token to secrets/github-token.txt",
+    "hashnode_monetization": "paste key to secrets/hashnode-api-key.txt",
+    "devto_crosspost": "paste key to secrets/devto-api-key.txt",
+    "writeas_account": "human browses to https://write.as/start and claims post e7i19crz1yiq2 using modify_token 5JnDuZywvB7Bs8X6Sg8P2wiOid3lSVE0",
+    "medium_partner": "human completes OAuth at medium.com/partner"
+  },
+  "revenue_autonomy_ratio": 0.30,
+  "paths_active": 3,
+  "paths_total": 10,
+  "notes": "Exec blocked on Telegram. BTC Blockchair IP-blacklisted. Ratio depressed by missing API keys for Tier 1 content monetization channels."
+}
