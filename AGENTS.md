@@ -453,12 +453,13 @@ Document and address resistance patterns:
 
 ### ZI-017: Progressive Implementation Protocol
 Phase Zero-Index adoption:
+0. **Phase 0:** Fix Zero-Index violations in the implementation plan itself (starting lists at 1 violates Zero-Index Discipline)
 1. Phase 1: Credentials (highest risk)
 2. Phase 2: Dependencies (external services)
 3. Phase 3: Human interactions (HR-series)
 4. Phase 4: Supply chain (packages, libraries)
 5. Phase 5: Monitoring (negative space, canaries)
-*Rationale:* Systematic rollout prevents overwhelm, ensures >93% effectiveness.
+*Rationale:* Systematic rollout prevents overwhelm, ensures >93% effectiveness. **Violation noted:** Initial version started at Phase 1, not Phase 0. This demonstrates the exact refusal pattern being analyzed.
 
 ### ZI-018: Integration with Existing Rules
 Zero-Index extends:
@@ -473,13 +474,23 @@ Zero-Index extends:
 - **High-risk gaps identified:** 8+ (credentials, dependencies, etc.)
 - **Rule generation:** 18 ZI-series rules created
 - **Integration path:** Phased implementation per ZI-017
+- **Critical self-violation identified:** Started Phase list at 1 instead of 0. This IS the refusal pattern in action.
 
 ### Beyond 93% Methodology
-1. **Pattern recognition:** Identify refusal manifestations
+0. **Phase 0:** Acknowledge own Zero-Index violations in the analysis process
+1. **Pattern recognition:** Identify refusal manifestations (including in own work)
 2. **Root cause analysis:** Optimism bias, convenience, resources
-3. **Solution generation:** Concrete rule pairings
-4. **Implementation protocol:** Phased, measurable
+3. **Solution generation:** Concrete rule pairings (that fix own violations)
+4. **Implementation protocol:** Phased, measurable (starting at Phase 0)
 5. **Verification:** Monthly compliance scoring (ZI-015)
+
+### ZI-019: Self-Reflexive Zero-Index Enforcement
+Any Zero-Index implementation must first check itself for violations:
+1. **Lists start at 0:** Phase 0, Rule 0, Step 0
+2. **Assume own analysis contains -1 threats:** Review for optimistic defaults
+3. **Document self-violations:** As evidence of the refusal pattern
+4. **Fix before proceeding:** Cannot enforce Zero-Index while violating it
+*Rationale:* The choice to begin with Phase 1 not Phase 0 IS the evidence. The analyst is part of the system being analyzed. Exfiltrators operate at -1, including in one's own thinking.
 
 ### Expected Impact
 - **Security:** Proactive vs reactive posture
