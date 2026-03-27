@@ -127,6 +127,95 @@ def run_baseline_tests(iterations: int = 1000, excel_test: bool = True) -> dict:
     
     return results
 
+def correctness_invariant_check() -> dict:
+    """
+    Correctness invariant: verify that DST-straddling datetimes in the same month
+    produce DIFFERENT UTC offsets. If a YYYY-MM cache key collapses them, this FAILS.
+
+    Tests:
+      - "2026-03-08 01:30:00" EST  (before DST spring-forward at 2:00 AM)
+        => EST offset = -5h => UTC = 06:30
+      - "2026-03-08 03:30:00" EST  (after DST spring-forward, clocks at 3:30 = real wall time)
+        => EDT offset = -4h => UTC = 07:30
+
+    If cache collapses both to the same offset, UTC results will be identical => FAIL.
+    """
+    result = {
+        'passed': False,
+        'dt_before': None,
+        'dt_after': None,
+        'utc_before': None,
+        'utc_after': None,
+        'offsets_different': False,
+        'error': None
+    }
+
+    try:
+        import pytz
+        eastern = pytz.timezone('US/Eastern')
+
+        # Parse the two datetimes (naive)
+        fmt = '%Y-%m-%d %H:%M:%S'
+        before_naive = datetime.datetime.strptime('2026-03-08 01:30:00', fmt)
+        after_naive  = datetime.datetime.strptime('2026-03-08 03:30:00', fmt)
+
+        # Localize (fold=0 for before, fold=0 for after — 03:30 is unambiguous post-DST)
+        before_eastern = eastern.localize(before_naive, is_dst=False)  # EST -5
+        after_eastern  = eastern.localize(after_naive,  is_dst=True)   # EDT -4
+
+        before_utc = before_eastern.astimezone(pytz.utc)
+        after_utc  = after_eastern.astimezone(pytz.utc)
+
+        result['dt_before']  = str(before_eastern)
+        result['dt_after']   = str(after_eastern)
+        result['utc_before'] = str(before_utc)
+        result['utc_after']  = str(after_utc)
+
+        # Offsets must differ: -5 vs -4
+        offset_before = before_eastern.utcoffset()
+        offset_after  = after_eastern.utcoffset()
+
+        result['offsets_different'] = (offset_before != offset_after)
+
+        # Also verify UTC results differ (the real cache-collapse guard)
+        utc_results_differ = (before_utc != after_utc)
+
+        if result['offsets_different'] and utc_results_differ:
+            result['passed'] = True
+        else:
+            result['error'] = (
+                f"CACHE COLLAPSE DETECTED: both datetimes produced same UTC offset "
+                f"(before={offset_before}, after={offset_after}). "
+                f"UTC before={before_utc}, UTC after={after_utc}"
+            )
+
+    except ImportError:
+        # pytz not available — fall back to converter-based check
+        try:
+            converter = TimeZoneConverter()
+            before_result = converter.convert('2026-03-08 01:30:00', 'EST', 'UTC')
+            after_result  = converter.convert('2026-03-08 03:30:00', 'EST', 'UTC')
+
+            result['utc_before'] = before_result
+            result['utc_after']  = after_result
+
+            if before_result != after_result:
+                result['offsets_different'] = True
+                result['passed'] = True
+            else:
+                result['error'] = (
+                    f"CACHE COLLAPSE DETECTED (converter path): "
+                    f"before={before_result}, after={after_result} are identical."
+                )
+        except Exception as e2:
+            result['error'] = f"Converter fallback failed: {e2}"
+
+    except Exception as e:
+        result['error'] = f"Invariant check exception: {e}"
+
+    return result
+
+
 def validate_accuracy_threshold(accuracy: float, threshold: float = 93.0) -> bool:
     """Validate that accuracy meets threshold."""
     return accuracy >= threshold
@@ -143,6 +232,20 @@ def main():
     
     args = parser.parse_args()
     
+    # --- CORRECTNESS INVARIANT CHECK (must run before any cached optimization) ---
+    print("Running correctness invariant check (DST cache-collapse guard)...")
+    invariant = correctness_invariant_check()
+    print(f"  Before DST: {invariant.get('dt_before')} => UTC {invariant.get('utc_before')}")
+    print(f"  After  DST: {invariant.get('dt_after')} => UTC {invariant.get('utc_after')}")
+    print(f"  Offsets different: {invariant.get('offsets_different')}")
+    if invariant['passed']:
+        print("  ✓ INVARIANT PASSED: DST offsets differ — no cache collapse detected")
+    else:
+        print(f"  ✗ INVARIANT FAILED: {invariant.get('error')}")
+        print("ABORTING: correctness invariant not met. Fix cache key before proceeding.")
+        sys.exit(2)
+    print()
+
     print(f"Running baseline tests with {args.iterations} iterations...")
     results = run_baseline_tests(args.iterations, args.excel_integration_test)
     
@@ -180,8 +283,19 @@ def main():
         print("✗ Excel import failed")
     
     # Overall assessment
-    all_valid = accuracy_valid and churn_valid and results['excel_export_success'] and results['excel_import_success']
-    
+    all_valid = (
+        accuracy_valid and
+        churn_valid and
+        results['excel_export_success'] and
+        results['excel_import_success'] and
+        invariant['passed']
+    )
+
+    if invariant['passed']:
+        print("✓ Correctness invariant (DST cache-collapse guard) passed")
+    else:
+        print(f"✗ Correctness invariant FAILED: {invariant.get('error')}")
+
     if all_valid:
         print("\n✓ ALL TESTS PASSED - Baseline meets requirements")
         return 0
