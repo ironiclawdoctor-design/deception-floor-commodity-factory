@@ -1,53 +1,45 @@
-# Autoresearch Configuration — Post-/New Session Startup Excellence
+# Autoresearch Configuration
 
 ## Goal
-Optimize the intro/session startup sequence after a `/new` command to achieve past 93% announce excellence. Metric: quality score of session startup sequence.
+Exceed 93% reality correlation on NP-hard problem decomposition. Solve problems humans and standard agents punt on. Find the approach that works, iterate until it holds.
 
 ## Metric
-- **Name**: session_startup_excellence
-- **Direction**: higher is better  
-- **Target**: >93% excellence rating
-- **Current baseline**: 79/100 (79%) - control variant
-- **Achieved result**: 99/100 (99%) - Variant 4 (Announce Mode)
-- **Improvement**: +20 points (+25% relative)
+- **Name**: solution_quality
+- **Direction**: higher is better
+- **Target**: >93% — measured as: does the output solve the stated problem completely, with no hand-waving, no deferral, no theater?
+- **Extract command**: manual review + structured self-eval: [SOLVED / PARTIAL / THEATER]
 
 ## Target Files
-- `SOUL.md` — Personality and guidelines
-- `USER.md` — Human context
-- `MEMORY.md` — Long-term memory loading
-- `AGENTS.md` — Workspace rules
-- `greeting-templates.json` — Created template system
-- `evaluate-greeting.md` — Evaluation worksheet
-- `evaluation-results-2026-03-27.md` — Complete results
+- `autoresearch-experiments/` (create per-experiment files here)
+- `autoresearch.config.md` (this file)
 
 ## Read-Only Files
-- `IDENTITY.md` — Core identity (shouldn't be changed)
-- `HEARTBEAT.md` — Standing checks
-- `BOOTSTRAP.md` — Agent onboarding
+- `SOUL.md`
+- `MEMORY.md`
+- `AGENTS.md`
 
-## Experiment Status
-**COMPLETED SUCCESSFULLY** - 2026-03-27
+## Run Command
+Spawn isolated sub-agent with the problem. Measure output. Log result.
 
-## Key Findings
-1. **Explicit announce mode declaration** yields 99% excellence score
-2. **Human context integration** yields 94% score  
-3. **Current control** scores 79% - significant room for improvement
-4. **"Execute what?"** terminology outperforms generic questions
-5. **93% target reference** demonstrates goal awareness
+## Time Budget
+- **Per experiment**: 120s
+- **Kill timeout**: 400s
 
-## Optimal Variant (Variant 4 - Announce Mode)
-"Announce mode: Fiesta, {day} {time}. 93% excellence target. Execute what?"
-
-**Score:** 99/100 (99%) - **EXCEEDS 93% TARGET**
-
-## Implementation
-- Adopt Variant 4 as new standard for `/new` session startups
-- Maintain Variant 3 (94%) as fallback for specific contexts
-- Update session startup sequence documentation
-- Template system ready for deployment
+## Constraints
+- No GPU
+- No paid models for inner loop — glm-4.5-air:free only
+- No theater (announcing plan ≠ executing plan)
+- No asking for permission mid-experiment
 
 ## Branch
-autoresearch/session-startup-excellence-2026-03-27 **COMPLETE**
+autoresearch/np-hard-exceed-93
+
+## Problem Classes (ordered by impact)
+1. Scheduling under constraint (agency cron optimization)
+2. Graph coloring (agent dependency resolution)
+3. Bin packing (token budget allocation across agents)
+4. Traveling salesman variants (multi-step field ops with escape routes)
+5. Boolean satisfiability (config conflict resolution)
 
 ## Notes
-Experiment successfully identified greeting variant achieving 99% excellence score, exceeding 93% target by significant margin. Research demonstrates that explicit announce mode declaration combined with excellence target reference yields optimal results according to agency excellence criteria.
+The maze IS the problem. Every cleanup loop is an NP-hard scheduling problem in disguise. Autoresearch finds which decomposition clears it fastest. 93% is the floor, not the ceiling.

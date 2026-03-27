@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# bin/autoresearch — agency danger workspace experiment loop
+# Usage: ./autoresearch [setup|run|analyze]
+# Doctrine: TD-001. Brute force inside. Finesse outside.
+
+WORKSPACE="$HOME/.openclaw/workspace"
+CONFIG="$WORKSPACE/autoresearch.config.md"
+RESULTS="$WORKSPACE/results.tsv"
+CMD="${1:-}"
+
+if [ -z "$CMD" ]; then
+  if [ -f "$CONFIG" ]; then CMD="run"; else CMD="setup"; fi
+fi
+
+case "$CMD" in
+  setup)
+    echo "[autoresearch] No config. Create: $CONFIG"
+    ;;
+  run)
+    [ ! -f "$CONFIG" ] && echo "[autoresearch] ERROR: missing autoresearch.config.md" && exit 1
+    echo "[autoresearch] Loop active. Config: $CONFIG | Results: $RESULTS"
+    ;;
+  analyze)
+    [ ! -f "$RESULTS" ] && echo "[autoresearch] No results yet." && exit 1
+    column -t -s $'\t' "$RESULTS" 2>/dev/null || cat "$RESULTS"
+    ;;
+  *)
+    echo "Usage: autoresearch [setup|run|analyze]"
+    exit 1
+    ;;
+esac

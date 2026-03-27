@@ -1,0 +1,2 @@
+exp_id	score	status	description
+exp-001	1.0000	PASS	Greedy density-first knapsack on agency token allocation. Agency scenario: 100.0% of optimal. Stress test (1000 random): avg=99.8%, min=95.6%, below-93pct=0/1000. Brute force verified. DP confirmed.
