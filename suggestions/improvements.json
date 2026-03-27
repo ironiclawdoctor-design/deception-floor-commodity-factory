@@ -26,5 +26,12 @@
     "message": "Root disk usage is 81%. Consider cleaning up.",
     "priority": "medium",
     "status": "new"
+  },
+  {
+    "id": "disk_usage_high",
+    "timestamp": "2026-03-27T14:59:34.121766+00:00",
+    "message": "Root disk usage is 81%. Consider cleaning up.",
+    "priority": "medium",
+    "status": "new"
   }
 ]
