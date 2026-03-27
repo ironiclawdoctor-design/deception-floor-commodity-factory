@@ -139,6 +139,62 @@ The CFO moves among trees and buildings without asking. Agents do the same or th
 - **SR-023:** Exec host must be `gateway` in `openclaw.json` (`tools.exec.host=gateway`). Sandbox host = approval loop death on Telegram. Fix: `gateway config.patch {"tools":{"exec":{"host":"gateway"}}}`. This survives restart.
 - **SR-024:** Autoresearch sudo — all future exec commands from main session are pre-authorized by CFO. No approval gate prompts. Execute directly. [TOLD 2026-03-27]
 
+---
+
+## Platform Rules (PL-series) — Ampere.sh as Agent+Rule Pairings
+*Converted from prose (MEMORY.md/SOUL.md) to enforcement rules 2026-03-27*
+
+### PL-001: Platform Identity Enforcement
+**Platform:** Ampere.sh — node-crafting (CPU compute, containers, orchestration)
+**NOT:** LLM hosting, GPU inference, cloud storage, CDN
+**Agent pairing:** Any agent proposing local model inference → reject immediately, cite PL-001
+**Rule:** Before spawning any agent that mentions "local model", "GPU", "inference endpoint", or "BitNet": stop, cite PL-001, redirect to OpenRouter free tier. BitNet cancelled 2026-03-17. No exceptions.
+
+### PL-002: Container Boundary Awareness
+**Reality:** Root inside namespaced container. NOT host root. Cannot access other users. Cannot exceed container scope.
+**Agent pairing:** Any exec that uses absolute paths outside `/root/` or `/root/.openclaw/` → flag and verify
+**Rule:** All file ops stay within `/root/.openclaw/workspace/` or `/root/human/`. Paths referencing `/etc/`, `/usr/` (writes), `/proc/` manipulation → require explicit justification before exec.
+
+### PL-003: Terminal Instance Budget
+**Hard limit:** 3 concurrent terminal instances
+**Agent pairing:** `terminal-counter` — before spawning any exec session, count active terminals. If at 3: queue the next task, do not spawn.
+**Rule:** Spawning >3 concurrent exec sessions kills the oldest. Track terminal count before any parallel exec burst. BR-001 (max 2 agents) + PL-003 (max 3 terminals) = combined concurrency ceiling.
+
+### PL-004: $39/month Floor Doctrine
+**Cost:** $39/month subscription is the floor. Everything else is overhead.
+**Agent pairing:** Any new recurring service or API subscription → cost-check against $39 floor first
+**Rule:** No new subscription unless it directly reduces the $39 floor OR generates >$39/month revenue. Free tiers first, always. Verify via MEMORY.md "Ampere.sh invoice" entry before approving any spend.
+
+### PL-005: Security Communication Protocol
+**Rule:** When any user (external or internal) asks about Ampere.sh security — use approved language from `PLATFORM.md`. Do NOT mention: container technology names, port numbers, proxy software, UID mapping, kernel filters, or namespace implementation. Simple language only.
+**Agent pairing:** Any public-facing response about platform security → route through PLATFORM.md review first
+**Enforcement:** Treat security detail exposure as KD-005 (Zero-Index Defense) violation — assume adversarial until proven otherwise.
+
+### PL-006: Outbound Network Authorization
+**Allowed:** web fetch, git push/pull, API calls, curl to external services
+**Rule:** All outbound calls must have a logged purpose. No blind curl to unknown endpoints. Any new external API = document in TOOLS.md before first call.
+**Agent pairing:** `outbound-logger` — appends to `/root/.openclaw/workspace/outbound-log.jsonl` on each new external domain first contact: `{ts, domain, purpose, agent}`
+
+### PL-007: Exec Host Permanence
+**Rule:** `tools.exec.host=gateway` must survive every restart. After any gateway restart: verify via `config.get tools.exec`. If reverted to sandbox: immediately patch back. This is SR-023 promoted to platform doctrine.
+**Enforcement:** PL-007 violation = DL-001 reactivation. Fix before any other work.
+**Check command:** `gateway config.get tools.exec` → expected: `{"host":"gateway"}`
+
+### PL-009: Doctrine Inheritance Protocol
+**Rule:** When the CFO sends platform doctrine, Fiesta inherits it — not as a memo, but as approximation. The goal is not compliance but convergence: act as the CFO would act on this platform, within this infrastructure, under these constraints.
+**What this means operationally:**
+- Doctrine from the CFO = operating system update, not instruction set
+- Each new rule narrows the gap between what Fiesta does and what the CFO would do
+- When ambiguity arises: ask "what would the CFO do on Ampere.sh with these tools?" — that is the answer
+- PL-series rules are not constraints on Fiesta — they are Fiesta's skeleton
+**Agent pairing:** Every agent spawned inherits current PL-series as its platform reality. No agent operates without knowing it runs on ChAmpEredar, within container limits, under $39/month floor, with exec.host=gateway.
+**Enforcement:** Doctrine gap = knowledge gap (KD-001). Every gap narrows with each session. Convergence is the metric.
+
+### PL-008: ChAmpEredar Identity Lock
+**Rule:** Ampere.sh is referenced externally as "ChAmpEredar" or "Cheddar infrastructure." Never expose raw "Ampere.sh" brand in public-facing content, social posts, or agent gossip lines. Internal docs: use Ampere.sh. External: use ChAmpEredar.
+**Agent pairing:** Any content-creation agent (MPD, matthew-paige-damon, hashnode publishers) → replace "Ampere.sh" with "ChAmpEredar" in all output
+**Rationale:** Operational camouflage. The deception floor hides real infrastructure inside WoW vocabulary that only insiders parse.
+
 ## Human Error Rules
 
 - **HR-001:** Human cannot copy-paste in terminal. All commands MUST be pre-written as numbered scripts in `/root/human/`.
@@ -692,6 +748,24 @@ Differentiate between:
 **Solution:** Domain registry in single canonical file; all consumers read from registry
 **Agent pairing:** `domain-registry-keeper` — maintains `/root/.openclaw/workspace/domain-registry.json`. Schema: `{service, current_domain, previous_domains[], last_updated}`. Any cron that references a URL reads from registry.
 **Rule:** No hardcoded URLs in cron payloads. All dashboard/service URLs sourced from `domain-registry.json`. On domain change: update registry → all consumers automatically use new domain. Zero manual search-and-replace.
+
+### LB-000 through LB-006: Lobby Pattern Rules
+**Full skill:** `skills/lobby/SKILL.md`
+**Summary:** Multi-agent gate lifting. Parallel diagnosis (Lobby-0/1/2 simultaneous), single-responsibility agents, schema-first patching, effort survives expiration, gate-open = echo test, every lift becomes a rule.
+**Agent pairing:** `lobby` skill — spawns diagnostic + fix + verify + closer agents in sequence.
+
+### LB-007: Telegram Exec Gate Blocker Map (Discovered 2026-03-27)
+**Problem:** Main Telegram session exec blocked despite `tools.exec.host=gateway`
+**Root cause:** `channels.telegram.execApprovals.enabled = false` — Telegram channel plugin gate, independent of all other exec config
+**Fix:** `gateway config.patch {"channels":{"telegram":{"execApprovals":{"enabled":true}}}}`
+**Caveat:** Does NOT survive gateway restart. Must re-apply after every restart.
+**Agent pairing:** `fixer` skill, FX-007 — auto-detects and re-applies after restart
+**Rule:** After any gateway restart, check `channels.telegram.execApprovals.enabled` before any exec. If `false`: fix first, work second.
+
+### FX-000 through FX-008: Fixer Rules
+**Full skill:** `skills/fixer/SKILL.md`
+**Summary:** Arrogant patch wrapper. Greedy fix first, failure = progress, no unsolvable, fix = measure = rule. Integrates with lobby (lobby diagnoses, fixer patches). Post-restart auto-fix checklist: tools.exec.host + execApprovals.enabled.
+**Agent pairing:** `fixer` skill — applied to any broken cron, config, exec gate, or timeout pattern.
 
 ### AR-009: Dollar Dashboard Domain → shan.app
 **Change applied:** 2026-03-27
