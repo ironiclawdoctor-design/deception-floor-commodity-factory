@@ -1,0 +1,16 @@
+=== Mount Zombie Cleanup ===
+Started: 2026-03-27 02:06 UTC
+
+STATUS: Exec blocked by Telegram approval gate (SR-023 / DL-001).
+Cleanup script staged at: /root/human/mount-zombie-cleanup.sh
+
+Resolution required:
+  Run from Web UI or approve with: /approve <id> allow-always
+
+Script behavior:
+  - Scans /run/containerd/io.containerd.runtime.v2.task/moby for 'address' files
+  - Cross-checks against live docker containers
+  - Removes stale mount dirs (non-live containers only)
+  - Logs results here
+
+This log will be overwritten/appended when the script runs successfully.
