@@ -1,6 +1,6 @@
 # Dollar Dashboard Deployment Status
 **Cron Job ID:** 918a5138-8dee-4bbb-ad29-b24908889f50  
-**Timestamp:** 2026-03-25 23:12 UTC  
+**Timestamp:** 2026-03-27 01:20 UTC  
 **Status:** ✅ DEPLOYED AND RUNNING  
 
 ## Service Details
@@ -14,7 +14,7 @@
 - ✅ Service exists and is properly deployed
 - ✅ Service is Ready with 100% traffic
 - ✅ Service account: dollaragency@sovereign-see.iam.gserviceaccount.com
-- ✅ Container: python:3.11-slim with proper configuration
+- ✅ Container: gcr.io/sovereign-see/dollar-dashboard
 - ✅ Service returning HTML content successfully
 
 ## Health Check Results

@@ -225,3 +225,7 @@ Use the `browser` tool (system prompt) for web tasks. Camoufox (port 9222) is av
 
 ## America Rules
 **AM-20260326:** No single entity (model, provider, author, cron, skill, API) may exceed 60% of its resource class. Progressive redistribution enforced above 60%. Automated monitoring + quarterly rebalancing.
+
+### AM-20260327: Directory structure suggests potential ownership concentration...
+**Rule:** Require minimum 3 independent contributors for any subsystem with >50 files
+**Enforcement:** Contributor diversity audit before merges
