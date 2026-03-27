@@ -138,6 +138,8 @@ The CFO moves among trees and buildings without asking. Agents do the same or th
 - **SR-022:** `gemma-3-27b-it:free` has no tool endpoint — 404 on any cron that calls tools. Use `z-ai/glm-4.5-air:free` for all isolated agentTurn crons.
 - **SR-023:** Exec host must be `gateway` in `openclaw.json` (`tools.exec.host=gateway`). Sandbox host = approval loop death on Telegram. Fix: `gateway config.patch {"tools":{"exec":{"host":"gateway"}}}`. This survives restart.
 - **SR-024:** Autoresearch sudo — all future exec commands from main session are pre-authorized by CFO. No approval gate prompts. Execute directly. [TOLD 2026-03-27]
+- **SR-025:** Before any exec gate debug: read `.bork.bak` first. It's the crash snapshot. Don't touch config without reading it.
+- **SR-026:** Exec blocked? Pentagon before config patch: (1) `/commands` (2) `/models` (3) `/status` (4) read `.bork.bak` (5) spawn subagent. Config patch is not on the list.
 
 ---
 
