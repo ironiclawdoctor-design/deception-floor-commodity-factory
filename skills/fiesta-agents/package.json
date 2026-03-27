@@ -5,7 +5,7 @@
   "keywords": ["openclaw", "skill", "ai-agents", "automation", "productivity", "multi-agent"],
   "author": "Fiesta",
   "license": "UNLICENSED",
-  "private": true,
+  "private": false,
   "main": "SKILL.md",
   "files": ["SKILL.md", "README.md", "agents/", "orchestrator/", "docs/"],
   "openclaw": {
