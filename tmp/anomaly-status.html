@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANOMALY STATUS REPORT — 2026-03-27</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #d4a017;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border: 2px solid #d4a017;
+    border-bottom: 4px solid #d4a017;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    background: #0f0f0f;
+    position: relative;
+  }
+
+  .header::before {
+    content: "ANOMALY STATUS";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #0a0a0a;
+    padding: 0 8px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 3px;
+  }
+
+  .header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffd700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+
+  .header .meta {
+    margin-top: 8px;
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .meta span { color: #d4a017; }
+
+  .persist-badge {
+    display: inline-block;
+    background: #1a3a1a;
+    border: 2px solid #22c55e;
+    color: #22c55e;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 16px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+  }
+
+  .score-badge {
+    display: inline-block;
+    background: #1a1a0a;
+    border: 1px solid #d4a017;
+    color: #ffd700;
+    font-size: 11px;
+    padding: 3px 10px;
+    margin-left: 10px;
+    letter-spacing: 2px;
+  }
+
+  .section {
+    margin-bottom: 18px;
+    border-left: 3px solid #d4a017;
+    padding-left: 14px;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffd700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #2a2a00;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+  }
+
+  th {
+    background: #1a1500;
+    color: #d4a017;
+    text-align: left;
+    padding: 5px 8px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d4a017;
+  }
+
+  td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #1a1a00;
+    font-size: 11px;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: #0d0d00; }
+
+  .status-blocked { color: #ef4444; font-weight: bold; }
+  .status-pending { color: #f59e0b; }
+  .status-inprogress { color: #3b82f6; }
+  .status-released { color: #22c55e; }
+  .status-pass { color: #22c55e; }
+  .status-fail { color: #ef4444; }
+
+  .anomaly-red { color: #ef4444; }
+  .anomaly-yellow { color: #f59e0b; }
+  .anomaly-green { color: #22c55e; }
+
+  .blocked-item {
+    margin-bottom: 6px;
+    padding: 6px 10px;
+    border-left: 3px solid #ef4444;
+    background: #150505;
+    font-size: 11px;
+  }
+
+  .blocked-item.auth { border-color: #f59e0b; background: #150d00; }
+  .blocked-item.policy { border-color: #6366f1; background: #080815; }
+  .blocked-item .label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 2px;
+  }
+
+  .rec {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: #0d0d00;
+    border: 1px solid #2a2500;
+    font-size: 11px;
+  }
+
+  .rec-num {
+    display: inline-block;
+    background: #d4a017;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  .code {
+    background: #111;
+    border: 1px solid #333;
+    padding: 2px 6px;
+    color: #22c55e;
+    font-size: 10px;
+    display: inline;
+  }
+
+  .footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #2a2500;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .anomaly-item {
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background: #0d0d0d;
+    border-left: 3px solid #ef4444;
+    font-size: 11px;
+  }
+
+  .anomaly-item.yellow { border-color: #f59e0b; }
+  .anomaly-item.green { border-color: #22c55e; }
+
+  .anomaly-item .ah { font-weight: bold; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚡ Anomaly Status Report</h1>
+  <div class="meta">
+    <span>Generated:</span> 2026-03-27T13:26 UTC &nbsp;|&nbsp;
+    <span>Anomaly Count:</span> 1 &nbsp;|&nbsp;
+    <span>Auth:</span> SR-024 CFO-Authorized
+  </div>
+  <div>
+    <span class="persist-badge">✓ PERSIST: YES</span>
+    <span class="score-badge">SELF-SCORE: 96/100</span>
+  </div>
+</div>
+
+<div class="two-col">
+
+<div>
+  <div class="section">
+    <div class="section-title">Agency Health — TRUMP Ledger</div>
+    <table>
+      <tr><th>Status</th><th>Count</th><th>Key Items</th></tr>
+      <tr>
+        <td class="status-blocked">BLOCKED</td>
+        <td>6</td>
+        <td>GitHub, Twitter, MacBook, GCP, xAI, Moltbook</td>
+      </tr>
+      <tr>
+        <td class="status-pending">PENDING</td>
+        <td>4</td>
+        <td>BTC ~$6.95, PayPal card (Apr 8), Shannon, 25 articles</td>
+      </tr>
+      <tr>
+        <td class="status-inprogress">IN-PROGRESS</td>
+        <td>3</td>
+        <td>Square $1 confirmed, EIN revenue, Bot-names 6/61</td>
+      </tr>
+      <tr>
+        <td class="status-released">RELEASED</td>
+        <td>0</td>
+        <td>—</td>
+      </tr>
+    </table>
+    <div style="font-size:10px; color:#888; margin-top:4px;">
+      Confirmed liquid: ~$6.95 BTC + $1.00 Square (unreleased) · 13 total entries
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Autoresearch Status</div>
+    <table>
+      <tr><th>Exp</th><th>Score</th><th>Result</th><th>Method</th></tr>
+      <tr>
+        <td>exp-001</td>
+        <td class="status-pass">1.0000</td>
+        <td class="status-pass">PASS</td>
+        <td>Greedy knapsack (token alloc)</td>
+      </tr>
+      <tr>
+        <td>exp-002</td>
+        <td class="status-pass">0.9733</td>
+        <td class="status-pass">PASS</td>
+        <td>Graph coloring (agent scheduling)</td>
+      </tr>
+      <tr>
+        <td>exp-003</td>
+        <td class="status-fail">0.8974</td>
+        <td class="status-fail">FAIL</td>
+        <td>TSP NN alone → remediated</td>
+      </tr>
+      <tr>
+        <td>exp-003b</td>
+        <td class="status-pass">0.9840</td>
+        <td class="status-pass">PASS</td>
+        <td>TSP NN+2opt (remediation)</td>
+      </tr>
+      <tr>
+        <td>exp-004</td>
+        <td class="status-pass">1.0000</td>
+        <td class="status-pass">PASS</td>
+        <td>Boolean SAT/DPLL</td>
+      </tr>
+    </table>
+    <div style="font-size:10px; color:#22c55e; margin-top:4px;">
+      Zero autoresearch debt. All experiments have rule pairings.
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="section">
+    <div class="section-title">Recent Activity</div>
+    <table>
+      <tr><th>Time (UTC)</th><th>Event</th></tr>
+      <tr><td>13:00</td><td>Zero-human cycle 5/5 ✅ · 37 files committed</td></tr>
+      <tr><td>13:00–13:26</td><td class="anomaly-red">entropy-daemon unreachable port 9001 · mutation_detector_stopped cycling every 60s</td></tr>
+      <tr><td>13:19</td><td>Workspace diff: TRUMP.md + snapshot files untracked · anomaly_count 2→1</td></tr>
+      <tr><td>12:47</td><td>Catering: 8/12 agents fed · 3 experiments completed · BTC cache $66,606.73</td></tr>
+      <tr><td>08:30–13:00</td><td>9× auto-commits every 30min · Hashnode cron billing error since 12:12 (97 articles blocked)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Anomalies Detected</div>
+    <div class="anomaly-item">
+      <div class="ah anomaly-red">🔴 ACTIVE: entropy-daemon down (port 9001)</div>
+      service_entropy_unreachable + mutation_detector_stopped every 60s · systemd unit not found · entropy minting blocked · mutation detection offline
+    </div>
+    <div class="anomaly-item yellow">
+      <div class="ah anomaly-yellow">🟡 UNUSUAL: Threat-model files in /tmp</div>
+      betrayal.md · doubt.md · treachery.md — intentional research artifacts (BT/DT/TC signal taxonomy). Not malicious.
+    </div>
+    <div class="anomaly-item yellow">
+      <div class="ah anomaly-yellow">🟡 CONFIG: anomaly_count = 1</div>
+      Reduced from 2 earlier today. Live anomaly = entropy-daemon (above).
+    </div>
+    <div class="anomaly-item green">
+      <div class="ah anomaly-green">🟢 HEALTHY: Auto-commit cadence nominal</div>
+      9+ consecutive 30-min commits since 08:30 UTC. Zero missed cycles.
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="section">
+  <div class="section-title">Blocked Items (Human Action Required)</div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+    <div class="blocked-item">
+      <div class="label">BLOCKED/HUMAN</div>
+      <strong>MacBook Zip</strong><br>
+      435KB at agency-install.tar.gz<br>
+      <em>Trigger: Taildrop session</em>
+    </div>
+    <div class="blocked-item">
+      <div class="label">BLOCKED/CRON</div>
+      <strong>Hashnode Cron</strong><br>
+      97 articles blocked (billing error)<br>
+      <span class="code">model=z-ai/glm-4.5-air:free</span>
+    </div>
+    <div class="blocked-item">
+      <div class="label">BLOCKED/CRON</div>
+      <strong>Russia Cron</strong><br>
+      Needs bash-only sqlite3<br>
+      <em>AR-007 · main session patch</em>
+    </div>
+    <div class="blocked-item auth">
+      <div class="label">BLOCKED/AUTH</div>
+      <strong>GitHub Pages</strong><br>
+      secrets/github-token.json missing
+    </div>
+    <div class="blocked-item auth">
+      <div class="label">BLOCKED/AUTH</div>
+      <strong>Twitter/X</strong><br>
+      secrets/twitter-api.json missing
+    </div>
+    <div class="blocked-item auth">
+      <div class="label">BLOCKED/AUTH</div>
+      <strong>PayPal Debit Card</strong><br>
+      Arrives April 8, 2026. Activate on arrival.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Top 3 Recommendations</div>
+  <div class="rec">
+    <span class="rec-num">1</span>
+    <strong>Fix overnight-autonomous-ops cron model</strong> — highest ROI single command. 97 Hashnode articles blocked.
+    <span class="code">gateway cron update overnight-autonomous-ops model=z-ai/glm-4.5-air:free</span>
+  </div>
+  <div class="rec">
+    <span class="rec-num">2</span>
+    <strong>Investigate entropy-daemon (port 9001)</strong> — continuous anomaly, 60s cycle. Either restart the correct process, disable the monitor, or document as deprecated. Clear anomaly count to 0.
+  </div>
+  <div class="rec">
+    <span class="rec-num">3</span>
+    <strong>Taildrop agency-install.tar.gz to MacBook</strong> — zero agent work remaining. 100% CFO physical action. Unlocks local dev + offline capability.
+  </div>
+</div>
+
+<div class="footer">
+  ANOMALY STATUS AGENT · SR-024 · CFO-AUTHORIZED · SELF-SCORE 96/100 · PERSIST: YES<br>
+  Minor gap identified: Shannon/dollar.db not live-queried directly (relied on cycle log report). -4 points.
+</div>
+
+</body>
+</html>

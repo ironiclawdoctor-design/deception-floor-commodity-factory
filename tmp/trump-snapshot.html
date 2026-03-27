@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRUMP — Total Recall Unreleased Money Printer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Oswald:wght@400;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #e8c84a;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    min-height: 100vh;
+    padding: 0;
+  }
+  .page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 50px 60px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1200 50%, #0a0a0a 100%);
+    border-top: 6px solid #c9a227;
+    border-bottom: 3px solid #c9a227;
+    padding: 40px 50px 35px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0;
+  }
+  .header::before, .header::after {
+    content: '◆';
+    position: absolute;
+    font-size: 28px;
+    color: #c9a227;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .header::before { left: 20px; }
+  .header::after { right: 20px; }
+  .trump-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 58px;
+    font-weight: 900;
+    letter-spacing: 12px;
+    color: #f0c030;
+    text-transform: uppercase;
+    text-shadow:
+      0 0 40px rgba(240,192,48,0.6),
+      0 0 80px rgba(240,192,48,0.3),
+      3px 3px 0px #7a5c00,
+      6px 6px 0px #3a2c00;
+    margin-bottom: 10px;
+    line-height: 1.0;
+  }
+  .trump-subtitle {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: #c9a227;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    opacity: 0.85;
+  }
+  .divider-gold {
+    width: 80%;
+    margin: 14px auto;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #c9a227, #f0c030, #c9a227, transparent);
+  }
+  .subheader {
+    font-size: 19px;
+    color: #e8c84a;
+    letter-spacing: 2px;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  .timestamp {
+    font-size: 13px;
+    color: #a08020;
+    letter-spacing: 3px;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ===== LEDGER LABEL ===== */
+  .ledger-label {
+    background: #0a0a0a;
+    border-left: 5px solid #c9a227;
+    border-right: 5px solid #c9a227;
+    padding: 12px 50px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #806010;
+    text-transform: uppercase;
+  }
+
+  /* ===== TABLE SECTION ===== */
+  .table-section {
+    padding: 0 0 30px;
+    background: #0d0d0d;
+    border-left: 1px solid #2a1f00;
+    border-right: 1px solid #2a1f00;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead tr {
+    background: linear-gradient(90deg, #1a1000, #2a1d00, #1a1000);
+    border-bottom: 3px solid #c9a227;
+  }
+  thead th {
+    padding: 16px 14px;
+    text-align: left;
+    font-family: 'Georgia', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f0c030;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  thead th:first-child { padding-left: 20px; }
+  thead th:last-child { padding-right: 20px; }
+
+  tbody tr {
+    border-bottom: 1px solid #1e1600;
+    transition: background 0.2s;
+  }
+  tbody tr:hover { background: #130f00; }
+  tbody tr:nth-child(even) { background: #0e0b00; }
+  tbody tr:nth-child(even):hover { background: #161200; }
+
+  tbody td {
+    padding: 14px 14px;
+    vertical-align: top;
+    color: #d4b84a;
+    line-height: 1.5;
+  }
+  tbody td:first-child { padding-left: 20px; }
+  tbody td:last-child { padding-right: 20px; }
+
+  .col-id {
+    font-weight: bold;
+    color: #f0c030;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    width: 70px;
+  }
+  .col-desc {
+    width: 24%;
+    font-size: 13px;
+    color: #e0d090;
+    font-weight: 600;
+  }
+  .col-value {
+    width: 15%;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #f0e080;
+    font-weight: bold;
+  }
+  .col-status {
+    width: 130px;
+    text-align: center;
+  }
+  .col-trigger {
+    font-size: 12px;
+    color: #b09030;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* STATUS BADGES */
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    white-space: nowrap;
+  }
+  .badge-blocked {
+    background: #3a0000;
+    color: #ff4444;
+    border: 1px solid #cc0000;
+    box-shadow: 0 0 8px rgba(204,0,0,0.3);
+  }
+  .badge-pending {
+    background: #2a1d00;
+    color: #f0c030;
+    border: 1px solid #a08020;
+    box-shadow: 0 0 8px rgba(200,160,0,0.3);
+  }
+  .badge-in-progress {
+    background: #001030;
+    color: #4488ff;
+    border: 1px solid #2255cc;
+    box-shadow: 0 0 8px rgba(34,85,204,0.3);
+  }
+  .badge-released {
+    background: #001a00;
+    color: #44ff88;
+    border: 1px solid #008844;
+    box-shadow: 0 0 8px rgba(0,136,68,0.3);
+  }
+
+  /* ===== SUMMARY BAR ===== */
+  .summary-bar {
+    background: linear-gradient(90deg, #100c00, #1e1600, #100c00);
+    border-top: 2px solid #c9a227;
+    border-bottom: 1px solid #2a1d00;
+    border-left: 1px solid #2a1f00;
+    border-right: 1px solid #2a1f00;
+    padding: 16px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .summary-stat {
+    text-align: center;
+  }
+  .summary-stat .stat-num {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f0c030;
+    font-family: 'Courier New', monospace;
+    display: block;
+  }
+  .summary-stat .stat-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #806010;
+  }
+  .summary-sep {
+    width: 1px;
+    height: 40px;
+    background: #3a2800;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: linear-gradient(135deg, #0a0800 0%, #100c00 50%, #0a0800 100%);
+    border-top: 3px solid #c9a227;
+    border-bottom: 6px solid #c9a227;
+    border-left: 1px solid #2a1f00;
+    border-right: 1px solid #2a1f00;
+    padding: 28px 50px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .footer-tagline {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f0c030;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(240,192,48,0.4);
+    margin-bottom: 8px;
+  }
+  .footer-agency {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #806010;
+    text-transform: uppercase;
+  }
+  .footer-ornament {
+    font-size: 18px;
+    color: #c9a227;
+    margin: 8px 0;
+    letter-spacing: 20px;
+  }
+
+  /* ===== OUTER BORDER ===== */
+  .page-border {
+    border: 2px solid #2a1f00;
+    margin: 20px;
+    box-shadow:
+      0 0 60px rgba(180,130,0,0.08),
+      inset 0 0 30px rgba(0,0,0,0.5);
+  }
+
+  /* Print */
+  @media print {
+    body { background: #0a0a0a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page-border">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="trump-title">TRUMP</div>
+    <div class="trump-subtitle">Total Recall Unreleased Money Printer</div>
+    <div class="divider-gold"></div>
+    <div class="subheader">Agency Unreleased Value Ledger</div>
+    <div class="timestamp">Snapshot: 2026-03-27 &nbsp;·&nbsp; 13:11:46 UTC</div>
+  </div>
+
+  <!-- LEDGER LABEL -->
+  <div class="ledger-label">
+    ◆ &nbsp; SR-024 &nbsp; · &nbsp; CFO-Authorized &nbsp; · &nbsp; Append-Only &nbsp; · &nbsp; All Agents May Write — None May Delete &nbsp; ◆
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Value</th>
+          <th style="text-align:center;">Status</th>
+          <th>Release Trigger</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="col-id">T-001</td>
+          <td class="col-desc">BTC Wallet — 10,220 sat</td>
+          <td class="col-value">~$6.95 USD<br><span style="font-size:10px;color:#806010;">@ recording</span></td>
+          <td class="col-status"><span class="badge badge-pending">PENDING</span></td>
+          <td class="col-trigger">Send BTC from wallet <code style="font-size:10px;color:#c9a227;background:#1a1200;padding:1px 4px;border-radius:2px;">12bxubgs1...</code> to exchange; convert to USD; withdraw.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-002</td>
+          <td class="col-desc">PayPal Business Debit Card (Dollar Agency Mendez)</td>
+          <td class="col-value">Unknown<br><span style="font-size:10px;color:#806010;">pending balance</span></td>
+          <td class="col-status"><span class="badge badge-pending">PENDING</span></td>
+          <td class="col-trigger">Card arrives April 8, 2026. Activate card. Check PayPal balance. Withdraw or spend.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-003</td>
+          <td class="col-desc">Square Merchant Account — MLB9XRQCBT953</td>
+          <td class="col-value">$1.00+ USD<br><span style="font-size:10px;color:#806010;">confirmed + future</span></td>
+          <td class="col-status"><span class="badge badge-in-progress">IN-PROGRESS</span></td>
+          <td class="col-trigger">Log into Square dashboard; initiate transfer to linked bank account.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-004</td>
+          <td class="col-desc">Shannon Ledger Balance (dollar.db)</td>
+          <td class="col-value">Unknown<br><span style="font-size:10px;color:#806010;">query live DB</span></td>
+          <td class="col-status"><span class="badge badge-pending">PENDING</span></td>
+          <td class="col-trigger">Shannon → USD conversion event. 10 Shannon / $1. Query live ledger + authorized withdrawal event.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-005</td>
+          <td class="col-desc">GitHub Pages — Precinct 92 Site</td>
+          <td class="col-value">Blocked channel<br><span style="font-size:10px;color:#806010;">indirect revenue</span></td>
+          <td class="col-status"><span class="badge badge-blocked">BLOCKED</span></td>
+          <td class="col-trigger">Place GitHub token at <code style="font-size:10px;color:#c9a227;background:#1a1200;padding:1px 4px;">secrets/github-token.json</code> → deploy precinct92 to GitHub Pages.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-006</td>
+          <td class="col-desc">Twitter/X Distribution Channel</td>
+          <td class="col-value">Blocked channel<br><span style="font-size:10px;color:#806010;">audience + revenue</span></td>
+          <td class="col-status"><span class="badge badge-blocked">BLOCKED</span></td>
+          <td class="col-trigger">Place Twitter API credentials at <code style="font-size:10px;color:#c9a227;background:#1a1200;padding:1px 4px;">secrets/twitter-api.json</code>. Activate twitter-posts skill.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-007</td>
+          <td class="col-desc">Agency Zip Side-Load to MacBook Pro</td>
+          <td class="col-value">Dev unlock<br><span style="font-size:10px;color:#806010;">offline capability</span></td>
+          <td class="col-status"><span class="badge badge-blocked">BLOCKED</span></td>
+          <td class="col-trigger">CFO physically present at MacBook Pro. SCP agency-install.tar.gz (435KB) to device or download directly.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-008</td>
+          <td class="col-desc">GCP Free Credits</td>
+          <td class="col-value">$300.00 USD<br><span style="font-size:10px;color:#806010;">policy-blocked</span></td>
+          <td class="col-status"><span class="badge badge-blocked">BLOCKED</span></td>
+          <td class="col-trigger">CFO reverses decline doctrine ("dependency on revocable credits = liability"). Then activate GCP account, claim $300 trial credit.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-009</td>
+          <td class="col-desc">xAI Free Credits</td>
+          <td class="col-value">$150.00 USD<br><span style="font-size:10px;color:#806010;">policy-blocked</span></td>
+          <td class="col-status"><span class="badge badge-blocked">BLOCKED</span></td>
+          <td class="col-trigger">CFO reverses decline policy. Activate xAI account, claim $150 trial credit.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-010</td>
+          <td class="col-desc">EIN Unlocked Revenue Streams (Tax Refund / Grants / Low-Effort Cash)</td>
+          <td class="col-value">TBD<br><span style="font-size:10px;color:#806010;">EIN: 41-3668968</span></td>
+          <td class="col-status"><span class="badge badge-in-progress">IN-PROGRESS</span></td>
+          <td class="col-trigger">(1) File tax return → refund. (2) Apply to small business grants. (3) Identify + execute low-effort cash channels.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-011</td>
+          <td class="col-desc">Moltbook / dollaragency Account</td>
+          <td class="col-value">Platform claim<br><span style="font-size:10px;color:#806010;">indirect revenue</span></td>
+          <td class="col-status"><span class="badge badge-blocked">BLOCKED</span></td>
+          <td class="col-trigger">Obtain valid Moltbook API token (current token invalid per CFO). Activate dollaragency account.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-012</td>
+          <td class="col-desc">Bot-Names Dataset (6/61 files complete)</td>
+          <td class="col-value">Dataset asset<br><span style="font-size:10px;color:#806010;">sale / license / API</span></td>
+          <td class="col-status"><span class="badge badge-in-progress">IN-PROGRESS</span></td>
+          <td class="col-trigger">Complete all 61 bot-name files. Package dataset. List on Hugging Face / data marketplace. Collect revenue.</td>
+        </tr>
+
+        <tr>
+          <td class="col-id">T-013</td>
+          <td class="col-desc">Grumpy-Cannot Article Series (25 reserved)</td>
+          <td class="col-value">25 articles<br><span style="font-size:10px;color:#806010;">12 published so far</span></td>
+          <td class="col-status"><span class="badge badge-pending">PENDING</span></td>
+          <td class="col-trigger">Write + publish all 25 articles on Hashnode. Monetize via Hashnode Partner Program or affiliate links.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SUMMARY BAR -->
+  <div class="summary-bar">
+    <div class="summary-stat">
+      <span class="stat-num">13</span>
+      <span class="stat-label">Total Entries</span>
+    </div>
+    <div class="summary-sep"></div>
+    <div class="summary-stat">
+      <span class="stat-num" style="color:#ff4444;">6</span>
+      <span class="stat-label">Blocked</span>
+    </div>
+    <div class="summary-sep"></div>
+    <div class="summary-stat">
+      <span class="stat-num" style="color:#f0c030;">3</span>
+      <span class="stat-label">Pending</span>
+    </div>
+    <div class="summary-sep"></div>
+    <div class="summary-stat">
+      <span class="stat-num" style="color:#4488ff;">3</span>
+      <span class="stat-label">In-Progress</span>
+    </div>
+    <div class="summary-sep"></div>
+    <div class="summary-stat">
+      <span class="stat-num" style="color:#44ff88;">0</span>
+      <span class="stat-label">Released</span>
+    </div>
+    <div class="summary-sep"></div>
+    <div class="summary-stat">
+      <span class="stat-num">$457.95+</span>
+      <span class="stat-label">Quantified Value Floor</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-ornament">◆ &nbsp;&nbsp; ◆ &nbsp;&nbsp; ◆</div>
+    <div class="footer-tagline">Mendez Agency</div>
+    <div class="footer-tagline" style="font-size:15px;letter-spacing:2px;margin-top:4px;">"The deal is not closed until it's RELEASED."</div>
+    <div class="footer-ornament">◆ &nbsp;&nbsp; ◆ &nbsp;&nbsp; ◆</div>
+    <div class="footer-agency">TRUMP.md &nbsp;·&nbsp; Append-Only Ledger &nbsp;·&nbsp; The Money Printer is Always On</div>
+  </div>
+
+</div>
+</body>
+</html>
