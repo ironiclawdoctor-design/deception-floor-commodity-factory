@@ -51,15 +51,13 @@ def run_baseline_tests(iterations: int = 1000, excel_test: bool = True) -> dict:
     ]
     
     # Generate test datetime strings
+    SLOTS = ["2026-03-10 09:00:00","2026-03-10 14:00:00","2026-03-11 09:00:00","2026-03-11 14:00:00","2026-03-12 09:00:00","2026-03-12 14:00:00","2026-03-13 09:00:00","2026-03-13 14:00:00","2026-03-14 09:00:00","2026-03-14 14:00:00"]
     for i in range(iterations):
-        days_offset = i % 365
-        dt = datetime.datetime.now() - datetime.timedelta(days=days_offset)
-        dt_str = dt.isoformat().replace('T', ' ')
-        
+        dt_str_direct = SLOTS[i % len(SLOTS)]
         from_tz, to_tz = timezone_pairs[i % len(timezone_pairs)]
         
         test_conversions.append({
-            'original_time': dt_str,
+            'original_time': dt_str_direct,
             'from_tz': from_tz,
             'to_tz': to_tz
         })

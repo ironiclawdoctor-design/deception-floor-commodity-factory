@@ -36,17 +36,7 @@ class TimeZoneConverter:
         return ZoneInfo(self.TIMEZONES[tz_abbr])
     
     def _cache_key(self, dt_str: str, from_tz: str, to_tz: str) -> str:
-        """Generate cache key. Truncate datetime to year+month to reduce churn.
-        
-        Truncation strategy: YYYY-MM (month granularity) groups multiple days
-        within the same month into a single cache bucket, reducing churn to ~32%
-        vs 100% with full datetime keys.
-        
-        Example: "2026-03-27 14:35:22" -> "2026-03" (strips day, time)
-        """
-        # Take first 7 chars: "YYYY-MM-DD HH:..." -> "YYYY-MM"
-        truncated = dt_str[:7]
-        return hashlib.md5(f"{truncated}|{from_tz}|{to_tz}".encode()).hexdigest()
+        return hashlib.md5(f"{dt_str}|{from_tz}|{to_tz}".encode()).hexdigest()
     
     def convert(self, dt_str: str, from_tz: str, to_tz: str) -> str:
         """Convert datetime between time zones."""
