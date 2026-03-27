@@ -6,5 +6,5 @@
 
 ## Progress Announce Targets
 - [x] Exec host fixed (PL-007) — gateway restored
-- [ ] Failing cron triage — 9 timed-out crons need diagnosis
-- [ ] Hashnode article count — 33/130 → 97 remaining
+- [x] Failing cron triage — 9 timed-out crons diagnosed: HTTP 400 errors on article publishing (content/format issues), script limits to 3 articles/run
+- [x] Hashnode article count — Current: 6 published (not 33), Target: 130+ → 124 remaining (discrepancy in tracking)
