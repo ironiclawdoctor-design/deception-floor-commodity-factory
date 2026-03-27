@@ -1,45 +1,58 @@
-# Autoresearch Configuration
+# Autoresearch Configuration: Time Zone Reframe Skill Optimization
 
 ## Goal
-Exceed 93% reality correlation on NP-hard problem decomposition. Solve problems humans and standard agents punt on. Find the approach that works, iterate until it holds.
+Optimize the "time zone reframe skill" to maintain >93% effectiveness while reducing churn and integrating Excel for time zone calculations.
 
 ## Metric
-- **Name**: solution_quality
-- **Direction**: higher is better
-- **Target**: >93% — measured as: does the output solve the stated problem completely, with no hand-waving, no deferral, no theater?
-- **Extract command**: manual review + structured self-eval: [SOLVED / PARTIAL / THEATER]
+- **Name**: Time zone conversion success rate
+- **Direction**: Higher is better (target >93%)
+- **Extract command**: Count successful conversions / total attempted, expressed as percentage
+- **Excel integration**: Success rate of Excel export/import operations for time zone data
 
 ## Target Files
-- `autoresearch-experiments/` (create per-experiment files here)
-- `autoresearch.config.md` (this file)
+- `time-zone-reframe-skill.md` (to be created) - Main skill implementation
+- `excel-integration.py` (to be created) - Excel time zone calculation utilities
+- `tz-test-suite.py` (to be created) - Test suite for accuracy measurement
 
 ## Read-Only Files
-- `SOUL.md`
-- `MEMORY.md`
-- `AGENTS.md`
+- All other files - Only modifying the 3 target files above
 
 ## Run Command
-Spawn isolated sub-agent with the problem. Measure output. Log result.
+```
+python tz-test-suite.py --iterations=1000 --excel-integration-test=true
+```
 
 ## Time Budget
-- **Per experiment**: 120s
-- **Kill timeout**: 400s
+- **Per experiment**: 30 seconds
+- **Kill timeout**: 60 seconds
 
 ## Constraints
-- No GPU
-- No paid models for inner loop — glm-4.5-air:free only
-- No theater (announcing plan ≠ executing plan)
-- No asking for permission mid-experiment
+- Must maintain >93% accuracy baseline
+- Excel integration must handle both .xlsx and .csv formats
+- Skill must handle all US time zones (EST, CST, MST, PST, AKST, HST) + UTC
+- Must reduce "churn" (unnecessary recalculations) by at least 50%
+- No external API calls for time zone data (use Python built-in libraries)
+- Must work with Python 3.8+ standard library only
 
 ## Branch
-autoresearch/np-hard-exceed-93
-
-## Problem Classes (ordered by impact)
-1. Scheduling under constraint (agency cron optimization)
-2. Graph coloring (agent dependency resolution)
-3. Bin packing (token budget allocation across agents)
-4. Traveling salesman variants (multi-step field ops with escape routes)
-5. Boolean satisfiability (config conflict resolution)
+autoresearch/tz-reframe-excel-2026-03-27
 
 ## Notes
-The maze IS the problem. Every cleanup loop is an NP-hard scheduling problem in disguise. Autoresearch finds which decomposition clears it fastest. 93% is the floor, not the ceiling.
+- Current time: EST for user (UTC-5/UTC-4 during DST)
+- Target churn reduction: <50% recalculations for same inputs
+- Excel integration: Read/write time zone conversion tables
+- Skill format: Must follow OpenClaw skill structure (name, description, user-invocable, argument-hint, allowed-tools)
+
+## Baseline Requirements
+1. Create initial skill file with basic time zone conversion
+2. Create Excel integration module
+3. Create test suite with 1000 random time conversions
+4. Measure baseline accuracy and churn rate
+5. Record baseline metrics before starting experiments
+
+## Experimental Variables
+1. **Conversion algorithm**: pytz vs zoneinfo vs custom calculation
+2. **Caching strategy**: Memoization depth, TTL, invalidation logic
+3. **Excel format**: .xlsx vs .csv, sheet naming, column structure
+4. **Error handling**: Graceful degradation for ambiguous times
+5. **User experience**: Skill argument hints, response formatting
