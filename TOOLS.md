@@ -13,6 +13,12 @@ Things like:
 - Device nicknames
 - Anything environment-specific
 
+## Taildrop
+
+- **CFO device:** `allowsall-gracefrom-god.tail275cba.ts.net`
+- Command: `tailscale file cp <file> allowsall-gracefrom-god.tail275cba.ts.net:`
+- All PDF snapshots (TRUMP.md, anomaly status, daily status) route here
+
 ## Examples
 
 ```markdown
