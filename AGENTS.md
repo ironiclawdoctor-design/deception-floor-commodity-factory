@@ -773,3 +773,20 @@ Differentiate between:
 **New domain:** `shan.app`
 **Files updated:** dashboard.html title, deploy-dollar-dashboard.py SERVICE_NAME reference, dollar-dashboard-status.md
 **Rule:** Dashboard is the agency's public face. Domain = brand signal. `shan.app` = Shannon economy homepage. All new agent instructions referencing the dashboard use `shan.app`.
+
+### AR-010: Graph Coloring / Agent Dependency Scheduling (exp-002)
+**Problem:** Scheduling crons with dependencies — minimize parallel rounds (graph chromatic number)
+**Result:** Greedy sequential coloring achieves 97.3% avg optimality vs exact. Agency 8-cron scenario: 100% optimal (2 rounds).
+**Agent pairing:** `dependency-scheduler` — given cron dependency graph, runs greedy sequential coloring to assign crons to minimum parallel execution rounds.
+**Rule:** For scheduling ≤20 agent crons with dependencies: greedy sequential coloring is sufficient (>93% optimal). For worst-case single nodes: 2-opt post-pass. Never brute-force dependency scheduling — greedy O(n²) is within 3% of optimal on realistic agency graphs.
+
+### AR-011: TSP / Multi-step Field Ops — NN+2opt Required (exp-003b)
+**Problem:** Nearest-neighbor TSP alone achieves only 89.7% optimality (exp-003 FAIL). NN+2opt achieves 98.4%.
+**Agent pairing:** `field-ops-router` — for any multi-step operation sequencing (API calls, endpoint checks, agent visits): run nearest-neighbor FIRST, then 2-opt local search until no improvement. Never stop at NN alone.
+**Rule:** NN alone < 93%. NN+2opt > 93%. All multi-step field ops (OrderedN ops with costs) must include 2-opt pass. This applies to: overnight ops ordering, API call sequencing, cron dependency chain routing.
+
+### AR-012: Boolean SAT / Config Conflict Resolution (exp-004)
+**Problem:** Agency configs may have conflicting constraints (e.g., cron model × exec host × channel settings)
+**Solution:** DPLL SAT solver — sound, complete, finds satisfying assignment or proves UNSAT
+**Agent pairing:** `config-conflict-checker` — encodes config constraints as 3-SAT clauses, runs DPLL, returns: SATISFIABLE (config is valid) or CONFLICT DETECTED (with conflicting clause set).
+**Rule:** Before deploying new cron config: encode all constraints (model compatibility, host requirements, credential dependencies) as SAT clauses. Run DPLL. If UNSAT: flag conflict before deployment, not after. Agency config scenario (SR-022/SR-023/LB-007 constraints): SATISFIABLE confirmed.

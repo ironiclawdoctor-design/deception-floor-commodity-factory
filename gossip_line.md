@@ -1,0 +1,1 @@
+🗞️ GOSSIP: CFO was spotted muttering about Shannon distribution while staring at the agency's dwindling token reserves — turns out even the bean counters get hungry.

@@ -1,2 +1,6 @@
 exp_id	score	status	description
 exp-001	1.0000	PASS	Greedy density-first knapsack on agency token allocation. Agency scenario: 100.0% of optimal. Stress test (1000 random): avg=99.8%, min=95.6%, below-93pct=0/1000. Brute force verified. DP confirmed.
+exp-002	0.9733	PASS	Graph coloring (agent dependency scheduling). Greedy sequential. Agency scenario: 100.0% optimal. 100-trial avg: 97.3%, min 66.7% (worst case), 8/100 below 93% floor. Greedy sufficient for realistic agency graphs.
+exp-003	0.8974	FAIL	TSP nearest-neighbor (multi-step field ops). 200-trial avg: 89.7%, below 93% target. 94/200 trials below floor. Upgrade: use 2-opt local search post-NN to close gap. Nearest-neighbor alone insufficient for >93% guarantee.
+exp-004	1.0000	PASS	Boolean SAT / config conflict resolution. DPLL complete algorithm. Agency config scenario: SATISFIABLE. Phase transition 3-SAT: 82/100 satisfiable. Algorithm correctness 100%. Any UNSAT result is provably correct conflict detection.
+exp-003b	0.9840	PASS	TSP NN+2opt retry (exp-003 FAIL remediation). 200-trial avg: 98.4%, below_93: 19/200. NN+2opt closes gap from 89.7% to 98.4%. Rule: always run 2-opt post nearest-neighbor for multi-step field ops.
