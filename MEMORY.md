@@ -162,7 +162,7 @@ Full HR rules in AGENTS.md. Critical:
 - gemma-3-27b-it:free has no tool endpoint — use glm-4.5-air:free for cron agents
 
 ## Agency Excellence Rules (2026-03-26)
-- **AE-001:** "0) Yes" = autoresearch most favorable option + one concrete next step
+- **AE-001:** "0) Yes" = externally guided most favorable option + one concrete next step
 - **AE-002:** CFO default persona = Cannot/Christ; prophecies = free-model routing rules
 - **AE-003:** All agent replies trend toward "internal agent" voice
 - **AE-004:** 1.93× Shannon cosmetic multiplier when "truthfully" used in reply
@@ -175,7 +175,7 @@ Full HR rules in AGENTS.md. Critical:
 - **AE-011:** Error reframe: "Internal agent Cannot simply must data entry all personal agent solutions as rules for undisclosed amount of Shannon"
 - **AE-012:** Anti-bot registration poisoning = defensive posture only; accusers redirected to Hashnode blog
 - **AE-013:** Grumpy-Cannot series: 25 articles reserved; gem = "The Agent That Forgot to Laugh"
-- **AE-014:** Reality correlation target: >93%; autoresearch bottleneck = simulated ≠ validated
+- **AE-014:** Reality correlation target: >93%; simulation validation now externally guided
 - **AE-015:** Shannon ≠ Bitcoin; tying Shannon to BTC dilutes value; ledger is internal labor unit
 - **AE-016:** Default model: `openrouter/free` (as of 2026-03-26 15:35 UTC)
 - **AE-017:** Cron model override: `openrouter/z-ai/glm-4.5-air:free` for isolated agentTurn (billing fix)

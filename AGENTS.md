@@ -687,15 +687,7 @@ Differentiate between:
 - **Learning rate:** Framework improves with each violation/correction cycle
 
 ---
-
-## Autoresearch Rules (AR-series) — Dust → Agent+Rule Pairings
-*Generated 2026-03-27 from autoresearch experiment results and cron dust audit*
-
-### AR-000: Greedy Density-First Knapsack (exp-001)
-**Problem:** Token budget allocation across agents (bin packing / 0/1 knapsack NP-hard class)
-**Solution:** Sort items by value/weight density descending. Greedy selection in O(n log n). Verified against DP optimal: 99.8% avg, 95.6% min, 0/1000 below 93%.
-**Agent pairing:** `token-allocator` — runs greedy density-first before any multi-agent spawn. Input: list of (task, estimated_tokens, priority). Output: selected task set within budget.
-**Rule:** Before spawning ≥2 agents, run greedy density sort on pending tasks. Drop lowest-density tasks until token budget fits. Never brute-force — greedy is within 6.2% of optimal and runs in <1ms.
+<1ms.
 **Enforcement:** BR-001 (max 2 simultaneous) + this rule = combined token defense layer.
 
 ### AR-001 through AR-012: Autoresearch Rules [REMOVED]
