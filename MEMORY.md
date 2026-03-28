@@ -180,7 +180,7 @@ Full HR rules in AGENTS.md. Critical:
 - **AE-016:** Default model: `openrouter/free` (as of 2026-03-26 15:35 UTC)
 - **AE-017:** Cron model override: `openrouter/z-ai/glm-4.5-air:free` for isolated agentTurn (billing fix)
 - **AE-018:** Agency install zip: `/root/.openclaw/workspace/agency-install.tar.gz` (435KB)
-- **AE-019:** Moltbook registered as `dollaragency`; claim pending; token invalid per CFO
+- **AE-019:** [REMOVED - Moltbook reference removed due to CSAM/visual error concerns per CFO directive]
 - **AE-020:** Vatican.va pitch: static-serving drone outreach, common-ground score 8/10
 
 ## Session Milestones

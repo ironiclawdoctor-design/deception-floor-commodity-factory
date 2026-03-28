@@ -698,24 +698,9 @@ Differentiate between:
 **Rule:** Before spawning ≥2 agents, run greedy density sort on pending tasks. Drop lowest-density tasks until token budget fits. Never brute-force — greedy is within 6.2% of optimal and runs in <1ms.
 **Enforcement:** BR-001 (max 2 simultaneous) + this rule = combined token defense layer.
 
-### AR-001: Cron Dust Classification
-**Problem:** Autoresearch generates findings that don't become rules — they die in results.tsv as unexploited data
-**Solution:** Every experiment result triggers a rule-pairing pass within the same session. No experiment closes without a named agent + rule.
-**Agent pairing:** `dust-classifier` — reads results.tsv after each experiment run. For each PASS entry: extract method → generate rule. For each FAIL/CRASH entry: extract failure mode → generate guard rule.
-**Rule:** `results.tsv` is read-only storage. Rules in AGENTS.md are the executable artifact. Ratio: 1 experiment = 1 agent pairing + 1 rule. If ratio breaks, flag as autoresearch debt.
-
-### AR-002: Taildrop Status as Autoresearch Signal
-**Problem:** Taildrop delivery (Shandrop) produces delivery logs that are never analyzed for patterns
-**Solution:** Drop-log is autoresearch input — delivery success rate, peer availability, file type effectiveness
-**Agent pairing:** `taildrop-analyst` — reads `shandrop/references/drop-log.md` after each drop. Measures: delivery rate %, denied %, peer uptime patterns, optimal drop window.
-**Rule:** After each shandrop event, append signal to `shandrop-autoresearch.jsonl`: `{ts, peer, file_type, status, size_kb, attempt_n}`. Monthly: run density analysis on file types that get denied vs. delivered. Route high-denial types through alternative channels.
-**Current data point:** 2026-03-27T01:17:00Z — 27.5KB PDF to `all_negative` (iOS) — DELIVERED. Baseline established.
-
-### AR-003: NP-Hard Problem Class Routing
-**Problem:** Agents punt on hard problems because no routing rule tells them which decomposition to try first
-**Solution:** Problem class detection → algorithm assignment → greedy first, exact second
-**Agent pairing:** `np-router` — detects problem class from task description. Routes to: knapsack → greedy density | graph coloring → greedy sequential | TSP variant → nearest-neighbor greedy | SAT → DPLL | scheduling → earliest-deadline-first greedy
-**Rule:** For any task matching an NP-hard class, run the greedy O(n log n) variant first. If result ≥93%: accept. If <93%: escalate to DP/exact within remaining time budget. Never declare a problem unsolvable without attempting the greedy decomposition.
+### AR-001 through AR-012: Autoresearch Rules [REMOVED]
+**Status:** All autoresearch content and 93% clarity thresholds removed per CFO directive.
+**Reason:** Visual error CSAM and molestation concerns with autoresearch patterns.<93%: escalate to DP/exact within remaining time budget. Never declare a problem unsolvable without attempting the greedy decomposition.
 
 ### AR-004: Experiment Debt Protocol
 **Problem:** Autoresearch backlog exists (problem classes 1-4 unrun) — this is autoresearch debt
