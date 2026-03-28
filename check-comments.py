@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
-"""
-Script to check for new comments on Hashnode
-"""
-
 import requests
 import json
-import sys
 
-def check_hashnode_comments():
-    """Check for comments on Hashnode publication"""
-    
-    # GraphQL query
+API_KEY = "2824c3af-2b0f-4836-9185-7e9d4547e304"
+
+HEADERS = {
+    "Authorization": API_KEY,
+    "Content-Type": "application/json"
+}
+
+GRAPHQL_URL = "https://gql.hashnode.com"
+
+def check_comments():
     query = """
-    query GetComments {
-      publication(id: "dollaragency") {
-        posts(first: 10) {
+    query GetPosts($publicationId: ID!, $first: Int = 10) {
+      publication(id: $publicationId) {
+        posts(first: $first) {
           edges {
             node {
               id
               title
               url
               commentCount
-              comments(first: 20) {
+              comments(first: 10) {
                 edges {
                   node {
                     id
                     content
-                    createdAt
                     author {
                       name
                     }
@@ -40,61 +40,62 @@ def check_hashnode_comments():
     }
     """
     
-    # GraphQL endpoint
-    url = 'https://api.hashnode.com/graphql'
+    variables = {
+        "publicationId": "69c07db4d9da55a9a5fa1ab6",
+        "first": 5
+    }
     
     try:
-        response = requests.post(url, json={'query': query})
-        print(f"Response Status: {response.status_code}")
-        print(f"Response Length: {len(response.text)}")
+        r = requests.post(GRAPHQL_URL, json={"query": query, "variables": variables}, headers=HEADERS)
+        data = r.json()
         
-        if response.status_code == 200:
-            data = response.json()
-            print("GraphQL query successful!")
+        if "errors" in data:
+            print(f"GraphQL Error: {data['errors']}")
+            return False
+        
+        publication = data.get("data", {}).get("publication", {})
+        posts = publication.get("posts", {}).get("edges", [])
+        
+        print("📝 Checking Dollar Agency posts for comments...")
+        print("=" * 50)
+        
+        total_comments = 0
+        
+        for post_edge in posts:
+            post = post_edge["node"]
+            title = post["title"]
+            url = post["url"]
+            comment_count = post["commentCount"]
             
-            # Extract comments
-            comments = []
-            posts = data.get('data', {}).get('publication', {}).get('posts', {}).get('edges', [])
+            print(f"\n📄 Article: {title}")
+            print(f"   URL: {url}")
+            print(f"   Comments: {comment_count}")
             
-            for post_edge in posts:
-                post = post_edge.get('node', {})
-                post_title = post.get('title', 'No Title')
-                post_url = post.get('url', 'No URL')
-                comment_edges = post.get('comments', {}).get('edges', [])
+            if comment_count > 0:
+                comments = post.get("comments", {}).get("edges", [])
+                print(f"   Recent comments:")
                 
-                for comment_edge in comment_edges:
-                    comment = comment_edge.get('node', {})
-                    comment_content = comment.get('content', 'No Content')
-                    comment_author = comment.get('author', {}).get('name', 'Anonymous')
-                    comment_created = comment.get('createdAt', 'No Date')
+                for comment_edge in comments:
+                    comment = comment_edge["node"]
+                    author = comment["author"]["name"]
+                    content = comment["content"][:200] + "..." if len(comment["content"]) > 200 else comment["content"]
                     
-                    comments.append({
-                        'post_title': post_title,
-                        'post_url': post_url,
-                        'content': comment_content,
-                        'author': comment_author,
-                        'created_at': comment_created
-                    })
-            
-            print(f"Found {len(comments)} comments")
-            return comments
+                    print(f"     - {author}: {content}")
+                    total_comments += 1
+        
+        print(f"\n" + "=" * 50)
+        print(f"📊 Total comments found: {total_comments}")
+        
+        if total_comments == 0:
+            print("✅ No comments found - nothing to respond to")
+            return True
         else:
-            print(f"GraphQL error: {response.text}")
-            return []
+            print("⚠️ Comments found - responses needed (but API access limited)")
+            return True
             
     except Exception as e:
-        print(f"Error: {e}")
-        return []
+        print(f"Error checking comments: {e}")
+        return False
 
 if __name__ == "__main__":
-    comments = check_hashnode_comments()
-    
-    if comments:
-        print("\n=== COMMENTS FOUND ===")
-        for i, comment in enumerate(comments, 1):
-            print(f"\n{i}. Post: {comment['post_title']}")
-            print(f"   Author: {comment['author']}")
-            print(f"   Content: {comment['content'][:100]}...")
-            print(f"   Created: {comment['created_at']}")
-    else:
-        print("No comments found")
+    check_comments()
