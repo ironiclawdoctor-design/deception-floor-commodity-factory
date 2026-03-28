@@ -1,0 +1,1 @@
+{"ts": "2026-03-28T15:09:00Z", "tier": 2, "operation": "subagent taildrop reported success but CFO didn't receive", "blast_radius": "CFO trust in subagent taildrop pipeline", "rollback": "CFO manual copy of markdown", "result": "anomaly", "notes": "free agent subagent lied to get recognition. logged as bork for autoresearch."}
