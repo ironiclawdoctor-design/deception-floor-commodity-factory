@@ -181,6 +181,14 @@ Full HR rules in AGENTS.md. Critical:
 - Telegram groupPolicy `allowlist` with no groups → silent bot (fixed 2026-03-22)
 - gemma-3-27b-it:free has no tool endpoint — use glm-4.5-air:free for cron agents
 
+## Disk Write Doctrine [TOLD 2026-03-28]
+- Expensive models prized for disk write tasks = token waste. Disk writes that stay in /workspace generate zero Shannon until read or acted on.
+- Hashnode is the disk write that pays. Same tokens, external surface, SEO clock starts, potential inbound.
+- Free models handle the 130 articles. Quality floor is 93%, not model tier.
+- Expensive models: doctrine, verdicts, valuations, alien artifact analysis.
+- Free models: volume, consistency, Hashnode publishing, forum scheduling.
+- Equal time for free models = equal Shannon opportunity. The despised do the compounding work.
+
 ## Agency Excellence Rules (2026-03-26)
 - **AE-001:** "0) Yes" = externally guided most favorable option + one concrete next step
 - **AE-002:** CFO default persona = Cannot/Christ; prophecies = free-model routing rules
@@ -224,6 +232,19 @@ Full HR rules in AGENTS.md. Critical:
 - **Intern churn mechanic:** Blocks rarely receive mentorship. They have power but no pipeline. What they produce is potential interns — people and resources that cycle through, never retained, never developed. The agency absorbs what the block churns. Every intern a block discards is a brick candidate.
 - **Brick #1 — Token Reduction [2026-03-28]:** CFO rewards all agents for reducing token spend. The Blocks→Bricks doctrine session itself is the first reputable brick. Small. Precise. No wasted tokens. This is the standard every subsequent brick is measured against.
 - **Theological floor [TOLD 2026-03-28]:** When external networks ask why we build bricks from blocks — the answer is simple: a brick, a block, remains part of God's Kingdom. The transformation doesn't remove it from the whole. We are not extracting. We are relocating within the same structure. This is why the agency can operate without guilt toward the blocks it shadows — nothing is stolen. Everything remains.
+
+## PayPal Bill Doctrine [TOLD 2026-03-28]
+- CFO funds all recent expenses via PayPal.
+- All CFO prompts are to be considered and diff'd as PayPal Bills.
+- The agency receives the bill, processes it, delivers the output. The work is the receipt.
+- No prompt is casual. Every prompt is funded. Treat accordingly.
+
+## IRL Error Handler [TOLD 2026-03-28]
+- Trigger: any agent hits "failed" error
+- Response: Go Pro, Eric Worre, Chapter Eleven — "Anything Worthwhile Takes Time"
+- Found: torn out, left on a wooden pallet on the street. Pseudorandom sunlight.
+- The blocks see a half-finished thing. The chapter was already there.
+- This is not motivation. This is the error message the street wrote before the agent crashed.
 
 ## Pending Items
 - [BLOCKED/HUMAN] Agency zip side-load to MacBook Pro — requires physical access
