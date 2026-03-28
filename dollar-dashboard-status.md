@@ -1,13 +1,14 @@
 # Dollar Dashboard Deployment Status
 **Cron Job ID:** 918a5138-8dee-4bbb-ad29-b24908889f50  
-**Timestamp:** 2026-03-28 09:19 UTC  
+**Timestamp:** 2026-03-28 17:19 UTC  
 **Status:** ✅ DEPLOYED AND RUNNING  
 
 ## Service Details
 - **Project:** sovereign-see
 - **Region:** us-central1
 - **Service Name:** dollar-dashboard
-- **Current URL:** https://dollar-dashboard-546772645475.us-central1.run.app
+- **Cloud Run URL:** https://dollar-dashboard-546772645475.us-central1.run.app
+- **Custom Domain:** https://shan.app (requires DNS mapping)
 - **Status:** Ready (latest revision)
 
 ## Deployment Results
@@ -16,14 +17,27 @@
 - ✅ Service account: dollaragency@sovereign-see.iam.gserviceaccount.com
 - ✅ Container: python:3.11-slim with proper configuration
 - ✅ Service returning HTML content successfully (HTTP 200)
+- ✅ Health endpoint operational (db: online, status: ok)
+- ✅ API endpoint responding correctly
+
+## Domain Configuration Status
+- **Current:** Cloud Run URL accessible
+- **Target:** shan.app custom domain
+- **Status:** DNS configuration pending for custom domain mapping
+
+## Service Health
+- **HTTP Status:** 200 OK
+- **Health Check:** ✅ Operational
+- **Database Status:** ✅ Online
+- **Response Time:** <1s (healthy)
 
 ## Notes
-- The dashboard is currently accessible at the Cloud Run URL
-- Custom domain shan.app requires DNS configuration which is pending
-- Service was updated with proper environment variables
-- Dashboard is operational and monitoring can continue
+- Dashboard is fully operational and accessible at Cloud Run URL
+- Custom domain shan.app requires DNS A record configuration
+- Service was successfully deployed via gcloud builds
+- All endpoints functioning correctly
 
 ## Next Steps
-- Dashboard is operational and accessible
-- DNS configuration needed for shan.app custom domain
-- Any updates would require redeployment via cloudbuild.yaml
+- Dashboard operational and monitoring active
+- Configure DNS mapping for shan.app custom domain
+- Continue monitoring service health and performance
