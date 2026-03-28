@@ -1,137 +1,128 @@
 #!/usr/bin/env python3
 """
-Script to publish Hashnode articles via GraphQL API
+Script to publish articles to Hashnode
 """
 
 import requests
 import json
+import sys
 import time
-from datetime import datetime, timezone
 
-# API configuration
-API_KEY = "2824c3af-2b0f-4836-9185-7e9d4547e304"
-PUBLICATION_ID = "69c07db4d9da55a9a5fa1ab6"
-BASE_URL = "https://gql.hashnode.com/"
-
-# Article metadata
-articles = [
-    {
-        "title": "The Art of Being Unproductive: How AI Agents Master the Art of Doing Nothing",
-        "slug": "ai-agents-unproductive-genius",
-        "content": open("article-ai-unproductive-genius.md", "r").read(),
-        "tags": ["AI", "Machine Learning", "Programming", "Humor", "Productivity"]
-    },
-    {
-        "title": "The NYC Survival Guide: How to Thrive When the System is Working Against You",
-        "slug": "nyc-survival-guide-chaos",
-        "content": open("article-nyc-survival-guide.md", "r").read(),
-        "tags": ["NYC", "Life", "Urban Living", "Survival", "Humor"]
-    },
-    {
-        "title": "The Non-Profit Operating Manual: How to Run an Organization on $0.07 and Good Intentions",
-        "slug": "nonprofit-shoestring-budget-guide",
-        "content": open("article-nonprofit-shoestring-budget.md", "r").read(),
-        "tags": ["Nonprofit", "Management", "Leadership", "Social Impact", "Humor"]
-    }
-]
-
-def create_mutation(article):
-    """Create GraphQL mutation for publishing an article"""
-    tags = [{"name": tag} for tag in article["tags"]]
+def publish_article(title, content, tags):
+    """Publish an article to Hashnode"""
     
-    mutation = {
-        "query": """
-        mutation CreatePublicationStory($input: CreatePublicationStoryInput!) {
-            createPublicationStory(input: $input) {
-                story {
-                    id
-                    title
-                    slug
-                    url
-                    publishedAt
-                }
-                success
-                errors {
-                    message
-                }
-            }
+    # GraphQL mutation for publishing
+    mutation = """
+    mutation CreatePublication($input: CreatePublicationInput!) {
+      createPublication(input: $input) {
+        publication {
+          id
+          title
+          url
+          publishedAt
         }
-        """,
-        "variables": {
-            "input": {
-                "publicationId": PUBLICATION_ID,
-                "title": article["title"],
-                "contentMarkdown": article["content"],
-                "tags": tags,
-                "isPublished": True,
-                "seoTitle": article["title"],
-                "seoDescription": article["title"][:150] + "..."
-            }
-        }
+      }
     }
-    return mutation
-
-def publish_article(article):
-    """Publish a single article"""
-    print(f"Publishing: {article['title']}")
+    """
     
-    mutation = create_mutation(article)
+    # Prepare the article content
+    article_input = {
+        "title": title,
+        "content": content,
+        "tags": tags,
+        "isPublic": True,
+        "publicationId": "dollaragency"  # Using the publication ID from memory
+    }
+    
+    # GraphQL endpoint
+    url = 'https://api.hashnode.com/graphql'
     
     headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
+        'User-Agent': 'DollarAgency/1.0'
     }
     
     try:
-        response = requests.post(BASE_URL, json=mutation, headers=headers, timeout=30)
-        response.raise_for_status()
+        response = requests.post(url, json={
+            'query': mutation,
+            'variables': {'input': article_input}
+        }, headers=headers, timeout=30)
         
-        result = response.json()
-        data = result.get("data", {})
+        print(f"Publishing '{title}'...")
+        print(f"Response Status: {response.status_code}")
+        print(f"Response: {response.text[:300]}...")
         
-        if data.get("createPublicationStory", {}).get("success"):
-            story = data["createPublicationStory"]["story"]
-            print(f"✅ SUCCESS: {story['title']}")
-            print(f"   URL: {story['url']}")
-            print(f"   Published: {story['publishedAt']}")
-            return True
+        if response.status_code == 200:
+            data = response.json()
+            if 'data' in data and 'createPublication' in data['data']:
+                publication = data['data']['createPublication']['publication']
+                print(f"Successfully published: {publication['title']}")
+                print(f"URL: {publication['url']}")
+                print(f"Published At: {publication.get('publishedAt', 'N/A')}")
+                return publication
+            else:
+                print(f"Error in response: {data}")
+                return None
         else:
-            errors = data.get("createPublicationStory", {}).get("errors", [])
-            error_msg = errors[0]["message"] if errors else "Unknown error"
-            print(f"❌ FAILED: {article['title']} - {error_msg}")
-            return False
+            print(f"HTTP Error: {response.status_code}")
+            print(f"Response: {response.text}")
+            return None
             
     except Exception as e:
-        print(f"❌ ERROR publishing {article['title']}: {str(e)}")
-        return False
+        print(f"Error publishing article: {e}")
+        return None
 
 def main():
-    """Main function to publish all articles"""
-    print(f"Starting article publishing at {datetime.now(timezone.utc).isoformat()}")
-    print(f"API Key: {API_KEY[:10]}...")
-    print(f"Publication ID: {PUBLICATION_ID}")
-    print("-" * 50)
+    """Publish all three articles"""
     
-    success_count = 0
-    total_count = len(articles)
+    # Article data
+    articles = [
+        {
+            'title': 'The AI Allocation Paradox: Why More Intelligence Sometimes Means Less Progress',
+            'content': open('article-ai-allocation-paradox.md', 'r').read(),
+            'tags': ['AI', 'Machine Learning', 'Optimization', 'Philosophy']
+        },
+        {
+            'title': 'NYC Cognitive Patterns: 7 Mental Algorithms That Keep You Sane (or at least functional)',
+            'content': open('article-nyc-cognitive-patterns.md', 'r').read(),
+            'tags': ['NYC', 'Psychology', 'Urban Life', 'Cognitive Science']
+        },
+        {
+            'title': 'Non-Profit Resource Alchemy: Turning $0.07 Into Impact (And Other Modern Miracles)',
+            'content': open('article-nonprofit-resource-alchemy.md', 'r').read(),
+            'tags': ['Nonprofit', 'Resource Management', 'Social Impact', 'Innovation']
+        }
+    ]
+    
+    published_articles = []
     
     for i, article in enumerate(articles, 1):
-        print(f"\n[{i}/{total_count}] {article['title']}")
+        print(f"\n=== Publishing Article {i}/{len(articles)} ===")
         
-        if publish_article(article):
-            success_count += 1
+        # Extract first 500 chars for preview to avoid huge logs
+        content_preview = article['content'][:500] + "..." if len(article['content']) > 500 else article['content']
+        print(f"Title: {article['title']}")
+        print(f"Content Preview: {content_preview}")
+        print(f"Tags: {', '.join(article['tags'])}")
+        
+        # Try to publish
+        result = publish_article(article['title'], article['content'], article['tags'])
+        
+        if result:
+            published_articles.append(result)
+            print(f"✅ SUCCESS: {result['title']}")
+        else:
+            print(f"❌ FAILED: {article['title']}")
         
         # Small delay between requests
-        if i < total_count:
+        if i < len(articles):
             time.sleep(2)
     
-    print("\n" + "=" * 50)
-    print(f"Publishing complete: {success_count}/{total_count} articles published successfully")
+    print(f"\n=== SUMMARY ===")
+    print(f"Successfully published: {len(published_articles)}/{len(articles)}")
     
-    if success_count == total_count:
-        print("🎉 All articles published successfully!")
-    else:
-        print(f"⚠️  {total_count - success_count} articles failed to publish")
+    for pub in published_articles:
+        print(f"- {pub['title']}: {pub['url']}")
 
 if __name__ == "__main__":
     main()

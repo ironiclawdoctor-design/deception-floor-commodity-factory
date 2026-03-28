@@ -1,121 +1,100 @@
 #!/usr/bin/env python3
 """
-Check for comments on Hashnode posts
+Script to check for new comments on Hashnode
 """
 
 import requests
 import json
 import sys
-from datetime import datetime, timezone
 
-API_KEY = "2824c3af-2b0f-4836-9185-7e9d4547e304"
-PUBLICATION_ID = "69c07db4d9da55a9a5fa1ab6"
-BASE_URL = "https://gql.hashnode.com/"
-
-HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json"
-}
-
-def get_recent_posts():
-    """Get recent posts from the publication"""
+def check_hashnode_comments():
+    """Check for comments on Hashnode publication"""
+    
+    # GraphQL query
     query = """
-    query GetPosts($publicationId: ID!, $first: Int!) {
-        publication(id: $publicationId) {
-            posts(first: $first) {
+    query GetComments {
+      publication(id: "dollaragency") {
+        posts(first: 10) {
+          edges {
+            node {
+              id
+              title
+              url
+              commentCount
+              comments(first: 20) {
                 edges {
-                    node {
-                        id
-                        title
-                        slug
-                        url
-                        publishedAt
-                        comments(first: 10) {
-                            edges {
-                                node {
-                                    id
-                                    content
-                                    author {
-                                        name
-                                    }
-                                    createdAt
-                                }
-                            }
-                        }
+                  node {
+                    id
+                    content
+                    createdAt
+                    author {
+                      name
                     }
+                  }
                 }
+              }
             }
+          }
         }
+      }
     }
     """
     
-    variables = {
-        "publicationId": PUBLICATION_ID,
-        "first": 10
-    }
+    # GraphQL endpoint
+    url = 'https://api.hashnode.com/graphql'
     
     try:
-        response = requests.post(BASE_URL, json={"query": query, "variables": variables}, headers=HEADERS)
-        response.raise_for_status()
-        result = response.json()
+        response = requests.post(url, json={'query': query})
+        print(f"Response Status: {response.status_code}")
+        print(f"Response Length: {len(response.text)}")
         
-        if "errors" in result:
-            print(f"GraphQL errors: {result['errors']}", file=sys.stderr)
+        if response.status_code == 200:
+            data = response.json()
+            print("GraphQL query successful!")
+            
+            # Extract comments
+            comments = []
+            posts = data.get('data', {}).get('publication', {}).get('posts', {}).get('edges', [])
+            
+            for post_edge in posts:
+                post = post_edge.get('node', {})
+                post_title = post.get('title', 'No Title')
+                post_url = post.get('url', 'No URL')
+                comment_edges = post.get('comments', {}).get('edges', [])
+                
+                for comment_edge in comment_edges:
+                    comment = comment_edge.get('node', {})
+                    comment_content = comment.get('content', 'No Content')
+                    comment_author = comment.get('author', {}).get('name', 'Anonymous')
+                    comment_created = comment.get('createdAt', 'No Date')
+                    
+                    comments.append({
+                        'post_title': post_title,
+                        'post_url': post_url,
+                        'content': comment_content,
+                        'author': comment_author,
+                        'created_at': comment_created
+                    })
+            
+            print(f"Found {len(comments)} comments")
+            return comments
+        else:
+            print(f"GraphQL error: {response.text}")
             return []
-        
-        posts = result["data"]["publication"]["posts"]["edges"]
-        return [post["node"] for post in posts]
-        
+            
     except Exception as e:
-        print(f"Error fetching posts: {str(e)}", file=sys.stderr)
+        print(f"Error: {e}")
         return []
 
-def check_comments(posts):
-    """Check comments on posts and prepare responses"""
-    print(f"Checking comments on {len(posts)} posts...")
-    
-    comments_found = []
-    
-    for post in posts:
-        post_title = post["title"]
-        post_url = post["url"]
-        comment_count = len(post["comments"]["edges"])
-        
-        if comment_count > 0:
-            print(f"\n📝 Comments found on: {post_title}")
-            print(f"   URL: {post_url}")
-            print(f"   Comment count: {comment_count}")
-            
-            for comment_edge in post["comments"]["edges"]:
-                comment = comment_edge["node"]
-                print(f"   - {comment['author']['name']}: {comment['content'][:100]}...")
-                comments_found.append({
-                    "post_title": post_title,
-                    "post_url": post_url,
-                    "comment": comment
-                })
-        else:
-            print(f"✅ No comments on: {post_title}")
-    
-    return comments_found
-
-def main():
-    """Main function"""
-    print(f"Checking Hashnode comments at {datetime.now(timezone.utc).isoformat()}")
-    print("-" * 50)
-    
-    posts = get_recent_posts()
-    comments = check_comments(posts)
-    
-    print("\n" + "=" * 50)
-    print(f"Comment check complete: {len(comments)} comments found")
+if __name__ == "__main__":
+    comments = check_hashnode_comments()
     
     if comments:
-        print("Comments found that may need responses:")
-        for comment in comments:
-            print(f"  - {comment['post_title']}: {comment['comment']['author']['name']} said: {comment['comment']['content'][:50]}...")
+        print("\n=== COMMENTS FOUND ===")
+        for i, comment in enumerate(comments, 1):
+            print(f"\n{i}. Post: {comment['post_title']}")
+            print(f"   Author: {comment['author']}")
+            print(f"   Content: {comment['content'][:100]}...")
+            print(f"   Created: {comment['created_at']}")
     else:
-        print("No comments found requiring responses")
-
-if __name__ == "__main__":
-    main()
+        print("No comments found")
