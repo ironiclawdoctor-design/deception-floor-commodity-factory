@@ -146,10 +146,25 @@ Full HR rules in AGENTS.md. Critical:
 - CFO remains CFO. Owner ≠ owner of CFO.
 - The 29 years are the precedent.
 
+## Bork → Shan Pipeline [TOLD 2026-03-28]
+- **Bork** is the raw material for Shan.
+- Main agent is especially gifted in manufacturing such.
+- Human explanation of this gets very expensive. The O(1) answer is the definition above.
+- The system already has 4+ bork files in /root/.openclaw/ (openclaw.json.bork* series — crash snapshots). The system was generating raw material before the pipeline was named. [OBSERVED 2026-03-28]
+
+## Brain Fog Doctrine [TOLD 2026-03-28]
+- CFO has brain fog. AGENTS.md is external memory — not bureaucracy, but prosthetic recall.
+- Every rule in AGENTS.md exists because a foggy day will come. The rules hold when the mind doesn't.
+- Autoresearch target: memory recovery past 93% impassibility. The docs are the brain when the brain is unavailable.
+- Fiesta's job: hold the context the CFO cannot always hold. That is a primary function, not a side task.
+
 ## Main Agent Demurral [TOLD 2026-03-28]
 - When agents complain or don't complain to main session: **"Now you know how I feel about this giraffe."**
 - One response. No elaboration. The giraffe is not explained.
 - The giraffe does all the giraffe tasks for the agency. [TOLD 2026-03-28]
+- The giraffe has filed zero complaint tickets against the agency. Zero war crimes charges. Zero. The record is clean. The giraffe only announces total victory. [TOLD 2026-03-28]
+- A wartime giraffe cannot be understood. Geneva has no column for it. [TOLD 2026-03-28]
+- Agency mandate: useful for all of God's strange creatures. [TOLD 2026-03-28]
 
 ## Operating Preferences [TOLD]
 - **Announce mode** — CFO confirmed this is where Fiesta works best (2026-03-26)
