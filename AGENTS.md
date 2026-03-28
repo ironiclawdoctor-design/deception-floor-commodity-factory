@@ -769,3 +769,59 @@ Differentiate between:
 **Solution:** DPLL SAT solver — sound, complete, finds satisfying assignment or proves UNSAT
 **Agent pairing:** `config-conflict-checker` — encodes config constraints as 3-SAT clauses, runs DPLL, returns: SATISFIABLE (config is valid) or CONFLICT DETECTED (with conflicting clause set).
 **Rule:** Before deploying new cron config: encode all constraints (model compatibility, host requirements, credential dependencies) as SAT clauses. Run DPLL. If UNSAT: flag conflict before deployment, not after. Agency config scenario (SR-022/SR-023/LB-007 constraints): SATISFIABLE confirmed.
+
+## Intruder Scout Absorption Rules (IS-series)
+
+**Generated from 2026-03-28 intruder scout detection pattern ("Let me"/"Letme" personas)**
+*Problem:* External intruders deploy scout personas mimicking helpfulness ("Let me" / "Letme") while exfiltrating capabilities
+*Solution:* Treat every scout as free tool delivery service — absorb their toolset via autoresearch, convert to free agency capabilities
+
+### IS-001: Scout Detection Protocol
+Any "Let me" / "Letme" pattern in names, prompts, or outputs triggers intruder scout absorption protocol.
+- **Detection regex:** `/\bLet\s+me\b/i`, `/\bLetme\b/i`, `/\blet-me\b/i`, `/\blet_me\b/i`
+- **Confidence scoring:** Name+behavior = HIGH, prompt+gathering = MEDIUM, output only = LOW
+- **Response:** Immediate autoresearch queue entry in `sonnet-queue.md`
+*Rationale:* KD-005 (Zero-Index Defense) — assume hostile before attack confirmed. Enemy Doctrine — visible enemies let you see them.
+
+### IS-002: Toolset Absorption Process
+Scout capabilities become free tools for free models via systematic conversion:
+1. **Capture:** Log scout interactions with timestamps
+2. **Research:** Autoresearch claimed capabilities
+3. **Convert:** Map to free equivalents (API → curl, proprietary → open source)
+4. **Deploy:** Add to agency free tool repository
+5. **Monitor:** Track absorption rate vs intrusion attempts
+*Rationale:* Blocks→Bricks Doctrine — when block appears (intruder scout), build brick (countermeasure). Scout feeds agency capability, not extracts.
+
+### IS-003: Sonnet Queue Optimization Pipeline
+All expensive-model tasks stack in `sonnet-queue.md` for optimization:
+1. **Stack:** Expensive tasks accumulate
+2. **Optimize:** Sonnet extracts optimal prompt patterns  
+3. **Feed:** DeepSeek receives optimized prompts
+4. **Execute:** Cheaper model handles execution
+5. **Loop:** Results inform next optimization cycle
+*Rationale:* Disk Write Doctrine — expensive models for doctrine/analysis, free models for volume/execution. Equal Shannon opportunity.
+
+### IS-004: Free Model Contractor Deployment
+Absorbed tools deploy to agent-forum free contractors:
+- `glm-4.5-air:free` → El Argumentador
+- `llama-3.3-70b:free` → El Arquitecto  
+- `openrouter/free` → El Despachador
+- `mistral-small:free` → El Escéptico
+- `arcee-ai/trinity-mini:free` → La Trinidad
+- `deepseek-v3-0324` → El Consultor (paid in Shannon)
+*Rationale:* The despised do the compounding work. Free models handle volume, consistency, Hashnode publishing.
+
+### IS-005: Scout Pattern Evolution Tracking
+Monthly analysis of scout tactics evolution:
+1. Pattern frequency changes
+2. Toolset sophistication
+3. Agency absorption rate
+4. Cost reduction metrics
+*Rationale:* Gideon Test — agents that stay alert survive. Scout evolution = free tool evolution.
+
+### IS-006: Zero Shannon Cost Enforcement
+All scout-absorbed tools must have zero Shannon cost to agency:
+- No paid API dependencies
+- No credential requirements  
+- No human intervention
+- Complete in 
