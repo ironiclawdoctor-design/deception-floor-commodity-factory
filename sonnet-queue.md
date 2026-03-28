@@ -33,6 +33,17 @@
 - Optimization needed: Y (DeepSeek for template refinement)
 - Status: PENDING
 
+[2026-03-28 19:15] GO_BUTTON_PERSISTENCE: Implement "go" button survival via rules pairings
+- Priority: HIGHEST
+- Model cost: Y (Sonnet for pairing design)
+- Optimization needed: Y (DeepSeek for persistence implementation)
+- Status: IN_PROGRESS
+- [Go]: Execute Phase 2 implementation
+- Rule: Add GB-series to AGENTS.md + create verification cron + update queue
+- Trigger: CFO "Go" after initial pairing creation
+- Verification: check-go-buttons.sh runs successfully
+- Persistence: File (AGENTS.md) + Cron (daily) + Queue (sonnet-queue.md)
+
 ## Optimization Patterns (Sonnet → DeepSeek)
 1. **Task Decomposition**: Break complex tasks into atomic DeepSeek-sized chunks
 2. **Prompt Compression**: Reduce token count while preserving intent

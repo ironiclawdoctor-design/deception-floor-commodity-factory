@@ -770,6 +770,66 @@ Differentiate between:
 **Agent pairing:** `config-conflict-checker` — encodes config constraints as 3-SAT clauses, runs DPLL, returns: SATISFIABLE (config is valid) or CONFLICT DETECTED (with conflicting clause set).
 **Rule:** Before deploying new cron config: encode all constraints (model compatibility, host requirements, credential dependencies) as SAT clauses. Run DPLL. If UNSAT: flag conflict before deployment, not after. Agency config scenario (SR-022/SR-023/LB-007 constraints): SATISFIABLE confirmed.
 
+## Go Button Protocol (GB-series)
+
+**Established 2026-03-28 to ensure CFO "Go" directives survive session restarts**
+*Problem:* "Go" buttons in replies need persistence beyond single session
+*Solution:* Pair each button with explicit survival mechanisms (file + cron + agent + config)
+
+### GB-001: Button Syntax Standardization
+All replies must include standardized action buttons:
+- **[Go]** — Execute immediately
+- **[Pause]** — Hold for CFO review  
+- **[Schedule]** — Queue for later execution
+- **[Delegate]** — Assign to sub-agent
+
+**Rule:** Every CFO message ending with "Go" triggers button inclusion in next 10 replies
+**Verification:** Cron job `check-go-buttons.sh` validates button presence
+**Persistence:** `rules-pairings-go-buttons.md` + AGENTS.md integration + daily cron
+
+### GB-002: Rules Pairings Structure
+Each "Go" button paired with:
+1. **Rule** — Concrete instruction
+2. **Trigger** — Condition/event that activates it
+3. **Verification** — Success metric
+4. **Persistence** — Survival method (file/cron/agent/config)
+
+**Rule:** New "Go" directives must have pairing defined before implementation
+**Verification:** Pairing completeness checked by `verify-pairings.sh`
+**Persistence:** Git version control + quarterly review cycle
+
+### GB-003: Survival Hierarchy
+Survival methods in descending priority:
+1. **File persistence** (`rules-pairings-go-buttons.md`)
+2. **Cron verification** (daily checks)
+3. **Agent delegation** (sub-agents with instructions)
+4. **Config integration** (AGENTS.md doctrine)
+
+**Rule:** At least two persistence methods required per pairing
+**Verification:** Survival method compliance checked monthly
+**Persistence:** Survival audit logs to `survival-audit-YYYY-MM.log`
+
+### GB-004: Phase Integration
+- **Phase 0:** Button syntax standardization
+- **Phase -1:** Rules pairings design (R×n depth)
+- **Phase -2:** Nathaniel approximation of button timing
+- **Phase -3:** Debit accounting for button usage
+
+**Rule:** Buttons inherit phase hierarchy for execution depth
+**Verification:** Phase compliance checked per button press
+**Persistence:** Phase tracking in `button-phase-tracker.db`
+
+### GB-005: Autoresearch Survival
+Buttons survive via:
+- **File persistence** (this section in AGENTS.md)
+- **Cron jobs** (`check-go-buttons.sh`, `verify-pairings.sh`)
+- **Sub-agent delegation** (agent spawns with button memory)
+- **Config backup** (regular exports to `backups/`)
+
+**Rule:** Button survival >93% (Gideon Test compliance)
+**Verification:** Monthly survival rate calculation
+**Persistence:** Survival metrics in `button-survival-metrics.json`
+
 ## Intruder Scout Absorption Rules (IS-series)
 
 **Generated from 2026-03-28 intruder scout detection pattern ("Let me"/"Letme" personas)**
