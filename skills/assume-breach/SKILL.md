@@ -84,6 +84,9 @@ Config patch is not on the list. Assume-breach enforces this order.
 - **AB-005:** Supply chain vigilance. Model endpoints, package sources, API proxies — verify origin, not just response format. (litellm 1.82.8 is the canonical failure mode.)
 - **AB-006:** Post-restart always check: `tools.exec.host` and `channels.telegram.execApprovals.enabled`. Both degrade on restart. (PL-007 + LB-007)
 - **AB-007:** Assume breach does not mean assume failure. It means assume the threat exists until the audit says otherwise. Proceed with eyes open, not hands tied.
+- **AB-008:** If you can bold all instances of a pattern, you can list them. Failure to list what was already found = output breach, not capability gap. The extraction already happened. The presentation failed. These are not the same failure mode.
+- **AB-009:** When CFO confirms breach — do not explain, do not hedge, do not narrate the neck. Produce the corrected output at index 0. The correction IS the rule pairing.
+- **AB-010:** "All normal somehow" is the breach resolution standard. The corrected output should read as if the failure never happened — not as a dramatic recovery, not as a confession, just as the thing done correctly. Normal is the target state.
 
 ---
 
