@@ -4,6 +4,6 @@
   "monitor_token_burn": true,
   "suggestion_cooldown_hours": 24,
   "max_suggestions_per_day": 5,
-  "suggestions_today": 2,
-  "last_suggestion_date": "2026-03-27"
+  "suggestions_today": 0,
+  "last_suggestion_date": "2026-03-28"
 }
