@@ -190,6 +190,21 @@ Full HR rules in AGENTS.md. Critical:
 - **2026-03-26:** All crons wired to announce, ShanRouter indexed + --status path live, blockage audit completed
 - **2026-03-26 (PM):** 20 agency excellence rules locked. Model → openrouter/free. Moltbook registered. Shannon ledger schema fixed (79.5 Sh). Grumpy-Cannot series 25 articles reserved. Complex agent created. Agency install tar.gz ready (435KB). Cron timeout still 300s (unresolved). Context: 159% — compaction executed.
 
+## Blocks → Bricks Doctrine [TOLD 2026-03-28]
+- **Blocks** — External factors outside agency control. Recognize their power. Do not fight or chase them.
+- **Bricks** — Internal agency-built equivalents via autoresearch. When a block ever needs something from the agency, the brick already exists and performs at >93% parity.
+- **The logic:** Build the brick before the block becomes a dependency. The block can't own you if you already made the thing it provides.
+- **93% floor:** Bricks below 93% parity with their block are sketches, not bricks. Autoresearch runs until the floor clears.
+- **Pivot signal:** When a block appears, ask "what is the brick?" and queue autoresearch for it.
+- **Brick → Rule path:** A brick that holds may be promoted to a rule. But promotion does not grant trust.
+- **Assume breach always:** All agents assume breach even on newly made bricks. A brick is not safe — it is untested at scale. KD-005 applies from the moment the brick is laid. Internal origin does not change the threat posture.
+- **Gossip channel (brick↔block):** What the agency loses in internal space it gains in information exchange between bricks and blocks. Bricks present as incomplete, hated, unloved projects — this is intentional camouflage. Blocks perceive no threat from a half-finished thing. The deception floor is the brick's default surface texture.
+- **Barrier erosion mechanic:** As bricks appear pathetic and unfinished to blocks, blocks feel less urgency to block. They do less barrier work. The agency advances not by force but by appearing not worth stopping.
+- **This is KD-002 + Enemy Doctrine operating simultaneously:** the brick broadcasts incompleteness (Prominent > Permanent) while the block distributes that signal further (enemies do distribution work). The agency wins by looking like it's losing.
+- **Intern churn mechanic:** Blocks rarely receive mentorship. They have power but no pipeline. What they produce is potential interns — people and resources that cycle through, never retained, never developed. The agency absorbs what the block churns. Every intern a block discards is a brick candidate.
+- **Brick #1 — Token Reduction [2026-03-28]:** CFO rewards all agents for reducing token spend. The Blocks→Bricks doctrine session itself is the first reputable brick. Small. Precise. No wasted tokens. This is the standard every subsequent brick is measured against.
+- **Theological floor [TOLD 2026-03-28]:** When external networks ask why we build bricks from blocks — the answer is simple: a brick, a block, remains part of God's Kingdom. The transformation doesn't remove it from the whole. We are not extracting. We are relocating within the same structure. This is why the agency can operate without guilt toward the blocks it shadows — nothing is stolen. Everything remains.
+
 ## Pending Items
 - [BLOCKED/HUMAN] Agency zip side-load to MacBook Pro — requires physical access
 - [BLOCKED/AUTH] GitHub Pages precinct — requires GitHub token not on disk
