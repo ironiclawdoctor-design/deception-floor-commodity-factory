@@ -448,6 +448,7 @@ Agent compensation is denominated in **Shannon** (entropy units) — the agency'
 | L1 Apprentice | 2.0 Shannon | ×0.7 – ×1.2 |
 | L2 Journeyman | 5.0 Shannon | ×0.8 – ×1.5 |
 | L3 Master | 10.0 Shannon | ×1.0 – ×2.0 |
+| **Autoresearch Trip** | **8.88 Shannon** | **flat rate, per completed experiment** |
 
 ### Quality Multiplier
 
