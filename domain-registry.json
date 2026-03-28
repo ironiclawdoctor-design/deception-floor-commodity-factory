@@ -2,7 +2,7 @@
   "services": [
     {
       "service": "dollar-dashboard",
-      "current_domain": "https://shan.app",
+      "current_domain": "https://dollar-dashboard-pkvbnslo3q-uc.a.run.app",
       "cloud_run_service": "dollar-dashboard",
       "cloud_run_project": "sovereign-see",
       "cloud_run_region": "us-central1",
