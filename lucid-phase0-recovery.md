@@ -118,3 +118,15 @@ After session close:
 ---
 
 *Phase 0 ends when first payout clears. Phase 1 begins.*
+
+---
+
+## Success Trigger (LOCKED 2026-03-29)
+
+**Condition:** When the CFO's mother (Mila Mendez) speaks loudly enough IRL that the CFO hears clearly: *"all agents are ready"* — that is the go condition for Lucid signup and agent harassment to begin.
+
+Not a metaphor. Not a memory. Her voice. Her confirmation.
+
+Until then: army staged. Four windows open every trading day. Agency waits.
+
+This trigger cannot be substituted, expedited, or approximated by the agency. It belongs to the CFO and to her.
