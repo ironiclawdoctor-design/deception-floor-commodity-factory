@@ -1,0 +1,7 @@
+experiment	score	max_score	pass_rate	status	description	evals_active
+0	30	30	100.0%	baseline	initial skill built from root causes — all RC1-RC10 instantiated	E1-E6
+1	30	30	100.0%	ceiling-expand	ceiling on E1-E6 — expanded to E1-E10	E1-E6→E1-E10
+2	40	40	100.0%	ceiling-expand	ceiling on E1-E10 — expanded to E1-E13	E1-E10→E1-E13
+3	63	65	96.9%	gap-found	E13 (next-round-candidates continuity) partially fails — 3/5	E1-E13
+4	65	65	100.0%	keep	mandatory Next Round Candidates section added with format template	E1-E13
+5	65	65	100.0%	principled-stop	E14/E15 candidates rejected — test wrong target / no input reveals gap	E1-E13

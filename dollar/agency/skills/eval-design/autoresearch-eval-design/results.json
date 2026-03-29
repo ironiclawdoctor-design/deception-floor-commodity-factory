@@ -1,0 +1,27 @@
+{
+  "skill_name": "eval-design",
+  "status": "complete",
+  "mode": "self-referential-adversarial",
+  "doctrine": "Optimize root causes of success, not failure. The eval suite is the skill being optimized.",
+  "rounds": 3,
+  "total_experiments": 5,
+  "principled_stop": true,
+  "stop_reason": "E14+E15 candidates rejected — wrong target or no test input reveals gap",
+  "final_score": "65/65 on 13-eval suite",
+  "root_causes_instantiated": [
+    "RC-1: Binary precision — enforced via anti-pattern table",
+    "RC-2: Adversarial expansion — Expansion Protocol section",
+    "RC-3: Test input diversity — anti-pattern: 5 identical types",
+    "RC-4: Eval → mutation — Implies mutation field (mandatory)",
+    "RC-5: Evals grow harder — expansion evals must fail current skill",
+    "RC-6: Names are claims — 4-word format mandated",
+    "RC-7: Anti-patterns > virtues — anti-pattern table present",
+    "RC-8: Worked examples — pass + fail in every eval format",
+    "RC-9: Behavior not text — anti-pattern table teaches distinction",
+    "RC-10: Principled stop — Next Round Candidates mandatory on stop"
+  ],
+  "next_round_candidates": [
+    "E14: Baseline discipline — wrong target (autoresearch's job)",
+    "E15: Conflicting eval handling — no test input triggers a conflict yet"
+  ]
+}

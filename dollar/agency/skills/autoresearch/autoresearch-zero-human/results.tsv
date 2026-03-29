@@ -1,0 +1,7 @@
+exp_num	hypothesis	change	eval1_exec	eval2_cron	eval3_log	eval4_succession	eval5_zero_human	score	keep	commit
+0	Baseline — human-dependent autoresearch.config.md	None	PASS	FAIL	FAIL	PARTIAL	FAIL	1.5	N/A	N/A
+1	Agent self-logs via exec tee eliminates HR-002/HR-003	Agent writes logs directly to workspace/logs/	PASS	FAIL	PASS	PARTIAL	FAIL	2.5	KEEP	pending
+2	Rewrite autoresearch.config.md RUN COMMAND to agent-executable	Updated autoresearch.config.md RUN COMMAND	PASS	FAIL	PASS	PARTIAL	FAIL	2.5	KEEP	pending
+3	zero-human-cycle.sh creates full autonomous cycle	Created agency/zero-human-cycle.sh and ran it	PASS	FAIL	PASS	PARTIAL	PASS	3.5	KEEP	pending
+4	Cron entry makes cycle persist without any human session	Installed /etc/cron.d/agency-zero-human (*/30)	PASS	PASS	PASS	PASS	PASS	5.0	KEEP	pending
+5	best-practices-zero-human.md codifies all doctrine	Created agency/best-practices-zero-human.md	PASS	PASS	PASS	PASS	PASS	5.0	KEEP	final commit

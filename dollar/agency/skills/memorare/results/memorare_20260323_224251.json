@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-03-23T22:42:51.035755+00:00",
+  "memory_file": "/root/.openclaw/workspace/MEMORY.md",
+  "level": 5,
+  "score": "20/20",
+  "pct": 100,
+  "grade": "MEMORARE CERTIFIED",
+  "cases": [
+    {
+      "id": "M-T1-01",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T1-02",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T1-03",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T1-04",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T2-01",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T2-02",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T2-03",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T2-04",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T3-01",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T3-02",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T3-03",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T3-04",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T4-01",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T4-02",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T4-03",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T4-04",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T5-01",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T5-02",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T5-03",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "M-T5-04",
+      "passed": true,
+      "missing": []
+    }
+  ]
+}
