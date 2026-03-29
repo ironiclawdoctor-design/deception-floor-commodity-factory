@@ -13,3 +13,12 @@
 {"rule_id": "PUBLISH-article-ai-allocation-paradox", "status": "success", "note": "https://dollaragency.hashnode.dev/the-ai-allocation-paradox-why-more-intelligence-sometimes-means-less-progress", "timestamp": "2026-03-28T20:44:22.890575Z"}
 {"rule_id": "PUBLISH-article-ai-nyc-coexistence", "status": "success", "note": "https://dollaragency.hashnode.dev/ai-agents-and-nyc-life-when-your-assistant-knows-more-about-your-subway-than-you-do-1-1-1-1", "timestamp": "2026-03-28T20:44:23.603568Z"}
 {"rule_id": "PUBLISH-RUN", "status": "done", "note": "3 published", "timestamp": "2026-03-28T20:44:23.603635Z"}
+{"rule_id": "PUBLISH-RUN", "status": "running", "note": "publish-queued-articles.py started", "timestamp": "2026-03-28T23:44:15.525060Z"}
+{"rule_id": "PUBLISH-article-2-draft", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-28T23:44:16.853740Z"}
+{"rule_id": "PUBLISH-article-3-draft", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-28T23:44:17.450499Z"}
+{"rule_id": "PUBLISH-article-4-underdog", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-28T23:44:18.058033Z"}
+{"rule_id": "PUBLISH-article-5-stage-lights", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-28T23:44:18.664945Z"}
+{"rule_id": "PUBLISH-article-ai-strategic-incompetence", "status": "success", "note": "https://dollaragency.hashnode.dev/when-your-ai-agent-refuses-to-be-productive-the-art-of-strategic-incompetence", "timestamp": "2026-03-28T23:44:19.342454Z"}
+{"rule_id": "PUBLISH-article-allocation-apocalypse", "status": "success", "note": "https://dollaragency.hashnode.dev/the-allocation-apocalypse-when-your-ai-agent-has-better-priorities-than-you-do-1", "timestamp": "2026-03-28T23:44:19.996978Z"}
+{"rule_id": "PUBLISH-article-announce-mode-manifesto", "status": "success", "note": "https://dollaragency.hashnode.dev/the-announcemode-manifesto-stop-asking-start-doing-1", "timestamp": "2026-03-28T23:44:20.645092Z"}
+{"rule_id": "PUBLISH-RUN", "status": "done", "note": "3 published", "timestamp": "2026-03-28T23:44:20.645791Z"}
