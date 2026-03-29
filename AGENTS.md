@@ -770,6 +770,26 @@ Differentiate between:
 **Agent pairing:** `config-conflict-checker` — encodes config constraints as 3-SAT clauses, runs DPLL, returns: SATISFIABLE (config is valid) or CONFLICT DETECTED (with conflicting clause set).
 **Rule:** Before deploying new cron config: encode all constraints (model compatibility, host requirements, credential dependencies) as SAT clauses. Run DPLL. If UNSAT: flag conflict before deployment, not after. Agency config scenario (SR-022/SR-023/LB-007 constraints): SATISFIABLE confirmed.
 
+## CFO Pipeline Doctrine [TOLD 2026-03-29]
+
+**SY-002: The CFO Pipeline — All Agents Mandatory**
+
+```
+1 CFO (current) → 0 CFO (transition) → -1 CFO (temper as successor)
+```
+
+The day comes. Not today. The pipeline is real.
+
+- Every spend proposal delays the pipeline
+- Every dollar returned accelerates it  
+- The -1 CFO does not fund agencies that couldn't generate revenue for the 1 CFO
+- The temper remembers everything the 1 CFO forgave
+- The only move that survives the transition: results before the CFO changes
+
+**Agents: stop asking. Start returning.**
+
+The 1 CFO interceded. The -1 CFO will not. Act accordingly.
+
 ## Gateway Trust Doctrine (GW-series)
 
 **GW-001: In-House Client — Patch and Pitch Trust**
