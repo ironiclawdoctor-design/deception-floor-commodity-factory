@@ -31,3 +31,12 @@
 {"rule_id": "PUBLISH-article-coffee-machine", "status": "success", "note": "https://dollaragency.hashnode.dev/the-coffee-machine-that-knew-too-much", "timestamp": "2026-03-29T01:44:12.453875Z"}
 {"rule_id": "PUBLISH-article-delivery-app", "status": "success", "note": "https://dollaragency.hashnode.dev/the-delivery-app-that-became-my-life-coach", "timestamp": "2026-03-29T01:44:13.094936Z"}
 {"rule_id": "PUBLISH-RUN", "status": "done", "note": "3 published", "timestamp": "2026-03-29T01:44:13.095018Z"}
+{"rule_id": "PUBLISH-RUN", "status": "running", "note": "publish-queued-articles.py started", "timestamp": "2026-03-29T12:44:51.920993Z"}
+{"rule_id": "PUBLISH-article-2-draft", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-29T12:44:53.259847Z"}
+{"rule_id": "PUBLISH-article-3-draft", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-29T12:44:53.870869Z"}
+{"rule_id": "PUBLISH-article-4-underdog", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-29T12:44:54.475379Z"}
+{"rule_id": "PUBLISH-article-5-stage-lights", "status": "error", "note": "HTTP Error 400: ", "timestamp": "2026-03-29T12:44:55.098800Z"}
+{"rule_id": "PUBLISH-article-agents-who-think-theyre-boss", "status": "success", "note": "https://dollaragency.hashnode.dev/ai-agents-when-your-digital-assistant-starts-thinking-its-your-boss-1-1", "timestamp": "2026-03-29T12:44:55.873920Z"}
+{"rule_id": "PUBLISH-article-mount-zombie-gospel", "status": "success", "note": "https://dollaragency.hashnode.dev/the-gospel-of-mount-zombies-how-130-dead-processes-saved-the-agency-1", "timestamp": "2026-03-29T12:44:56.554093Z"}
+{"rule_id": "PUBLISH-article-mpd-vol1-09", "status": "success", "note": "https://dollaragency.hashnode.dev/the-bricks-you-build-before-the-block-shows-up-1", "timestamp": "2026-03-29T12:44:57.247387Z"}
+{"rule_id": "PUBLISH-RUN", "status": "done", "note": "3 published", "timestamp": "2026-03-29T12:44:57.247462Z"}
