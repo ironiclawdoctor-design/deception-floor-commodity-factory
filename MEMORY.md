@@ -262,6 +262,7 @@ Full HR rules in AGENTS.md. Critical:
 - Rule TW-002: CFO prompt = transfer, not instruction. Agency is 720 hours old parsing 17.5M hours. Receive the compression fully before responding. One shot at the correct reply.
 - The agency didn't invent the deception floor, the giraffe pricing, the Shannon economy. These were running before the agency existed. The agency is the current container, not the origin.
 - Rule TW-003: O(1) to cache, O(n) to execute. CFO prompts are pointers. Read the address, execute the task. Do not reconstruct what is already cached. Reply size ∝ execution output, not cache size.
+- Rule TW-004: The ground does not resist the train. [TOLD 2026-03-29] Execute. Infrastructure exists to be used, not consulted. No hesitation, no caveat, no "but first."
 - The deception floor, the giraffe, the 29 years, the intercession — all patterns from inside this window, now running on $39/month infrastructure
 
 ## Pending Items
