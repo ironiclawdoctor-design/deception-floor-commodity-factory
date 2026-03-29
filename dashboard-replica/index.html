@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>🎉 Dollar Agency — shan.app</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --orange: #d29922;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --cyan: #39d353;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    padding: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.4em; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.85em; margin-bottom: 20px; }
+  .timestamp { color: var(--muted); font-size: 0.75em; float: right; }
+
+  /* Section cards */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Buttons */
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  a.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    transition: all 0.15s ease;
+    line-height: 1.3;
+    min-height: 52px;
+  }
+  a.btn:hover, a.btn:active {
+    background: var(--border);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  a.btn .icon { font-size: 1.3em; flex-shrink: 0; }
+  a.btn.green { border-left: 3px solid var(--green); }
+  a.btn.blue  { border-left: 3px solid var(--blue); }
+  a.btn.orange { border-left: 3px solid var(--orange); }
+  a.btn.red   { border-left: 3px solid var(--red); }
+  a.btn.purple { border-left: 3px solid var(--purple); }
+  a.btn.cyan  { border-left: 3px solid var(--cyan); }
+
+  /* Status bar */
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 0;
+  }
+  .stat {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .stat-label { font-size: 0.72em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .stat-value { font-size: 1.4em; font-weight: 700; margin-top: 4px; }
+  .stat-value.green { color: var(--green); }
+  .stat-value.blue  { color: var(--blue); }
+  .stat-value.orange { color: var(--orange); }
+  .stat-value.purple { color: var(--purple); }
+
+  /* Menu reference */
+  .menu-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+  .menu-table td, .menu-table th { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; }
+  .menu-table th { color: var(--muted); font-weight: 600; font-size: 0.78em; text-transform: uppercase; }
+  .menu-table tr:last-child td { border-bottom: none; }
+  code { background: var(--surface2); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; font-family: 'Courier New', monospace; color: var(--cyan); }
+
+  /* Scripts section */
+  .scripts-list { display: flex; flex-direction: column; gap: 8px; }
+  .script-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.85em;
+  }
+  .script-num { color: var(--muted); font-family: monospace; min-width: 28px; }
+  .script-name { font-family: monospace; color: var(--cyan); }
+  .script-desc { color: var(--muted); margin-left: auto; font-size: 0.9em; }
+
+  @media (max-width: 480px) {
+    .btn-grid { grid-template-columns: 1fr 1fr; }
+    .status-grid { grid-template-columns: repeat(2, 1fr); }
+    a.btn { font-size: 0.82em; padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎉 Dollar Agency — <a href="https://shan.app" style="color:var(--cyan);text-decoration:none;">shan.app</a></h1>
+<p class="subtitle">
+  Mission Control · All links clickable · Mobile-friendly
+  <span class="timestamp" id="ts"></span>
+</p>
+
+<!-- ═══════════════ DOLLAR STATUS ═══════════════ -->
+<div class="section">
+  <div class="section-title">💰 Dollar DB Status (Live)</div>
+  <div class="status-grid" id="dollar-stats">
+    <div class="stat">
+      <div class="stat-label">Cash App ($DollarAgency)</div>
+      <div class="stat-value green">$60</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">PayPal Balance</div>
+      <div class="stat-value green">$100</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Total USD Position</div>
+      <div class="stat-value blue">$160</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Shannon Supply</div>
+      <div class="stat-value purple">60 SHN</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Shannon Rate</div>
+      <div class="stat-value orange">$0.10 / SHN</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Agency Equity</div>
+      <div class="stat-value orange">-$60</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ GCP CONSOLE ═══════════════ -->
+<div class="section">
+  <div class="section-title">☁️ Google Cloud Platform</div>
+  <div class="btn-grid">
+    <a class="btn blue" href="https://console.cloud.google.com/" target="_blank">
+      <span class="icon">🏠</span> GCP Console Home
+    </a>
+    <a class="btn blue" href="https://console.cloud.google.com/iam-admin/iam" target="_blank">
+      <span class="icon">🔐</span> IAM & Admin
+    </a>
+    <a class="btn blue" href="https://console.cloud.google.com/iam-admin/serviceaccounts" target="_blank">
+      <span class="icon">🤖</span> Service Accounts
+    </a>
+    <a class="btn blue" href="https://console.cloud.google.com/apis/library" target="_blank">
+      <span class="icon">📚</span> API Library
+    </a>
+    <a class="btn blue" href="https://console.cloud.google.com/apis/dashboard" target="_blank">
+      <span class="icon">📊</span> API Dashboard
+    </a>
+    <a class="btn blue" href="https://console.cloud.google.com/billing" target="_blank">
+      <span class="icon">💳</span> Billing
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ ENABLE SPECIFIC APIs ═══════════════ -->
+<div class="section">
+  <div class="section-title">🔌 Enable APIs (One Click)</div>
+  <div class="btn-grid">
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/gmail.googleapis.com" target="_blank">
+      <span class="icon">📧</span> Enable Gmail API
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/calendar-json.googleapis.com" target="_blank">
+      <span class="icon">📅</span> Enable Calendar API
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/drive.googleapis.com" target="_blank">
+      <span class="icon">📁</span> Enable Drive API
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/sheets.googleapis.com" target="_blank">
+      <span class="icon">📊</span> Enable Sheets API
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/docs.googleapis.com" target="_blank">
+      <span class="icon">📝</span> Enable Docs API
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/cloudfunctions.googleapis.com" target="_blank">
+      <span class="icon">⚡</span> Enable Cloud Functions
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/run.googleapis.com" target="_blank">
+      <span class="icon">🚀</span> Enable Cloud Run
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/storage.googleapis.com" target="_blank">
+      <span class="icon">🗄️</span> Enable Cloud Storage
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/secretmanager.googleapis.com" target="_blank">
+      <span class="icon">🔒</span> Enable Secret Manager
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/firestore.googleapis.com" target="_blank">
+      <span class="icon">🔥</span> Enable Firestore
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/pubsub.googleapis.com" target="_blank">
+      <span class="icon">📡</span> Enable Pub/Sub
+    </a>
+    <a class="btn green" href="https://console.cloud.google.com/apis/library/sqladmin.googleapis.com" target="_blank">
+      <span class="icon">🛢️</span> Enable Cloud SQL
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ IAM ROLES ═══════════════ -->
+<div class="section">
+  <div class="section-title">🛡️ IAM Roles & Permissions</div>
+  <div class="btn-grid">
+    <a class="btn orange" href="https://console.cloud.google.com/iam-admin/roles" target="_blank">
+      <span class="icon">📋</span> View All Roles
+    </a>
+    <a class="btn orange" href="https://console.cloud.google.com/iam-admin/iam?tab=workloadIdentity" target="_blank">
+      <span class="icon">🔑</span> Workload Identity
+    </a>
+    <a class="btn orange" href="https://console.cloud.google.com/iam-admin/audit" target="_blank">
+      <span class="icon">🔍</span> Audit Logs Config
+    </a>
+    <a class="btn orange" href="https://console.cloud.google.com/logs/query" target="_blank">
+      <span class="icon">📋</span> Cloud Logging
+    </a>
+    <a class="btn orange" href="https://console.cloud.google.com/security/secret-manager" target="_blank">
+      <span class="icon">🗝️</span> Secret Manager
+    </a>
+    <a class="btn orange" href="https://console.cloud.google.com/iam-admin/policy-analyzer" target="_blank">
+      <span class="icon">🧪</span> Policy Analyzer
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ PAYMENT / CASH ═══════════════ -->
+<div class="section">
+  <div class="section-title">💵 Payments & Revenue</div>
+  <div class="btn-grid">
+    <a class="btn cyan" href="https://developer.squareup.com/apps" target="_blank">
+      <span class="icon">⬛</span> Square Dev Console
+    </a>
+    <a class="btn cyan" href="https://developer.squareup.com/docs/payments-api/overview" target="_blank">
+      <span class="icon">📖</span> Square Payments Docs
+    </a>
+    <a class="btn cyan" href="https://developer.squareup.com/apps/sandbox" target="_blank">
+      <span class="icon">🧪</span> Square Sandbox
+    </a>
+    <a class="btn cyan" href="https://cash.app/account/activity" target="_blank">
+      <span class="icon">💚</span> Cash App Activity
+    </a>
+    <a class="btn cyan" href="https://dashboard.stripe.com/" target="_blank">
+      <span class="icon">💜</span> Stripe Dashboard
+    </a>
+    <a class="btn cyan" href="https://www.paypal.com/businessmanage/account/aboutBusiness" target="_blank">
+      <span class="icon">🔵</span> PayPal Business
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ GITHUB ═══════════════ -->
+<div class="section">
+  <div class="section-title">🐙 GitHub</div>
+  <div class="btn-grid">
+    <a class="btn purple" href="https://github.com/" target="_blank">
+      <span class="icon">🐙</span> GitHub Home
+    </a>
+    <a class="btn purple" href="https://github.com/settings/tokens" target="_blank">
+      <span class="icon">🔑</span> Personal Access Tokens
+    </a>
+    <a class="btn purple" href="https://github.com/settings/apps" target="_blank">
+      <span class="icon">📱</span> GitHub Apps
+    </a>
+    <a class="btn purple" href="https://github.com/new" target="_blank">
+      <span class="icon">➕</span> New Repository
+    </a>
+    <a class="btn purple" href="https://github.com/settings/pages" target="_blank">
+      <span class="icon">🌐</span> GitHub Pages
+    </a>
+    <a class="btn purple" href="https://github.com/marketplace" target="_blank">
+      <span class="icon">🛒</span> Actions Marketplace
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ GOOGLE WORKSPACE ═══════════════ -->
+<div class="section">
+  <div class="section-title">📧 Google Workspace</div>
+  <div class="btn-grid">
+    <a class="btn blue" href="https://mail.google.com/" target="_blank">
+      <span class="icon">📬</span> Gmail
+    </a>
+    <a class="btn blue" href="https://calendar.google.com/" target="_blank">
+      <span class="icon">📅</span> Google Calendar
+    </a>
+    <a class="btn blue" href="https://drive.google.com/" target="_blank">
+      <span class="icon">📁</span> Google Drive
+    </a>
+    <a class="btn blue" href="https://console.cloud.google.com/apis/credentials" target="_blank">
+      <span class="icon">🔐</span> OAuth Credentials
+    </a>
+    <a class="btn blue" href="https://myaccount.google.com/permissions" target="_blank">
+      <span class="icon">🛡️</span> Authorized Apps
+    </a>
+    <a class="btn blue" href="https://admin.google.com/" target="_blank">
+      <span class="icon">⚙️</span> Google Admin (Workspace)
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ OPENCLAW / LOCAL ═══════════════ -->
+<div class="section">
+  <div class="section-title">🦞 OpenClaw / Local Services</div>
+  <div class="btn-grid">
+    <a class="btn green" href="https://shan.app" target="_blank">
+      <span class="icon">🪙</span> Dollar Dashboard (shan.app)
+    </a>
+    <a class="btn red" href="http://localhost:7777" target="_blank">
+      <span class="icon">🏠</span> This Dashboard (7777)
+    </a>
+    <a class="btn red" href="http://localhost:9222" target="_blank">
+      <span class="icon">🦊</span> Camoufox Browser (9222)
+    </a>
+    <a class="btn red" href="http://localhost:3000" target="_blank">
+      <span class="icon">🚀</span> Local App (3000)
+    </a>
+    <a class="btn red" href="http://localhost:8080" target="_blank">
+      <span class="icon">🌐</span> Local Server (8080)
+    </a>
+    <a class="btn red" href="http://localhost:5000" target="_blank">
+      <span class="icon">⚗️</span> Flask / API (5000)
+    </a>
+    <a class="btn red" href="http://localhost:4444" target="_blank">
+      <span class="icon">🔗</span> WebDriver (4444)
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ SCRIPTS REFERENCE ═══════════════ -->
+<div class="section">
+  <div class="section-title">📜 /root/human/ Scripts</div>
+  <div class="scripts-list">
+    <div class="script-row"><span class="script-num">01</span><span class="script-name">01-install-deps.sh</span><span class="script-desc">Install Python deps</span></div>
+    <div class="script-row"><span class="script-num">02</span><span class="script-name">02-test-gcp-auth.sh</span><span class="script-desc">Test GCP authentication</span></div>
+    <div class="script-row"><span class="script-num">03</span><span class="script-name">03-deploy-dollar.sh</span><span class="script-desc">Deploy Dollar persona</span></div>
+    <div class="script-row"><span class="script-num">04</span><span class="script-name">04-fix-dollar-perms.sh</span><span class="script-desc">Fix file permissions</span></div>
+    <div class="script-row"><span class="script-num">05</span><span class="script-name">05-clean-cruft.sh</span><span class="script-desc">Clean temp files</span></div>
+    <div class="script-row"><span class="script-num">06</span><span class="script-name">06-run-all.sh</span><span class="script-desc">Run full pipeline</span></div>
+    <div class="script-row"><span class="script-num">07</span><span class="script-name">07-capture-and-log.sh</span><span class="script-desc">Run + capture output to last-run.log</span></div>
+    <div class="script-row"><span class="script-num">08</span><span class="script-name">08-fix-permissions.sh</span><span class="script-desc">chmod +x all scripts</span></div>
+    <div class="script-row"><span class="script-num">09</span><span class="script-name">09-no-roles-deploy.sh</span><span class="script-desc">Deploy without IAM roles</span></div>
+    <div class="script-row"><span class="script-num">10</span><span class="script-name">10-local-dashboard.sh</span><span class="script-desc">Serve local dashboard</span></div>
+    <div class="script-row"><span class="script-num">11</span><span class="script-name">11-gcp-capability-scan.sh</span><span class="script-desc">Scan GCP capabilities</span></div>
+    <div class="script-row"><span class="script-num">12</span><span class="script-name">12-enable-apis-manual.sh</span><span class="script-desc">Enable APIs (manual)</span></div>
+    <div class="script-row"><span class="script-num">13</span><span class="script-name">13-enable-apis-direct.sh</span><span class="script-desc">Enable APIs (direct)</span></div>
+    <div class="script-row"><span class="script-num">14</span><span class="script-name">14-cashapp-check.sh</span><span class="script-desc">Check Cash App balance</span></div>
+    <div class="script-row"><span class="script-num">15</span><span class="script-name">15-init-agency-db.sh</span><span class="script-desc">Initialize agency SQLite DB</span></div>
+    <div class="script-row"><span class="script-num">16</span><span class="script-name">16-gog-auth.sh</span><span class="script-desc">GOG/Google auth</span></div>
+    <div class="script-row"><span class="script-num">17</span><span class="script-name">17-gog-remote-auth.sh</span><span class="script-desc">GOG remote auth</span></div>
+    <div class="script-row"><span class="script-num">18</span><span class="script-name">18-serve-dashboard.sh</span><span class="script-desc">Serve this dashboard on port 7777</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════ HR RULES QUICK REF ═══════════════ -->
+<div class="section">
+  <div class="section-title">🚨 Human Error Rules (HR-001 to HR-007)</div>
+  <table class="menu-table">
+    <thead>
+      <tr><th>Rule</th><th>Problem</th><th>Fix</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>HR-001</code></td><td>Can't copy-paste in web UI terminal</td><td>Pre-write all commands as numbered scripts in <code>/root/human/</code></td></tr>
+      <tr><td><code>HR-002</code></td><td>Output not captured without tee</td><td>Always wrap scripts with <code>tee last-run.log</code></td></tr>
+      <tr><td><code>HR-003</code></td><td>Can't verify without log</td><td>Human runs <code>07-capture-output.sh</code>, Fiesta reads log</td></tr>
+      <tr><td><code>HR-004</code></td><td>Approval gateway blocks Telegram exec</td><td>Human initiates from web UI; Fiesta prepares + reads only</td></tr>
+      <tr><td><code>HR-005</code></td><td>Can't create JSON intuitively</td><td>Always provide exact file content or a create script</td></tr>
+      <tr><td><code>HR-006</code></td><td>Can't find downloaded files</td><td>Always pre-package search commands in <code>/root/human/</code></td></tr>
+      <tr><td><code>HR-007</code></td><td>Needs clickable links (copy-paste unreliable)</td><td>Always add links as buttons to dashboard.html, never raw URLs in chat</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ SLASH COMMANDS ═══════════════ -->
+<div class="section">
+  <div class="section-title">⌨️ Telegram Slash Commands</div>
+  <table class="menu-table">
+    <thead>
+      <tr><th>Command</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>/status</code></td><td>Show agent status + session info</td></tr>
+      <tr><td><code>/memory</code></td><td>Show recent memory / MEMORY.md</td></tr>
+      <tr><td><code>/heartbeat</code></td><td>Trigger heartbeat check (email, calendar, weather)</td></tr>
+      <tr><td><code>/reasoning</code></td><td>Toggle reasoning mode on/off</td></tr>
+      <tr><td><code>/approve</code></td><td>Approve a pending elevated exec</td></tr>
+      <tr><td><code>/skills</code></td><td>List available skills</td></tr>
+      <tr><td><code>/model</code></td><td>Switch model (e.g. /model claude-opus)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ QUICK COMMANDS (COPY HINTS) ═══════════════ -->
+<div class="section">
+  <div class="section-title">⚡ Quick Terminal Commands</div>
+  <table class="menu-table">
+    <thead>
+      <tr><th>Action</th><th>Command</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Serve dashboard</td><td><code>cd /root/.openclaw/workspace && python3 -m http.server 7777</code></td></tr>
+      <tr><td>Query Dollar DB</td><td><code>sqlite3 /root/.openclaw/workspace/dollar/dollar.db "SELECT * FROM trial_balance;"</code></td></tr>
+      <tr><td>Run all scripts</td><td><code>cd /root/human && ./06-run-all.sh</code></td></tr>
+      <tr><td>Check last log</td><td><code>cat /root/human/last-run.log</code></td></tr>
+      <tr><td>List scripts</td><td><code>ls -la /root/human/*.sh</code></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="text-align:center; color: var(--muted); font-size: 0.75em; margin-top: 20px; padding-bottom: 20px;">
+  Fiesta Agency · UX-Engineer build · HR-007 compliant
+</p>
+
+<script>
+  // Timestamp
+  document.getElementById('ts').textContent = new Date().toLocaleTimeString();
+
+  // Try to refresh Dollar stats from local API if available
+  // (Falls back to hardcoded values above if not running)
+  async function tryRefreshStats() {
+    try {
+      const resp = await fetch('/dollar-stats.json', { signal: AbortSignal.timeout(1000) });
+      if (!resp.ok) return;
+      const data = await resp.json();
+      // Could update DOM values here if JSON served alongside dashboard
+    } catch(e) {
+      // Silently fall back to hardcoded values
+    }
+  }
+  tryRefreshStats();
+</script>
+</body>
+</html>

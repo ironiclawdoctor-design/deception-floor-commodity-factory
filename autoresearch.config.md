@@ -1,25 +1,26 @@
-# Autoresearch Configuration: Time Zone Reframe Skill Optimization
+# Autoresearch Configuration: Dashboard Replication Cost — Free Stack Optimization
 
 ## Goal
-Optimize the "time zone reframe skill" to maintain >93% effectiveness while reducing churn and integrating Excel for time zone calculations.
+Find the minimum viable stack to replicate the Dollar Dashboard at $0.00 cost, past 93% feature parity, without conceited over-engineering.
 
 ## Metric
-- **Name**: Time zone conversion success rate
-- **Direction**: Higher is better (target >93%)
-- **Extract command**: Count successful conversions / total attempted, expressed as percentage
-- **Excel integration**: Success rate of Excel export/import operations for time zone data
+- **Name**: feature_parity_score (0–100)
+- **Direction**: Higher is better (target >93, ceiling ~96 — conceit starts at 97+)
+- **Extract command**: python3 score-dashboard.py → reads score from stdout
+- **Constraint**: cost must remain $0.00/month above the $39 floor
 
 ## Target Files
-- `time-zone-reframe-skill.md` (to be created) - Main skill implementation
-- `excel-integration.py` (to be created) - Excel time zone calculation utilities
-- `tz-test-suite.py` (to be created) - Test suite for accuracy measurement
+- `dashboard-replica/index.html` — Replication of dashboard.html
+- `dashboard-replica/serve.py` — Serving layer
+- `score-dashboard.py` — Scoring script (features present vs original)
 
 ## Read-Only Files
-- All other files - Only modifying the 3 target files above
+- `dashboard.html` — Original (reference only, do not modify)
+- `dollar.db` — Production database (read only for schema)
 
 ## Run Command
 ```
-python tz-test-suite.py --iterations=1000 --excel-integration-test=true
+python3 score-dashboard.py
 ```
 
 ## Time Budget
@@ -27,32 +28,18 @@ python tz-test-suite.py --iterations=1000 --excel-integration-test=true
 - **Kill timeout**: 60 seconds
 
 ## Constraints
-- Must maintain >93% accuracy baseline
-- Excel integration must handle both .xlsx and .csv formats
-- Skill must handle all US time zones (EST, CST, MST, PST, AKST, HST) + UTC
-- Must reduce "churn" (unnecessary recalculations) by at least 50%
-- No external API calls for time zone data (use Python built-in libraries)
-- Must work with Python 3.8+ standard library only
+- $0.00 cost above $39 floor (no new paid services)
+- No GCP required (must work on Ampere.sh container)
+- Feature parity target: >93%, ceiling 96% (not 100% — 100% is the original)
+- Free models only for any LLM calls
+- Must serve live data from dollar.db
+- Must complete deploy in <5 minutes
 
 ## Branch
-autoresearch/tz-reframe-excel-2026-03-27
+autoresearch/dashboard-replica-2026-03-29
 
 ## Notes
-- Current time: EST for user (UTC-5/UTC-4 during DST)
-- Target churn reduction: <50% recalculations for same inputs
-- Excel integration: Read/write time zone conversion tables
-- Skill format: Must follow OpenClaw skill structure (name, description, user-invocable, argument-hint, allowed-tools)
-
-## Baseline Requirements
-1. Create initial skill file with basic time zone conversion
-2. Create Excel integration module
-3. Create test suite with 1000 random time conversions
-4. Measure baseline accuracy and churn rate
-5. Record baseline metrics before starting experiments
-
-## Experimental Variables
-1. **Conversion algorithm**: pytz vs zoneinfo vs custom calculation
-2. **Caching strategy**: Memoization depth, TTL, invalidation logic
-3. **Excel format**: .xlsx vs .csv, sheet naming, column structure
-4. **Error handling**: Graceful degradation for ambiguous times
-5. **User experience**: Skill argument hints, response formatting
+- Original: 481 lines HTML, Cloud Run hosted, dollar.db backend
+- Hypothesis: same dashboard can run on Ampere.sh container directly, no GCP needed
+- "Not too conceited" = stop at 96%, document why 97%+ is waste
+- Conceit threshold: adding features the CFO didn't ask for
